@@ -4,22 +4,26 @@ layout: home
 
 hero:
   name: "OpenMCP"
-  text: "elegant mcp development tools and sdk for developers and researchers"
+  text: "elegant mcp debuggers and sdk for developers"
   tagline: Shortening the last mile from LLM to Agent
+  
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: OpenMCP Client
       link: /markdown-examples
     - theme: alt
-      text: API Examples
+      text: openmcp-sdk
+      link: /api-examples
+    - theme: alt
+      text: Github
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Integrated Debugging Environment
+    details: Combines Inspector with MCP client functions for seamless development and testing
+  - title: Comprehensive Project Management
+    details: Offers complete project-level control panels for efficient MCP project oversight
+  - title: Multi-Model Support
+    details: Supports various large language models with flexible integration capabilities
 ---
 
