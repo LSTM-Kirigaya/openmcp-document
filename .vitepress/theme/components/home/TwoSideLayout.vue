@@ -29,7 +29,15 @@ const props = defineProps({
     image: {
         type: String,
         required: true
-    }
+    },
+    label: {
+        type: String,
+        required: false
+    },
+    labelClass: {
+        type: String,
+        required: false
+    },
 });
 </script>
 

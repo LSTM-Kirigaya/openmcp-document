@@ -140,3 +140,14 @@
 .two-side-layout .image-container {
   display: unset !important;
 }
+
+.VPHero .image-container img {
+  box-shadow: unset !important;
+}
+
+iframe {
+  border: 2px solid var(--vp-c-brand-3);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}

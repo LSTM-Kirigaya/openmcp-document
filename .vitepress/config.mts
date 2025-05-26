@@ -24,7 +24,7 @@ export default defineConfig({
 		],
 
 		socialLinks: [
-			{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+			{ icon: 'github', link: 'https://github.com/LSTM-Kirigaya/openmcp-client' }
 		],
 		footer: {
 			message: '缩短LLM到Agent的最后一公里',
