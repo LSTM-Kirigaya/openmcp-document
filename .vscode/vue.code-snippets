@@ -1,0 +1,20 @@
+{
+	"Vue 3 TypeScript Component": {
+		"prefix": "vue3ts",
+		"body": [
+			"<template>",
+			"\t$1",
+			"</template>",
+			"",
+			"<script setup lang=\"ts\">",
+			"import { defineComponent } from 'vue';",
+			"",
+			"defineComponent({ name: '$TEMPLATE_NAME' });",
+			"</script>",
+			"",
+			"<style>",
+			"</style>"
+		],
+		"description": "Vue 3 TypeScript component template"
+	}
+}

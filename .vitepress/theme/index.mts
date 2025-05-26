@@ -2,7 +2,8 @@
 import { h } from 'vue';
 import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
-import HeroImage from './openmcp-hero-image.vue';
+import HeroImage from './components/home/HeroImage.vue';
+import TwoSideLayout from './components/home/TwoSideLayout.vue';
 
 import './style.css';
 
@@ -14,6 +15,6 @@ export default {
 		})
 	},
 	enhanceApp({ app, router, siteData }) {
-		// ...
+		app.component('TwoSideLayout', TwoSideLayout);
 	}
 } satisfies Theme

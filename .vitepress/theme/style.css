@@ -137,3 +137,6 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
+.two-side-layout .image-container {
+  display: unset !important;
+}

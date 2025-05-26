@@ -1,5 +1,7 @@
 <template>
-	<img class="VPImage image-src" src="/openmcp.png" alt="">
+	<div style="height: 420px;">
+		<img class="VPImage image-src" src="/images/openmcp.png" alt="">
+	</div>
 </template>
 
 <style scoped>
@@ -27,10 +29,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    max-width: 352px;
-    max-height: 352px;
-    width: 100%;
-    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+	height: 99%;
     object-fit: contain;
     transform: translate(-50%, -50%);
 }
