@@ -13,7 +13,7 @@ OpenMCP 是一个面向开发者的 MCP 调试器和 SDK，致力于降低 AI Ag
 
 ![](./images/openmcp.png)
 
-OpenMCP 分为两个部分，但是本板块讲解的是 OpenMCP 调试器的部分的使用，这部分也被我们称为 OpenMCP Client。OpenMCP Client 的本体是一个可在类 vscode 编辑器上运行的插件。它兼容了目前 MCP 协议的全部特性，且提供了丰富的利用开发者使用的功能，可以作为 Claude Inspector 的上位进行使用。
+OpenMCP 分为两个部分，但是本板块讲解的是 OpenMCP 调试器的部分的使用，这部分也被我们称为 OpenMCP Client。OpenMCP Client 的本体是一个可在类 vscode 编辑器上运行的插件。它兼容了目前 MCP 协议的全部特性，且提供了丰富的利于开发者使用的功能，可以作为 Claude Inspector 的上位进行使用。
 
 :::info 类 vscode 编辑器 (VLE)
 类 vscode 编辑器 (vscode-like editor，简称 VLE) 是指基于 Vscodium 内核开发的通用型代码编辑器，它们都能够兼容的大部分的vscode插件生态，并且具有类似 vscode 的功能（比如支持 LSP3.7 协议、拥有 remote ssh 进行远程开发的能力、拥有跨编辑器的配置文件）。
