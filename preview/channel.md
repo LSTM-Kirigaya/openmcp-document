@@ -9,9 +9,9 @@
 
 [锦恢的 mcp 系列博客](https://kirigaya.cn/blog/search?q=mcp)
 
-[OpenMCP 官方文档]()
+[OpenMCP 官方文档](https://kirigaya.cn/openmcp/plugin-tutorial)
 
-[openmcp-sdk 官方文档]()
+[openmcp-sdk 官方文档](https://kirigaya.cn/openmcp/sdk-tutorial)
 
 ## 频道
 

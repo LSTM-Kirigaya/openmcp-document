@@ -9,6 +9,9 @@ export const customIcons = {
 export default defineConfig({
 	title: "OpenMCP",
 	description: "为开发者和科研人员准备的MCP开发环境和SDK",
+	base: '/openmcp',
+	ignoreDeadLinks: true,
+
 	head: [
 		['link', { rel: 'icon', href: '/images/favicon.png' }]
 	],

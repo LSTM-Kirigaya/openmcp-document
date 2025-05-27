@@ -1,0 +1,1 @@
+scp -r .vitepress/dist/* ubuntu@101.43.239.71:~/website/openmcp
