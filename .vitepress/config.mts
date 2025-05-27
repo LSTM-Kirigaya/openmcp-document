@@ -6,10 +6,12 @@ export const customIcons = {
 	}
 }
 
+export const baseUrl = '/openmcp'; 
+
 export default defineConfig({
 	title: "OpenMCP",
 	description: "为开发者和科研人员准备的MCP开发环境和SDK",
-	base: '/openmcp',
+	base: baseUrl,
 	ignoreDeadLinks: true,
 
 	head: [

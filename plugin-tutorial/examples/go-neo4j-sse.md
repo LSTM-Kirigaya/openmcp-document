@@ -10,7 +10,7 @@
 
 建议下载本期的代码，因为里面有我为大家准备好的数据库文件。要不然，你们得自己 mock 数据了。
 
----
+
 
 ## 1. 准备
 
@@ -32,7 +32,7 @@ cd neo4j-go-server
 go mod init neo4j-go-server
 ```
 
----
+
 
 ## 2. 完成数据库初始化
 
@@ -177,7 +177,7 @@ go run main.go
 
 如果输出了 `Neo4j driver created successfully`，则说明数据库的连通性验证通过。
 
----
+
 
 ## 3. 实现 mcp 服务器
 
@@ -249,7 +249,7 @@ Server started at http://localhost:8083/sse
 
 说明我们的 mcp 服务器在本地的 8083 上启动了。
 
----
+
 
 ## 4. 通过 openmcp 来进行调试
 
@@ -348,7 +348,7 @@ CALL db.labels() YIELD label RETURN label
 
 通过使用 openmcp 调试，我们可以通过 system prompt + mcp server 来唯一确定一个 agent 的表现行为。
 
----
+
 
 ## 5. 扩充 mcp 服务器的原子技能
 
