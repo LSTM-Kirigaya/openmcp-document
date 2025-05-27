@@ -29,8 +29,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    max-width: 380px;
-    max-height: 380px;
+    max-width: 350px;
+    max-height: 350px;
 	height: 99%;
     object-fit: contain;
     transform: translate(-50%, -50%);

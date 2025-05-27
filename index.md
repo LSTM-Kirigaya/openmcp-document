@@ -6,19 +6,42 @@ hero:
   name: "OpenMCP"
   text: "面向开发者的优雅 MCP 调试器和 SDK"
   tagline: 缩短从大语言模型到智能体的最后一公里
+  image:
+    src: /images/openmcp.png
+    alt: VitePress
 
   actions:
     - theme: brand
-      text: OpenMCP 客户端
+      text: OpenMCP 插件
       link: /markdown-examples
     - theme: alt
       text: openmcp-sdk
-      link: /api-examples
+      link: /sdk-tutorial
     - theme: alt
       text: GitHub
       link: https://github.com/LSTM-Kirigaya/openmcp-client
+features:
+  - icon:
+      src: /images/icons/vscode.svg
+      height: 48px
+      alt: 集成调试环境
+    title: 集成调试环境
+    details: 将检查器与 MCP 客户端功能相结合，实现无缝开发和测试
+  - icon:
+      src: /images/openmcp.png
+      height: 48px
+      alt: 提供完整的项目级控制面板
+    title: 全面的项目管理
+    details: 提供完整的项目级控制面板，实现高效的 MCP 项目监督
+  - icon:
+      src: /images/icons/openmcp-sdk.svg
+      height: 48px
+      alt: 提供完整的项目级控制面板
+    title: 完整的部署方案
+    details: 将测试完成的 agent 通过 openmcp-sdk 部署到您的应用或者服务器上
 ---
 
+<br><br>
 
 <BiliPlayer
   url="//player.bilibili.com/player.html?isOutside=true&aid=114445745397200&bvid=BV1zYGozgEHcautoplay=false"
@@ -26,13 +49,8 @@ hero:
 />
 
 <br>
-<br>
-<br>
-<hr>
-<br>
-<br>
 
-# OpenMCP 为谁准备？
+## OpenMCP 为谁准备？
 
 <br>
 
@@ -48,7 +66,6 @@ hero:
   ]"
   image="/images/openmcp.chatbot.png"
 />
-
 <TwoSideLayout
   label="开源社区爱好者"
   :texts="[
@@ -60,7 +77,6 @@ hero:
   ]"
   image="/images/opensource.png"
 />
-
 <TwoSideLayout
   label="AI研发科学家"
   :texts="[
@@ -71,5 +87,5 @@ hero:
   ]"
   image="/images/openmcp.chatbot.png"
 />
-
 </KTab>
+

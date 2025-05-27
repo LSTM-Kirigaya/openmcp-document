@@ -47,8 +47,10 @@ function playVideo() {
 
 .bilibili-player-container {
     position: relative;
-    width: 72.36vw;
-    height: 38.26vw;
+    min-width: 377px;
+    min-height: 225px;
+    width: 52.36vw;
+    height: 28.26vw;
     aspect-ratio: 16/9;
     border-radius: .5em;
     overflow: hidden;

@@ -1,4 +1,10 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
+
+export const customIcons = {
+	share: {
+		svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>'
+	}
+}
 
 export default defineConfig({
 	title: "OpenMCP",
@@ -9,29 +15,53 @@ export default defineConfig({
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
 		nav: [
-			{ text: 'Home', link: '/' },
-			{ text: 'Examples', link: '/markdown-examples' }
-		],
-
-		sidebar: [
+			{ text: '首页', link: '/' },
+			{ text: '教程', link: '/plugin-tutorial' },
+			{ text: 'SDK', link: '/sdk-tutorial' },
 			{
-				text: 'Examples',
-				items: [
-					{ text: 'Markdown Examples', link: '/markdown-examples' },
-					{ text: 'Runtime API Examples', link: '/api-examples' }
+				text: 'Prewiew 0.1.0', items: [
+					{
+						component: 'KNavItem',
+						props: {
+							title: '更新日志',
+							description: '查看项目的更新历史记录',
+							icon: '/images/icons/monitor.svg',
+							link: '/preview/changelog'
+						}
+					},
+					{
+						component: 'KNavItem',
+						props: {
+							title: '参与 OpenMCP',
+							description: '了解如何参与 OpenMCP 项目的开发和维护',
+							icon: '/images/icons/group.svg',
+							link: '/preview/join'
+						}
+					},
+					{
+						component: 'KNavItem',
+						props: {
+							title: '资源频道',
+							description: '获取项目相关的资源和信息',
+							icon: '/images/icons/ai.svg',
+							link: '/preview/channel'
+						}
+					}
 				]
-			}
+			},
 		],
 
 		socialLinks: [
-			{ icon: 'github', link: 'https://github.com/LSTM-Kirigaya/openmcp-client' }
+			{ icon: 'github', link: 'https://github.com/LSTM-Kirigaya/openmcp-client' },
+			{ icon: customIcons.share, link: 'https://kirigaya.cn/home' },
 		],
+
 		footer: {
 			message: '缩短LLM到Agent的最后一公里',
 			copyright: 'OpenMCP All rights reserved'
 		},
 
-		// 添加右侧图片配置
-		logo: '/images/openmcp.png',  // 确保图片放在public目录下
+		// 左上角的 logo
+		logo: '/images/openmcp.png',
 	}
 })

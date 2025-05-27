@@ -129,6 +129,11 @@
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
 
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+}
+
 /**
  * Component: Algolia
  * -------------------------------------------------------------------------- */
@@ -143,6 +148,8 @@
 
 .VPHero .image-container img {
   box-shadow: unset !important;
+  max-width: 290px !important;
+  max-height: 290px !important;
 }
 
 iframe {

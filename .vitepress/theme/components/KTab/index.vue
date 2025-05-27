@@ -151,7 +151,7 @@ onMounted(() => {
     position: relative;
 }
 
-.k-tabs-tag-item {
+.k-tabs-tag-item { 
     background-color: var(--vp-button-alt-bg);
     color: white;
     border-radius: .5em;
@@ -166,11 +166,18 @@ onMounted(() => {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.k-tabs-tag-item:hover {
+@media (min-width: 768px) {
+    .k-tabs-tag-item { 
+        padding: 6px 16px;
+        font-size: 1rem;
+    }
+}
+
+.k-tabs-tag-item:hover { 
     background-color: var(--vp-c-brand-2);
 }
 
-.k-tabs-tag-item.active-tab {
+.k-tabs-tag-item.active-tab { 
     background-color: var(--vp-c-brand-3);
 }
 
