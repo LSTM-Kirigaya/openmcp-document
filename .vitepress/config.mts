@@ -137,6 +137,23 @@ export default defineConfig({
 						{ text: '帮助', link: '/plugin-tutorial/faq/help' },
 					]
 				}
+			],
+
+			'/sdk-tutorial/': [
+				{
+					text: '简介',
+					items: [
+						{ text: 'openmcp-sdk.js', link: '/sdk-tutorial/' },
+					]
+				},
+				{
+					text: '基本使用',
+					items: [
+						{ text: '最简单的对话', link: '/sdk-tutorial/usage/greet' },
+						{ text: '任务循环', link: '/sdk-tutorial/usage/task-loop' },
+						{ text: '多服务器连接', link: '/sdk-tutorial/usage/multi-server' },
+					]
+				}
 			]
 		},
 
