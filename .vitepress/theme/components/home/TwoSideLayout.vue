@@ -1,6 +1,6 @@
 <template>
     <div class="two-side-layout">
-        <div :class="['content-container', { 'reverse': imagePlacement === 'left' }]">
+        <div :class="['two-side-content-container', { 'reverse': imagePlacement === 'left' }]">
             <div class="text-content">
                 <div v-for="(item, index) in texts" :key="index" class="text-item">
                     <span class="prefix">{{ index + 1 }}.</span> {{ item }}
@@ -48,14 +48,14 @@ const props = defineProps({
     align-items: center;
 }
 
-.content-container {
+.two-side-content-container {
     display: flex;
     gap: 2rem;
     max-width: 1200px;
     width: 100%;
 }
 
-.content-container.reverse {
+.two-side-content-container.reverse {
     flex-direction: row-reverse;
 }
 
@@ -95,11 +95,11 @@ const props = defineProps({
 }
 
 @media (max-width: 768px) {
-    .content-container {
+    .two-side-content-container {
         flex-direction: column;
     }
 
-    .content-container.reverse {
+    .two-side-content-container.reverse {
         flex-direction: column-reverse;
     }
 }

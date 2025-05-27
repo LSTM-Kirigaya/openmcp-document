@@ -12,6 +12,7 @@ import BiliPlayer from './components/bilibli-player/index.vue';
 import KNavItem from './components/nav-item/index.vue';
 
 import './style.css';
+import './iconfont.css';
 
 export default {
 	extends: DefaultTheme,

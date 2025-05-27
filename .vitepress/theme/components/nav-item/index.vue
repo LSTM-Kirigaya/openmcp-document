@@ -4,9 +4,7 @@
     >
         <div class="nav-item-content">
             <div class="nav-item-icon" v-if="icon">
-                <component :is="typeof icon === 'string' ? 'img' : 'div'" :src="typeof icon === 'string' ? icon : null"
-                    v-html="typeof icon === 'object' && icon.svg ? icon.svg : ''">
-                </component>
+                <span :class=iconClass></span>
             </div>
             <div class="nav-item-text">
                 <h3 class="nav-item-title">{{ title }}</h3>
@@ -17,13 +15,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-defineProps({
+const props = defineProps({
     title: { type: String, required: true },
     description: { type: String, required: true },
-    icon: { type: [String, Object], required: true },
+    icon: { type: String, required: true },
     link: { type: String, required: true },
+});
+
+const iconClass = computed(() => {
+    return `iconfont icon-${props.icon}`;
 });
 
 const isHovered = ref(false);

@@ -13,7 +13,7 @@ hero:
   actions:
     - theme: brand
       text: OpenMCP 插件
-      link: /markdown-examples
+      link: /plugin-tutorial
     - theme: alt
       text: openmcp-sdk
       link: /sdk-tutorial
@@ -89,3 +89,4 @@ features:
 />
 </KTab>
 
+<!--  -->
