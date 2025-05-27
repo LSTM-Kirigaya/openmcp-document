@@ -15,7 +15,7 @@ export default defineConfig({
 	ignoreDeadLinks: true,
 
 	head: [
-		['link', { rel: 'icon', href: '/images/favicon.png' }]
+		['link', { rel: 'icon', href: baseUrl + '/images/favicon.png' }]
 	],
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
