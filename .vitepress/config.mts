@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import lightbox from "vitepress-plugin-lightbox";
 
 export const customIcons = {
 	share: {
@@ -13,6 +14,12 @@ export default defineConfig({
 	description: "为开发者和科研人员准备的MCP开发环境和SDK",
 	base: baseUrl,
 	ignoreDeadLinks: true,
+
+	markdown: {
+		config: (md) => {
+			md.use(lightbox, {});
+		}	
+	},
 
 	head: [
 		['link', { rel: 'icon', href: baseUrl + '/images/favicon.png' }]
