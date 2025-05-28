@@ -15,9 +15,11 @@
 
 ## 频道
 
-[OpenMCP 正式级技术组](https://qm.qq.com/cgi-bin/qm/qr?k=C6ZUTZvfqWoI12lWe7L93cWa1hUsuVT0&jump_from=webapi&authKey=McW6B1ogTPjPDrCyGttS890tMZGQ1KB3QLuG4aqVNRaYp4vlTSgf2c6dMcNjMuBD)
+[知乎圈子 - OpenMCP 博物馆](https://www.zhihu.com/ring/host/1911121615279849840)
 
-[OpenMCP Discord 频道](https://discord.gg/SKTZRf6NzU)
+[QQ群 - OpenMCP 正式级技术组](https://qm.qq.com/cgi-bin/qm/qr?k=C6ZUTZvfqWoI12lWe7L93cWa1hUsuVT0&jump_from=webapi&authKey=McW6B1ogTPjPDrCyGttS890tMZGQ1KB3QLuG4aqVNRaYp4vlTSgf2c6dMcNjMuBD)
+
+[Discord 频道 - OpenMCP 交流群](https://discord.gg/SKTZRf6NzU)
 
 [OpenMCP 源代码](https://github.com/LSTM-Kirigaya/openmcp-client)
 

@@ -71,7 +71,7 @@ export default defineConfig({
 			},
 			{ text: 'SDK', link: '/sdk-tutorial' },
 			{
-				text: 'Prewiew 0.1.0',
+				text: '更多',
 				items: [
 					{
 						component: 'KNavItem',

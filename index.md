@@ -109,7 +109,7 @@ features:
     <img src="https://pica.zhimg.com/80/v2-3666e84b2f92bf444a5eb64fb9d08e71_1440w.png" style="max-width: 500px;margin-top:10px;"/>
   </el-collapse-item>
   <el-collapse-item title="如何加入我们或者参与讨论？" name="5">
-    您可以通过 <a href="https://kirigaya.cn/openmcp/preview/join.html" target="_blank">参与 OpenMCP</a> 来了解如何参与 OpenMCP 的维护和开发。通过 <a href="https://kirigaya.cn/openmcp/preview/channel.html" target="_blank">资源频道</a> 来获取我们的联系方式。目前主要的社区有两个，QQ群：782833642 和 Discord 频道 https://discord.com/invite/SKTZRf6NzU。知乎的 【OpenMCP 与 AI Agent】 圈子正在建设中，敬请期待。
+    您可以通过 <a href="https://kirigaya.cn/openmcp/preview/join.html" target="_blank">参与 OpenMCP</a> 来了解如何参与 OpenMCP 的维护和开发。通过 <a href="https://kirigaya.cn/openmcp/preview/channel.html" target="_blank">资源频道</a> 来获取我们的联系方式。目前主要的社区有三个，QQ群：782833642 、 <a href="https://discord.com/invite/SKTZRf6NzU" target="_blank">OpenMCP Discord 频道</a>  和 <a href="https://www.zhihu.com/ring/host/1911121615279849840" target="_blank">知乎圈子【OpenMCP 博物馆】</a>
   </el-collapse-item>
     <el-collapse-item title="想要合作如何联系我们？" name="6">
       合作请联系锦恢的个人邮箱：1193466151@qq.com
