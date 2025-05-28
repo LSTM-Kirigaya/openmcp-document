@@ -11,8 +11,11 @@ import KTab from './components/KTab/index.vue';
 import BiliPlayer from './components/bilibli-player/index.vue';
 import KNavItem from './components/nav-item/index.vue';
 
-import './style.css';
-import './iconfont.css';
+import { ElCollapse, ElCollapseItem } from 'element-plus';
+
+import './css/style.css';
+import './css/iconfont.css';
+import './css/element-plus.css';
 
 export default {
 	extends: DefaultTheme,
@@ -26,5 +29,7 @@ export default {
 		app.component('KTab', KTab);
 		app.component('BiliPlayer', BiliPlayer);
 		app.component('KNavItem', KNavItem);
+		app.component('el-collapse', ElCollapse);
+		app.component('el-collapse-item', ElCollapseItem);
 	}
 } satisfies Theme

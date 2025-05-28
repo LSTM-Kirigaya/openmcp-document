@@ -1,4 +1,7 @@
 ---
+next:
+  text: 获取 OpenMCP
+  link: '/plugin-tutorial/acquire-openmcp'
 ---
 
 # OpenMCP 概述
@@ -36,3 +39,5 @@ Claude Inspector 是一款 Claude 官方（也就是 MCP 协议的提出者）�
 - 无法同时调试多个 mcp 服务器：在进行 mcp 原子化横向拓展的场景中，这是一项必要的功能。
 
 而 OpenMCP Client 被我们制作出来的一个原因就是为了解决 Inspector 上述的痛点，从而让 mcp 服务器的开发门槛更低，用户能够更加专注于业务本身。
+
+<!--  -->

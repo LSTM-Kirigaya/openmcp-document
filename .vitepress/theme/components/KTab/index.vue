@@ -153,7 +153,6 @@ onMounted(() => {
 
 .k-tabs-tag-item { 
     background-color: var(--vp-button-alt-bg);
-    color: white;
     border-radius: .5em;
     margin-right: 10px;
     padding: 2px 8px;
@@ -183,7 +182,6 @@ onMounted(() => {
 
 @media screen and (max-width: 414px) {
     .k-tabs-tags {
-        overflow-x: scroll
     }
 }
 

@@ -29,8 +29,8 @@ export default defineConfig({
 						props: {
 							title: '简介',
 							description: '关于 mcp 和 openmcp，阁下需要知道的 ...',
-							icon: 'a-yusuan2',
-							link: '/plugin-tutorial/index'
+							icon: 'zhuanti',
+							link: '/plugin-tutorial/'
 						}
 					},
 					{
@@ -38,7 +38,7 @@ export default defineConfig({
 						props: {
 							title: 'OpenMCP 使用手册',
 							description: 'OpenMCP Client 的基本使用',
-							icon: 'a-yusuan2',
+							icon: 'shujuzhongxin',
 							link: '/plugin-tutorial/usage/connect-mcp'
 						}
 					},
@@ -47,8 +47,8 @@ export default defineConfig({
 						props: {
 							title: 'MCP 服务器开发案例',
 							description: '使用不同语言开发的不同模式的 MCP 服务器',
-							icon: 'a-yusuan2',
-							link: '/plugin-tutorial/examples/python-simple-stdio'
+							icon: 'yibangonggongyusuan',
+							link: '/plugin-tutorial/examples/'
 						}
 					},
 					{
@@ -56,7 +56,7 @@ export default defineConfig({
 						props: {
 							title: 'FAQ',
 							description: '为您答疑解惑，排忧解难',
-							icon: 'a-yusuan2',
+							icon: 'yijianchuli',
 							link: '/plugin-tutorial/faq/help'
 						}
 					},
@@ -124,16 +124,20 @@ export default defineConfig({
 						{ text: '连接大模型', link: '/plugin-tutorial/usage/connect-llm' },
 						{ text: '用大模型测试您的 mcp', link: '/plugin-tutorial/usage/test-with-llm' },
 						{ text: '分发您的实验结果', link: '/plugin-tutorial/usage/distribute-result' },
+						{ text: 'SSE 在线部署的鉴权器实现', link: '/plugin-tutorial/usage/sse-oauth2' },
 					]
 				},
 				{
 					text: "MCP 服务器开发案例",
 					items: [
+						{ text: '大纲', link: '/plugin-tutorial/examples' },
 						{ text: '例子 1. python 实现天气信息 mcp 服务器 (STDIO)', link: '/plugin-tutorial/examples/python-simple-stdio' },
 						{ text: '例子 2. go 实现 neo4j 的只读 mcp 服务器 (SSE)', link: '/plugin-tutorial/examples/go-neo4j-sse' },
 						{ text: '例子 3. java 实现文档数据库的只读 mcp (HTTP)', link: '/plugin-tutorial/examples/java-es-http' },
 						{ text: '例子 4. typescript 实现基于 crawl4ai 的超级网页爬虫 mcp (STDIO)', link: '/plugin-tutorial/examples/typescript-crawl4ai-stdio' },
-						{ text: '例子 5. SSE 在线部署的鉴权器实现', link: '/plugin-tutorial/examples/sse-oauth2' },
+						{ text: '例子 5. python 实现进行通用表单填充 的 mcp (STDIO)', link: '/plugin-tutorial/examples/python-form-stdio' },
+						{ text: '例子 6. python 实现基于 blender 的 mcp (STDIO)', link: '/plugin-tutorial/examples/python-blender-stdio' },
+						{ text: '例子 7. python 实现 cadence EDA 的 mcp (STDIO)', link: '/plugin-tutorial/examples/python-cadence-stdio' },
 					]
 				},
 				{

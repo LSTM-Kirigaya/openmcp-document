@@ -6,6 +6,7 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
+    "element-plus": "^2.9.11",
     "vitepress": "^1.6.3"
   }
 }

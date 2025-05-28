@@ -130,6 +130,44 @@
 	--vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
 }
 
+:root {
+    --el-fill-color-blank: var(--vp-c-bg) !important;
+    --el-fill-color-hover: var(--vp-c-bg) !important;
+    --el-fill-color-pressed: var(--vp-c-bg) !important;
+    --el-color-primary: var(--vp-c-brand-2) !important;
+    --el-text-color-primary: var(--vp-c-text-1) !important;
+    --el-border-color: var(--vp-c-border) !important;
+    --el-bg-color: var(--vp-c-bg) !important;
+	--el-collapse-border-color: var(--vp-c-border) !important;
+}
+
+
+.el-collapse {
+	border-top: 1px solid transparent !important;
+}
+
+
+.el-collapse-item__header {
+	border-top: unset !important;
+    background-color: var(--vp-c-bg) !important;
+	border-bottom: 1px solid var(--vp-c-border) !important;
+	height: fit-content !important;
+}
+
+.el-collapse-item__title {
+	font-size: 1.2rem;
+	padding: 10px 0;
+}
+
+.el-collapse-item__content {
+	padding: 20px 0 0 0;
+	font-size: 15px !important;
+}
+
+.el-collapse-item__wrap {
+	border-bottom: 1px solid var(--vp-c-border) !important;
+}
+
 /**
  * Component: Algolia
  * -------------------------------------------------------------------------- */
@@ -142,10 +180,16 @@
 	display: unset !important;
 }
 
+
+@media (min-width: 960px) {
+    .VPHero .image-container img {
+        max-width: 285px;
+        max-height: 285px;
+    }
+}
+
 .VPHero .image-container img {
 	box-shadow: unset !important;
-	max-width: 290px !important;
-	max-height: 290px !important;
 }
 
 iframe {

@@ -89,4 +89,29 @@ features:
 />
 </KTab>
 
-<!--  -->
+
+
+## 问题解答 FAQ
+
+<el-collapse>
+  <el-collapse-item title="OpenMCP 适合做什么？" name="1">
+    正如它的名字一样，OpenMCP 是一个面向开发者的 MCP 调试器和 SDK，致力于降低 AI Agent 的全链路开发成本和开发人员的心智负担。通过 OpenMCP 制作出可以在真实生活场景中解决问题，缩短工作时间的 mcp 工具，或是让工程师与研发科学家更快地交付 demo，并将这份愿景让公众看到，是我们的任务和使命。
+  </el-collapse-item>
+  <el-collapse-item title="OpenMCP 是免费的吗？" name="2">
+    是的，OpenMCP 完全开源，您不仅可以免费试用此产品，也可以一起加入我们，实现你的关于 Agent 的奇思妙想。OpenMCP 的任务是建立起关于 MCP 的生态圈。因为我们认为，MCP 的开发在未来一段时间内会是一项高度定制化的工作，所以当前的重点并不是赶紧出做一个看起来什么都能做的 Agent，而是步步为营做出相关的生态和基础设施。
+  </el-collapse-item>
+  <el-collapse-item title="OpenMCP 不适合做什么？" name="3">
+    如果你试图通过 OpenMCP 开发一款什么都能做的，通用的 AI Agent，你应该做的是把钱全部投资到量子计算机的研发，而不是点开这个网站。记住一句话，这个时代做全领域通用AI Agent，依概率收敛到电信诈骗。
+  </el-collapse-item>
+  <el-collapse-item title="OpenMCP 都是什么人在开发？" name="4">
+    <p>OpenMCP 是由 LSTM-Kirigaya(锦恢) 最初主导开发的，用于构建 3D 相关工作的 mcp 测试工具。它的主要参与者都是大厂在职员工，高校计算机相关专业的学生、以及一些开源社区的活跃贡献者。</p>
+    <p>身份不重要，我非常喜欢的一句话，送给阁下：“不要回答我你会不会，回答我，你喜不喜欢”。</p>
+    <img src="https://pica.zhimg.com/80/v2-3666e84b2f92bf444a5eb64fb9d08e71_1440w.png" style="max-width: 500px;margin-top:10px;"/>
+  </el-collapse-item>
+  <el-collapse-item title="如何加入我们或者参与讨论？" name="5">
+    您可以通过 <a href="https://kirigaya.cn/openmcp/preview/join.html" target="_blank">参与 OpenMCP</a> 来了解如何参与 OpenMCP 的维护和开发。通过 <a href="https://kirigaya.cn/openmcp/preview/channel.html" target="_blank">资源频道</a> 来获取我们的联系方式。目前主要的社区有两个，QQ群：782833642 和 Discord 频道 https://discord.com/invite/SKTZRf6NzU。知乎的 【OpenMCP 与 AI Agent】 圈子正在建设中，敬请期待。
+  </el-collapse-item>
+    <el-collapse-item title="想要合作如何联系我们？" name="6">
+      合作请联系锦恢的个人邮箱：1193466151@qq.com
+  </el-collapse-item>
+</el-collapse>

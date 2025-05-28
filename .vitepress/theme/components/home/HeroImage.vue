@@ -11,26 +11,12 @@
     padding: 18px;
 }
 
-@media (min-width: 960px) {
-    .image-src {
-        max-width: 320px;
-        max-height: 320px;
-    }
-}
-
-@media (min-width: 640px) {
-    .image-src {
-        max-width: 256px;
-        max-height: 256px;
-    }
-}
-
 .image-src {
     position: absolute;
     top: 50%;
     left: 50%;
-    max-width: 350px;
-    max-height: 350px;
+    max-width: 285px;
+    max-height: 285px;
 	height: 99%;
     object-fit: contain;
     transform: translate(-50%, -50%);
