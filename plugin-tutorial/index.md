@@ -1,7 +1,7 @@
 ---
 next:
-  text: 获取 OpenMCP
-  link: '/plugin-tutorial/acquire-openmcp'
+  text: 什么是 MCP？
+  link: '/plugin-tutorial/what-is-mcp'
 ---
 
 # OpenMCP 概述

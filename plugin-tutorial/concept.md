@@ -2,15 +2,13 @@
 
 ## 前言
 
-在[之前的文章](https://zhuanlan.zhihu.com/p/28859732955)中，我们简单介绍了 MCP 的定义和它的基本组织结构。作为开发者，我们最需要关注的其实是如何根据我们自己的业务和场景定制化地开发我们需要的 MCP 服务器，这样直接接入任何一个 MCP 客户端后，我们都可以给大模型以我们定制出的交互能力。
+
+
+在 [[what-is-mcp|之前的文章]] 中，我们简单介绍了 MCP 的定义和它的基本组织结构。作为开发者，我们最需要关注的其实是如何根据我们自己的业务和场景定制化地开发我们需要的 MCP 服务器，这样直接接入任何一个 MCP 客户端后，我们都可以给大模型以我们定制出的交互能力。
 
 在正式开始教大家如何开发自己的 MCP 服务器之前，我想，或许有必要讲清楚几个基本概念。
 
-
-
-## MCP Server 中的基本概念
-
-### Resources, Prompts 和 Tools
+## Resources, Prompts 和 Tools
 
 在 [MCP 客户端协议](https://modelcontextprotocol.io/clients) 中，讲到了 MCP 协议中三个非常重要的能力类别：
 
@@ -24,7 +22,7 @@ MCP 客户端（比如 Claude Desktop，5ire 等）已经实现好了上述的�
 
 不过需要说明的一点是，目前几乎所有大模型采用了 openai 协议作为我们访问大模型的接入点。什么叫 openai 协议呢？
 
-### openai 协议
+## openai 协议
 
 当我们使用 python 或者 typescript 开发 app 时，往往会安装一个名为 openai 的库，里面填入你需要使用的模型厂商、模型的基础 url、使用的模型类别来直接访问大模型。而各个大模型提供商也必须支持这个库，这套协议。
 
@@ -116,7 +114,7 @@ print(response.choices[0].message.content)
     ) -> ChatCompletion:
 ```
 
-### tool_calls 字段
+## tool_calls 字段
 
 在上面的 openai 协议中，有一个名为 tools 的参数。 tools 就是要求大模型厂商必须支持 function calling 这个特性，也就是我们提供一部分工具的描述（和 MCP 协议完全兼容的），在 tools 不为空的情况下，chat 函数返回的值中会包含一个特殊的字段 `tool_calls`，我们可以运行下面的我写好的让大模型调用可以查询天气的代码：
 
@@ -193,7 +191,7 @@ ChatCompletionMessage(
 
 
 
-## 快速开始
+## 开始你的第一个 mcp 服务器
 
 接下里就要让我们大显身手了！MCP 官方提供了几个封装好的 mcp sdk 来让我们快速开发一个 MCP 服务器。我看了一下，目前使用最爽，最简单的是 python 的 sdk，所以我就用 python 来简单演示一下了。
 
@@ -204,7 +202,16 @@ ChatCompletionMessage(
 首先让我们打开一个项目，安装基本的库：
 
 ```bash
-pip install mcp "mcp[cli]" uv
+pip install uv
+```
+
+然后进入一个目录后初始化 uv 项目并安装对应的依赖：
+
+```bash
+mkdir -p ~/code/mcp-server
+cd ~/code/mcp-server
+uv init --no-workspace
+uv add mcp "mcp[cli]"
 ```
 
 创建 `server.py`
@@ -277,11 +284,3 @@ Tools 端将会是我们后面调试的核心。在之前的章节我们讲过�
 这篇文章，我们简单了解了 MCP 内部的一些基本概念，我认为这些概念对于诸位开发一个 MCP 服务器是大有裨益的，所以我认为有必要先讲一讲。
 
 下面的文章中，我将带领大家探索 MCP 的奇境，一个属于 AI Agent 的时代快要到来了。
-
-
-
-## 挖坑
-
-从上面的例子中，大家也能看出其实现在调试 MCP Server 的工具还不算齐全，所以我打算最近快速开发一款 vscode 插件，集合 Inspector 的所有功能和基础的大模型测试为一体。如果你开发了基本的网络和磁盘访问的 MCP Server，这个调试工具也可以当成一个 Manus 客户端进行把玩。
-
-请大家期待吧！

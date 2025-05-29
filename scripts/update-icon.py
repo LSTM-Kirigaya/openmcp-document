@@ -31,9 +31,9 @@ for parent, _, files in os.walk('./scripts/tmp'):
         if file.endswith('.css'):
             content = open(filepath, 'r', encoding='utf-8').read().replace('font-size: 16px;', '')
             open(filepath, 'w', encoding='utf-8').write(content)
-            shutil.move(filepath, os.path.join('./.vitepress/theme', file))
+            shutil.move(filepath, os.path.join('./.vitepress/theme/css', file))
         elif file.endswith('.woff2'):
-            shutil.move(filepath, os.path.join('./.vitepress/theme', file))
+            shutil.move(filepath, os.path.join('./.vitepress/theme/css', file))
 
 # 删除压缩包和解压区域
 os.remove('./scripts/tmp.zip')

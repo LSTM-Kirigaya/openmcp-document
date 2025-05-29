@@ -6,6 +6,8 @@ import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-in
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
 
+import { withMermaid } from "vitepress-plugin-mermaid";
+
 export const customIcons = {
 	share: {
 		svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>'
@@ -14,7 +16,7 @@ export const customIcons = {
 
 export const baseUrl = '/openmcp';
 
-export default defineConfig({
+export default withMermaid({
 	title: "OpenMCP",
 	description: "为开发者和科研人员准备的MCP开发环境和SDK",
 	base: baseUrl,
@@ -51,7 +53,6 @@ export default defineConfig({
 			md.use(lightbox);
 			md.use(InlineLinkPreviewElementTransform);
 			md.use(BiDirectionalLinks({
-				baseDir: baseUrl,
 				debug: true
 			}));
 		}
@@ -72,8 +73,17 @@ export default defineConfig({
 						props: {
 							title: '简介',
 							description: '关于 mcp 和 openmcp，阁下需要知道的 ...',
-							icon: 'zhuanti',
+							icon: 'openmcp',
 							link: '/plugin-tutorial/'
+						}
+					},
+					{
+						component: 'KNavItem',
+						props: {
+							title: '快速开始',
+							description: '通过一个例子快速了解 OpenMCP 的基本概念',
+							icon: 'quick-fill',
+							link: '/plugin-tutorial/quick-start/'
 						}
 					},
 					{
@@ -81,7 +91,7 @@ export default defineConfig({
 						props: {
 							title: 'OpenMCP 使用手册',
 							description: 'OpenMCP Client 的基本使用',
-							icon: 'shujuzhongxin',
+							icon: 'shiyongshouce',
 							link: '/plugin-tutorial/usage/connect-mcp'
 						}
 					},
@@ -91,7 +101,7 @@ export default defineConfig({
 							title: 'MCP 服务器开发案例',
 							description: '使用不同语言开发的不同模式的 MCP 服务器',
 							icon: 'yibangonggongyusuan',
-							link: '/plugin-tutorial/examples/'
+							link: '/plugin-tutorial/examples/mcp-examples'
 						}
 					},
 					{
@@ -155,9 +165,17 @@ export default defineConfig({
 					text: '简介',
 					items: [
 						{ text: 'OpenMCP 概述', link: '/plugin-tutorial/index' },
-						{ text: '获取 OpenMCP', link: '/plugin-tutorial/acquire-openmcp' },
+						{ text: '什么是 MCP？', link: '/plugin-tutorial/what-is-mcp' },
 						{ text: 'MCP 基础概念', link: '/plugin-tutorial/concept' }
 					]
+				},
+				{
+					text: '快速开始',
+					items: [
+						{ text: '快速开始', link: '/plugin-tutorial/quick-start' },
+						{ text: '安装 OpenMCP', link: '/plugin-tutorial/quick-start/acquire-openmcp' },
+						{ text: '你的第一个 MCP', link: '/plugin-tutorial/quick-start/first-mcp' },
+					]	
 				},
 				{
 					text: "OpenMCP 使用手册",
@@ -173,7 +191,7 @@ export default defineConfig({
 				{
 					text: "MCP 服务器开发案例",
 					items: [
-						{ text: '大纲', link: '/plugin-tutorial/examples' },
+						{ text: 'MCP 服务器开发案例', link: '/plugin-tutorial/examples/mcp-examples' },
 						{ text: '例子 1. python 实现天气信息 mcp 服务器 (STDIO)', link: '/plugin-tutorial/examples/python-simple-stdio' },
 						{ text: '例子 2. go 实现 neo4j 的只读 mcp 服务器 (SSE)', link: '/plugin-tutorial/examples/go-neo4j-sse' },
 						{ text: '例子 3. java 实现文档数据库的只读 mcp (HTTP)', link: '/plugin-tutorial/examples/java-es-http' },
