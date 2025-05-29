@@ -13,6 +13,7 @@ Python 写 mcp 服务器强烈推荐使用 uv 作为包管理器，关于 uv，�
 pip install uv
 ```
 
+
 :::warning 使用 anaconda 或者 miniconda 的朋友注意了！
 请不要在非 base 环境下安装 uv，请在 base 环境下安装 uv，uv 本身会做好环境隔离的工作，请不要担心 uv 会污染你的 base 环境。你不安装在 base 下或者使用全局默认的 pip 安装，我们根本不知道你安装的 uv 在哪里！base 环境下使用 pip 安装的脚本会安装在 `~/anaconda/bin/uv` 中，也请确保 `~/anaconda/bin/` 在你的 `$PATH` 中。
 :::
