@@ -1,7 +1,9 @@
 
 
 <template>
-    <DefaultTheme.Layout id="k-layout" />
+    <DefaultTheme.Layout id="k-layout">
+
+    </DefaultTheme.Layout>
 </template>
 
 <script setup lang="ts">
@@ -53,7 +55,7 @@ const handleRouteChangeStart = async (to: string) => {
     const from = router.route.path;
 
     if (sameSource(from, to)) {
-        await animateIn('VPContent', { name: 'fade' });
+        await animateIn('VPContent', { name: 'slide', durationMs: 200 });
     } else {
         await animateIn('k-layout', { name: 'fade' });
     }
@@ -61,7 +63,7 @@ const handleRouteChangeStart = async (to: string) => {
 
 
 const handleRouteChangeComplete = async (to: string) => {
-    await animateOut({ name: 'fade' });
+    await animateOut();
     setupMediumZoom();
 };
 
@@ -92,27 +94,20 @@ onMounted(() => {
 /* 淡入淡出动画 */
 .fade-in {
     opacity: 1;
-    transition: opacity 0.15s ease-out;
 }
 
 .fade-out {
     opacity: 0;
 }
 
-/* 过渡状态 */
-.fade-in-out.transitioning {
-    pointer-events: none;
-    /* 过渡期间禁用交互 */
+.slide-in {
+    transform: translateY(0);
+    opacity: 1;
 }
 
-/* 自定义淡入淡出动画 */
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.15s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
+.slide-out {
+    transform: translateY(100px);
     opacity: 0;
 }
+
 </style>

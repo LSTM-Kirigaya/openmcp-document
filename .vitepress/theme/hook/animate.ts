@@ -1,7 +1,7 @@
 
 export interface AnimationOption {
     durationMs?: number;
-    name?: 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right';
+    name?: 'fade' | 'slide'
     easing?: 'ease' | 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out';
 }
 
@@ -12,6 +12,7 @@ function sleep(time: number) {
 }
 
 let lastAnimationId = '';
+let lastAnimationOption: AnimationOption | undefined = undefined;
 
 export async function animateIn(id: string, animationOption?: AnimationOption) {
     const element = document.getElementById(id);
@@ -20,9 +21,10 @@ export async function animateIn(id: string, animationOption?: AnimationOption) {
     }
 
     lastAnimationId = id;
+    lastAnimationOption = animationOption;
 
     const { durationMs = 150, name = 'fade', easing = 'ease-out' } = animationOption || {};
-    element.style.transition = `opacity ${durationMs / 1000}s ${easing}`;
+    element.style.transition = `all ${durationMs / 1000}s ${easing}`;
 
     element.classList.remove(name + '-in');
     element.classList.add(name + '-out');
@@ -30,13 +32,15 @@ export async function animateIn(id: string, animationOption?: AnimationOption) {
 }
 
 export async function animateOut(animationOption?: AnimationOption) {
+    animationOption = animationOption || lastAnimationOption;
+
     const element = document.getElementById(lastAnimationId);
     if (!element) {
         return;
     }
 
     const { durationMs = 150, name = 'fade', easing = 'ease-out' } = animationOption || {};
-    element.style.transition = `opacity ${durationMs / 1000}s ${easing}`;
+    element.style.transition = `all ${durationMs / 1000}s ${easing}`;
 
     element.classList.remove(name + '-out');
     element.classList.add(name + '-in');
