@@ -32,21 +32,31 @@ MCP 客户端是指能够通过 MCP 协议进行通信的大模型对话客户�
 |nodejs|node $\{file\}| 往上追溯，第一个找到的 package.json 的目录|
 |go|go run $\{file\}| 往上追溯，第一个找到的 go.mod 的目录|
 
-## SSE & HTTP 连接的启动
+## SSE & Streamable HTTP 连接的启动
 
-对于 SSE 和 HTTP 这种远程连接的方式，由于我们并不知道您到底在哪个端口启动的服务器（因为你有可能把启动的 host 和 port 写在不可见的配置文件里或者写在环境变量里），因此，对于远程连接的情况，我们不支持自动创建服务器，您需要手动配置启动选项。
+对于 SSE 和 Streamable HTTP 这两种远程连接的方式，由于我们并不知道您到底在哪个端口启动的服务器（因为你有可能把启动的 host 和 port 写在不可见的配置文件里或者写在环境变量里），因此，对于远程连接的情况，我们不支持自动创建服务器，您需要手动配置启动选项。
 
 点击 VLE 左侧插件栏目的 OpenMCP，在 「MCP 连接（工作区）」 视图中，点击 + ，就可以创建一个新的连接。
 
 ![](./images/add-connection.png)
 
 
-然后根据你的实际启动情况选择启动选项即可。
+
+选择你需要的通信方式。
+
+![](./images/select-server-type.png)
+
+输入MCP Server的地址。
+
+![](./images/connect-sse.png)
 
 :::info
-需要注意的是
+需要注意的是，不同的通信方式一般使用不同endpoint，目前的MCP server大多遵循下面的原则：
 
-如果是以 SSE 启动，那么输入的链接必须以 /sse 结尾，比如 http://localhost:8001/sse
-如果是以 Streamable Http 启动，那么输入的链接必须以 /stream 结尾，比如 http://localhost:8001/stream
+如果是以 SSE 启动，那么默认使用 /sse 作为endpoint，比如 http://localhost:8001/sse
+
+如果是以 Streamable Http 启动，那么默认使用 /mcp 作为endpoint，比如 http://localhost:8001/mcp
+
+当然，允许MCP Server使用两个不同的endpoint同时支持两种连接方式，这对于想要迁移到Streamable Http但短时间又不能放弃SSE的情况特别有效
 :::
 
