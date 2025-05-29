@@ -1,14 +1,10 @@
 import { defineConfig } from 'vitepress';
 import lightbox from "vitepress-plugin-lightbox";
 
-import {
-	GitChangelog,
-	GitChangelogMarkdownSection,
-} from '@nolebase/vitepress-plugin-git-changelog/vite';
-
-import {
-	InlineLinkPreviewElementTransform
-} from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it';
+import { GitChangelog, GitChangelogMarkdownSection } from '@nolebase/vitepress-plugin-git-changelog/vite';
+import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it';
+import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
+import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
 
 export const customIcons = {
 	share: {
@@ -35,6 +31,7 @@ export default defineConfig({
 				repoURL: () => 'https://gitea.3geeks.top/kirigaya/openmcp-document',
 			}),
 			GitChangelogMarkdownSection(),
+			ThumbnailHashImages(),
 		],
 		optimizeDeps: {
 			exclude: [
@@ -53,6 +50,10 @@ export default defineConfig({
 		config: (md) => {
 			md.use(lightbox);
 			md.use(InlineLinkPreviewElementTransform);
+			md.use(BiDirectionalLinks({
+				baseDir: baseUrl,
+				debug: true
+			}));
 		}
 	},
 

@@ -6,6 +6,8 @@
 MCP 客户端是指能够通过 MCP 协议进行通信的大模型对话客户端，通常是一个运行在本地的应用程序（因为网页没有文件IO的权限）。它的产品形式目前几乎都是聊天机器人的形式，类似于你在网页使用的 chat.deepseek.com 或者 chat.openai.com
 :::
 
+[[https://kirigaya.cn/openmcp/plugin-tutorial/acquire-openmcp.html]]
+
 首先，打开你的 VLE，在 [获取 OpenMCP](https://kirigaya.cn/openmcp/plugin-tutorial/acquire-openmcp.html) 中完成 OpenMCP 的安装后，我们先用 python 创建一个最简单的 mcp 服务器，来测试 mcp 客户端的连接。
 
 
@@ -89,6 +91,8 @@ def translate(message: str) -> str:
     return f'请将下面的话语翻译成中文：\n\n{message}'
 ```
 
+## 使用 OpenMCP 一键连接
+
 如上，我们申明了三个函数，用作 mcp 的 tool，resource 和 prompt。在 OpenMCP 中启动它们非常简单，点击右上角的 OpenMCP 图标即可连接：
 
 ![](./images/connect-simple.png)
@@ -145,7 +149,7 @@ mcp 本身提供了脚手架，可以直接启动一段被申明的 python 代�
 uv run mcp run main.py
 ```
 
-## 方法二：在代码中显式启动
+### 方法二：在代码中显式启动
 
 你也可以在代码中显式启动 mcp 服务器，在 `main.py` 的结尾添加：
 
