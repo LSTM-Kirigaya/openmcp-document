@@ -9,6 +9,7 @@
 
 Python 写 mcp 服务器强烈推荐使用 uv 作为包管理器，关于 uv，你只需要知道它是一个高性能包管理器，拥有 pip 和 conda 的所有优点。没有的朋友请先通过 pip 安装 uv：
 
+
 ```bash
 pip install uv
 ```
