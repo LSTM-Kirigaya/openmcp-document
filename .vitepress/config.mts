@@ -175,6 +175,8 @@ export default withMermaid({
 						{ text: '快速开始', link: '/plugin-tutorial/quick-start' },
 						{ text: '安装 OpenMCP', link: '/plugin-tutorial/quick-start/acquire-openmcp' },
 						{ text: '你的第一个 MCP', link: '/plugin-tutorial/quick-start/first-mcp' },
+						{ text: '快速调试 MCP', link: '/plugin-tutorial/quick-start/quick-debug' },
+						{ text: '扔进大模型里面测测好坏！', link: '/plugin-tutorial/quick-start/put-into-llm' },
 					]	
 				},
 				{

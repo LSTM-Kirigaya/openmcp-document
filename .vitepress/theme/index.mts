@@ -13,7 +13,7 @@ import KNavItem from './components/nav-item/index.vue';
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebaseInlineLinkPreviewPlugin } from '@nolebase/vitepress-plugin-inline-link-preview/client';
 
-import { ElCollapse, ElCollapseItem } from 'element-plus';
+import { ElCollapse, ElCollapseItem, ElTimeline, ElTimelineItem } from 'element-plus';
 
 import './css/style.css';
 import './css/iconfont.css';
@@ -34,6 +34,9 @@ export default {
 		app.component('KNavItem', KNavItem);
 		app.component('el-collapse', ElCollapse);
 		app.component('el-collapse-item', ElCollapseItem);
+		app.component('el-timeline', ElTimeline);
+		app.component('el-timeline-item', ElTimelineItem);
+
 		app.use(NolebaseGitChangelogPlugin);
 		app.use(NolebaseInlineLinkPreviewPlugin);
 	}
