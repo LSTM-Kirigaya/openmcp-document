@@ -5,6 +5,7 @@ import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-in
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
 
+import { UnlazyImages } from '@nolebase/markdown-it-unlazy-img';
 import { contributors } from './contributors';
 import { withMermaid } from "vitepress-plugin-mermaid";
 import { customIcons } from './theme/hook/icons';
@@ -21,6 +22,15 @@ export default withMermaid({
 		hostname: 'https://kirigaya.cn/' + baseUrl
 	},
 
+
+	vue: {
+		template: {
+			transformAssetUrls: {
+				NolebaseUnlazyImg: ['src'],
+			},
+		}
+	},
+
 	vite: {
 		plugins: [
 			GitChangelog({
@@ -34,6 +44,9 @@ export default withMermaid({
 			ThumbnailHashImages(),
 		],
 		optimizeDeps: {
+			include: [
+				'mermaid'
+			],
 			exclude: [
 				'@nolebase/vitepress-plugin-inline-link-preview/client',
 			],
@@ -50,9 +63,10 @@ export default withMermaid({
 		config: (md) => {
 			md.use(lightbox);
 			md.use(InlineLinkPreviewElementTransform);
-			md.use(BiDirectionalLinks({
-				debug: true
-			}));
+			md.use(BiDirectionalLinks());
+			md.use(UnlazyImages(), { 
+				imgElementTag: 'NolebaseUnlazyImg', 
+			}); 
 		}
 	},
 
@@ -175,7 +189,7 @@ export default withMermaid({
 						{ text: '你的第一个 MCP', link: '/plugin-tutorial/quick-start/first-mcp' },
 						{ text: '快速调试 MCP', link: '/plugin-tutorial/quick-start/quick-debug' },
 						{ text: '扔进大模型里面测测好坏！', link: '/plugin-tutorial/quick-start/put-into-llm' },
-					]	
+					]
 				},
 				{
 					text: "OpenMCP 使用手册",
