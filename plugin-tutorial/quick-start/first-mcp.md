@@ -109,35 +109,7 @@ def translate(message: str) -> str:
 
 OpenMCP 已经帮你做好了很多事情，但是使用 uv 启动 mcp 服务器其实是不只一种方法的，了解更加底层的原理有助于您以不变应万变。因为 OpenMCP 对于 python 项目默认运行 `uv run mcp run main.py` 来启动 mcp 服务器，但是 GitHub 上的部分项目无法这么启动。
 
-先了解一下正常的如下的代码应该如何通过命令行启动 mcp 吧！
-
-
-```python
-from mcp.server.fastmcp import FastMCP
-mcp = FastMCP('锦恢的 MCP Server', version="11.45.14")
-
-@mcp.tool(
-    name='add',
-    description='对两个数字进行实数域的加法'
-)
-def add(a: int, b: int) -> int:
-    return a + b
-
-@mcp.resource(
-    uri="greeting://{name}",
-    name='greeting',
-    description='用于演示的一个资源协议'
-)
-def get_greeting(name: str) -> str:
-    return f"Hello, {name}!"
-
-@mcp.prompt(
-    name='translate',
-    description='进行翻译的prompt'
-)
-def translate(message: str) -> str:
-    return f'请将下面的话语翻译成中文：\n\n{message}'
-```
+先了解一下对于上面那个例子的 python 代码，应该如何通过命令行启动 mcp 吧！
 
 ### 方法一：使用 mcp-cli
 
@@ -163,5 +135,5 @@ uv run main.py
 ```
 
 :::warning
-请不要运行 python main.py，因为 uv run 会使用当前虚拟环境的库，这些库在外部 python 看来是不可见的。也不要在没有使用 `mcp.run()` 启动代码的情况下就直接使用 mcp run main.py，我们之前的代码只是申明了函数，并没有实际上执行任何功能。
+请不要运行 python main.py，因为 uv run 会使用当前虚拟环境的库，这些库在外部 python 看来是不可见的。也不要在没有使用 `mcp.run()` 启动代码的情况下就直接使用 uv run main.py，我们之前的代码只是申明了函数，并没有实际上执行任何功能。
 :::
