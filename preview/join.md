@@ -18,3 +18,17 @@
 - 通过 OpenMCP 来完成不同的 agent 开发的例子或者打磨新的开发 AI Agent 的方法论。在征得阁下本人同意后，我们将会将你的教程整合到这个网站中。
 
 通过向 OpenMCP 贡献以上内容或是其他，阁下将能成为 OpenMCP 的贡献者。
+
+## 为 openmcp 文档站点添砖加瓦
+
+如果您想要为 openmcp 文档站点修复专业错误或者贡献您的例子，请 fork [openmcp-document](https://github.com/LSTM-Kirigaya/openmcp-document) 提交 PR 。
+
+如果您对 github 的操作不熟悉，请 [进入 OpenMCP 开发群](https://qm.qq.com/cgi-bin/qm/qr?k=C6ZUTZvfqWoI12lWe7L93cWa1hUsuVT0&jump_from=webapi&authKey=McW6B1ogTPjPDrCyGttS890tMZGQ1KB3QLuG4aqVNRaYp4vlTSgf2c6dMcNjMuBD) 并联系管理员锦恢，请提供如下几件东西：
+
+- 您希望贡献的内容
+- 您的 github 账号（主页链接）
+- 您的邮箱
+- 您希望展现在网站上的 ID 和 头像
+- 您希望关联的网站链接（比如b站，知乎，个人网站什么的）
+
+完成添加后，您就可以向 [openmcp-document](https://github.com/LSTM-Kirigaya/openmcp-document) 提交 PR 了。

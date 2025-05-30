@@ -9,6 +9,7 @@ import TwoSideLayout from './components/home/TwoSideLayout.vue';
 import KTab from './components/KTab/index.vue';
 import BiliPlayer from './components/bilibli-player/index.vue';
 import KNavItem from './components/nav-item/index.vue';
+import Contributors from './components/Contributors/index.vue';
 
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebaseInlineLinkPreviewPlugin } from '@nolebase/vitepress-plugin-inline-link-preview/client';
@@ -32,6 +33,8 @@ export default {
 		app.component('KTab', KTab);
 		app.component('BiliPlayer', BiliPlayer);
 		app.component('KNavItem', KNavItem);
+		app.component('Contributors', Contributors);
+
 		app.component('el-collapse', ElCollapse);
 		app.component('el-collapse-item', ElCollapseItem);
 		app.component('el-timeline', ElTimeline);

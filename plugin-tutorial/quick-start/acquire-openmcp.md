@@ -42,10 +42,20 @@ VLE 的插件商城页面有一个三个点的按钮，点击它后，你能看�
 
 ### 方法二：通过命令行
 
-如果您的 VLE 是全局安装的，会自动存在一个命令行工具，此处以 vscode 为例子（trae 的命令为 trae），打开命令行，输入
+如果您的 VLE 是全局安装的，会自动存在一个命令行工具，命令如下：
 
-```bash
+::: code-group
+```bash [vscode]
 code --install-extension /path/to/openmcp-0.1.1.vsix
 ```
 
-/path/to/openmcp-0.1.1.vsix 代表你刚刚下载的 vsix 文件的绝对路径。这样也可以安装插件。
+```bash [trae]
+trae --install-extension /path/to/openmcp-0.1.1.vsix
+```
+
+```bash [cursor]
+cursor --install-extension /path/to/openmcp-0.1.1.vsix
+```
+:::
+
+`/path/to/openmcp-0.1.1.vsix` 代表你刚刚下载的 vsix 文件的绝对路径。这样也可以安装插件。

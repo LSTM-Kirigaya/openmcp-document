@@ -14,15 +14,15 @@ OpenMCP Client 提供了一体化的 MCP 调试解决方案，这很好，但是
 ## 安装
 
 ::: code-group
-```[npm]
+```bash [npm]
 npm install openmcp-sdk
 ```
 
-```[yarn]
+```bash [yarn]
 yarn add openmcp-sdk
 ```
 
-```[pnpm]
+```bash [pnpm]
 pnpm add openmcp-sdk
 ```
 :::

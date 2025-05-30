@@ -191,69 +191,15 @@ ChatCompletionMessage(
 
 
 
-## 开始你的第一个 mcp 服务器
+## 使用 Inspector 进行调试
 
-接下里就要让我们大显身手了！MCP 官方提供了几个封装好的 mcp sdk 来让我们快速开发一个 MCP 服务器。我看了一下，目前使用最爽，最简单的是 python 的 sdk，所以我就用 python 来简单演示一下了。
-
-当然，如果想要使用 typescript 开发也是没问题的，typescript 的优势就是打包和部署更加简单。可以看我自用的一个模板库：[mcp-server-template](https://github.com/LSTM-Kirigaya/mcp-server-template)
-
-### 安装基本环境
-
-首先让我们打开一个项目，安装基本的库：
+Claude 原生提供的 MCP 协议可以通过官方提供的 Inspector 进行调试，对于 [[first-mcp|你的第一个 MCP]] 中的例子，可以如下进行调试，在命令行输入如下命令启动 Inspector:
 
 ```bash
-pip install uv
+mcp dev main.py
 ```
 
-然后进入一个目录后初始化 uv 项目并安装对应的依赖：
-
-```bash
-mkdir -p ~/code/mcp-server
-cd ~/code/mcp-server
-uv init --no-workspace
-uv add mcp "mcp[cli]"
-```
-
-创建 `server.py`
-
-```python
-from mcp.server.fastmcp import FastMCP
-
-mcp = FastMCP('锦恢的 MCP Server', version="11.45.14")
-
-@mcp.tool('add', '对两个数字进行实数域的加法')
-def add(a: int, b: int) -> int:
-    return a + b
-
-@mcp.resource("greeting://{name}", 'greeting', '用于演示的一个资源协议')
-def get_greeting(name: str) -> str:
-    # 访问处理 greeting://{name} 资源访问协议，然后返回
-    # 此处方便起见，直接返回一个 Hello，balabala 了
-    return f"Hello, {name}!"
-
-@mcp.prompt('translate', '进行翻译的prompt')
-def translate(message: str) -> str:
-    return f'请将下面的话语翻译成中文：\n\n{message}'
-```
-
-上面的代码在装饰器的作用下非常容易读懂，`@mcp.tool`, `@mcp.resource` 和 `@mcp.prompt` 分别实现了
-
-- 一个名为 add 的 tool
-- 一个 greeting 协议的 resource
-- 一个名为 translate 的 prompt
-
-> 不明白装饰器是什么小白可以看看我之前的文章[Python进阶笔记（一）装饰器实现函数/类的注册](https://zhuanlan.zhihu.com/p/350821621)
-> 虽然注册器里面的第二个参数 description 不是必要的，但是仍然建议写一下，要不然大模型怎么知道你这个工具是干啥的。
-
-### 使用 Inspector 进行调试
-
-我们可以使用 MCP 官方提供的 Inspector 工具对上面的 server 进行调试：
-
-```bash
-mcp dev server.py
-```
-
-这会启动一个前端服务器并，打开 `http://localhost:5173/` 后我们可以看到 inspector 的调试界面，先点击左侧的 `Connect` 来运行我们的 server.py 并通过 stdio 为通信管道和 web 建立通信。
+这会启动一个前端服务器，并打开 `http://localhost:5173/` 后我们可以看到 inspector 的调试界面，先点击左侧的 `Connect` 来运行我们的 server.py 并通过 stdio 为通信管道和 web 建立通信。
 
 Fine，可以开始愉快地进行调试了，Inspector 主要给了我们三个板块，分别对应 Resources，Prompts 和 Tools。
 
