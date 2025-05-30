@@ -55,7 +55,7 @@ const handleRouteChangeStart = async (to: string) => {
     const from = router.route.path;
 
     if (sameSource(from, to)) {
-        await animateIn('VPContent', { name: 'slide', durationMs: 200 });
+        await animateIn('VPContent', { name: 'fade', durationMs: 200 });
     } else {
         await animateIn('k-layout', { name: 'fade' });
     }
