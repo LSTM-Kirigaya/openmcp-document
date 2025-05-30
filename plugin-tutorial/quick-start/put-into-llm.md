@@ -46,7 +46,7 @@
 
 我们先点击下方的「系统提示词」
 
-![](./image/system-prompt-add.png)
+![](./images/system-prompt-add.png)
 
 我们添加一个新的系统提示词，在标题输入「bing image」，然后主体部分填入：
 

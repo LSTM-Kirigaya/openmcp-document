@@ -5,7 +5,6 @@ import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-in
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
 
-import { UnlazyImages } from '@nolebase/markdown-it-unlazy-img';
 import { contributors } from './contributors';
 import { withMermaid } from "vitepress-plugin-mermaid";
 import { customIcons } from './theme/hook/icons';
@@ -20,15 +19,6 @@ export default withMermaid({
 
 	sitemap: {
 		hostname: 'https://kirigaya.cn/' + baseUrl
-	},
-
-
-	vue: {
-		template: {
-			transformAssetUrls: {
-				NolebaseUnlazyImg: ['src'],
-			},
-		}
 	},
 
 	vite: {
@@ -64,9 +54,6 @@ export default withMermaid({
 			md.use(lightbox);
 			md.use(InlineLinkPreviewElementTransform);
 			md.use(BiDirectionalLinks());
-			md.use(UnlazyImages(), { 
-				imgElementTag: 'NolebaseUnlazyImg', 
-			}); 
 		}
 	},
 
