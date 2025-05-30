@@ -104,6 +104,7 @@ def translate(message: str) -> str:
 
 恭喜您，万事开头难，您已经完成了最难的 mcp 连接！
 
+有关 openmcp 进行 mcp 服务器连接的更多信息，可以参考手册里面的这一章 [[connect-mcp|连接到 MCP 服务器]]。
 
 ## 附录：关于 uv 启动 mcp 你必须知道的
 

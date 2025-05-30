@@ -1,4 +1,3 @@
-import { defineConfig } from 'vitepress';
 import lightbox from "vitepress-plugin-lightbox";
 
 import { GitChangelog, GitChangelogMarkdownSection } from '@nolebase/vitepress-plugin-git-changelog/vite';
@@ -185,6 +184,7 @@ export default withMermaid({
 						{ text: '调试 tools, resources 和 prompts', link: '/plugin-tutorial/usage/debug' },
 						{ text: '连接大模型', link: '/plugin-tutorial/usage/connect-llm' },
 						{ text: '用大模型测试您的 mcp', link: '/plugin-tutorial/usage/test-with-llm' },
+						{ text: '连接多个 MCP 服务器', link: '/plugin-tutorial/usage/multi-server' },
 						{ text: '分发您的实验结果', link: '/plugin-tutorial/usage/distribute-result' },
 						{ text: 'SSE 在线部署的鉴权器实现', link: '/plugin-tutorial/usage/sse-oauth2' },
 					]

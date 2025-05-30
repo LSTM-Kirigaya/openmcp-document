@@ -1,8 +1,6 @@
-# MCP 简介
+# 什么是 MCP？
 
 ![](https://picx.zhimg.com/70/v2-1a2df8a081a76f4e90431d8a2445f495_1440w.avis)
-
-## 什么是 MCP？
 
 MCP (Model Context Protocol)是一种开放协议，用于标准化应用程序如何向大型语言模型（LLMs）提供上下文。可以将 MCP 想象为 AI 应用的 typec 接口。正如 typec 提供了一种标准化的方式将您的设备连接到各种外设和配件，MCP 也提供了一种标准化的方式，将 AI 模型连接到不同的数据源和工具。
 
@@ -19,7 +17,7 @@ MCP 协议由 Anthropic 在 2024 年 11 月底推出：
 ``` mermaid
 graph LR
 
-a(chatbot\n > deepseek, chatgpt) --> b(composer\n > cursor, copilot) --> c(agent\n > AutoGPT, Manus, Open Manus) 
+a(chatbot > deepseek, chatgpt) --> b(composer > cursor, copilot) --> c(agent > AutoGPT, Manus, Open Manus) 
 ```
 
 - chatbot
@@ -178,6 +176,6 @@ C2 --> A5
 
 ## 开源生态
 
-和 LSP 一样，LSP 在开源社区有非常多的客户端和服务端框架，MCP 也是一样的，目前 Anthropic 开源了一套 MCP 的服务端框架：https://github.com/modelcontextprotocol/servers，想要探索大模型效用的朋友可以尽情去使用这个框架。
+和 LSP 一样，LSP 在开源社区有非常多的客户端和服务端框架，MCP 也是一样的，目前 Anthropic 开源了一套 MCP 的服务端框架：https://github.com/modelcontextprotocol/servers ，想要探索大模型效用的朋友可以尽情去使用这个框架。这个仓库还收录了很多的官方认可的 MCP 服务器，可以作为学习的参考。
 
 除此之外，pulsemcp 上也有很多开源社区开发的 MCP 客户端和服务端：https://www.pulsemcp.com/clients

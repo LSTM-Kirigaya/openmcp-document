@@ -11,6 +11,9 @@ next:
 - [python 实现进行通用表单填充 的 mcp (STDIO)](./python-form-stdio)
 - [python 实现基于 blender 的 mcp (STDIO)](./python-blender-stdio)
 - [python 实现 cadence EDA 的 mcp (STDIO)](./python-cadence-stdio)
+- 基于 ffmpeg mcp 实现通过对话的视频剪辑
+- 基于 rag mcp 实现知识库的注入
+- 实现 Stable Diffusion 的 MCP 服务器
 
 ## Nodejs
 - [typescript 实现基于 crawl4ai 的超级网页爬虫 mcp (STDIO)](./typescript-crawl4ai-stdio)
