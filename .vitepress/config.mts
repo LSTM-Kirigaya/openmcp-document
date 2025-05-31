@@ -44,7 +44,7 @@ export default withMermaid({
 		},
 		ssr: {
 			noExternal: [
-				// 如果还有别的依赖需要添加的话，并排填写和配置到这里即可 //
+				// 如果还有别的解析失败的依赖需要添加的话，并排填写和配置到这里即可 //
 				'@nolebase/vitepress-plugin-inline-link-preview',
 				'@unlazy/vue'
 			],

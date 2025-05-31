@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "postbuild": "cp -r images .vitepress/dist/images",
+    "postbuild": "node scripts/move-image.js",
     "preview": "vitepress preview"
   },
   "dependencies": {
