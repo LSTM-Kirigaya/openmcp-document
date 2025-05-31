@@ -13,6 +13,7 @@ import Contributors from './components/Contributors/index.vue';
 
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebaseInlineLinkPreviewPlugin } from '@nolebase/vitepress-plugin-inline-link-preview/client';
+import { NolebaseUnlazyImg } from '@nolebase/vitepress-plugin-thumbnail-hash/client';
   
 import { ElCollapse, ElCollapseItem, ElTimeline, ElTimelineItem } from 'element-plus';
 
@@ -35,6 +36,7 @@ export default {
 		app.component('BiliPlayer', BiliPlayer);
 		app.component('KNavItem', KNavItem);
 		app.component('Contributors', Contributors);
+		app.component('NolebaseUnlazyImg', NolebaseUnlazyImg);
 
 		app.component('el-collapse', ElCollapse);
 		app.component('el-collapse-item', ElCollapseItem);

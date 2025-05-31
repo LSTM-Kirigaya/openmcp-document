@@ -4,6 +4,7 @@ import { GitChangelog, GitChangelogMarkdownSection } from '@nolebase/vitepress-p
 import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it';
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
+import { UnlazyImages } from '@nolebase/markdown-it-unlazy-img';
 
 import { contributors } from './contributors';
 import { withMermaid } from "vitepress-plugin-mermaid";
@@ -45,6 +46,7 @@ export default withMermaid({
 			noExternal: [
 				// 如果还有别的依赖需要添加的话，并排填写和配置到这里即可 //
 				'@nolebase/vitepress-plugin-inline-link-preview',
+				'@unlazy/vue'
 			],
 		},
 	},
@@ -54,6 +56,9 @@ export default withMermaid({
 			md.use(lightbox);
 			md.use(InlineLinkPreviewElementTransform);
 			md.use(BiDirectionalLinks());
+			md.use(UnlazyImages(), { 
+				imgElementTag: 'NolebaseUnlazyImg', 
+			});
 		}
 	},
 
