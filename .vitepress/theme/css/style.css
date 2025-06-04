@@ -188,6 +188,18 @@
     }
 }
 
+.home-tab {
+	min-height: 477px;
+}
+
+
+@media (max-width: 500px) {
+    .home-tab {
+		min-height: 677px;
+    }
+}
+
+
 .VPHero .image-container img {
 	box-shadow: unset !important;
 }

@@ -54,7 +54,7 @@ features:
 
 <br>
 
-<KTab>
+<KTab class="home-tab">
 <TwoSideLayout
   label="专业软件工程师"
   :texts="[
