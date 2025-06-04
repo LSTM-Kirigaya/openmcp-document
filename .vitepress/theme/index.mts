@@ -20,6 +20,7 @@ import { ElCollapse, ElCollapseItem, ElTimeline, ElTimelineItem } from 'element-
 import './css/style.css';
 import './css/iconfont.css';
 import './css/element-plus.css';
+import './css/animation.css';
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css';
 import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
 import '@nolebase/vitepress-plugin-inline-link-preview/client/style.css';

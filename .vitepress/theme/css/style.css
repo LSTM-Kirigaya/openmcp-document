@@ -44,30 +44,34 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-	--vp-c-default-1: var(--vp-c-gray-1);
-	--vp-c-default-2: var(--vp-c-gray-2);
-	--vp-c-default-3: var(--vp-c-gray-3);
-	--vp-c-default-soft: var(--vp-c-gray-soft);
+    --vp-c-default-1: var(--vp-c-gray-1);
+    --vp-c-default-2: var(--vp-c-gray-2);
+    --vp-c-default-3: var(--vp-c-gray-3);
+    --vp-c-default-soft: var(--vp-c-gray-soft);
 
-	--vp-c-brand-1: #d8a8e7; /* 较深的变体 */
-	--vp-c-brand-2: #C285D6; /* 基底颜色 */
-	--vp-c-brand-3: #a368b8; /* 较浅的变体 */
-	--vp-c-brand-soft: rgba(194, 133, 214, 0.1); /* 半透明的柔和版本 */
+    --vp-c-brand-1: #d8a8e7;
+    /* 较深的变体 */
+    --vp-c-brand-2: #C285D6;
+    /* 基底颜色 */
+    --vp-c-brand-3: #a368b8;
+    /* 较浅的变体 */
+    --vp-c-brand-soft: rgba(194, 133, 214, 0.1);
+    /* 半透明的柔和版本 */
 
-	--vp-c-tip-1: var(--vp-c-brand-1);
-	--vp-c-tip-2: var(--vp-c-brand-2);
-	--vp-c-tip-3: var(--vp-c-brand-3);
-	--vp-c-tip-soft: var(--vp-c-brand-soft);
+    --vp-c-tip-1: var(--vp-c-brand-1);
+    --vp-c-tip-2: var(--vp-c-brand-2);
+    --vp-c-tip-3: var(--vp-c-brand-3);
+    --vp-c-tip-soft: var(--vp-c-brand-soft);
 
-	--vp-c-warning-1: var(--vp-c-yellow-1);
-	--vp-c-warning-2: var(--vp-c-yellow-2);
-	--vp-c-warning-3: var(--vp-c-yellow-3);
-	--vp-c-warning-soft: var(--vp-c-yellow-soft);
+    --vp-c-warning-1: var(--vp-c-yellow-1);
+    --vp-c-warning-2: var(--vp-c-yellow-2);
+    --vp-c-warning-3: var(--vp-c-yellow-3);
+    --vp-c-warning-soft: var(--vp-c-yellow-soft);
 
-	--vp-c-danger-1: var(--vp-c-red-1);
-	--vp-c-danger-2: var(--vp-c-red-2);
-	--vp-c-danger-3: var(--vp-c-red-3);
-	--vp-c-danger-soft: var(--vp-c-red-soft);
+    --vp-c-danger-1: var(--vp-c-red-1);
+    --vp-c-danger-2: var(--vp-c-red-2);
+    --vp-c-danger-3: var(--vp-c-red-3);
+    --vp-c-danger-soft: var(--vp-c-red-soft);
 }
 
 /**
@@ -75,15 +79,15 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-	--vp-button-brand-border: transparent;
-	--vp-button-brand-text: var(--vp-c-white);
-	--vp-button-brand-bg: var(--vp-c-brand-3);
-	--vp-button-brand-hover-border: transparent;
-	--vp-button-brand-hover-text: var(--vp-c-white);
-	--vp-button-brand-hover-bg: var(--vp-c-brand-2);
-	--vp-button-brand-active-border: transparent;
-	--vp-button-brand-active-text: var(--vp-c-white);
-	--vp-button-brand-active-bg: var(--vp-c-brand-1);
+    --vp-button-brand-border: transparent;
+    --vp-button-brand-text: var(--vp-c-white);
+    --vp-button-brand-bg: var(--vp-c-brand-3);
+    --vp-button-brand-hover-border: transparent;
+    --vp-button-brand-hover-text: var(--vp-c-white);
+    --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+    --vp-button-brand-active-border: transparent;
+    --vp-button-brand-active-text: var(--vp-c-white);
+    --vp-button-brand-active-bg: var(--vp-c-brand-1);
 }
 
 /**
@@ -91,27 +95,27 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-	--vp-home-hero-name-color: transparent;
-	--vp-home-hero-name-background: -webkit-linear-gradient(120deg,
-			#bd34fe 30%,
-			#41d1ff);
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
+            #bd34fe 30%,
+            #41d1ff);
 
-	--vp-home-hero-image-background-image: linear-gradient(-45deg,
-			#bd34fe 50%,
-			#47caff 50%);
-	--vp-home-hero-image-filter: blur(44px);
+    --vp-home-hero-image-background-image: linear-gradient(-45deg,
+            #bd34fe 50%,
+            #47caff 50%);
+    --vp-home-hero-image-filter: blur(44px);
 }
 
 @media (min-width: 640px) {
-	:root {
-		--vp-home-hero-image-filter: blur(56px);
-	}
+    :root {
+        --vp-home-hero-image-filter: blur(56px);
+    }
 }
 
 @media (min-width: 960px) {
-	:root {
-		--vp-home-hero-image-filter: blur(68px);
-	}
+    :root {
+        --vp-home-hero-image-filter: blur(68px);
+    }
 }
 
 /**
@@ -119,15 +123,15 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-	--vp-custom-block-tip-border: transparent;
-	--vp-custom-block-tip-text: var(--vp-c-text-1);
-	--vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-	--vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+    --vp-custom-block-tip-border: transparent;
+    --vp-custom-block-tip-text: var(--vp-c-text-1);
+    --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+    --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
 
 :root {
-	--vp-home-hero-name-color: transparent;
-	--vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
 }
 
 :root {
@@ -138,34 +142,34 @@
     --el-text-color-primary: var(--vp-c-text-1) !important;
     --el-border-color: var(--vp-c-border) !important;
     --el-bg-color: var(--vp-c-bg) !important;
-	--el-collapse-border-color: var(--vp-c-border) !important;
+    --el-collapse-border-color: var(--vp-c-border) !important;
 }
 
 
 .el-collapse {
-	border-top: 1px solid transparent !important;
+    border-top: 1px solid transparent !important;
 }
 
 
 .el-collapse-item__header {
-	border-top: unset !important;
+    border-top: unset !important;
     background-color: var(--vp-c-bg) !important;
-	border-bottom: 1px solid var(--vp-c-border) !important;
-	height: fit-content !important;
+    border-bottom: 1px solid var(--vp-c-border) !important;
+    height: fit-content !important;
 }
 
 .el-collapse-item__title {
-	font-size: 1.2rem;
-	padding: 10px 0;
+    font-size: 1.2rem;
+    padding: 10px 0;
 }
 
 .el-collapse-item__content {
-	padding: 20px 0 0 0;
-	font-size: 15px !important;
+    padding: 20px 0 0 0;
+    font-size: 15px !important;
 }
 
 .el-collapse-item__wrap {
-	border-bottom: 1px solid var(--vp-c-border) !important;
+    border-bottom: 1px solid var(--vp-c-border) !important;
 }
 
 /**
@@ -173,11 +177,11 @@
  * -------------------------------------------------------------------------- */
 
 .DocSearch {
-	--docsearch-primary-color: var(--vp-c-brand-1) !important;
+    --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
 .two-side-layout .image-container {
-	display: unset !important;
+    display: unset !important;
 }
 
 
@@ -189,61 +193,78 @@
 }
 
 .home-tab {
-	min-height: 477px;
+    min-height: 477px;
 }
 
 
 @media (max-width: 500px) {
     .home-tab {
-		min-height: 677px;
+        min-height: 677px;
     }
 }
 
 
 .VPHero .image-container img {
-	box-shadow: unset !important;
+    box-shadow: unset !important;
 }
 
 iframe {
-	border: 2px solid var(--vp-c-brand-3);
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: border-color 0.3s ease;
+    border: 2px solid var(--vp-c-brand-3);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
 }
 
 
 .VPMenu {
-	background-color: rgba(255, 255, 255, 0.55) !important;
-	border: unset !important;
-	backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.55) !important;
+    border: unset !important;
+    backdrop-filter: blur(10px);
 }
 
 
 
 .dark .VPMenu {
-	background-color: rgba(0, 0, 0, 0.55) !important;
-	backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.55) !important;
+    backdrop-filter: blur(10px);
 }
 
 
 .VPTeamPage {
-	margin-top: 0 !important;
+    margin-top: 0 !important;
 }
 
 /* 自定义全局滚动条样式 */
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 0px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--vp-c-default-soft);
+    background: var(--vp-c-default-soft);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--vp-c-brand-3);
-  border-radius: 4px;
+    background: var(--vp-c-brand-3);
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--vp-c-brand-2);
+    background: var(--vp-c-brand-2);
+}
+
+/* 设置选中文本的背景色和文字颜色 */
+::selection {
+    background: var(--vp-c-brand-2);
+    color: white;
+}
+
+/* 兼容 Firefox */
+::-moz-selection {
+    background: var(--vp-c-brand-2);
+    color: white;
+}
+
+.VPHero .name.clip {
+    color: var(--vp-c-brand-2) !important;
+    background-color: var(--vp-c-brand-2) !important;
 }

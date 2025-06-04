@@ -1,0 +1,52 @@
+
+
+.tagline {
+    width: fit-content;
+}
+
+.tagline {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+.tagline:hover::before {
+    transform: translateX(0);
+}
+
+.tagline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--vp-c-brand-2);
+    transform: translateX(-105%);
+    transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+
+.VPFeatures .item {
+    cursor: pointer;
+    transition: .5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.VPFeatures .item:hover {
+    transform: scale(1.05);
+}
+
+.VPFeatures .item .box {
+    transition: .5s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: .5em;
+}
+
+.VPFeatures .item:hover .box {
+    background-color: var(--vp-c-brand-3);
+}
+
+.VPFeatures .item:hover .box .details {
+    color: var(--vp-c-white);
+}
