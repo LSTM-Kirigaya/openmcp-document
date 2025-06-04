@@ -186,6 +186,7 @@ export default withMermaid({
 				{
 					text: "OpenMCP 使用手册",
 					items: [
+						{ text: 'UI 配色', link: '/plugin-tutorial/usage/ui-color' },
 						{ text: '连接 mcp 服务器', link: '/plugin-tutorial/usage/connect-mcp' },
 						{ text: '调试 tools, resources 和 prompts', link: '/plugin-tutorial/usage/debug' },
 						{ text: '连接大模型', link: '/plugin-tutorial/usage/connect-llm' },
