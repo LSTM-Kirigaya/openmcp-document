@@ -54,7 +54,7 @@ function playVideo() {
     aspect-ratio: 16/9;
     border-radius: .5em;
     overflow: hidden;
-    border: 2px solid var(--vp-c-brand-3);
+    border: 3px solid var(--vp-c-brand-2);
 }
 
 .cover-container {
@@ -78,7 +78,7 @@ function playVideo() {
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background-color: var(--vp-c-brand-3);
+    background-color: var(--vp-c-brand-2);
     border: none;
     color: var(--vp-c-bg);
     cursor: pointer;

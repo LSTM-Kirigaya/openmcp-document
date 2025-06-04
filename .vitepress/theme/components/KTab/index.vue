@@ -78,6 +78,7 @@ const tabsContainer: TabsContainer = reactive({
         const container = tabsContainer.panelContainer;
         const panels = Array.from(container.children) as HTMLElement[];
 
+        // 进行动画切换
         panels.forEach((panel, index) => {
             console.log('index', index);
             console.log('id', id);

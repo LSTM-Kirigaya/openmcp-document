@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "element-plus": "^2.9.11",
+    "gsap": "^3.13.0",
     "vitepress": "^1.6.3"
   },
   "devDependencies": {

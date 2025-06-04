@@ -1,9 +1,8 @@
-
-
 <template>
     <DefaultTheme.Layout id="k-layout">
-
     </DefaultTheme.Layout>
+    <ScrollBar />
+
 </template>
 
 <script setup lang="ts">
@@ -12,6 +11,13 @@ import DefaultTheme from 'vitepress/theme';
 import { nextTick, onMounted, provide } from 'vue';
 import mediumZoom from "medium-zoom";
 import { animateIn, animateOut } from './hook/animate';
+import ScrollBar from './components/scrollbar/index.vue';
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// 注册插件
+gsap.registerPlugin(ScrollTrigger);
 
 const data = useData()
 const router = useRouter()
@@ -20,6 +26,7 @@ const enableTransitions = () =>
     window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
 
 const isDark = data.isDark;
+
 
 const setupMediumZoom = () => {
     mediumZoom("[data-zoomable]", {
@@ -65,14 +72,78 @@ const handleRouteChangeStart = async (to: string) => {
 const handleRouteChangeComplete = async (to: string) => {
     await animateOut();
     setupMediumZoom();
+
+    makeHomeAnimation();
 };
 
 
 router.onBeforeRouteChange = handleRouteChangeStart;
 router.onAfterRouteChange = handleRouteChangeComplete;
 
+function makeHomeAnimation() {
+    if (router.route.path !== '/openmcp/') {
+        return;
+    }
+
+    gsap.from(".main", {
+        opacity: 0,      // 初始透明度
+        x: -100,          // 初始位置（向下偏移100px）
+        duration: 1.2,     // 动画时长
+        ease: "power2.out", // 缓动函数（平滑结束）
+    });
+
+    gsap.from(".VPHero .VPImage", {
+        opacity: 0,      // 初始透明度
+        x: 100,          // 初始位置（向下偏移100px）
+        duration: 1.2,     // 动画时长
+        ease: "power2.out", // 缓动函数（平滑结束）
+    });
+
+    gsap.from(".VPFeatures.VPHomeFeatures", {
+        opacity: 0,      // 初始透明度
+        y: 100,          // 初始位置（向下偏移100px）
+        duration: 1.2,     // 动画时长
+        ease: "power2.out", // 缓动函数（平滑结束）
+    });
+
+
+    const elements = [
+        { selector: ".bilibili-player-container", start: "top 65%", end: "top 65%" },
+        { selector: "#openmcp-为谁准备", trigger: '#openmcp-为谁准备', start: "top 65%", end: "top 65%" },
+        { selector: ".k-tabs", trigger: '#openmcp-为谁准备', start: "top 65%", end: "top 65%" },
+        { selector: "#问题解答-faq", trigger: '#问题解答-faq', start: "top 65%", end: "top 65%" },
+        { selector: ".el-collapse", trigger: '#问题解答-faq', start: "top 65%", end: "top 65%" },
+    ];
+
+    elements.forEach(element => {
+        gsap.fromTo(element.selector, 
+            {
+                opacity: 0,
+                y: 100,
+                duration: 1.2,
+                ease: "power2.out",
+            },
+            { 
+                opacity: 1,
+                y: 0,
+                duration: 1.2, // 延长动画时间
+                ease: "power2.out", // 添加缓动效果
+                scrollTrigger: {
+                    trigger: element.trigger || element.selector,
+                    start: "top 70%",
+                    end: "top 70%",
+                    scrub: false,
+                    toggleActions: "play none reverse none",
+                }
+            }
+        );
+    });
+}
+
 onMounted(() => {
     setupMediumZoom();
+
+    makeHomeAnimation();
 });
 </script>
 
@@ -80,6 +151,13 @@ onMounted(() => {
 /* 添加全局过渡效果 */
 :root {
     transition: background-color 0.15s ease, color 0.3s ease;
+}
+
+
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0px;
 }
 
 .medium-zoom-overlay {
@@ -109,5 +187,4 @@ onMounted(() => {
     transform: translateY(100px);
     opacity: 0;
 }
-
 </style>
