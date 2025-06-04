@@ -1,23 +1,21 @@
 <template>
     <DefaultTheme.Layout id="k-layout">
     </DefaultTheme.Layout>
-    <ScrollBar />
-
+    <ClientOnly>
+        <ScrollBar v-if="mounted" />
+    </ClientOnly>
 </template>
 
 <script setup lang="ts">
 import { useData, useRouter } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
-import { nextTick, onMounted, provide } from 'vue';
+import { nextTick, onMounted, provide, ref } from 'vue';
 import mediumZoom from "medium-zoom";
 import { animateIn, animateOut } from './hook/animate';
 import ScrollBar from './components/scrollbar/index.vue';
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// 注册插件
-gsap.registerPlugin(ScrollTrigger);
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const data = useData()
 const router = useRouter()
@@ -26,7 +24,7 @@ const enableTransitions = () =>
     window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
 
 const isDark = data.isDark;
-
+const mounted = ref(false);
 
 const setupMediumZoom = () => {
     mediumZoom("[data-zoomable]", {
@@ -141,8 +139,9 @@ function makeHomeAnimation() {
 }
 
 onMounted(() => {
+    mounted.value = true;
     setupMediumZoom();
-
+    gsap.registerPlugin(ScrollTrigger);
     makeHomeAnimation();
 });
 </script>
