@@ -6,9 +6,6 @@ hero:
   name: "OpenMCP"
   text: "面向优雅开发者的 MCP 调试器和 SDK"
   tagline: 缩短从大语言模型到智能体的最后一公里
-  image:
-    src: /images/openmcp.png
-    alt: VitePress
 
   actions:
     - theme: brand
@@ -28,7 +25,7 @@ features:
     title: 集成调试环境
     details: 将检查器与 MCP 客户端功能相结合，实现无缝开发和测试
   - icon:
-      src: /images/openmcp.png
+      src: /images/icons/openmcp-edge.svg
       height: 48px
       alt: 提供完整的项目级控制面板
     title: 全面的项目管理

@@ -44,9 +44,41 @@
 }
 
 .VPFeatures .item:hover .box {
+    background-color: var(--vp-c-brand-1);
+}
+
+.dark .VPButton.brand {
+    background-color: var(--vp-c-brand-3) !important;
+}
+
+.VPButton.brand {
+    background-color: var(--vp-c-brand-1) !important;
+}
+
+.dark .VPFeatures .item:hover .box {
     background-color: var(--vp-c-brand-3);
 }
 
 .VPFeatures .item:hover .box .details {
     color: var(--vp-c-white);
+}
+
+
+/* 淡入淡出动画 */
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.slide-in {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-out {
+    transform: translateY(100px);
+    opacity: 0;
 }

@@ -63,7 +63,7 @@ export default withMermaid({
     },
 
     head: [
-        ['link', { rel: 'icon', href: baseUrl + '/images/favicon.png' }]
+        ['link', { rel: 'icon', href: baseUrl + '/images/favicon.svg' }]
     ],
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
@@ -245,7 +245,11 @@ export default withMermaid({
             copyright: 'OpenMCP All rights reserved'
         },
 
+        search: {
+            provider: 'local'
+        },
+
         // 左上角的 logo
-        logo: '/images/openmcp.png',
+        logo: '/images/favicon.svg',
     }
 })
