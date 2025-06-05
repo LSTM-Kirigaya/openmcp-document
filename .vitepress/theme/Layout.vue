@@ -1,5 +1,8 @@
 <template>
     <DefaultTheme.Layout id="k-layout">
+        <template #home-hero-image>
+            <HeroImage />
+        </template>
     </DefaultTheme.Layout>
     <ClientOnly>
         <ScrollBar v-if="mounted" />
@@ -13,6 +16,8 @@ import { nextTick, onMounted, provide, ref } from 'vue';
 import mediumZoom from "medium-zoom";
 import { animateIn, animateOut } from './hook/animate';
 import ScrollBar from './components/scrollbar/index.vue';
+
+import HeroImage from './components/home/HeroImage.vue';
 
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -168,22 +173,4 @@ body::-webkit-scrollbar {
     z-index: 999;
 }
 
-/* 淡入淡出动画 */
-.fade-in {
-    opacity: 1;
-}
-
-.fade-out {
-    opacity: 0;
-}
-
-.slide-in {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.slide-out {
-    transform: translateY(100px);
-    opacity: 0;
-}
 </style>

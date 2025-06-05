@@ -3,11 +3,8 @@
 在使用 **SSE** 或 **Streamable HTTP** 进行连接时，为增强安全性可为接口设计鉴权机制，MCP 官方推荐采用 OAuth 协议。下面以获取 GitHub 用户信息为例，演示如何通过 openmcp-client 完成带 OAuth 认证的接口调试。
 
 
-## 部署服务器
 
-
-
-### 1. 获取Github OAuth认证ID和secret
+## 1. 获取Github OAuth认证ID和secret
    
 由于我们使用了Github用户信息相关API，需要先获取Github OAuth应用的Client ID和Client secret。
 
@@ -19,7 +16,7 @@
 
 注册成功后，请记录`Client ID`，然后点击`Generate a new client secret`生成一个`secret`，注意secret仅在生成的时候可见。
 
-### 2. 设置环境变量
+## 2. 设置环境变量
 
 在获取`Client ID`和`secret`之后，需要将其设置为环境变量：
 
@@ -39,9 +36,9 @@ set MCP_GITHUB_GITHUB_CLIENT_SECRET={{secret}}
 
 注意：cmd里面设置环境变量请不要加引号。
 
-### 3. 克隆源码
+## 3. 克隆源码
 
-首先，我们需要部署MCP服务器。可以参照[官方python例子](https://github.com/modelcontextprotocol/python-sdk/tree/main/examples/servers/simple-auth)进行。
+接下来，我们需要部署带有OAuth认证的MCP服务器。可以参照[官方python案例](https://github.com/modelcontextprotocol/python-sdk/tree/main/examples/servers/simple-auth)进行。
 
 需要先克隆官方python-sdk源码：
 
@@ -50,11 +47,11 @@ git clone https://github.com/modelcontextprotocol/python-sdk/ # 克隆源码
 cd examples/servers/simple-auth # 进入对应的目录
 ```
 
-### 4. 启动MCP Server
+## 4. 启动MCP Server
 
-先根据需要创建虚拟环境安装依赖，然后直接运行`python main.py`即可，注意需要先设置环境变量，不然启动会报错`2 validation errors for ServerSettings`。
+先根据需要创建虚拟环境安装依赖，然后可以使用`uv`运行或者直接运行`python main.py`即可，注意需要先设置环境变量，不然启动会报错`2 validation errors for ServerSettings`。
 
-### 5. 启动openmcp-client
+## 5. 启动openmcp-client
 
 接下来，你就可以使用openmcp-client连接刚刚启动的server了，不管是使用网页端还是VSCode均可。
 

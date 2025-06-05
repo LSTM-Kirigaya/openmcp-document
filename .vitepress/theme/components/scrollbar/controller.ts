@@ -13,7 +13,7 @@ interface ScrollbarController {
 export const scrollbarController = reactive<ScrollbarController>({
     element: undefined,
     display: true,
-    height: 200,
+    height: 0,
     width: 5,
     top: 0,
     opacity: 0,
