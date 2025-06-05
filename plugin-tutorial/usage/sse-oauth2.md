@@ -20,19 +20,24 @@
 
 在获取`Client ID`和`secret`之后，需要将其设置为环境变量：
 
-在bash里：
 
-```bash
+
+::: code-group
+```bash [bash]
 export MCP_GITHUB_GITHUB_CLIENT_ID={{Client ID}}
 export MCP_GITHUB_GITHUB_CLIENT_SECRET={{secret}}
 ```
 
-在windows cmd里：
+```bash [PowerShell]
+$env:MCP_GITHUB_CLIENT_ID = "your_id"
+$env:MCP_GITHUB_CLIENT_SECRET = "your_secret"
+```
 
-```bash
+```bash [CMD]
 set MCP_GITHUB_GITHUB_CLIENT_ID={{Client ID}}
 set MCP_GITHUB_GITHUB_CLIENT_SECRET={{secret}}
 ```
+:::
 
 注意：cmd里面设置环境变量请不要加引号。
 
