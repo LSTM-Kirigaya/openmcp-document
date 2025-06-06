@@ -48,7 +48,6 @@ features:
 <span>Providing Fun and Convenience for Your MCP Agent Development</span>
 </h2>
 
-
 <BiliPlayer
   url="//player.bilibili.com/player.html?isOutside=true&aid=114445745397200&bvid=BV1zYGozgEHcautoplay=false"
   cover="https://picx.zhimg.com/80/v2-8c1f5d99066ed272554146ed8caf7cc3_1440w.png"
