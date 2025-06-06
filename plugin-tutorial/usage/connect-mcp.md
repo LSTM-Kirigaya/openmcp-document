@@ -66,10 +66,10 @@ MCP 客户端是指能够通过 MCP 协议进行通信的大模型对话客户�
 
 ![](./images/openmcp-control-panel.png)
 
-当前工作区曾经连接过的 mcp 服务器会出现在这里，这是因为 openmcp 默认将工作区启动的 mcp 的连接信息存储在了 `.vscode/tabs.{server-name}.json` 中，其中 `{server-name}` 就是 mcp 服务器连接成功的服务器名称。
+当前工作区曾经连接过的 mcp 服务器会出现在这里，这是因为 openmcp 默认将工作区启动的 mcp 的连接信息存储在了 `.openmcp/tabs.{server-name}.json` 中，其中 `{server-name}` 就是 mcp 服务器连接成功的服务器名称。
 
 :::warning
-注意，同一个项目中，你不应该有两个名字完全相同的 mcp 服务器，这会导致 `.vscode/tabs.{server-name}.json` 连接信息存储冲突，发生未知错误。
+注意，同一个项目中，你不应该有两个名字完全相同的 mcp 服务器，这会导致 `.openmcp/tabs.{server-name}.json` 连接信息存储冲突，发生未知错误。
 :::
 
 如果你想要在任意工作区都能使用同一个 mcp 服务器，可以考虑在「安装的 MCP 服务器」中添加成熟耐用的 mcp 服务器，这个位置添加的 mcp 服务器全局可用。

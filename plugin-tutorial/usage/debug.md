@@ -11,10 +11,10 @@ openmcp 具备自动保存测试结果的功能。如下的行为会触发 openm
 - 创建标签页，并选择一个有效的调试项目
 - 在调试页进行调试行为（选择工具，执行工具，询问大模型等）
 
-当前 mcp 项目的测试数据会被保存在 `.vscode/tabs.{server-name}.json` 中，其中 `{server-name}` 就是 mcp 服务器连接成功的服务器名称。
+当前 mcp 项目的测试数据会被保存在 `.openmcp/tabs.{server-name}.json` 中，其中 `{server-name}` 就是 mcp 服务器连接成功的服务器名称。
 
 :::warning
-注意，同一个项目中，你不应该有两个名字完全相同的 mcp 服务器，这会导致 `.vscode/tabs.{server-name}.json` 连接信息存储冲突，发生未知错误。
+注意，同一个项目中，你不应该有两个名字完全相同的 mcp 服务器，这会导致 `.openmcp/tabs.{server-name}.json` 连接信息存储冲突，发生未知错误。
 :::
 
 ## 快速调试

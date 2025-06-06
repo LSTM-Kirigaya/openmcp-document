@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // 要排除的文件夹
-const excludedDirs = ['node_modules', '.vitepress', '.vscode', 'scripts'];
+const excludedDirs = ['node_modules', '.vitepress', '.openmcp', 'scripts'];
 
 // 递归搜索图片文件夹
 function findImageDirs(rootDir, currentDir = '', results = []) {
