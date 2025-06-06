@@ -111,11 +111,12 @@ function makeHomeAnimation() {
 
 
     const elements = [
-        { selector: ".bilibili-player-container", start: "top 65%", end: "top 65%" },
-        { selector: "#openmcp-为谁准备", trigger: '#openmcp-为谁准备', start: "top 65%", end: "top 65%" },
-        { selector: ".k-tabs", trigger: '#openmcp-为谁准备', start: "top 65%", end: "top 65%" },
-        { selector: "#问题解答-faq", trigger: '#问题解答-faq', start: "top 65%", end: "top 65%" },
-        { selector: ".el-collapse", trigger: '#问题解答-faq', start: "top 65%", end: "top 65%" },
+        { selector: "#home-0", trigger: '#home-0', start: "top 65%", end: "top 65%" },
+        { selector: ".bilibili-player-container", trigger: '#home-0', start: "top 65%", end: "top 65%" },
+        { selector: "#home-1", trigger: '#home-1', start: "top 65%", end: "top 65%" },
+        { selector: ".k-tabs", trigger: '#home-1', start: "top 65%", end: "top 65%" },
+        { selector: "#home-2", trigger: '#home-2', start: "top 65%", end: "top 65%" },
+        { selector: ".el-collapse", trigger: '#home-2', start: "top 65%", end: "top 65%" },
     ];
 
     elements.forEach(element => {

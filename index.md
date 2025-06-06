@@ -40,6 +40,15 @@ features:
 
 <br><br>
 
+
+
+<h2 id="home-0">
+为您的 MCP Agent 开发排忧解难
+<br>
+<span>Provide Funs and Convenien for your mcp agent dev</span>
+</h2>
+
+
 <BiliPlayer
   url="//player.bilibili.com/player.html?isOutside=true&aid=114445745397200&bvid=BV1zYGozgEHcautoplay=false"
   cover="https://picx.zhimg.com/80/v2-8c1f5d99066ed272554146ed8caf7cc3_1440w.png"
@@ -47,7 +56,12 @@ features:
 
 <br>
 
-## OpenMCP 为谁准备？
+
+<h2 id="home-1">
+OpenMCP 为谁准备？
+<br>
+<span>The Development of OpenMCP is for ...</span>
+</h2>
 
 <br>
 
@@ -88,8 +102,11 @@ features:
 
 <br>
 
-
-## 问题解答 FAQ
+<h2 id="home-2">
+问题解答 
+<br>
+<span>Waiting for Your Questions</span>
+</h2>
 
 <el-collapse>
   <el-collapse-item title="OpenMCP 适合做什么？" name="1">

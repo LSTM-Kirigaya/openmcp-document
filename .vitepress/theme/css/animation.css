@@ -59,6 +59,7 @@
     background-color: var(--vp-c-brand-3);
 }
 
+.VPFeatures .item:hover .box .title,
 .VPFeatures .item:hover .box .details {
     color: var(--vp-c-white);
 }

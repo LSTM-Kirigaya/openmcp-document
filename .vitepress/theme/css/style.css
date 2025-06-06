@@ -266,7 +266,52 @@ iframe {
     color: white;
 }
 
-.VPHero .name.clip {
-    color: var(--vp-c-brand-2) !important;
-    background-color: var(--vp-c-brand-2) !important;
+.VPHero .heading .name.clip {
+    background: var(--vp-home-hero-name-background);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: var(--vp-home-hero-name-color);
+}
+
+.VPHero .heading .text {
+}
+
+.VPHero .tagline {
+}
+
+.VPHero .actions {
+}
+
+
+#home-0 {
+    font-size: 40px;
+    line-height: 1.1;
+}
+
+#home-0 > span {
+    font-size: 20px;
+    opacity: 0.5;
+    line-height: 0.8;
+}
+
+#home-1 {
+    font-size: 40px;
+    line-height: 1.1;
+}
+
+#home-1 > span {
+    font-size: 20px;
+    opacity: 0.5;
+    line-height: 0.8;
+}
+
+#home-2 {
+    font-size: 40px;
+    line-height: 1.1;
+}
+
+#home-2 > span {
+    font-size: 20px;
+    opacity: 0.5;
+    line-height: 0.8;
 }

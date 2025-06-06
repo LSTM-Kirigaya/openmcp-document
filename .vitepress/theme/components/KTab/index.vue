@@ -1,9 +1,11 @@
 <template>
-    <div class="k-tabs" :style="panelStyle">
+    <div class="k-tabs">
         <div class="k-tabs-tags">
             <div class="k-tabs-tag-item" v-for="pane of tabsContainer.paneInfos" :key="pane.id"
-                :ref="el => tabsContainer.getPanes(el, pane.id)" @click="tabsContainer.switchLabel(pane.id)"
-                :class="{ 'active-tab': tabsContainer.lastPaneId === pane.id }">
+                :ref="el => tabsContainer.getPanes(el, pane.id)" @click="tabsContainer.switchLabel(pane.id)" :class="{
+                    'active-tab': tabsContainer.lastPaneId === pane.id,
+                    'prev-tab': pane.id === prevActiveIndex
+                }">
                 <span :class="pane.labelClass"></span>
                 <span>{{ pane.label }}</span>
             </div>
@@ -15,7 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, useSlots, provide, nextTick, computed, onMounted } from 'vue';
+import { reactive, useSlots, nextTick, onMounted, ref } from 'vue';
+import gsap from 'gsap';
 
 type PaneInfo = {
     id: number;
@@ -23,116 +26,96 @@ type PaneInfo = {
     labelClass: string;
 };
 
-interface TabsContainer {
-    paneInfos: PaneInfo[];
-    panes: HTMLElement[];
-    lastPaneId?: number;
-    activeLabel: string;
-    panelContainer?: any;
-    height: string;
-    getPanes: (el: any, id: string | number) => void;
-    switchLabel: (id: number) => void;
-    updateLabels: () => void;
-}
-
 const slots = useSlots();
-let maxChildHeight = 0;
+const prevActiveIndex = ref<number | null>(null);
 
-function resizeTab(id: number) {
-    const container = tabsContainer.panelContainer;
-    if (container) {
-        const panels = Array.from(container.children) as HTMLElement[];
-
-        const currentPanel = panels[id];
-        if (currentPanel) {
-            maxChildHeight = Math.max(maxChildHeight, currentPanel.clientHeight);
-            tabsContainer.height = maxChildHeight + 'px';
-        }
-    }
-}
-
-const panelStyle = computed(() => ({
-    height: tabsContainer.height
-}));
-
-const tabsContainer: TabsContainer = reactive({
-    paneInfos: [],
-    panes: [],
+const tabsContainer = reactive({
+    paneInfos: [] as PaneInfo[],
+    panes: [] as HTMLElement[],
     lastPaneId: 0,
-    activeLabel: '',
-    hoverBar: null,
-    panelContainer: undefined,
-    height: '0',
-    getPanes(el: HTMLElement | null, id: string | number) {
-        if (el) {
-            this.panes[id] = el;
-        }
+    panelContainer: undefined as HTMLElement | undefined,
+
+    getPanes(el: HTMLElement | null, id: number) {
+        if (el) this.panes[id] = el;
     },
-    switchLabel(id: number) {
-        if (this.lastPaneId === id) {
-            return;
-        }
+
+    async switchLabel(id: number) {
+        if (this.lastPaneId === id) return;
+
+        const oldId = this.lastPaneId;
+        prevActiveIndex.value = oldId;
         this.lastPaneId = id;
-        this.activeLabel = this.paneInfos[id]?.label || '';
 
-        const container = tabsContainer.panelContainer;
+        const container = this.panelContainer;
+        if (!container) return;
+
         const panels = Array.from(container.children) as HTMLElement[];
+        const oldPanel = panels[oldId];
+        const newPanel = panels[id];
 
-        // 进行动画切换
+        // 1. First shrink the old panel to 0.3 scale
+        if (oldPanel) {
+            await gsap.to(oldPanel, {
+                scale: 0.3,
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.in"
+            });
+        }
+
+        // 2. Hide all other panels
         panels.forEach((panel, index) => {
-            console.log('index', index);
-            console.log('id', id);
-
-            panel.style.transition = 'opacity 0.3s ease';
-            if (index === id) {
-                panel.style.display = 'block';
-                setTimeout(() => {
-                    panel.style.opacity = '1';
-                }, 150);
-            } else {
-                panel.style.opacity = '0';
-                setTimeout(() => {
-                    panel.style.display = 'none';
-                }, 300);
+            if (index !== id) {
+                gsap.set(panel, {
+                    display: 'none',
+                    opacity: 0,
+                    scale: 1
+                });
             }
         });
 
+        // 3. Show and animate in the new panel
+        gsap.set(newPanel, {
+            display: 'block',
+            opacity: 0,
+            scale: 1.2
+        });
 
-        nextTick(() => {
-            resizeTab(id);
+        gsap.to(newPanel, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.4,
+            ease: "back.out(1.2)"
         });
     },
-    updateLabels() {
-        const defaultChildren = slots.default?.() || [];
 
-        this.paneInfos = [];
-        for (const index in defaultChildren) {
-            const vnode = defaultChildren[index];
-            this.paneInfos.push({
-                id: Number(index),
-                label: vnode.props?.label || '',
-                labelClass: vnode.props?.labelClass || '',
-            });
-        }
-        if (this.paneInfos.length > 0) {
-            this.activeLabel = this.paneInfos[0]?.label || '';
-            nextTick(() => {
-                resizeTab(0);
-            });
-        }
+    updateLabels() {
+        this.paneInfos = (slots.default?.() || []).map((vnode, index) => ({
+            id: index,
+            label: vnode.props?.label || '',
+            labelClass: vnode.props?.labelClass || '',
+        }));
     }
 });
 
+// Initialize
 tabsContainer.updateLabels();
+
 onMounted(() => {
     if (tabsContainer.panelContainer) {
         const panels = Array.from(tabsContainer.panelContainer.children) as HTMLElement[];
         panels.forEach((panel, index) => {
             panel.style.position = 'absolute';
-            
-            if (index != tabsContainer.lastPaneId) {
+            panel.style.width = '100%';
+
+            if (index !== 0) {
                 panel.style.display = 'none';
-                panel.style.opacity = '0';
+            } else {
+                gsap.from(panel, {
+                    scale: 1.2,
+                    opacity: 0,
+                    duration: 0.5
+                });
             }
         });
     }
@@ -142,58 +125,43 @@ onMounted(() => {
 <style scoped>
 .k-tabs {
     position: relative;
-    height: fit-content;
 }
 
 .k-tabs-tags {
     display: flex;
     margin-bottom: 20px;
-    width: 100%;
     position: relative;
+    z-index: 10;
+    gap: 8px;
 }
 
-.k-tabs-tag-item { 
+.k-tabs-tag-item {
     background-color: var(--vp-button-alt-bg);
     border-radius: .5em;
-    margin-right: 10px;
-    padding: 2px 8px;
-    font-size: 0.8rem;
-    display: inline-block;
-    text-decoration: none;
+    padding: 6px 16px;
     cursor: pointer;
-    white-space: nowrap;
-    user-select: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    will-change: transform;
 }
 
-@media (min-width: 768px) {
-    .k-tabs-tag-item { 
-        padding: 6px 16px;
-        font-size: 1rem;
-    }
-}
-
-.k-tabs-tag-item:hover { 
-    background-color: var(--vp-c-brand-2);
-}
-
-.k-tabs-tag-item.active-tab { 
+.k-tabs-tag-item.active-tab {
     background-color: var(--vp-c-brand-3);
+    transform: scale(1.05);
 }
 
-@media screen and (max-width: 414px) {
-    .k-tabs-tags {
-    }
-}
-
-.hover-bar {
-    background-color: var(--vp-c-brand-3);
-    border-radius: .9em .9em 0 0;
-    transition: .35s ease-in-out;
-    position: absolute;
+.k-tabs-content {
+    position: relative;
+    min-height: 200px;
 }
 
 .k-tabs-content>* {
-    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-origin: center center;
 }
 </style>

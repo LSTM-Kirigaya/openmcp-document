@@ -1,6 +1,7 @@
 <template>
     <div style="height: fit-content; width: fit-content; position: relative;" ref="container">
-        <svg class="VPImage image-src" viewBox="0 0 612 612" fill="none" xmlns="http://www.w3.org/2000/svg" ref="svgElement">
+        <svg class="VPImage image-src" viewBox="0 0 612 612" fill="none" xmlns="http://www.w3.org/2000/svg"
+            ref="svgElement">
             <defs>
                 <linearGradient id="gradient_1" gradientUnits="userSpaceOnUse" x1="300" y1="0" x2="300" y2="600">
                     <stop offset="0" stop-color="#A1A7F6" />
@@ -58,6 +59,11 @@
                     <feBlend mode="normal" in2="BackgroundImageFix_1" result="Shadow_2" />
                     <feBlend mode="normal" in="SourceGraphic" in2="Shadow_2" result="Shape_3" />
                 </filter>
+                <!-- 新增描边渐变色定义 -->
+                <linearGradient id="strokeGradient" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#A48BF7" />
+                    <stop offset="80%" stop-color="#F7F6FD" />
+                </linearGradient>
             </defs>
             <g transform="translate(6 2)">
                 <g>
@@ -87,102 +93,203 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 
-const container = ref(null)
-const svgElement = ref(null)
+const container = ref < any > (null);
+const svgElement = ref < any > (null);
+
 
 onMounted(() => {
-    const paths = svgElement.value.querySelectorAll('path')
-    
-    // 设置初始状态
+    const paths = svgElement.value.querySelectorAll('path');
+    // 标题文字
+    const nameClip = document.querySelector('.VPHero .heading .name.clip');
+    const headingText = document.querySelector('.VPHero .heading .text');
+    const tagline = document.querySelector('.VPHero .tagline');
+    const actions = document.querySelector('.VPHero .actions');
+
+    // 设置首页各个元素的初始状态
+    gsap.set(nameClip, {
+        transform: 'translate(50px, 80px)',
+        scale: 1.8,
+    });
+
+    gsap.set([headingText, tagline, actions], {
+        opacity: 0,
+        y: 20
+    });
+
     gsap.set(paths, {
-        strokeDasharray: (i, target) => {
+        strokeDasharray: (_, target) => {
             const length = target.getTotalLength()
             target.style.strokeDasharray = length
             return length
         },
-        strokeDashoffset: (i, target) => target.getTotalLength(),
-        stroke: 'var(--vp-c-brand-2)',
-        strokeWidth: 3,
+        strokeDashoffset: (_, target) => target.getTotalLength(),
+        stroke: 'url(#strokeGradient)', // 使用渐变色描边
+        strokeWidth: 3.5,
         fillOpacity: 0
     })
 
+    // 为每个圆形元素创建不同的微扰动画
+    const wiggleElements = [
+        {
+            el: svgElement.value.querySelector('[transform="translate(293 324)"]'),
+            x: "+=12", y: "+=5", rotation: "+=2"
+        },
+        {
+            el: svgElement.value.querySelector('[transform="translate(48 269)"]'),
+            x: "-=5", y: "-=10", rotation: "-=1"
+        },
+        {
+            el: svgElement.value.querySelector('[transform="translate(188 56)"]'),
+            x: "-=4", y: "+=5", rotation: "+=3"
+        },
+        {
+            el: svgElement.value.querySelector('[transform="translate(388 129)"]'),
+            x: "+=9", y: "+=4", rotation: "-=2"
+        }
+    ];
+
     // 创建主时间线
-    const master = gsap.timeline()
-    
+    const master = gsap.timeline();
+
     // 描边动画时间线
     const drawTimeline = gsap.timeline({
         defaults: { duration: 1.5, ease: "power2.inOut" }
-    })
-    
-    // 为所有路径添加描边动画
-    paths.forEach(path => {
+    });
+
+    // OpenMCP 标题入场动画
+    if (!nameClip || !headingText || !tagline || !actions) {
+        console.error("One or more required elements are missing.");
+        return;
+    }
+
+    drawTimeline.to(nameClip, {
+        transform: 'translate(50px, 80px)',
+    }, "<+=0.3");
+
+    // 右侧 OpenMCP 图标描边动画
+    paths.forEach((path: gsap.TweenTarget) => {
         drawTimeline.to(path, {
             strokeDashoffset: 0,
-        }, "<+=0.3")
-    })
-    
+        }, "<+=0.3");
+    });
+
     // 反向描边消失动画时间线
     const reverseTimeline = gsap.timeline({
         defaults: { duration: 1.5, ease: "power2.inOut" }
-    })
-    
+    });
+
     // 为所有路径添加反向描边动画
     paths.forEach(path => {
         reverseTimeline.to(path, {
             fillOpacity: 1,
             strokeDashoffset: (i, target) => target.getTotalLength()
         }, "<")
-    })
-    
+    });
+
     // 微扰动画时间线
     const wiggleTimeline = gsap.timeline({
         repeat: -1,
         yoyo: true,
-        defaults: { 
+        defaults: {
             duration: 2,
             ease: "sine.inOut"
         }
-    })
-    
-    // 为每个圆形元素创建不同的微扰动画
-    const wiggleElements = [
-        { 
-            el: svgElement.value.querySelector('[transform="translate(293 324)"]'),
-            x: "+=12", y: "+=5", rotation: "+=2"
-        },
-        { 
-            el: svgElement.value.querySelector('[transform="translate(48 269)"]'),
-            x: "-=5", y: "-=10", rotation: "-=1"
-        },
-        { 
-            el: svgElement.value.querySelector('[transform="translate(188 56)"]'),
-            x: "-=4", y: "+=5", rotation: "+=3"
-        },
-        { 
-            el: svgElement.value.querySelector('[transform="translate(388 129)"]'),
-            x: "+=9", y: "+=4", rotation: "-=2"
-        }
-    ]
-    
+    });
+
     // 为每个元素添加独特的微扰动画
     wiggleElements.forEach(item => {
         wiggleTimeline.to(item.el, {
             x: item.x,
             y: item.y,
             rotation: item.rotation,
-            scale: item.scale,
             transformOrigin: "center center"
         }, "<")
-    })
-    
-    // 控制动画顺序
+    });
+
+    // 创建主时间线
+    const heroTimeline = gsap.timeline({
+        defaults: {
+            duration: 0.8,
+            ease: "power3.out"
+        }
+    });
+
+    // 添加动画序列
+    heroTimeline
+        .to(nameClip, {
+            transform: 'translate(0, 0)',
+            scale: 1,
+            duration: 1.2,
+            ease: "back.out(1.7)"
+        })
+        .to([headingText, tagline, actions], {
+            opacity: 1,
+            y: 0,
+            stagger: 0.15,
+            duration: 0.6
+        }, "-=0.4"); // 与上一个动画重叠0.4秒
+
+
+    // 下方三个 feature 的动画
+    const boxTimeline = gsap.timeline({
+        defaults: {
+            duration: 0.8,
+            ease: "power3.out"
+        }
+    });
+
+    // 获取所有box元素
+    const boxes = document.querySelectorAll('.VPFeatures .item.grid-3');
+
+    // 设置初始状态
+    gsap.set(boxes, {
+        opacity: 0,
+        y: 30,
+        scale: 0.9
+    });
+
+    // 添加动画到时间线
+    boxTimeline.to(boxes, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: 0.15,
+        onComplete: () => {
+            gsap.set(boxes, { clearProps: "all" });
+        }
+    });
+
+    // 优化heroTimeline动画效果
+    heroTimeline
+        .to(nameClip, {
+            transform: 'translate(0, 0)',
+            scale: 1,
+            duration: 1.0,              // 缩短持续时间
+            ease: "elastic.out(1, 0.5)"  // 改用弹性效果
+        })
+        .to([headingText, tagline], {
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,               // 增加错开时间
+            duration: 0.8,
+            ease: "back.out(1.5)"       // 添加弹跳效果
+        }, "-=0.3")
+        .to(actions, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out"          // 更平滑的缓动
+        }, "-=0.2");
+
     master.add(drawTimeline)
-          .add(reverseTimeline, "+=0.5")
-          .add(wiggleTimeline) // 所有动画完成后开始微扰动画
+        .add(reverseTimeline, "+=0.3")  // 缩短间隔时间
+        .add(heroTimeline, "-=0.3")
+        .add(boxTimeline, "<+=1.3")
+        .add(wiggleTimeline, "<+=0.2");
 })
 </script>
 
