@@ -2,7 +2,7 @@
 
 如果需要使用「交互测试」来在和大模型的交互中测试 MCP 工具的性能，你需要首先需要在 OpenMCP 配置大模型。
 
-:::warning
+:::warning 协议兼容性警告
 目前 OpenMCP 只支持符合 OpenAI 接口规范的 大模型服务，其他大模型的调用需要请通过 [newApi](https://github.com/QuantumNous/new-api) 进行转发或者自行实现。
 
 目前市面上主流的如下模型我们都是支持的，如果遇到大模型连接的问题，请随时 [[channel|联系我们]]。

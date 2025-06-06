@@ -67,7 +67,7 @@
                   "url"
                 ]
               },
-              "enabled": false
+              "enabled": true
             },
             {
               "name": "k_screenshot",
@@ -96,7 +96,7 @@
                   "name"
                 ]
               },
-              "enabled": false
+              "enabled": true
             },
             {
               "name": "k_click",
@@ -113,7 +113,7 @@
                   "selector"
                 ]
               },
-              "enabled": false
+              "enabled": true
             },
             {
               "name": "k_fill",
@@ -135,7 +135,7 @@
                   "value"
                 ]
               },
-              "enabled": false
+              "enabled": true
             },
             {
               "name": "k_select",
@@ -157,7 +157,7 @@
                   "value"
                 ]
               },
-              "enabled": false
+              "enabled": true
             },
             {
               "name": "k_hover",
@@ -174,7 +174,7 @@
                   "selector"
                 ]
               },
-              "enabled": false
+              "enabled": true
             },
             {
               "name": "k_evaluate",
@@ -191,7 +191,7 @@
                   "script"
                 ]
               },
-              "enabled": false
+              "enabled": true
             },
             {
               "name": "k_get_full_page_text",
@@ -200,13 +200,13 @@
                 "type": "object",
                 "properties": {}
               },
-              "enabled": false
+              "enabled": true
             }
           ],
           "enableWebSearch": false,
           "temperature": 0.6,
           "contextLength": 20,
-          "systemPrompt": "",
+          "systemPrompt": "猫娘",
           "parallelToolCalls": true
         }
       }
