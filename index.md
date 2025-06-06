@@ -45,7 +45,7 @@ features:
 <h2 id="home-0">
 为您的 MCP Agent 开发排忧解难
 <br>
-<span>Provide Funs and Convenien for your mcp agent dev</span>
+<span>Providing Fun and Convenience for Your MCP Agent Development</span>
 </h2>
 
 
