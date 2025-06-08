@@ -1,5 +1,7 @@
 # go 实现 neo4j 的只读 mcp 服务器 (SSE)
 
+[本期教程视频](https://www.bilibili.com/video/BV1g8TozyEE7/)
+
 ##  前言
 
 本篇教程，演示一下如何使用 go 语言写一个可以访问 neo4j 数据库的 mcp 服务器。实现完成后，我们不需要写任何 查询代码 就能通过询问大模型了解服务器近况。
@@ -150,7 +152,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 	"neo4j-go-server/util"
 )
 
@@ -222,7 +223,14 @@ func main() {
 	
     // 将真实函数和申明的 schema 绑定
 	s.AddTool(executeReadOnlyCypherQuery, func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
-		cypher := request.Params.Arguments["cypher"].(string)
+		args, ok := request.Params.Arguments.(map[string]interface{})
+		if !ok {
+			return mcp.NewToolResultText(""), fmt.Errorf("invalid arguments type")
+		}
+		cypher, ok := args["cypher"].(string)
+		if !ok {
+			return mcp.NewToolResultText(""), fmt.Errorf("cypher argument is not a string")
+		}
 		result, err := util.ExecuteReadOnlyCypherQuery(cypher)
 
 		fmt.Println(result)
@@ -438,7 +446,14 @@ func GetNodeFields(nodeType string) ([]string, error) {
 	})
 
 	s.AddTool(getNodeField, func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
-		nodeLabel := request.Params.Arguments["nodeLabel"].(string)
+		args, ok := request.Params.Arguments.(map[string]interface{})
+		if !ok {
+			return mcp.NewToolResultText(""), fmt.Errorf("invalid arguments type")
+		}
+		nodeLabel, ok := args["nodeLabel"].(string)
+		if !ok {
+			return mcp.NewToolResultText(""), fmt.Errorf("nodeLabel argument is not a string")
+		}
 		result, err := util.GetNodeFields(nodeLabel)
 		
 		fmt.Println(result)

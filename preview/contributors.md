@@ -34,7 +34,7 @@ const contributors = [
       { icon: 'github', link: 'https://github.com/appli456' },
     ]
   },
-    {
+  {
     avatar: 'https://avatars.githubusercontent.com/u/115577936?v=4',
     name: 'AmeSoraQwQ (AmeZora)',
     title: 'Creator & Operation',
@@ -43,6 +43,30 @@ const contributors = [
       { icon: 'github', link: 'https://github.com/ArcStellar2025' },
     ]
   },
+  {
+    avatar: 'https://avatars.githubusercontent.com/u/129645384?v=4',
+    name: 'SFXJX (社奉行佳婿)',
+    title: 'Developer',
+    links: [
+      { icon: 'github', link: 'https://github.com/STUzhy' },
+    ]
+  },
+  {
+    avatar: 'https://avatars.githubusercontent.com/u/37235140?v=4',
+    name: 'hao (cybermanhao)',
+    title: 'Developer',
+    links: [
+      { icon: 'github', link: 'https://github.com/cybermanhao' },
+    ]
+  },
+  {
+    avatar: 'https://avatars.githubusercontent.com/u/213030338?v=4',
+    name: 'reliedejuedouzhe2',
+    title: 'Developer',
+    links: [
+      { icon: 'github', link: 'https://github.com/reliedejuedouzhe2' },
+    ]
+  }
 ]
 </script>
 
