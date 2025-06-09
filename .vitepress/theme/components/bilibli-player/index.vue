@@ -99,11 +99,28 @@ onMounted(() => {
     min-height: 225px;
     width: 52.36vw;
     height: 28.26vw;
+    border: 2px solid var(--vp-c-brand-3);
+    border-radius: 8px;
     aspect-ratio: 16/9;
     border-radius: .5em;
     overflow: hidden;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 2700px) {
+    .bilibili-player-container {
+        width: 88%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .bilibili-player-container {
+        width: 95%;
+        height: 100%;
+    }
 }
 
 .bilibili-player-container:hover {

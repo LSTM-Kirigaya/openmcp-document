@@ -46,10 +46,9 @@ features:
 <span>MCPエージェント開発に楽しさと利便性をもたらす</span>
 </h2>
 
-<BiliPlayer
-  url="//player.bilibili.com/player.html?isOutside=true&aid=114445745397200&bvid=BV1zYGozgEHcautoplay=false"
-  cover="https://picx.zhimg.com/80/v2-8c1f5d99066ed272554146ed8caf7cc3_1440w.png"
-/>
+<div class="bilibili-player-container" style="display:flex; width: 100%; justify-content: center;">
+<iframe width="90%" height="580" src="https://www.youtube.com/embed/S7igsEhcLiw?si=6sqvbYJxSRoFS26g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 <br>
 

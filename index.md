@@ -49,8 +49,8 @@ features:
 </h2>
 
 <BiliPlayer
-  url="//player.bilibili.com/player.html?isOutside=true&aid=114445745397200&bvid=BV1zYGozgEHcautoplay=false"
-  cover="https://picx.zhimg.com/80/v2-8c1f5d99066ed272554146ed8caf7cc3_1440w.png"
+  url="//player.bilibili.com/player.html?isOutside=true&aid=114654638511901&bvid=BV1MFTBzpEtZ&cid=30412178228&p=1"
+  cover="https://picx.zhimg.com/80/v2-ed6a7eb80dfeb2f188f11d89ca6c4b5a_1440w.png"
 />
 
 <br>
