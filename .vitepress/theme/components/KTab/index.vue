@@ -33,9 +33,9 @@ const tabsContainer = reactive({
     paneInfos: [] as PaneInfo[],
     panes: [] as HTMLElement[],
     lastPaneId: 0,
-    panelContainer: undefined as HTMLElement | undefined,
+    panelContainer: undefined as any,
 
-    getPanes(el: HTMLElement | null, id: number) {
+    getPanes(el: any, id: number) {
         if (el) this.panes[id] = el;
     },
 
@@ -150,9 +150,19 @@ onMounted(() => {
     transform: scale(1.05);
 }
 
-.k-tabs-content {
+html[lang="zh"] .k-tabs-content {
     position: relative;
-    min-height: 200px;
+    min-height: 500px;
+}
+
+html[lang="en"] .k-tabs-content {
+    position: relative;
+    min-height: 600px;
+}
+
+html[lang="ja"] .k-tabs-content {
+    position: relative;
+    min-height: 600px;
 }
 
 .k-tabs-content>* {

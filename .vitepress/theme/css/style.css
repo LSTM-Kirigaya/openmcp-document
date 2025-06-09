@@ -272,7 +272,7 @@ iframe {
     background-clip: text;
     -webkit-text-fill-color: var(--vp-home-hero-name-color);
 }
-
+/* 
 .VPHero .heading .text {
 }
 
@@ -281,7 +281,7 @@ iframe {
 
 .VPHero .actions {
 }
-
+ */
 
 #home-0 {
     font-size: 40px;

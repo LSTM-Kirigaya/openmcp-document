@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { useData, useRouter } from 'vitepress';
+import { useData, useRouter, inBrowser } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import { nextTick, onMounted, provide, ref } from 'vue';
 import mediumZoom from "medium-zoom";
@@ -21,12 +21,20 @@ import HeroImage from './components/home/HeroImage.vue';
 
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { watchEffect } from 'vue';
 
-const data = useData()
-const router = useRouter()
+const data = useData();
+const router = useRouter();
 const enableTransitions = () =>
     'startViewTransition' in document &&
     window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+
+// 用户浏览器保存 cookies 
+watchEffect(() => {
+    if (inBrowser) {
+        document.cookie = `nf_lang=${data.lang.value}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/`;
+    }
+})
 
 const isDark = data.isDark;
 const mounted = ref(false);
@@ -120,14 +128,14 @@ function makeHomeAnimation() {
     ];
 
     elements.forEach(element => {
-        gsap.fromTo(element.selector, 
+        gsap.fromTo(element.selector,
             {
                 opacity: 0,
                 y: 100,
                 duration: 1.2,
                 ease: "power2.out",
             },
-            { 
+            {
                 opacity: 1,
                 y: 0,
                 duration: 1.2, // 延长动画时间
@@ -173,5 +181,4 @@ body::-webkit-scrollbar {
 .medium-zoom-image--opened {
     z-index: 999;
 }
-
 </style>
