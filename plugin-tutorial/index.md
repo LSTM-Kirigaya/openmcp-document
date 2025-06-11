@@ -1,43 +1,41 @@
 ---
 next:
-  text: 什么是 MCP？
+  text: What is MCP?
   link: '/plugin-tutorial/what-is-mcp'
 ---
 
-# OpenMCP 概述
+# OpenMCP Overview
 
 :::warning
-在正式开始 OpenMCP 的学习之前，我们强烈推荐您先了解一下 MCP 的基本概念：[Agent 时代基础设施 | MCP 协议介绍](https://kirigaya.cn/blog/article?seq=299)
+Before starting with OpenMCP, we strongly recommend understanding the basic concepts of MCP: [Agent Era Infrastructure | MCP Protocol Introduction](https://kirigaya.cn/blog/article?seq=299)
 :::
 
-## 什么是 OpenMCP
+## What is OpenMCP
 
-OpenMCP 是一个面向开发者的 MCP 调试器和 SDK，致力于降低 AI Agent 的全链路开发成本和开发人员的心智负担。
+OpenMCP is a developer-oriented MCP debugger and SDK, dedicated to reducing the full-chain development costs of AI Agents and developers' cognitive load.
 
 ![](./images/openmcp.png)
 
-OpenMCP 分为两个部分，但是本板块讲解的是 OpenMCP 调试器的部分的使用，这部分也被我们称为 OpenMCP Client。OpenMCP Client 的本体是一个可在类 vscode 编辑器上运行的插件。它兼容了目前 MCP 协议的全部特性，且提供了丰富的利于开发者使用的功能，可以作为 Claude Inspector 的上位进行使用。
+OpenMCP consists of two parts, but this section focuses on using the OpenMCP debugger portion, which we call OpenMCP Client. The OpenMCP Client is a plugin that runs on vscode-like editors. It's compatible with all current MCP protocol features and provides rich developer-friendly functionality, serving as an enhanced replacement for Claude Inspector.
 
-:::info 类 vscode 编辑器 (VLE)
-类 vscode 编辑器 (vscode-like editor，简称 VLE) 是指基于 Vscodium 内核开发的通用型代码编辑器，它们都能够兼容的大部分的vscode插件生态，并且具有类似 vscode 的功能（比如支持 LSP3.7 协议、拥有 remote ssh 进行远程开发的能力、拥有跨编辑器的配置文件）。
+:::info Vscode-like Editors (VLE)
+Vscode-like editors (VLE) refer to general-purpose code editors developed based on the Vscodium core. They can mostly support the vscode plugin ecosystem and have similar functionality to vscode (such as supporting LSP3.7 protocol, remote SSH for development, and cross-editor configuration files).
 
-比较典型的 VLE 有：vscode, trae, cursor 和 vscodium 各类发行版本。
+Typical VLEs include: vscode, trae, cursor, and various Vscodium distributions.
 :::
 
-## 什么是 Claude Inspector
+## What is Claude Inspector
 
-Claude Inspector 是一款 Claude 官方（也就是 MCP 协议的提出者）发布的开源 MCP 调试器，开发者在开发完 MCP 服务器后，可以通过这款调试器来测试功能完整性。
+Claude Inspector is an open-source MCP debugger released by Claude (the proposer of the MCP protocol). Developers can use this debugger to test functionality after developing an MCP server.
 
 ![](./images/inspector.png)
 
-但是 Inspector 工具存在如下几个缺点：
+However, Inspector has several drawbacks:
 
-- 使用麻烦：使用 Inspector 每次都需要通过 mcp dev 启动一个 web 前后端应用
-- 功能少：Inspector 只提供了最为基础的 MCP 的 tool 等属性的调试。如果用户想要测试自己开发的 MCP 服务器在大模型的交互下如何，还需要连接进入 Claude Desktop 并重启客户端，对于连续调试场景，非常不方便。
-- 存在部分 bug：对于 SSE 和 streamable http 等远程连接的场景，Inspector 存在已知 bug，这对真实工业级开发造成了极大的影响。
-- 无法对调试内容进行保存和留痕：在大规模微服务 mcp 化的项目中，这非常重要。
-- 无法同时调试多个 mcp 服务器：在进行 mcp 原子化横向拓展的场景中，这是一项必要的功能。
+- Cumbersome to use: Requires starting a web application via `mcp dev` each time
+- Limited features: Only provides basic debugging of MCP tool properties. Testing MCP server interactions with large models requires connecting to Claude Desktop and restarting the client, which is inconvenient for continuous debugging scenarios.
+- Contains bugs: Known issues with SSE and streamable HTTP remote connections significantly impact real-world industrial development.
+- No debugging content saving/tracing: Critical for large-scale microservice MCP projects.
+- Cannot debug multiple MCP servers simultaneously: Essential for MCP atomic horizontal scaling scenarios.
 
-而 OpenMCP Client 被我们制作出来的一个原因就是为了解决 Inspector 上述的痛点，从而让 mcp 服务器的开发门槛更低，用户能够更加专注于业务本身。
-
-<!--  -->
+The OpenMCP Client was developed to address these Inspector pain points, lowering MCP server development barriers and allowing users to focus more on business logic.

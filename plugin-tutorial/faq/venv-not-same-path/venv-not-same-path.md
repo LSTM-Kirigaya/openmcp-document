@@ -1,29 +1,29 @@
-# 虚拟环境与入口文件不在同一目录时的配置方式
+# Configuration When Virtual Environment and Entry File Are in Different Directories
 
-## 问题描述
+## Problem Description
 
-在使用 OpenMCP 时，有时会遇到虚拟环境（venv）与 Python 文件不在同一目录的情况，甚至虚拟环境可能位于项目文件夹之外。这种情况下，点击右上角连接按钮可能会出现 MCP 连接失败（错误代码：32000）的问题。
+When using OpenMCP, you may sometimes encounter situations where the virtual environment (venv) and the Python file are not located in the same directory, or the virtual environment might even be outside the project folder. In such cases, clicking the connect button on the top right may result in an MCP connection failure (Error Code: 32000).
 
-## 解决方案
+## Solution
 
-### 1. 调整执行目录
+### 1. Adjust the Execution Directory
 
-在连接选项中，您需要调整执行目录到虚拟环境所在的位置：
+In the connection options, you need to set the execution directory to where the virtual environment is located:
 
-![MCP 连接选项界面](./image-2.png)
+![MCP Connection Options Interface](./image-2.png)
 
-### 2. 修改执行命令
+### 2. Modify the Execution Command
 
-同时，需要相应地修改执行命令：
+At the same time, adjust the execution command accordingly:
 
-![修改执行命令示例](./image.png)
+![Example of Modified Execution Command](./image.png)
 
-### 3. 直接指定解释器路径
+### 3. Directly Specify the Interpreter Path
 
-对于特定情况，您可以直接在命令中指定 Python 解释器的完整路径，例如：
+For certain cases, you can directly specify the full path of the Python interpreter in the command, for example:
 
 ```bash
 C:\code\ygo-chat\.venv\Scripts\python.exe example.py
 ```
 
-> 注意：此方法同样适用于 node或者mcp指令的【命令】以及其它mcp client的mcp配置文件。
+> Note: This method also applies to the command field for node or mcp instructions, as well as other MCP client configuration files.

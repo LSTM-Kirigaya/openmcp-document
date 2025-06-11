@@ -72,15 +72,15 @@ export default withMermaid({
 
     locales: {
         root: {
-            label: '中文',
-            lang: 'zh',
-            themeConfig: zhConfig
-        },
-        en: {
             label: 'English',
             lang: 'en',
-            link: '/en/',
             themeConfig: enConfig
+        },
+        zh: {
+            label: '简体中文',
+            lang: 'zh',
+            link: '/zh/',
+            themeConfig: zhConfig
         },
         ja: {
             label: '日本語',

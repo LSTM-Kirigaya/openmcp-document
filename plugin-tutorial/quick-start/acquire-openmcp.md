@@ -1,50 +1,46 @@
----
-layout: doc
----
+# Getting OpenMCP
 
+## Installing OpenMCP from the Plugin Marketplace
 
-# 获取 OpenMCP
+You can directly obtain the OpenMCP plugin from the plugin marketplace of mainstream VLEs. For example, in vscode, click on the left side's plugin marketplace, and then search for `OpenMCP` in the search bar to find the OpenMCP plugin.
 
-## 在插件商城中安装 OpenMCP
+![vscode Plugin Marketplace](./images/vscode-plugin-market.png)
 
-你可以在主流 VLE 的插件商城直接获取 OpenMCP 插件。比如在 vscode 中，点击左侧的插件商城，然后在搜索框中输入 `OpenMCP` 即可找到 OpenMCP 插件。
+## Offline Installation
 
-![vscode 插件商城](./images/vscode-plugin-market.png)
-
-## 离线安装
-
-VLE 的插件本质是一个 zip 压缩包，后缀名为 vsix，全平台通用。我们的 CI/CD 机器人在每次版本发布后，会自动构建并上传 vsix 到 github release，你可以通过如下的链接访问到对应版本的 github release 页面：
+VLE plugins are essentially zip files with the `.vsix` extension, which are cross-platform. Our CI/CD bot automatically builds and uploads the `.vsix` file to GitHub Releases after every version release. You can access the corresponding GitHub release page for each version through the following link:
 
 ```
-https://github.com/LSTM-Kirigaya/openmcp-client/releases/tag/v{版本号}
+https://github.com/LSTM-Kirigaya/openmcp-client/releases/tag/v{version_number}
 ```
 
-比如对于 0.1.1 这个版本，它的 release 页面链接为：[https://github.com/LSTM-Kirigaya/openmcp-client/releases/tag/v0.1.1](https://github.com/LSTM-Kirigaya/openmcp-client/releases/tag/v0.1.1)
+For example, for version 0.1.1, its release page link is: [https://github.com/LSTM-Kirigaya/openmcp-client/releases/tag/v0.1.1](https://github.com/LSTM-Kirigaya/openmcp-client/releases/tag/v0.1.1)
 
-在 `Assets` 下面，你可以找到对应的 vsix 压缩包
+Under the `Assets` section, you can find the corresponding `.vsix` file.
 
-![github release](./images/github-release.png)
+![GitHub Release](./images/github-release.png)
 
-除此之外，您还可以通过如下的商城网页来获取最新的 openmcp 的 vsix
+In addition, you can also get the latest OpenMCP `.vsix` from the following marketplace web pages:
 
-- https://open-vsx.org/extension/kirigaya/openmcp
-- https://marketplace.visualstudio.com/items?itemName=kirigaya.openmcp
+* [https://open-vsx.org/extension/kirigaya/openmcp](https://open-vsx.org/extension/kirigaya/openmcp)
+* [https://marketplace.visualstudio.com/items?itemName=kirigaya.openmcp](https://marketplace.visualstudio.com/items?itemName=kirigaya.openmcp)
 
-点击 vsix 后缀名的文件下载，下载完成后，您就可以直接安装它了。在 VLE 中安装外部的 vsix 文件有两种方法。
+Click on the `.vsix` file to download it. After the download is complete, you can directly install it. There are two ways to install an external `.vsix` file in VLE.
 
-### 方法一：在 VLE 中安装
+### Method 1: Install in VLE
 
-VLE 的插件商城页面有一个三个点的按钮，点击它后，你能看到下面这个列表中被我标红的按钮
+In the VLE plugin marketplace page, there is a button with three dots. After clicking it, you will see a list with a button I have highlighted in red.
 
-![vscode 插件商城](./images/vscode-plugin-market-install-from.png)
+![vscode Plugin Marketplace](./images/vscode-plugin-market-install-from.png)
 
-点击它后，找到刚刚下载的 vsix 文件，点击即可完成安装。
+Click on it, find the `.vsix` file you just downloaded, and click to complete the installation.
 
-### 方法二：通过命令行
+### Method 2: Install via Command Line
 
-如果您的 VLE 是全局安装的，会自动存在一个命令行工具，命令如下：
+If your VLE is globally installed, a command-line tool will be available automatically. The command is as follows:
 
 ::: code-group
+
 ```bash [vscode]
 code --install-extension /path/to/openmcp-0.1.1.vsix
 ```
@@ -56,6 +52,7 @@ trae --install-extension /path/to/openmcp-0.1.1.vsix
 ```bash [cursor]
 cursor --install-extension /path/to/openmcp-0.1.1.vsix
 ```
+
 :::
 
-`/path/to/openmcp-0.1.1.vsix` 代表你刚刚下载的 vsix 文件的绝对路径。这样也可以安装插件。
+`/path/to/openmcp-0.1.1.vsix` represents the absolute path of the `.vsix` file you just downloaded. This will also install the plugin.

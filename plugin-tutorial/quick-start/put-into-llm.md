@@ -1,65 +1,67 @@
-# 扔进大模型里面测测好坏！
 
-在 [[quick-debug|之前的章节]] 中，我们成功完成了 mcp 服务器的连接和各个功能的调试，也算是带大家认识了一下 openmcp 的基本调试功能。接下来，我们需要把 mcp 放到大模型环境中来测试，毕竟，mcp 提出的初衷就是为了让大家可以低成本把自己写的功能接入大模型中。
 
-在正式进行对话前，还请大家先参照 [[connect-llm|连接大模型]] 来完成大模型 API 的配置，并测试完成你的大模型服务是否可用。
+# Throw It into a Large Model to Test Its Effectiveness!
 
-## 和大模型进行对话
+In the [[quick-debug|previous chapter]], we successfully connected to the MCP server and debugged its various features—giving us a good overview of OpenMCP’s basic debugging capabilities. Now, it’s time to place the MCP into a large language model (LLM) environment to test it. After all, the primary goal of MCP is to make it easy and low-cost to integrate your own functionalities into an LLM.
 
-我们先创建一个新的调试项目，选择「交互测试」，就可以进入一个和大模型对话的窗口。OpenMCP 提供的对话窗口的基本介绍如下：
+Before we begin the actual interaction, please follow the instructions in [[connect-llm|Connecting to a Large Model]] to configure your LLM API and ensure your LLM service is working correctly.
+
+## Talking to a Large Model
+
+Let’s start by creating a new debug project and choosing **“Interactive Test”**, which opens a chat window for interacting with the LLM. Here’s a basic overview of the chat window provided by OpenMCP:
 
 ![](./images/llm-intro.png)
 
-上面标定了几个比较重要的按钮，初次使用，您可以直接使用默认设置。点击「使用的工具」，可以看到当前激活的工具，OpenMCP 默认激活当前连接的 mcp 服务器的所有提供的工具，如果您希望禁用某些工具，可以点击下方的「使用的工具」来选择性地禁用工具：
+Several important buttons are marked in the image above. When using it for the first time, you can proceed with the default settings. By clicking “**Tools in Use**,” you’ll see the currently active tools. By default, OpenMCP activates all tools provided by the connected MCP server. If you'd like to disable any tools, you can selectively do so via the same button:
 
 ![](./images/llm-tools.png)
 
-好啦，让我们先来看看基于 mcp 协议，大模型会如何调用我们的工具吧，保持默认设置，然后询问如下问题：<mark>请帮我计算一下 123 + 1313 等于多少</mark>
+Alright, let’s test how the large model calls our tools via the MCP protocol. Keep the default settings, and ask this question: <mark>Can you help me calculate 123 + 1313?</mark>
 
-输入后回车等待结果，可以看到如下的输出：
+Press enter and wait for the result. You should see something like this:
 
 ![](./images/llm-calc.png)
 
-可以看到大模型选择使用了我们提供的工具 add 完成了上述的加法，OpenMCP 中你能看到大模型是如何调用每一个工具的和工具的返回结果。目前我们问的问题和 mcp 提供的工具都比较简单，对于复杂问题，大模型有可能会在一轮内同时调用多个工具来完成特定的任务，如果你希望大模型每次都只使用一个工具，可以点击下方的默认亮着的「允许模型在单轮回复中调用多个工具」 来禁用这个特性。
+As you can see, the LLM chose to use the `add` tool we provided to perform the addition. OpenMCP also shows exactly how the LLM invoked the tool and the result returned by the tool. While this example is simple, for more complex queries, the LLM may call multiple tools in a single round to complete a task. If you want the model to only use one tool per response, you can disable the default setting **“Allow multiple tools per turn”** by clicking the toggle button below.
 
+## System Prompts
 
-## 系统提示词
+For special cases—such as [bing-images](/Users/bytedance/projects/openmcp-tutorial/bing-images), an MCP server that returns Bing images based on keywords—you may need to guide the model on how to format its output.
 
-对于一些特殊的情况，比如 [bing-images](/Users/bytedance/projects/openmcp-tutorial/bing-images)，这是一个根据关键词来返回 bing 图片的 mcp 服务器。
+Try asking: <mark>Can you help me search for some Arknights images?</mark>
 
-我们直接询问如下的问题：<mark>请帮我搜索几张明日方舟的图片</mark>，默认情况下，你有可能会得到如下的回复：
+By default, you might get a response like this:
 
 ![](./images/bing-image-common.png)
 
-大模型将得到的图片以链接的形式返回了，但是有的时候其实我希望是返回成图片的形式渲染在屏幕中让我看到的，为了约束和引导大模型返回文本的风格、或是按照我们要求的模板进行返回，我们可以通过设置系统提示词的方式来实现。
+Here, the LLM returns image links. However, what we really want is for the images to be displayed directly on the screen. To instruct the LLM to return Markdown-style image outputs, we can use a **system prompt**.
 
-我们先点击下方的「系统提示词」
+Click on the “**System Prompt**” button below:
 
 ![](./images/system-prompt-add.png)
 
-我们添加一个新的系统提示词，在标题输入「bing image」，然后主体部分填入：
+Add a new system prompt with the title **"bing image"** and the content:
 
 ```
-你是一个擅长找 bing 图片的 AI，当你找到图片时，你应该返回图片形式的 markdown，比如 ![](https://xxxx.xx/xxxx)
+You are an AI skilled at finding Bing images. When you find images, you should return them in Markdown image format, e.g., ![](https://xxxx.xx/xxxx)
 ```
 
-点击保存。
+Click save:
 
 ![](./images/system-prompt-image.png)
 
-然后将光标移动到第一个用户对话框上，此时会显示几个按钮，选择重新运行的按钮，openmcp 便会重新执行此处的对话。
+Next, move your cursor to the first user message box. Several buttons will appear—click the **Re-run** button to re-execute that conversation turn:
 
 ![](./images/rerun-bing-image.png)
 
-可以看到此时，图片就被正常渲染出来了：
+Now you should see the images rendered correctly:
 
 ![](./images/llm-bing-image-render.png)
 
+For more tips on using system prompts or other advanced techniques to control the behavior of agents, see [[go-neo4j-sse|Building a Read-only Neo4j MCP Server with Go (SSE)]].
 
-关于更多使用 system prompt 或者其他更加精准的方法来控制 agent 的技巧，可以移步 [[go-neo4j-sse|go 实现 neo4j 的只读 mcp 服务器 (SSE)]]
+## Conclusion
 
-## 结语
+Great job! You've completed the basic OpenMCP tutorial. Now it’s time to build something fun and meaningful. Check out the [[mcp-examples|MCP Server Development Examples]] for more use cases and inspiration.
 
-很好！你完成了 openmcp 的基础教程，接下来，该去做点有趣的事情了！在 [[mcp-examples|MCP 服务器开发案例]] 中，你能找到更多的使用 openmcp 进行 mcp 服务器开发的例子。
-
-遍地惊喜，任君自取。
+The world is full of surprises—take your pick!

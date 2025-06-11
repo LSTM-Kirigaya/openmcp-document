@@ -1,41 +1,38 @@
+# Your First MCP
 
-# 你的第一个 MCP
+There are many programming languages that can implement MCP. The major ones have both official and community support, and you can easily find corresponding libraries by searching for "programming language + MCP". In the [[mcp-examples|MCP Server Development Examples]] section, we also provide examples in different programming languages.
 
-实现 MCP 的编程语言很多，常见的几户所有编程语言都有官方和民间的支持，以 编程语言 + MCP 就能搜到对应的库，在 [[mcp-examples|MCP 服务器开发案例]] 中，我们也提供了不同编程语言的不同例子。
+Among all the programming languages, Python is undoubtedly the easiest and simplest for developing MCP, especially for beginners. So for our first MCP, we will use Python. The results in other programming languages are quite similar.
 
-在所有编程语言中，Python 的 MCP 的开发无疑是最为简单，最容易让新手上手的，所以第一个 MCP我们先用 python 来实现。其他的编程语言实现效果也大同小异。
+## Installing `uv`
 
-## 安装 uv
-
-Python 写 mcp 服务器强烈推荐使用 uv 作为包管理器，关于 uv，你只需要知道它是一个高性能包管理器，拥有 pip 和 conda 的所有优点。没有的朋友请先通过 pip 安装 uv：
-
+When writing an MCP server in Python, it's highly recommended to use `uv` as the package manager. All you need to know about `uv` is that it is a high-performance package manager, combining the best features of pip and conda. If you don't have it, please install `uv` using pip:
 
 ```bash
 pip install uv
 ```
 
+\:::warning Attention Anaconda or Miniconda users!
+Please do not install `uv` in any environment other than the base environment. Install it in the base environment, as `uv` will handle environment isolation. Do not worry about it contaminating your base environment. If you don't install it in the base environment or use the global pip, we won't know where you installed `uv`. When installed via pip in the base environment, the script will be installed in `~/anaconda/bin/uv`. Please make sure that `~/anaconda/bin/` is included in your `$PATH`.
+\:::
 
-:::warning 使用 anaconda 或者 miniconda 的朋友注意了！
-请不要在非 base 环境下安装 uv，请在 base 环境下安装 uv，uv 本身会做好环境隔离的工作，请不要担心 uv 会污染你的 base 环境。你不安装在 base 下或者使用全局默认的 pip 安装，我们根本不知道你安装的 uv 在哪里！base 环境下使用 pip 安装的脚本会安装在 `~/anaconda/bin/uv` 中，也请确保 `~/anaconda/bin/` 在你的 `$PATH` 中。
-:::
-
-
-查看 uv 的版本：
+Check the version of `uv`:
 
 ```bash
 uv version
 ```
 
-我的输出是：
+My output is:
+
 ```
 uv 0.6.9 (3d9460278 2025-03-20)
 ```
 
-实操时，请保证版本不要低于我的。
+Make sure your version is not lower than mine when operating.
 
-## 创建一个最简单的 mcp 服务器
+## Creating the Simplest MCP Server
 
-我们进入工程目录，准备创建一个最简单的 mcp 服务器。
+Let's enter the project directory and create the simplest MCP server.
 
 ```bash
 mkdir -p ~/codes/my-first-mcp
@@ -43,31 +40,32 @@ cd ~/codes/my-first-mcp
 uv init --no-workspace
 ```
 
-此时，你的项目里面应该有这三个文件：
+At this point, your project should have the following three files:
 
 ```
 README.md      main.py        pyproject.toml
 ```
 
-然后，我们在当前文件夹打开 vscode 或者 trae，我们创建一个最简单的 mcp 服务器，它的功能是：
-- 提供一个名为 add 的工具，用于对两个数字进行加法
-- 提供一个名为 greeting 的资源，用于返回一个 greeting 消息
+Then, open the current folder in vscode or trae. We’ll create the simplest MCP server, which will:
 
-先安装 mcp 相关的库：
+* Provide a tool named `add` for adding two numbers.
+* Provide a resource named `greeting` to return a greeting message.
+
+First, install the necessary MCP libraries:
 
 ```bash
 uv add mcp "mcp[cli]"
 ```
 
-修改 `main.py` 内容如下：
+Edit the content of `main.py` as follows:
 
 ```python
 from mcp.server.fastmcp import FastMCP
-mcp = FastMCP('锦恢的 MCP Server', version="11.45.14")
+mcp = FastMCP('JinHui’s MCP Server', version="11.45.14")
 
 @mcp.tool(
     name='add',
-    description='对两个数字进行实数域的加法'
+    description='Addition of two numbers in the real domain'
 )
 def add(a: int, b: int) -> int:
     return a + b
@@ -75,66 +73,62 @@ def add(a: int, b: int) -> int:
 @mcp.resource(
     uri="greeting://{name}",
     name='greeting',
-    description='用于演示的一个资源协议'
+    description='A resource protocol for demonstration purposes'
 )
 def get_greeting(name: str) -> str:
     return f"Hello, {name}!"
 
 @mcp.prompt(
     name='translate',
-    description='进行翻译的prompt'
+    description='A prompt for translation'
 )
 def translate(message: str) -> str:
-    return f'请将下面的话语翻译成中文：\n\n{message}'
+    return f'Please translate the following sentence into Chinese:\n\n{message}'
 ```
 
-## 使用 OpenMCP 一键连接
+## One-Click Connection Using OpenMCP
 
-如上，我们申明了三个函数，用作 mcp 的 tool，resource 和 prompt。在 OpenMCP 中启动它们非常简单，点击右上角的 OpenMCP 图标即可连接：
+As mentioned above, we declared three functions as MCP tools, resources, and prompts. It’s very easy to start them in OpenMCP. Simply click the OpenMCP icon at the top right to connect:
 
 ![](./images/connect-simple.png)
 
-初次使用 OpenMCP，会出现引导界面，还希望阁下可以耐心看完。
+The first time you use OpenMCP, a guide will appear. We hope you can take a moment to read it carefully.
 
 ![](./images/guide.png)
 
-如果登录完成后，如图显示连接成功，则代表当前已经成功启动并连接 mcp 服务器。
+Once you log in and see the "Connection Successful" message as shown in the image, this indicates that the MCP server has been successfully started and connected.
 
 ![](./images/connect-success.png)
 
-恭喜您，万事开头难，您已经完成了最难的 mcp 连接！
+Congratulations, the hardest part is over — you've successfully made the MCP connection!
 
-有关 openmcp 进行 mcp 服务器连接的更多信息，可以参考手册里面的这一章 [[connect-mcp|连接到 MCP 服务器]]。
+For more information about connecting to an MCP server using OpenMCP, you can refer to the chapter [[connect-mcp|Connecting to an MCP Server]] in the manual.
 
-## 附录：关于 uv 启动 mcp 你必须知道的
+## Appendix: What You Need to Know About Starting MCP with `uv`
 
-OpenMCP 已经帮你做好了很多事情，但是使用 uv 启动 mcp 服务器其实是不只一种方法的，了解更加底层的原理有助于您以不变应万变。因为 OpenMCP 对于 python 项目默认运行 `uv run mcp run main.py` 来启动 mcp 服务器，但是 GitHub 上的部分项目无法这么启动。
+OpenMCP has already done a lot of work for you, but there are actually multiple ways to start an MCP server with `uv`. Understanding the underlying principles will help you adapt to various situations. While OpenMCP uses `uv run mcp run main.py` to start the MCP server for Python projects, some GitHub projects may not work in this way.
 
-先了解一下对于上面那个例子的 python 代码，应该如何通过命令行启动 mcp 吧！
+Let’s first learn how to start the MCP server from the command line using the Python code in the above example!
 
-### 方法一：使用 mcp-cli
+### Method 1: Using `mcp-cli`
 
-mcp 本身提供了脚手架，可以直接启动一段被申明的 python 代码，作为一个 mcp 服务器。使用如下代码运行它：
+MCP itself provides a scaffolding tool that can directly start the declared Python code as an MCP server. Use the following command to run it:
 
 ```bash
 uv run mcp run main.py
 ```
 
-### 方法二：在代码中显式启动
+### Method 2: Explicitly Start in the Code
 
-你也可以在代码中显式启动 mcp 服务器，在 `main.py` 的结尾添加：
+You can also explicitly start the MCP server within the code by adding the following to the end of `main.py`:
 
 ```python
 if __name__ == '__main__':
     mcp.run()
 ```
 
-然后运行如下代码即可启动 mcp 服务器：
+Then run the following command to start the MCP server:
 
 ```bash
 uv run main.py
 ```
-
-:::warning
-请不要运行 python main.py，因为 uv run 会使用当前虚拟环境的库，这些库在外部 python 看来是不可见的。也不要在没有使用 `mcp.run()` 启动代码的情况下就直接使用 uv run main.py，我们之前的代码只是申明了函数，并没有实际上执行任何功能。
-:::

@@ -1,6 +1,6 @@
 export default {
     nav: [
-        { text: 'ホーム', link: '/' },
+        { text: 'ホーム', link: '/ja/' },
         {
             text: 'チュートリアル',
             items: [
@@ -50,7 +50,6 @@ export default {
                     }
                 },
             ]
-
         },
         { text: 'SDK', link: '/ja/sdk-tutorial/' },
         {

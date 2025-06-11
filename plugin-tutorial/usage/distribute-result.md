@@ -1,14 +1,20 @@
-# 分发您的实验结果
+# Distributing Your Experiment Results
 
-## 标签页恢复
+## Tab Restoration
 
-openmcp 默认会实时保存您的实验结果，每一个在工作区开启的服务器默认会将结果存储在 `.openmcp/tabs.{server-name}.json` 中，其中 `{server-name}` 就是 mcp 服务器连接成功的服务器名称。
+OpenMCP automatically saves your experiment results in real-time. For each active server in the workspace, results are stored in `.openmcp/tabs.{server-name}.json`, where `{server-name}` matches the successfully connected MCP server's name.
 
-请确保您的 `.gitignore` 文件中没有包含匹配到 .openmcp 文件夹的规则。这样，当您通过 git 提交你的代码，对 agent 的代码进行管理时，当你在别的电脑上 clone 或者他人 clone 你的项目时，就能快速恢复你上一次的实验内容，继续进行实验或者开发调试。
+Ensure your `.gitignore` file doesn't contain rules excluding the `.openmcp` folder. This way, when you:
+- Commit code via Git
+- Manage agent code
+- Clone the project on another machine
+- Share the project with others
 
-## 连接恢复
+...you can instantly restore your previous experiment context to continue development or debugging.
 
-每一个 mcp 服务器的连接信息会被保存在 `.openmcp/connection.json` 中，下面是一个例子：
+## Connection Recovery
+
+Each MCP server's connection details are saved in `.openmcp/connection.json`. Example:
 
 ```json
 {
@@ -28,11 +34,11 @@ openmcp 默认会实时保存您的实验结果，每一个在工作区开启的
         "clientVersion": "0.0.1",
         "env": {},
         "serverInfo": {
-          "name": "锦恢的 MCP Server",
+          "name": "Jinhui's MCP Server",
           "version": "1.9.2"
         },
         "filePath": "{workspace}/simple-mcp/main.py",
-        "name": "锦恢的 MCP Server",
+        "name": "Jinhui's MCP Server",
         "version": "1.9.2"
       }
     ]
@@ -40,5 +46,14 @@ openmcp 默认会实时保存您的实验结果，每一个在工作区开启的
 }
 ```
 
+When you:
+- Open the left control panel, or
+- Access a previously connected MCP server
 
-当您打开左侧的控制面板或者打开一个过去打开过的 mcp 服务器时， mcp 默认会根据上面的信息来获取工作区的服务器列表或者尝试进行自动连接。如果 openmcp 在连接 mcp 时发生了初始化错误或者保存错误，除了向 openmcp 官方求助外，您还可以尝试手动管理 `.openmcp/connection.json` 文件。
+OpenMCP automatically uses this information to:
+1. Retrieve the workspace's server list
+2. Attempt automatic reconnection
+
+If OpenMCP encounters initialization or save errors during connection, you can:
+1. Contact OpenMCP official support, or
+2. Manually manage the `.openmcp/connection.json` file

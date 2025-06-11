@@ -10,7 +10,7 @@ export default {
                         title: 'Introduction',
                         description: 'What you need to know about MCP and OpenMCP...',
                         icon: 'openmcp',
-                        link: '/en/plugin-tutorial/'
+                        link: '/plugin-tutorial/'
                     }
                 },
                 {
@@ -19,7 +19,7 @@ export default {
                         title: 'Quick Start',
                         description: 'Understand the basic concept of OpenMCP through an example',
                         icon: 'quick-fill',
-                        link: '/en/plugin-tutorial/quick-start/'
+                        link: '/plugin-tutorial/quick-start/'
                     }
                 },
                 {
@@ -28,7 +28,7 @@ export default {
                         title: 'OpenMCP User Guide',
                         description: 'Basic usage of the OpenMCP Client',
                         icon: 'shiyongshouce',
-                        link: '/en/plugin-tutorial/usage/connect-mcp'
+                        link: '/plugin-tutorial/usage/connect-mcp'
                     }
                 },
                 {
@@ -37,7 +37,7 @@ export default {
                         title: 'MCP Server Examples',
                         description: 'Examples of MCP servers developed in various languages and models',
                         icon: 'yibangonggongyusuan',
-                        link: '/en/plugin-tutorial/examples/mcp-examples'
+                        link: '/plugin-tutorial/examples/mcp-examples'
                     }
                 },
                 {
@@ -46,13 +46,13 @@ export default {
                         title: 'FAQ',
                         description: 'Answers to your questions and solutions to your problems',
                         icon: 'yijianchuli',
-                        link: '/en/plugin-tutorial/faq/help'
+                        link: '/plugin-tutorial/faq/help'
                     }
                 },
             ]
 
         },
-        { text: 'SDK', link: '/en/sdk-tutorial/' },
+        { text: 'SDK', link: '/sdk-tutorial/' },
         {
             text: 'More',
             items: [
@@ -62,7 +62,7 @@ export default {
                         title: 'Changelog',
                         description: 'View the project update history',
                         icon: 'a-yusuan2',
-                        link: '/en/preview/changelog'
+                        link: '/preview/changelog'
                     }
                 },
                 {
@@ -71,7 +71,7 @@ export default {
                         title: 'Join OpenMCP',
                         description: 'Learn how to participate in the development and maintenance of OpenMCP',
                         icon: 'shujuzhongxin',
-                        link: '/en/preview/join'
+                        link: '/preview/join'
                     }
                 },
                 {
@@ -80,7 +80,7 @@ export default {
                         title: 'OpenMCP Contributors',
                         description: 'About the people who contributed to OpenMCP',
                         icon: 'heike',
-                        link: '/en/preview/contributors'
+                        link: '/preview/contributors'
                     }
                 },
                 {
@@ -89,78 +89,78 @@ export default {
                         title: 'Resource Channel',
                         description: 'Access resources and information related to the project',
                         icon: 'xinxiang',
-                        link: '/en/preview/channel'
+                        link: '/preview/channel'
                     }
                 }
             ]
         }
     ],
     sidebar: {
-        '/en/plugin-tutorial/': [
+        '/plugin-tutorial/': [
             {
                 text: 'Overview',
                 items: [
-                    { text: 'Introduction to OpenMCP', link: '/en/plugin-tutorial/index' },
-                    { text: 'What is MCP?', link: '/en/plugin-tutorial/what-is-mcp' },
-                    { text: 'Basic Concepts of MCP', link: '/en/plugin-tutorial/concept' }
+                    { text: 'Introduction to OpenMCP', link: '/plugin-tutorial/index' },
+                    { text: 'What is MCP?', link: '/plugin-tutorial/what-is-mcp' },
+                    { text: 'Basic Concepts of MCP', link: '/plugin-tutorial/concept' }
                 ]
             },
             {
                 text: 'Quick Start',
                 items: [
-                    { text: 'Quick Start', link: '/en/plugin-tutorial/quick-start' },
-                    { text: 'Install OpenMCP', link: '/en/plugin-tutorial/quick-start/acquire-openmcp' },
-                    { text: 'Your First MCP', link: '/en/plugin-tutorial/quick-start/first-mcp' },
-                    { text: 'Quick Debugging of MCP', link: '/en/plugin-tutorial/quick-start/quick-debug' },
-                    { text: 'Throw it into an LLM and test it!', link: '/en/plugin-tutorial/quick-start/put-into-llm' }
+                    { text: 'Quick Start', link: '/plugin-tutorial/quick-start' },
+                    { text: 'Install OpenMCP', link: '/plugin-tutorial/quick-start/acquire-openmcp' },
+                    { text: 'Your First MCP', link: '/plugin-tutorial/quick-start/first-mcp' },
+                    { text: 'Quick Debugging of MCP', link: '/plugin-tutorial/quick-start/quick-debug' },
+                    { text: 'Throw it into an LLM and test it!', link: '/plugin-tutorial/quick-start/put-into-llm' }
                 ]
             },
             {
                 text: 'User Guide',
                 items: [
-                    { text: 'UI Color Settings', link: '/en/plugin-tutorial/usage/ui-color' },
-                    { text: 'Connect to MCP Server', link: '/en/plugin-tutorial/usage/connect-mcp' },
-                    { text: 'Debug tools, resources, and prompts', link: '/en/plugin-tutorial/usage/debug' },
-                    { text: 'Connect to LLM', link: '/en/plugin-tutorial/usage/connect-llm' },
-                    { text: 'Test Your MCP with an LLM', link: '/en/plugin-tutorial/usage/test-with-llm' },
-                    { text: 'Connect to Multiple MCP Services', link: '/en/plugin-tutorial/usage/multi-server' },
-                    { text: 'Distribute Experiment Results', link: '/en/plugin-tutorial/usage/distribute-result' },
-                    { text: 'Implement SSE Authenticator', link: '/en/plugin-tutorial/usage/sse-oauth2' }
+                    { text: 'UI Color Settings', link: '/plugin-tutorial/usage/ui-color' },
+                    { text: 'Connect to MCP Server', link: '/plugin-tutorial/usage/connect-mcp' },
+                    { text: 'Debug tools, resources, and prompts', link: '/plugin-tutorial/usage/debug' },
+                    { text: 'Connect to LLM', link: '/plugin-tutorial/usage/connect-llm' },
+                    { text: 'Test Your MCP with an LLM', link: '/plugin-tutorial/usage/test-with-llm' },
+                    { text: 'Connect to Multiple MCP Services', link: '/plugin-tutorial/usage/multi-server' },
+                    { text: 'Distribute Experiment Results', link: '/plugin-tutorial/usage/distribute-result' },
+                    { text: 'Implement SSE Authenticator', link: '/plugin-tutorial/usage/sse-oauth2' }
                 ]
             },
             {
                 text: 'Development Examples',
                 items: [
-                    { text: 'MCP Server Development Examples', link: '/en/plugin-tutorial/examples/mcp-examples' },
-                    { text: 'Example 1: Weather Info MCP in Python (STDIO)', link: '/en/plugin-tutorial/examples/python-simple-stdio' },
-                    { text: 'Example 2: Read-only Neo4j MCP in Go (SSE)', link: '/en/plugin-tutorial/examples/go-neo4j-sse' },
-                    { text: 'Example 3: Read-only Document DB MCP in Java (HTTP)', link: '/en/plugin-tutorial/examples/java-es-http' },
-                    { text: 'Example 4: Super Web Crawler MCP in TypeScript using crawl4ai (STDIO)', link: '/en/plugin-tutorial/examples/typescript-crawl4ai-stdio' },
-                    { text: 'Example 5: Generic Form Filling MCP in Python (STDIO)', link: '/en/plugin-tutorial/examples/python-form-stdio' },
-                    { text: 'Example 6: Blender-based MCP in Python (STDIO)', link: '/en/plugin-tutorial/examples/python-blender-stdio' },
-                    { text: 'Example 7: Cadence EDA MCP in Python (STDIO)', link: '/en/plugin-tutorial/examples/python-cadence-stdio' }
+                    { text: 'MCP Server Development Examples', link: '/plugin-tutorial/examples/mcp-examples' },
+                    { text: 'Example 1: Weather Info MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-simple-stdio' },
+                    { text: 'Example 2: Read-only Neo4j MCP in Go (SSE)', link: '/plugin-tutorial/examples/go-neo4j-sse' },
+                    { text: 'Example 3: Read-only Document DB MCP in Java (HTTP)', link: '/plugin-tutorial/examples/java-es-http' },
+                    { text: 'Example 4: Super Web Crawler MCP in TypeScript using crawl4ai (STDIO)', link: '/plugin-tutorial/examples/typescript-crawl4ai-stdio' },
+                    { text: 'Example 5: Generic Form Filling MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-form-stdio' },
+                    { text: 'Example 6: Blender-based MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-blender-stdio' },
+                    { text: 'Example 7: Cadence EDA MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-cadence-stdio' }
                 ]
             },
             {
                 text: 'FAQ',
                 items: [
-                    { text: 'Help', link: '/en/plugin-tutorial/faq/help' }
+                    { text: 'Help', link: '/plugin-tutorial/faq/help' }
                 ]
             }
         ],
-        '/en/sdk-tutorial/': [
+        '/sdk-tutorial/': [
             {
                 text: 'Overview',
                 items: [
-                    { text: 'openmcp‑sdk.js', link: '/en/sdk-tutorial/' }
+                    { text: 'openmcp‑sdk.js', link: '/sdk-tutorial/' }
                 ]
             },
             {
                 text: 'Basic Usage',
                 items: [
-                    { text: 'Simplest Conversation', link: '/en/sdk-tutorial/usage/greet' },
-                    { text: 'Task Loop', link: '/en/sdk-tutorial/usage/task-loop' },
-                    { text: 'Multiple Server Connections', link: '/en/sdk-tutorial/usage/multi-server' }
+                    { text: 'Simplest Conversation', link: '/sdk-tutorial/usage/greet' },
+                    { text: 'Task Loop', link: '/sdk-tutorial/usage/task-loop' },
+                    { text: 'Multiple Server Connections', link: '/sdk-tutorial/usage/multi-server' }
                 ]
             }
         ]
