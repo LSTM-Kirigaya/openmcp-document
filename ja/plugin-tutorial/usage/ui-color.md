@@ -1,25 +1,23 @@
 # UI 配色
 
-## openmcp 的主题色随跟 vscode
+## openmcp のテーマカラーは vscode に連動
 
-openmcp 的主题颜色完全跟随 vscode，如果你想要更换 openmcp 的主题颜色，你只需要更换 vscode 的主题颜色即可。
+openmcp のテーマカラーは完全に vscode に連動しています。openmcp のテーマカラーを変更したい場合、vscode のテーマカラーを変更するだけでOKです。
 
-比如当你把颜色切换为社区知名主题 One Dark Pro 时，openmcp 的表现：
+例えば、コミュニティで有名なテーマ「One Dark Pro」に切り替えた時の openmcp の表示:
 
 ![](./images/one-dark-pro.png)
 
+## テーマカラーの切り替え
 
-## 切换主题色
-
-这里可以切换 openmcp 的主题色（默认是粉色）
+ここで openmcp のテーマカラーを切り替えられます（デフォルトはピンク）
 
 ![](./images/change-color.png)
 
+## Trae への特別サポート
 
-## Trae 的特殊支持
+openmcp は trae のデフォルトテーマカラーに対して追加サポートを提供しています。私たちはユーザーに、最適な操作性を得るために vscode、cursor、trae などの様々な VLE を試すことを推奨しています。
 
-openmcp 对 trae 的默认主题色都有额外的支持。我们也鼓励我们的用户尝试 vscode，cursor，trae 等不同的 VLE 来获得最佳手感。
-
-openmcp 官方文档大部分演示的例子都是基于 trae 的「深蓝」默认主题。
+openmcp 公式ドキュメントのデモ例の多くは、trae の「深藍」デフォルトテーマをベースにしています。
 
 ![](./images/trae-blue.png)

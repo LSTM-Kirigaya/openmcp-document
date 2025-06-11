@@ -1,43 +1,43 @@
 ---
 next:
-  text: 什么是 MCP？
+  text: MCPとは？
   link: '/plugin-tutorial/what-is-mcp'
 ---
 
-# OpenMCP 概述
+# OpenMCP 概要
 
 :::warning
-在正式开始 OpenMCP 的学习之前，我们强烈推荐您先了解一下 MCP 的基本概念：[Agent 时代基础设施 | MCP 协议介绍](https://kirigaya.cn/blog/article?seq=299)
+OpenMCPの学習を開始する前に、MCPの基本概念を理解することを強くお勧めします：[エージェント時代のインフラストラクチャ | MCPプロトコル紹介](https://kirigaya.cn/blog/article?seq=299)
 :::
 
-## 什么是 OpenMCP
+## OpenMCPとは
 
-OpenMCP 是一个面向开发者的 MCP 调试器和 SDK，致力于降低 AI Agent 的全链路开发成本和开发人员的心智负担。
+OpenMCPは開発者向けのMCPデバッガーおよびSDKであり、AI Agentの全リンク開発コストと開発者の認知的負荷を軽減することを目的としています。
 
 ![](./images/openmcp.png)
 
-OpenMCP 分为两个部分，但是本板块讲解的是 OpenMCP 调试器的部分的使用，这部分也被我们称为 OpenMCP Client。OpenMCP Client 的本体是一个可在类 vscode 编辑器上运行的插件。它兼容了目前 MCP 协议的全部特性，且提供了丰富的利于开发者使用的功能，可以作为 Claude Inspector 的上位进行使用。
+OpenMCPは2つの部分に分かれていますが、このセクションではOpenMCPデバッガーの部分の使用方法について説明します。この部分はOpenMCP Clientとも呼ばれています。OpenMCP Clientの本体は、vscodeのようなエディタ上で動作するプラグインです。現在のMCPプロトコルのすべての機能と互換性があり、開発者にとって便利な豊富な機能を提供しており、Claude Inspectorの上位互換として使用できます。
 
-:::info 类 vscode 编辑器 (VLE)
-类 vscode 编辑器 (vscode-like editor，简称 VLE) 是指基于 Vscodium 内核开发的通用型代码编辑器，它们都能够兼容的大部分的vscode插件生态，并且具有类似 vscode 的功能（比如支持 LSP3.7 协议、拥有 remote ssh 进行远程开发的能力、拥有跨编辑器的配置文件）。
+:::info vscodeのようなエディタ (VLE)
+vscodeのようなエディタ（vscode-like editor、略称VLE）とは、Vscodiumカーネルをベースに開発された汎用コードエディタのことで、大部分のvscodeプラグインエコシステムと互換性があり、vscodeと同様の機能（LSP3.7プロトコルのサポート、remote sshによるリモート開発機能、エディター間で設定ファイルを共有する機能など）を備えています。
 
-比较典型的 VLE 有：vscode, trae, cursor 和 vscodium 各类发行版本。
+代表的なVLEには、vscode、trae、cursor、およびvscodiumの各種ディストリビューションがあります。
 :::
 
-## 什么是 Claude Inspector
+## Claude Inspectorとは
 
-Claude Inspector 是一款 Claude 官方（也就是 MCP 协议的提出者）发布的开源 MCP 调试器，开发者在开发完 MCP 服务器后，可以通过这款调试器来测试功能完整性。
+Claude Inspectorは、Claude公式（つまりMCPプロトコルの提案者）がリリースしたオープンソースのMCPデバッガーです。開発者はMCPサーバーの開発後に、このデバッガーを使用して機能の完全性をテストできます。
 
 ![](./images/inspector.png)
 
-但是 Inspector 工具存在如下几个缺点：
+ただし、Inspectorツールには以下のような欠点があります：
 
-- 使用麻烦：使用 Inspector 每次都需要通过 mcp dev 启动一个 web 前后端应用
-- 功能少：Inspector 只提供了最为基础的 MCP 的 tool 等属性的调试。如果用户想要测试自己开发的 MCP 服务器在大模型的交互下如何，还需要连接进入 Claude Desktop 并重启客户端，对于连续调试场景，非常不方便。
-- 存在部分 bug：对于 SSE 和 streamable http 等远程连接的场景，Inspector 存在已知 bug，这对真实工业级开发造成了极大的影响。
-- 无法对调试内容进行保存和留痕：在大规模微服务 mcp 化的项目中，这非常重要。
-- 无法同时调试多个 mcp 服务器：在进行 mcp 原子化横向拓展的场景中，这是一项必要的功能。
+- 使用が面倒：Inspectorを使用するたびに、mcp devでWebフロントエンドとバックエンドのアプリケーションを起動する必要があります。
+- 機能が少ない：Inspectorは最も基本的なMCPのtool属性などのデバッグのみを提供しています。ユーザーが開発したMCPサーバーが大規模モデルとの相互作用でどのように動作するかをテストしたい場合、Claude Desktopに接続してクライアントを再起動する必要があり、連続的なデバッグシナリオでは非常に不便です。
+- いくつかのバグが存在：SSEやstreamable httpなどのリモート接続シナリオでは、Inspectorに既知のバグがあり、実際の産業レベルの開発に大きな影響を与えています。
+- デバッグ内容を保存または記録できない：大規模なマイクロサービスMCP化プロジェクトでは、これは非常に重要です。
+- 複数のMCPサーバーを同時にデバッグできない：MCPの原子化水平展開シナリオでは、これは必要な機能です。
 
-而 OpenMCP Client 被我们制作出来的一个原因就是为了解决 Inspector 上述的痛点，从而让 mcp 服务器的开发门槛更低，用户能够更加专注于业务本身。
+OpenMCP Clientが作成された理由の1つは、Inspectorの上記の課題を解決し、MCPサーバーの開発ハードルを下げ、ユーザーがビジネス自体に集中できるようにすることです。
 
 <!--  -->

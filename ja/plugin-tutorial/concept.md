@@ -1,32 +1,30 @@
-# MCP 基础概念
+# MCP 基本概念
 
-## 前言
+## はじめに
 
+[[what-is-mcp|前回の記事]]では、MCPの定義と基本的な組織構造について簡単に紹介しました。開発者として最も注目すべきは、自社の業務とシナリオに基づいて必要なMCPサーバーをカスタマイズ開発する方法です。これにより、任意のMCPクライアントに直接接続して、カスタマイズされたインタラクション能力を大規模モデルに提供できます。
 
+MCPサーバーの開発方法を説明する前に、いくつかの基本概念を明確にしておく必要があると思います。
 
-在 [[what-is-mcp|之前的文章]] 中，我们简单介绍了 MCP 的定义和它的基本组织结构。作为开发者，我们最需要关注的其实是如何根据我们自己的业务和场景定制化地开发我们需要的 MCP 服务器，这样直接接入任何一个 MCP 客户端后，我们都可以给大模型以我们定制出的交互能力。
+## Resources、Prompts、Tools
 
-在正式开始教大家如何开发自己的 MCP 服务器之前，我想，或许有必要讲清楚几个基本概念。
+[MCPクライアントプロトコル](https://modelcontextprotocol.io/clients)では、MCPプロトコルの3つの重要な能力カテゴリについて説明されています：
 
-## Resources, Prompts 和 Tools
+- Resouces：ローカルリソースをカスタマイズしてリクエスト・アクセスする機能。ファイルシステム、データベース、現在のコードエディタ内のファイルなど、ウェブアプリでは通常アクセスできない**静的リソース**を指します。追加のresourcesは大規模モデルに送信されるコンテキストを豊富にし、AIからより正確な回答を得られます。
+- Prompts：特定のシナリオでAIが採用可能なプロンプトをカスタマイズします。例えば、AIに特定のフォーマットで内容を返させる必要がある場合、カスタムプロンプトを提供できます。
+- Tools：AIが使用できるツールで、関数である必要があります。ホテルの予約、ウェブページの開閉、照明のオンオフなどのカプセル化された関数がtoolとなります。大規模モデルはfunction callingの方法でこれらのtoolsを使用します。Toolsにより、AIが直接コンピュータを操作したり、現実世界とインタラクションしたりできるようになります。
 
-在 [MCP 客户端协议](https://modelcontextprotocol.io/clients) 中，讲到了 MCP 协议中三个非常重要的能力类别：
+フロントエンド・バックエンド開発経験のある方は、Resoucesを「大規模モデルに付与する追加の読み取り専用権限」、Toolsを「大規模モデルに付与する追加の読み書き権限」と考えることができます。
 
-- Resouces ：定制化地请求和访问本地的资源，可以是文件系统、数据库、当前代码编辑器中的文件等等原本网页端的app 无法访问到的 **静态资源**。额外的 resources 会丰富发送给大模型的上下文，使得 AI 给我们更加精准的回答。
-- Prompts ：定制化一些场景下可供 AI 进行采纳的 prompt，比如如果需要 AI 定制化地返回某些格式化内容时，可以提供自定义的 prompts。
-- Tools ：可供 AI 使用的工具，它必须是一个函数，比如预定酒店、打开网页、关闭台灯这些封装好的函数就可以是一个 tool，大模型会通过 function calling 的方式来使用这些 tools。 Tools 将会允许 AI 直接操作我们的电脑，甚至和现实世界发生交互。
+MCPクライアント（Claude Desktop、5ireなど）は既に上記のフロントエンドロジックを実装しています。具体的にどのようなリソースやツールを提供するかは、開発者の想像力次第です。つまり、多彩なMCP Serverを開発することで、大規模モデルにより興味深い作業を行わせることができます。
 
-各位拥有前后端开发经验的朋友们，可以将 Resouces 看成是「额外给予大模型的只读权限」，把 Tools 看成是「额外给予大模型的读写权限」。
+ただし、現在ほぼすべての大規模モデルはopenaiプロトコルをアクセスポイントとして採用している点に注意が必要です。openaiプロトコルとは何でしょうか？
 
-MCP 客户端（比如 Claude Desktop，5ire 等）已经实现好了上述的前端部分逻辑。而具体提供什么资源，具体提供什么工具，则需要各位玩家充分想象了，也就是我们需要开发丰富多彩的 MCP Server 来允许大模型做出更多有意思的工作。
+## openaiプロトコル
 
-不过需要说明的一点是，目前几乎所有大模型采用了 openai 协议作为我们访问大模型的接入点。什么叫 openai 协议呢？
+PythonやTypeScriptでアプリを開発する際、通常はopenaiという名前のライブラリをインストールし、使用するモデルベンダー、モデルのベースURL、使用するモデルタイプを入力して大規模モデルに直接アクセスします。各モデルプロバイダーもこのライブラリとプロトコルをサポートする必要があります。
 
-## openai 协议
-
-当我们使用 python 或者 typescript 开发 app 时，往往会安装一个名为 openai 的库，里面填入你需要使用的模型厂商、模型的基础 url、使用的模型类别来直接访问大模型。而各个大模型提供商也必须支持这个库，这套协议。
-
-比如我们在 python 中访问 deepseek 的服务就可以这么做：
+例えばPythonでdeepseekのサービスにアクセスする場合、次のようにできます：
 
 ```python
 from openai import OpenAI
@@ -45,7 +43,7 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-如果你点进这个 create 函数去看，你会发现 openai 协议需要大模型厂家支持的 feature 是非常非常多的：
+このcreate関数の中身を見ると、openaiプロトコルが大規模モデルプロバイダーに要求する機能が非常に多いことがわかります：
 
 ```python
     @overload
@@ -83,8 +81,8 @@ print(response.choices[0].message.content)
         top_p: Optional[float] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
         web_search_options: completion_create_params.WebSearchOptions | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
+        # 以下の引数は、kwargsを介して利用できない追加のAPIパラメータを渡す必要がある場合に使用します。
+        # ここで指定された追加の値は、クライアントで定義された値やこのメソッドに渡された値よりも優先されます。
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -92,13 +90,13 @@ print(response.choices[0].message.content)
     ) -> ChatCompletion:
 ```
 
-从上面的签名中，你应该可以看到几个很熟悉的参数，比如 `temperature`, `top_p`，很多的大模型使用软件中，有的会给你暴露这个参数进行调节。比如在 5ire 中，内容随机度就是 `temperature` 这个参数的图形化显示。
+上記のシグネチャから、`temperature`や`top_p`など、いくつか見覚えのあるパラメータが確認できます。多くの大規模モデル使用ソフトウェアでは、このパラメータを調整できるようになっています。例えば5ireでは、コンテンツのランダム性は`temperature`パラメータのグラフィカル表示です。
 
 <div align=center>
 <img src="https://picx.zhimg.com/80/v2-9f8544aa917e8c128fc194adeb7161cd_1440w.png" style="width: 100%;"/>
 </div>
 
-其实如你所见，一次普普通通调用涉及到的可调控参数是非常之多的。而在所有参数中，你可以注意到一个参数叫做 `tools`:
+実際、ご覧の通り、普通の呼び出しに関わる調整可能なパラメータは非常に多岐にわたります。すべてのパラメータの中で、`tools`というパラメータに注目してください：
 
 ```python
     @overload
@@ -109,14 +107,14 @@ print(response.choices[0].message.content)
         model: Union[str, ChatModel],
         audio: Optional[ChatCompletionAudioParam] | NotGiven = NOT_GIVEN,
 
-		# 看这里
+		# ここを見て
         tools: Iterable[ChatCompletionToolParam] | NotGiven = NOT_GIVEN,
     ) -> ChatCompletion:
 ```
 
-## tool_calls 字段
+## tool_callsフィールド
 
-在上面的 openai 协议中，有一个名为 tools 的参数。 tools 就是要求大模型厂商必须支持 function calling 这个特性，也就是我们提供一部分工具的描述（和 MCP 协议完全兼容的），在 tools 不为空的情况下，chat 函数返回的值中会包含一个特殊的字段 `tool_calls`，我们可以运行下面的我写好的让大模型调用可以查询天气的代码：
+上記のopenaiプロトコルには、toolsというパラメータがあります。toolsは、大規模モデルプロバイダーがfunction callingという特性をサポートする必要があることを意味します（MCPプロトコルと完全互換）。toolsが空でない場合、chat関数の戻り値には特別なフィールド`tool_calls`が含まれます。以下は、私が作成した天気を問い合わせるコードです：
 
 ```python
 from openai import OpenAI
@@ -126,19 +124,19 @@ client = OpenAI(
 	base_url="https://api.deepseek.com"
 )
 
-# 定义 tools（函数/工具列表）
+# tools（関数/ツールリスト）を定義
 tools = [
     {
         "type": "function",
         "function": {
             "name": "get_current_weather",
-            "description": "获取给定地点的天气",
+            "description": "指定された場所の天気を取得",
             "parameters": {
                 "type": "object",
                 "properties": {
                     "location": {
                         "type": "string",
-                        "description": "城市，比如杭州，北京，上海",
+                        "description": "都市、例えば杭州、北京、上海",
                     }
                 },
                 "required": ["location"],
@@ -150,18 +148,18 @@ tools = [
 response = client.chat.completions.create(
     model="deepseek-chat",
     messages=[
-        {"role": "system", "content": "你是一个很有用的 AI"},
-        {"role": "user", "content": "今天杭州的天气是什么？"},
+        {"role": "system", "content": "あなたは役立つAIです"},
+        {"role": "user", "content": "今日の杭州の天気は？"},
     ],
-    tools=tools,  # 传入 tools 参数
-    tool_choice="auto",  # 可选：控制是否强制调用某个工具
+    tools=tools,  # toolsパラメータを渡す
+    tool_choice="auto",  # オプション：特定のツールの呼び出しを強制するかどうかを制御
     stream=False,
 )
 
 print(response.choices[0].message)
 ```
 
-运行上述代码，它的返回如下：
+上記のコードを実行すると、次のような戻り値が得られます：
 
 ```python
 ChatCompletionMessage(
@@ -185,48 +183,44 @@ ChatCompletionMessage(
 )
 ```
 
-可以看到上面的 `tool_calls` 给出了大模型想要如何去使用我们给出的工具。需要说明的一点是，收到上下文的限制，目前一个问题能够让大模型调取的工具上限一般不会超过 100 个，这个和大模型厂商的上下文大小有关系。奥，对了，友情提示，当你使用 MCP 客户端在使用大模型解决问题时，同一时间激活的 MCP Server 越多，消耗的 token 越多哦 :D
+上記の`tool_calls`から、大規模モデルが提供されたツールをどのように使用したいかがわかります。注意点として、コンテキストの制限により、現在1つの質問で大規模モデルが呼び出せるツールの上限は通常100個を超えません。これは大規模モデルプロバイダーのコンテキストサイズに関係します。あ、そうそう、友情提示ですが、MCPクライアントで大規模モデルを使用して問題を解決する際、同時にアクティブなMCP Serverが多いほど、消費されるtokenも多くなりますよ :D
 
-而目前 openai 的协议中，tools 是只支持函数类的调用。而函数类的调用往往是可以模拟出 Resources 的效果的。比如取资源，你可以描述为一个 tool。因此在正常情况下，如果大家要开发 MCP Server，最好只开发 Tools，另外两个 feature 还暂时没有得到广泛支持。
+現在のopenaiプロトコルでは、toolsは関数クラスの呼び出しのみをサポートしています。関数クラスの呼び出しは、Resourcesの効果をシミュレートできる場合があります。例えばリソースを取得する場合、それをtoolとして記述できます。したがって、通常の場合、MCP Serverを開発する際は、Toolsのみを開発するのが最善です。他の2つの機能はまだ広くサポートされていません。
 
+## Inspectorを使用したデバッグ
 
-
-## 使用 Inspector 进行调试
-
-Claude 原生提供的 MCP 协议可以通过官方提供的 Inspector 进行调试，对于 [[first-mcp|你的第一个 MCP]] 中的例子，可以如下进行调试，在命令行输入如下命令启动 Inspector:
+Claudeがネイティブで提供するMCPプロトコルは、公式が提供するInspectorでデバッグできます。[[first-mcp|最初のMCP]]の例では、次のようにデバッグできます。コマンドラインで次のコマンドを入力してInspectorを起動します：
 
 ```bash
 mcp dev main.py
 ```
 
-这会启动一个前端服务器，并打开 `http://localhost:5173/` 后我们可以看到 inspector 的调试界面，先点击左侧的 `Connect` 来运行我们的 server.py 并通过 stdio 为通信管道和 web 建立通信。
+これによりフロントエンドサーバーが起動し、`http://localhost:5173/`を開くとinspectorのデバッグインターフェースが表示されます。まず左側の`Connect`をクリックしてserver.pyを実行し、stdioを通信パイプとして使用してwebと通信を確立します。
 
-Fine，可以开始愉快地进行调试了，Inspector 主要给了我们三个板块，分别对应 Resources，Prompts 和 Tools。
+さあ、楽しくデバッグを始められます。Inspectorは主に3つのセクションを提供し、それぞれResources、Prompts、Toolsに対応しています。
 
-先来看 Resources，点击「Resource Templates」可以罗列所有注册的 Resource，比如我们上文定义的 `get_greeting`，你可以通过输入参数运行来查看这个函数是否正常工作。（因为一般情况下的这个资源协议是会访问远程数据库或者微服务的）
+まずResourcesを見てみましょう。「Resource Templates」をクリックすると、登録されているすべてのResourceがリスト表示されます。例えば上記で定義した`get_greeting`は、パラメータを入力して実行することで、この関数が正常に動作するかどうかを確認できます。（通常、このリソースプロトコルはリモートデータベースまたはマイクロサービスにアクセスします）
 
 <div align=center>
 <img src="https://picx.zhimg.com/80/v2-71fc1ad813cdbf7ecec24d878c343b96_1440w.png" style="width: 100%;"/>
 </div>
 
-Prompts 端就比较简单了，直接输入预定义参数就能获取正常的返回结果。
+Prompts側は比較的シンプルで、定義済みパラメータを入力するだけで正常な戻り値を取得できます。
 
 <div align=center>
 <img src="https://pic1.zhimg.com/80/v2-4f42899ba1163922ac2347f7cebe5362_1440w.png" style="width: 100%;"/>
 </div>
 
-Tools 端将会是我们后面调试的核心。在之前的章节我们讲过了，MCP 协议中的 Prompts 和 Resources 目前还没有被 openai 协议和各大 MCP 客户端广泛支持，因此，我们主要的服务端业务都应该是在写 tools。
+Tools側は、これからデバッグの中心となる部分です。前の章で説明したように、MCPプロトコルのPromptsとResourcesは現在openaiプロトコルや主要なMCPクライアントで広くサポートされていないため、サーバー側の主要なビジネスはtoolsの作成に集中すべきです。
 
-我们此处提供的 tool 是实现一个简单的加法，它非常简单，我们输入 1 和 2 就可以直接看到结果是 3。我们后续会开发一个可以访问天气预报的 tool，那么到时候就非常需要一个这样的窗口来调试我们的天气信息获取是否正常了。
+ここで提供するtoolは、簡単な加算を実装するものです。非常にシンプルで、1と2を入力すると、結果が3であることが直接確認できます。今後、天気予報にアクセスできるtoolを開発する予定ですので、その際はこのようなウィンドウが天気情報の取得が正常かどうかをデバッグするのに非常に役立ちます。
 
 <div align=center>
 <img src="https://pic1.zhimg.com/80/v2-4164a900198a70a158ae441f9e441d07_1440w.png" style="width: 100%;"/>
 </div>
 
+## まとめ
 
+この記事では、MCP内部のいくつかの基本概念について簡単に理解しました。これらの概念は、MCPサーバーを開発する上で非常に有益だと思いますので、まず説明する必要があると考えました。
 
-## 结语
-
-这篇文章，我们简单了解了 MCP 内部的一些基本概念，我认为这些概念对于诸位开发一个 MCP 服务器是大有裨益的，所以我认为有必要先讲一讲。
-
-下面的文章中，我将带领大家探索 MCP 的奇境，一个属于 AI Agent 的时代快要到来了。
+次の記事では、MCPの不思議な世界を探求し、AI Agentの時代がまもなく到来することをお伝えします。

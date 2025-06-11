@@ -1,28 +1,22 @@
-# MCP Server的OAuth鉴权实现
+# MCPサーバーのOAuth認証実装
 
-在使用 **SSE** 或 **Streamable HTTP** 进行连接时，为增强安全性可为接口设计鉴权机制，MCP 官方推荐采用 OAuth 协议。下面以获取 GitHub 用户信息为例，演示如何通过 openmcp-client 完成带 OAuth 认证的接口调试。
+**SSE**または**Streamable HTTP**を使用して接続する際、セキュリティを強化するためにインターフェースに認証メカニズムを設計できます。MCP公式ではOAuthプロトコルの採用を推奨しています。以下ではGitHubユーザー情報の取得を例に、openmcp-clientを使用してOAuth認証付きのインターフェースデバッグを完了する方法を説明します。
 
+## 1. Github OAuth認証IDとsecretの取得
 
+GitHubユーザー情報関連APIを使用するため、まずGitHub OAuthアプリのClient IDとClient secretを取得する必要があります。
 
-## 1. 获取Github OAuth认证ID和secret
-   
-由于我们使用了Github用户信息相关API，需要先获取Github OAuth应用的Client ID和Client secret。
-
-先进入[Github Developers](https://github.com/settings/developers)，点击`New OAuth App`新建一个OAuth APP，应用名称随便填，`Homepage URL`填写`http://localhost:8000`,`Authorization callback URL`填写`http://localhost:8000/github/callback`。然后点击`Register application`按钮，即可成功注册一个应用。
-
+[Github Developers](https://github.com/settings/developers)にアクセスし、`New OAuth App`をクリックして新しいOAuth APPを作成します。アプリケーション名は任意で入力し、`Homepage URL`には`http://localhost:8000`、`Authorization callback URL`には`http://localhost:8000/github/callback`を入力します。その後、`Register application`ボタンをクリックすると、アプリケーションが正常に登録されます。
 
 ![](images/oauth-github-new-application.png)
 
+登録が成功したら、`Client ID`を記録し、`Generate a new client secret`をクリックして`secret`を生成します。secretは生成時にのみ表示されるので注意してください。
 
-注册成功后，请记录`Client ID`，然后点击`Generate a new client secret`生成一个`secret`，注意secret仅在生成的时候可见。
+## 2. 環境変数の設定
 
-## 2. 设置环境变量
+`Client ID`と`secret`を取得した後、それらを環境変数として設定する必要があります：
 
-在获取`Client ID`和`secret`之后，需要将其设置为环境变量：
-
-
-
-::: code-group
+::: code-group
 ```bash [bash]
 export MCP_GITHUB_GITHUB_CLIENT_ID={{Client ID}}
 export MCP_GITHUB_GITHUB_CLIENT_SECRET={{secret}}
@@ -39,39 +33,33 @@ set MCP_GITHUB_GITHUB_CLIENT_SECRET={{secret}}
 ```
 :::
 
-注意：cmd里面设置环境变量请不要加引号。
+注意：cmdで環境変数を設定する際は引用符を付けないでください。
 
-## 3. 克隆源码
+## 3. ソースコードのクローン
 
-接下来，我们需要部署带有OAuth认证的MCP服务器。可以参照[官方python案例](https://github.com/modelcontextprotocol/python-sdk/tree/main/examples/servers/simple-auth)进行。
+次に、OAuth認証付きのMCPサーバーをデプロイします。[公式python案例](https://github.com/modelcontextprotocol/python-sdk/tree/main/examples/servers/simple-auth)を参照してください。
 
-需要先克隆官方python-sdk源码：
+まず公式python-sdkのソースコードをクローンします：
 
 ```bash
-git clone https://github.com/modelcontextprotocol/python-sdk/ # 克隆源码
-cd examples/servers/simple-auth # 进入对应的目录
+git clone https://github.com/modelcontextprotocol/python-sdk/ # ソースコードをクローン
+cd examples/servers/simple-auth # 対応するディレクトリに移動
 ```
 
-## 4. 启动MCP Server
+## 4. MCP Serverの起動
 
-先根据需要创建虚拟环境安装依赖，然后可以使用`uv`运行或者直接运行`python main.py`即可，注意需要先设置环境变量，不然启动会报错`2 validation errors for ServerSettings`。
+必要に応じて仮想環境を作成し依存関係をインストールした後、`uv`を使用して実行するか、直接`python main.py`を実行します。環境変数を設定していないと、起動時に`2 validation errors for ServerSettings`エラーが発生するので注意してください。
 
-## 5. 启动openmcp-client
+## 5. openmcp-clientの起動
 
-接下来，你就可以使用openmcp-client连接刚刚启动的server了，不管是使用网页端还是VSCode均可。
+これで、起動したばかりのserverにopenmcp-clientを使用して接続できます。ウェブ版でもVSCodeでも可能です。
 
-点击加号添加连接，根据server代码中的`--transport`参数决定是SSE还是Streamable HTTP。如果是SSE，则URL填写`http://localhost:8000/sse`；如果是Streamable HTTP，则URL填写`http://localhost:8000/mcp`。认证签名无需填写。
+プラス記号をクリックして接続を追加し、serverコードの`--transport`パラメータに基づいてSSEかStreamable HTTPかを決定します。SSEの場合、URLは`http://localhost:8000/sse`を入力します。Streamable HTTPの場合、URLは`http://localhost:8000/mcp`を入力します。認証署名は入力不要です。
 
-接下来连接到当前server，此时会自动打开一个网页进行认证，首次打开需要点击认证，认证成功后该网页会自动关闭。
+次に現在のserverに接続すると、自動的にウェブページが開き認証が行われます。初回アクセス時は認証をクリックする必要があり、認証が成功するとウェブページは自動的に閉じます。
 
 ![](images/oauth-github-success.png)
 
-认证成功后，进入工具页面，应该能看到一个`get_user_profile`工具，点击使用就可以获取到你的Github个人信息了。
+認証が成功すると、ツールページに移動し、`get_user_profile`ツールが表示されるはずです。クリックして使用すると、GitHubの個人情報を取得できます。
 
 ![](images/oauth-github-tool.png)
-
-
-
-
-
-

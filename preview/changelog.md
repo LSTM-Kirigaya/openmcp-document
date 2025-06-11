@@ -1,86 +1,91 @@
----
-
----
 
 # Change Log
 
 ## [main] 0.1.1
-- 修复 SSH 连接 Ubuntu 的情况下的部分 bug
-- 修复 python 项目点击 openmcp 进行连接时，初始化参数错误的问题
-- 取消 service 底层的 mcp 连接复用技术，防止无法刷新
-- 修复连接后，可能无法在欢迎界面选择调试选项的 bug
+
+* Fixed some bugs when connecting to Ubuntu via SSH
+* Fixed the issue where the initialization parameters were incorrect when clicking openmcp to connect to a Python project
+* Removed the service-level MCP connection reuse technique to prevent connection refresh issues
+* Fixed a bug where debug options could not be selected on the welcome screen after connection
 
 ## [main] 0.1.0
-- 新特性：支持同时连入多个 mcp server
-- 新特性：更新协议内容，支持 streamable http 协议，未来将逐步取代 SSE 的连接方式
-- impl issue#16：对于 uv 创建的 py 项目进行特殊支持，自动初始化项目，并将 mcp 定向到 .venv/bin/mcp 中，不再需要用户全局安装 mcp
-- 对于 npm 创建的 js/ts 项目进行特殊支持：自动初始化项目
-- 去除了 websearch 的设置，增加了 parallel_tool_calls 的设置，parallel_tool_calls 默认为 true，代表 允许模型在单轮回复中调用多个工具
-- 重构了 openmcp 连接模块的基础设施，基于新的技术设施实现了更加详细的连接模块的日志系统.
-- impl issue#15：无法复制
-- impl issue#14：增加日志清除按钮
+
+* New Feature: Support for connecting to multiple MCP servers simultaneously
+* New Feature: Updated protocol to support Streamable HTTP, which will gradually replace SSE connection method
+* Implemented issue #16: Special support for Python projects created by uv, automatically initializing the project and directing MCP to `.venv/bin/mcp` so that global MCP installation is no longer required
+* Special support for npm-created js/ts projects: Automatically initializes the project
+* Removed the "websearch" setting, added the "parallel\_tool\_calls" setting, with the default set to true, allowing the model to call multiple tools in a single round of response
+* Refactored the OpenMCP connection module infrastructure, creating a more detailed logging system for connection modules
+* Implemented issue #15: Unable to copy
+* Implemented issue #14: Added a log clearing button
 
 ## [main] 0.0.9
-- 修复 0.0.8 引入的bug：system prompt 返回的是索引而非真实内容
-- 测试新的发布管线
+
+* Fixed the bug introduced in version 0.0.8 where the system prompt returned an index instead of the real content
+* Tested the new release pipeline
 
 ## [main] 0.0.8
-- 大模型 API 测试时更加完整的报错
-- 修复 0.0.7 引入的bug：修改对话无法发出
-- 修复 bug：富文本编辑器粘贴文本会带样式
-- 修复 bug：富文本编辑器发送前缀为空的字符会全部为空
-- 修复 bug：流式传输进行 function calling 时，多工具的索引串流导致的 JSON Schema 反序列化失败
-- 修复 bug：大模型返回大量重复错误信息
-- 新特性：支持一次对话同时调用多个工具
-- UI：优化代码高亮的滚动条
-- 新特性：resources/list 协议的内容点击就会直接渲染，无需二次发送
-- 新特性：resources prompts tools 的结果的 json 模式支持高亮
+
+* More complete error reporting when testing large model APIs
+* Fixed the bug introduced in version 0.0.7 where conversation messages could not be sent
+* Fixed the bug where rich-text editor pasted content retained styles
+* Fixed the bug where sending a character with an empty prefix in the rich-text editor resulted in the content being empty
+* Fixed the bug where function calling in streamable transfers caused JSON schema deserialization failure due to multi-tool index streaming
+* Fixed the bug where large models returned a lot of repeated error messages
+* New Feature: Support calling multiple tools in a single conversation
+* UI: Optimized the code highlighting scrollbar
+* New Feature: Resources/list protocol content now renders directly upon click without needing to be resent
+* New Feature: JSON format support for highlighting results from resources, prompts, and tools
 
 ## [main] 0.0.7
-- 优化页面布局，使得调试窗口可以显示更多内容
-- 扩大默认的上下文长度 10 -> 20
-- 增加「通用选项」 -> 「MCP工具最长调用时间 (sec)」
-- 支持富文本输入框，现在可以将 prompt 和 resource 嵌入到输入框中 进行 大规模 prompt engineering 调试工作了
+
+* Optimized page layout to display more content in the debug window
+* Increased default context length from 10 to 20
+* Added "General Options" -> "MCP Tool Max Call Duration (sec)"
+* Added support for rich-text input, allowing prompts and resources to be embedded for large-scale prompt engineering debugging
 
 ## [main] 0.0.6
-- 修复部分因为服务器名称特殊字符而导致的保存实效的错误
-- 插件模式下，左侧管理面板中的「MCP连接（工作区）」视图可以进行增删改查了
-- 新增「安装的 MCP 服务器」，用于安装全局范围的 mcp server
-- 增加引导页面
-- 修复无法进行离线 OCR 的问题
-- 修复全局安装的 mcp 服务器 name 更新的问题
+
+* Fixed the issue of saving failure caused by special characters in the server name
+* In plugin mode, the "MCP Connections (Workspace)" view in the left management panel now supports CRUD operations
+* Added "Installed MCP Servers" for installing global MCP servers
+* Added a guide page
+* Fixed the issue of offline OCR not working
+* Fixed the issue of global MCP server name not updating
 
 ## [main] 0.0.5
-- 支持对已经打开过的文件项目进行管理
-- 支持对用户对应服务器的调试工作内容进行保存
-- 支持连续工具调用和错误警告的显示
-- 实现小型本地对象数据库，用于对对话产生的多媒体进行数据持久化
-- 支持对于调用结果进行一键复现
-- 支持对中间结果进行修改
-- 支持 system prompt 的保存和修改
+
+* Supported managing already opened file projects
+* Supported saving debugging work related to user servers
+* Supported continuous tool calls and error warnings display
+* Implemented a small local object database for persisting multimedia data generated during conversations
+* Supported one-click reproduction of call results
+* Supported modifying intermediate results
+* Supported saving and modifying system prompts
 
 ## [main] 0.0.4
-- 修复选择模型后点击确认跳转回 deepseek 的 bug
-- 修复 mcp 项目初始化点击工具全部都是空的 bug
-- 修复无法重新连接的 bug
-- 支持自定义第三方 openai 兼容的模型服务
+
+* Fixed the bug where selecting a model and clicking confirm would revert back to DeepSeek
+* Fixed the bug where MCP project initialization clicked tools were all empty
+* Fixed the bug where reconnection was not possible
+* Supported custom third-party OpenAI-compatible model services
 
 ## [main] 0.0.3
 
-- 增加每一条信息的成本统计信息
-- 修复初始化页面路由不为 debug 导致页面空白的 bug
+* Added cost statistics for each message
+* Fixed the bug where the initial page route not being set to "debug" led to a blank page
 
 ## [main] 0.0.2
 
-- 优化页面布局
-- 解决更新标签页后打开无法显示的 bug
-- 解决不如输入组件按下回车直接黑屏的 bug
-- 更加完整方便的开发脚本
+* Optimized page layout
+* Fixed the bug where tabs would not display after update
+* Fixed the bug where pressing Enter in input components led to a black screen
+* Made development scripts more complete and convenient
 
 ## [main] 0.0.1
 
-- 完成 openmcp 的基础 inspector 功能
-- 完成配置加载，保存，大模型设置
-- 完成标签页自动保存
-- 完成大模型对话窗口和工具调用
-- 完成对 vscode 和 trae 的支持
+* Completed basic OpenMCP inspector functionality
+* Completed configuration loading, saving, and large model settings
+* Completed automatic tab saving
+* Completed large model conversation window and tool calls
+* Completed support for VSCode and Trae

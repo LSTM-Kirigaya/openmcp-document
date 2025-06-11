@@ -1,14 +1,14 @@
-# 分发您的实验结果
+# 実験結果の配布
 
-## 标签页恢复
+## タブの復元
 
-openmcp 默认会实时保存您的实验结果，每一个在工作区开启的服务器默认会将结果存储在 `.openmcp/tabs.{server-name}.json` 中，其中 `{server-name}` 就是 mcp 服务器连接成功的服务器名称。
+openmcpはデフォルトで実験結果をリアルタイムに保存します。ワークスペースで開かれた各サーバーは、結果を`.openmcp/tabs.{server-name}.json`に保存します。ここで`{server-name}`はmcpサーバー接続が成功したサーバー名です。
 
-请确保您的 `.gitignore` 文件中没有包含匹配到 .openmcp 文件夹的规则。这样，当您通过 git 提交你的代码，对 agent 的代码进行管理时，当你在别的电脑上 clone 或者他人 clone 你的项目时，就能快速恢复你上一次的实验内容，继续进行实验或者开发调试。
+.gitignoreファイルに.openmcpフォルダに一致するルールが含まれていないことを確認してください。これにより、gitでコードをコミットしたり、agentのコードを管理したりする際に、他のコンピュータでcloneしたり、他の人があなたのプロジェクトをcloneした場合に、前回の実験内容を迅速に復元し、実験や開発デバッグを継続できます。
 
-## 连接恢复
+## 接続の復元
 
-每一个 mcp 服务器的连接信息会被保存在 `.openmcp/connection.json` 中，下面是一个例子：
+各mcpサーバーの接続情報は`.openmcp/connection.json`に保存されます。以下は例です：
 
 ```json
 {
@@ -28,11 +28,11 @@ openmcp 默认会实时保存您的实验结果，每一个在工作区开启的
         "clientVersion": "0.0.1",
         "env": {},
         "serverInfo": {
-          "name": "锦恢的 MCP Server",
+          "name": "錦恢の MCP Server",
           "version": "1.9.2"
         },
         "filePath": "{workspace}/simple-mcp/main.py",
-        "name": "锦恢的 MCP Server",
+        "name": "錦恢の MCP Server",
         "version": "1.9.2"
       }
     ]
@@ -40,5 +40,4 @@ openmcp 默认会实时保存您的实验结果，每一个在工作区开启的
 }
 ```
 
-
-当您打开左侧的控制面板或者打开一个过去打开过的 mcp 服务器时， mcp 默认会根据上面的信息来获取工作区的服务器列表或者尝试进行自动连接。如果 openmcp 在连接 mcp 时发生了初始化错误或者保存错误，除了向 openmcp 官方求助外，您还可以尝试手动管理 `.openmcp/connection.json` 文件。
+左側のコントロールパネルを開くか、過去に開いたmcpサーバーを開くと、mcpはデフォルトで上記の情報に基づいてワークスペースのサーバーリストを取得したり、自動接続を試みたりします。openmcpがmcpに接続する際に初期化エラーや保存エラーが発生した場合、openmcp公式に助けを求める以外に、`.openmcp/connection.json`ファイルを手動で管理することもできます。

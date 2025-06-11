@@ -1,77 +1,73 @@
-# 连接 mcp 服务器
+# MCPサーバーへの接続
 
-不同于 Claude Desktop 和其他的 MCP 客户端类产品，OpenMCP 进行 MCP 服务器连接的步骤是相当丝滑的。
+Claude Desktopや他のMCPクライアント製品とは異なり、OpenMCPによるMCPサーバー接続の手順は非常にスムーズです。
 
-:::info MCP客户端
-MCP 客户端是指能够通过 MCP 协议进行通信的大模型对话客户端，通常是一个运行在本地的应用程序（因为网页没有文件IO的权限）。它的产品形式目前几乎都是聊天机器人的形式，类似于你在网页使用的 chat.deepseek.com 或者 chat.openai.com
+:::info MCPクライアント
+MCPクライアントとは、MCPプロトコルを通じて通信可能な大規模言語モデル対話クライアントのことで、通常はローカルで動作するアプリケーション（ウェブページにはファイルIOの権限がないため）です。その製品形態は現在ほぼチャットボット形式で、chat.deepseek.comやchat.openai.comのようなウェブサイトで使用するものと類似しています。
 :::
 
-首先，打开你的 VLE，在 [[acquire-openmcp|获取 OpenMCP]] 中完成 OpenMCP 的安装后，我们先用 python 创建一个最简单的 mcp 服务器，来测试 mcp 客户端的连接。
+まず、VLEを開き、[[acquire-openmcp|OpenMCPの取得]]でOpenMCPのインストールを完了した後、pythonで最も簡単なmcpサーバーを作成し、mcpクライアントの接続をテストします。
 
+## OpenMCPでワンクリック接続
 
-## 使用 OpenMCP 一键连接
-
-在 [[first-mcp|你的第一个 MCP]] 这个例子中，我们申明了三个函数，用作 mcp 的 tool，resource 和 prompt。在 OpenMCP 中启动它们非常简单，点击右上角的 OpenMCP 图标即可连接：
+[[first-mcp|最初のMCP]]の例では、mcpのtool、resource、promptとして3つの関数を宣言しました。OpenMCPでこれらを起動するのは非常に簡単で、右上のOpenMCPアイコンをクリックするだけで接続できます：
 
 ![](./images/connect-simple.png)
 
-
-如果登录完成后，如图显示连接成功，则代表当前已经成功启动并连接 mcp 服务器。
+ログインが完了し、図のように接続成功が表示されれば、現在mcpサーバーが正常に起動・接続されたことを意味します。
 
 ![](./images/connect-success.png)
 
-## STDIO 连接的启动
+## STDIO接続の起動
 
-对于 STDIO 为连接选项的开发方案，我们提供了一键式的快速启动，您不需要额外启动 mcp 的进程。OpenMCP 会自动连接和销毁。
+STDIOを接続オプションとする開発方案では、ワンクリックでの迅速な起動を提供しており、mcpプロセスを追加で起動する必要はありません。OpenMCPが自動的に接続と破棄を行います。
 
-目前支持的编程语言和它们对应的启动参数为：
+現在サポートされているプログラミング言語とそれに対応する起動パラメータは以下の通りです：
 
-|语言|连接参数|启动目录|
+|言語|接続パラメータ|起動ディレクトリ|
 |:-|:-|:-|
-|python|uv run mcp run $\{file\} | 往上追溯，第一个找到的 pyproject.toml 的目录|
-|nodejs|node $\{file\}| 往上追溯，第一个找到的 package.json 的目录|
-|go|go run $\{file\}| 往上追溯，第一个找到的 go.mod 的目录|
+|python|uv run mcp run $\{file\} | 遡って最初に見つかったpyproject.tomlのディレクトリ|
+|nodejs|node $\{file\}| 遡って最初に見つかったpackage.jsonのディレクトリ|
+|go|go run $\{file\}| 遡って最初に見つかったgo.modのディレクトリ|
 
-## SSE & Streamable HTTP 连接的启动
+## SSE & Streamable HTTP接続の起動
 
-对于 SSE 和 Streamable HTTP 这两种远程连接的方式，由于我们并不知道您到底在哪个端口启动的服务器（因为你有可能把启动的 host 和 port 写在不可见的配置文件里或者写在环境变量里），因此，对于远程连接的情况，我们不支持自动创建服务器，您需要手动配置启动选项。
+SSEとStreamable HTTPという2つのリモート接続方式については、どのポートでサーバーが起動されているか分からない（起動hostとportが見えない設定ファイルや環境変数に書かれている可能性があるため）ため、リモート接続の場合、自動サーバー作成はサポートしておらず、手動で起動オプションを設定する必要があります。
 
-点击 VLE 左侧插件栏目的 OpenMCP，在 「MCP 连接（工作区）」 视图中，点击 + ，就可以创建一个新的连接。
+VLE左側のプラグインメニューにあるOpenMCPをクリックし、「MCP接続（ワークスペース）」ビューで+をクリックすると、新しい接続を作成できます。
 
 ![](./images/add-connection.png)
 
-
-
-选择你需要的通信方式。
+必要な通信方式を選択します。
 
 ![](./images/select-server-type.png)
 
-输入MCP Server的地址。
+MCP Serverのアドレスを入力します。
 
 ![](./images/connect-sse.png)
 
 :::info
-需要注意的是，不同的通信方式一般使用不同endpoint，目前的MCP server大多遵循下面的原则：
+注意が必要なのは、異なる通信方式は一般的に異なるendpointを使用することです。現在のMCP serverの多くは以下の原則に従っています：
 
-如果是以 SSE 启动，那么默认使用 /sse 作为endpoint，比如 http://localhost:8001/sse
+SSEで起動する場合、デフォルトで/sseをendpointとして使用します。例：http://localhost:8001/sse
 
-如果是以 Streamable Http 启动，那么默认使用 /mcp 作为endpoint，比如 http://localhost:8001/mcp
+Streamable Httpで起動する場合、デフォルトで/mcpをendpointとして使用します。例：http://localhost:8001/mcp
 
-当然，允许MCP Server使用两个不同的endpoint同时支持两种连接方式，这对于想要迁移到Streamable Http但短时间又不能放弃SSE的情况特别有效
+もちろん、MCP Serverが2つの異なるendpointを使用して両接続方式を同時にサポートすることも可能で、Streamable Httpに移行したいが短期的にSSEを放棄できない状況に特に有効です
 :::
 
-## openmcp 插件的控制面板
+## openmcpプラグインのコントロールパネル
 
-在 VLE 的左侧可以找到 openmcp 的图标，点击后就是 openmcp 的控制面板。
+VLEの左側にopenmcpのアイコンがあり、クリックするとopenmcpのコントロールパネルが表示されます。
 
 ![](./images/openmcp-control-panel.png)
 
-当前工作区曾经连接过的 mcp 服务器会出现在这里，这是因为 openmcp 默认将工作区启动的 mcp 的连接信息存储在了 `.openmcp/tabs.{server-name}.json` 中，其中 `{server-name}` 就是 mcp 服务器连接成功的服务器名称。
+現在のワークスペースで以前接続したmcpサーバーはここに表示されます。これは、openmcpがデフォルトでワークスペース起動時のmcp接続情報を`.openmcp/tabs.{server-name}.json`に保存しているためで、`{server-name}`はmcpサーバー接続成功時のサーバー名です。
 
 :::warning
-注意，同一个项目中，你不应该有两个名字完全相同的 mcp 服务器，这会导致 `.openmcp/tabs.{server-name}.json` 连接信息存储冲突，发生未知错误。
+注意：同じプロジェクト内で、名前が完全に同じmcpサーバーを2つ持つべきではありません。これにより`.openmcp/tabs.{server-name}.json`の接続情報保存が衝突し、未知のエラーが発生する可能性があります。
 :::
 
-如果你想要在任意工作区都能使用同一个 mcp 服务器，可以考虑在「安装的 MCP 服务器」中添加成熟耐用的 mcp 服务器，这个位置添加的 mcp 服务器全局可用。
+任意のワークスペースで同じmcpサーバーを使用したい場合は、「インストール済みMCPサーバー」に成熟した耐久性のあるmcpサーバーを追加することを検討してください。この場所に追加されたmcpサーバーはグローバルに使用可能です。
 
-在「入门与帮助」中，我们准备了一些可供入门的参考资料，还请阁下善加利用。
+「入門とヘルプ」では、入門用の参考資料をいくつか準備しています。ぜひご活用ください。

@@ -1,28 +1,28 @@
 ---
 next:
-  text: python 实现天气信息 mcp 服务器 (STDIO)
+  text: Pythonで実装した天気情報MCPサーバー（STDIO）
   link: '/plugin-tutorial/examples/python-simple-stdio'
 ---
 
-# MCP 服务器开发案例
+# MCPサーバー開発事例
 
 ## Python
-- [python 实现天气信息 mcp 服务器 (STDIO)](./python-simple-stdio)
-- [python 实现进行通用表单填充 的 mcp (STDIO)](./python-form-stdio)
-- [python 实现基于 blender 的 mcp (STDIO)](./python-blender-stdio)
-- [python 实现 cadence EDA 的 mcp (STDIO)](./python-cadence-stdio)
-- 基于 ffmpeg mcp 实现通过对话的视频剪辑
-- 基于 rag mcp 实现知识库的注入
-- 实现 Stable Diffusion 的 MCP 服务器
+- [Pythonで実装した天気情報MCPサーバー（STDIO）](./python-simple-stdio)
+- [Pythonで実装した汎用フォーム入力MCP（STDIO）](./python-form-stdio)
+- [Pythonで実装したBlenderベースのMCP（STDIO）](./python-blender-stdio)
+- [Pythonで実装したCadence EDA用MCP（STDIO）](./python-cadence-stdio)
+- FFmpegベースMCPによる対話型動画編集
+- RAGベースMCPによるナレッジベース注入
+- Stable Diffusion用MCPサーバーの実装
 
 ## Nodejs
-- [typescript 实现基于 crawl4ai 的超级网页爬虫 mcp (STDIO)](./typescript-crawl4ai-stdio)
+- [TypeScriptで実装したcrawl4aiベースの超機能ウェブクローラーMCP（STDIO）](./typescript-crawl4ai-stdio)
 
 ## Go
-- [go 实现 neo4j 的只读 mcp 服务器 (SSE)](./go-neo4j-sse)
+- [Goで実装したNeo4j用読み取り専用MCPサーバー（SSE）](./go-neo4j-sse)
 
 ## Java
-- [java 实现文档数据库的只读 mcp (HTTP)](./java-es-http)
+- [Javaで実装したドキュメントデータベース用読み取り専用MCP（HTTP）](./java-es-http)
 
-## 认证
-- [SSE 方式的 OAuth2 认证 mcp 服务器示例](./sse-oauth2)
+## 認証
+- [SSE方式OAuth2認証MCPサーバー事例](./sse-oauth2)

@@ -1,10 +1,10 @@
-# 快速开始
+# クイックスタート
 
-1. [[acquire-openmcp|获取 OpenMCP]]
+1. [[acquire-openmcp|OpenMCPを入手する]]
 
-2. [[first-mcp|你的第一个 MCP]]
-3. [[quick-debug|快速调试 MCP]]
-4. [[put-into-llm|扔进大模型里面测测好坏！]]
+2. [[first-mcp|最初のMCPを作成]]
+3. [[quick-debug|MCPを迅速にデバッグ]]
+4. [[put-into-llm|大規模言語モデルでテストしてみよう！]]
 
 
 <br>
