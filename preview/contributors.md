@@ -66,6 +66,14 @@ const contributors = [
     links: [
       { icon: 'github', link: 'https://github.com/reliedejuedouzhe2' },
     ]
+  },
+  {
+    avatar: 'https://avatars.githubusercontent.com/u/206822796?v=4',
+    name: 'ZYD045692',
+    title: 'Developer',
+    links: [
+      { icon: 'github', link: 'https://github.com/ZYD045692' },
+    ]
   }
 ]
 </script>
