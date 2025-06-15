@@ -34,7 +34,7 @@ export default withMermaid({
                 mapAuthors: contributors
             }),
             GitChangelogMarkdownSection({
-                excludes: ['preview/contributors.md', 'index.md', 'en/index.md', 'ja/index.md']
+                excludes: ['preview/contributors.md', 'index.md', 'zh/index.md', 'ja/index.md']
             }),
             ThumbnailHashImages(),
         ],

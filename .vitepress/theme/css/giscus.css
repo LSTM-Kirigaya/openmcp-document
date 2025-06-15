@@ -1,0 +1,187 @@
+/* Giscus评论系统主题适配 */
+:root {
+    /* 浅色主题变量 */
+    --giscus-light-bg: #ffffff;
+    --giscus-light-text: #22272e;
+    --giscus-light-border: #e1e4e8;
+    --giscus-light-btn-bg: #f6f8fa;
+    --giscus-light-btn-hover: #f3f4f6;
+    --giscus-light-comment-bg: #f6f8fa;
+    --giscus-light-link: var(--vp-c-brand-2);
+    --giscus-light-code-bg: rgba(175, 184, 193, 0.2);
+
+    /* 深色主题变量 */
+    --giscus-dark-bg: #15202b;
+    --giscus-dark-text: #adbac7;
+    --giscus-dark-border: #444c56;
+    --giscus-dark-btn-bg: #373e47;
+    --giscus-dark-btn-hover: #444c56;
+    --giscus-dark-comment-bg: #1e2d3b;
+    --giscus-dark-link: var(--vp-c-brand-1);
+    --giscus-dark-code-bg: rgba(99, 110, 123, 0.4);
+}
+
+/* 基础样式 */
+main {
+    /* 使用您的品牌色重新定义语法高亮 */
+    --color-prettylights-syntax-comment: var(--vp-c-text-2);
+    --color-prettylights-syntax-constant: var(--vp-c-brand-1);
+    --color-prettylights-syntax-entity: var(--vp-c-brand-2);
+    --color-prettylights-syntax-storage-modifier-import: var(--vp-c-text-1);
+    --color-prettylights-syntax-entity-tag: #8ddb8c;
+    --color-prettylights-syntax-keyword: #f47067;
+    --color-prettylights-syntax-string: #96d0ff;
+    --color-prettylights-syntax-variable: #f69d50;
+    --color-prettylights-syntax-brackethighlighter-unmatched: #e5534b;
+    --color-prettylights-syntax-invalid-illegal-text: var(--vp-c-text-1);
+    --color-prettylights-syntax-invalid-illegal-bg: #922323;
+    --color-prettylights-syntax-carriage-return-text: var(--vp-c-text-1);
+    --color-prettylights-syntax-carriage-return-bg: #ad2e2c;
+    --color-prettylights-syntax-string-regexp: #8ddb8c;
+    --color-prettylights-syntax-markup-list: #eac55f;
+    --color-prettylights-syntax-markup-heading: var(--vp-c-brand-3);
+    --color-prettylights-syntax-markup-italic: var(--vp-c-text-1);
+    --color-prettylights-syntax-markup-bold: var(--vp-c-text-1);
+    --color-prettylights-syntax-markup-deleted-text: #ffd8d3;
+    --color-prettylights-syntax-markup-deleted-bg: #78191b;
+    --color-prettylights-syntax-markup-inserted-text: #b4f1b4;
+    --color-prettylights-syntax-markup-inserted-bg: #1b4721;
+    --color-prettylights-syntax-markup-changed-text: #ffddb0;
+    --color-prettylights-syntax-markup-changed-bg: #682d0f;
+    --color-prettylights-syntax-markup-ignored-text: var(--vp-c-text-2);
+    --color-prettylights-syntax-markup-ignored-bg: #255ab2;
+    --color-prettylights-syntax-meta-diff-range: var(--vp-c-brand-2);
+
+    /* 按钮样式 */
+    --color-btn-text: var(--vp-c-text-1);
+    --color-btn-bg: var(--vp-c-default-soft);
+    --color-btn-border: var(--vp-c-border);
+    --color-btn-shadow: 0 0 transparent;
+    --color-btn-inset-shadow: 0 0 transparent;
+    --color-btn-hover-bg: var(--vp-c-default-2);
+    --color-btn-hover-border: var(--vp-c-border);
+    --color-btn-active-bg: var(--vp-c-default-3);
+    --color-btn-active-border: var(--vp-c-border);
+    --color-btn-selected-bg: var(--vp-c-default-3);
+
+    /* 主按钮样式 - 使用您的品牌色 */
+    --color-btn-primary-text: var(--vp-c-white);
+    --color-btn-primary-bg: var(--vp-c-brand-3);
+    --color-btn-primary-border: transparent;
+    --color-btn-primary-shadow: 0 0 transparent;
+    --color-btn-primary-inset-shadow: 0 0 transparent;
+    --color-btn-primary-hover-bg: var(--vp-c-brand-2);
+    --color-btn-primary-hover-border: transparent;
+    --color-btn-primary-selected-bg: var(--vp-c-brand-3);
+    --color-btn-primary-selected-shadow: 0 0 transparent;
+    --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.5);
+    --color-btn-primary-disabled-bg: rgba(163, 104, 184, 0.6);
+    --color-btn-primary-disabled-border: transparent;
+
+    /* 其他元素 */
+    --color-fg-default: var(--vp-c-text-1);
+    --color-fg-muted: var(--vp-c-text-2);
+    --color-fg-subtle: var(--vp-c-text-3);
+    --color-canvas-default: var(--vp-c-bg);
+    --color-canvas-overlay: var(--vp-c-bg-soft);
+    --color-canvas-inset: var(--vp-c-bg-alt);
+    --color-canvas-subtle: var(--vp-c-bg-soft);
+    --color-border-default: var(--vp-c-border);
+    --color-border-muted: var(--vp-c-divider);
+    --color-accent-fg: var(--vp-c-brand-1);
+    --color-accent-emphasis: var(--vp-c-brand-3);
+    --color-accent-muted: var(--vp-c-brand-soft);
+    --color-accent-subtle: var(--vp-c-brand-soft);
+
+    /* 加载动画 */
+    --color-homepage-bg: var(--vp-c-bg);
+}
+
+/* 浅色主题适配 */
+@media (prefers-color-scheme: light) {
+    main {
+        --color-canvas-default: var(--giscus-light-bg);
+        --color-canvas-overlay: var(--giscus-light-comment-bg);
+        --color-canvas-inset: var(--giscus-light-comment-bg);
+        --color-canvas-subtle: var(--giscus-light-btn-bg);
+        --color-fg-default: var(--giscus-light-text);
+        --color-fg-muted: #57606a;
+        --color-fg-subtle: #6e7781;
+        --color-border-default: var(--giscus-light-border);
+        --color-border-muted: #d0d7de;
+        --color-btn-bg: var(--giscus-light-btn-bg);
+        --color-btn-hover-bg: var(--giscus-light-btn-hover);
+        --color-accent-fg: var(--giscus-light-link);
+        --color-prettylights-syntax-comment: #6e7781;
+    }
+}
+
+/* 深色主题适配 */
+@media (prefers-color-scheme: dark) {
+    main {
+        --color-canvas-default: var(--giscus-dark-bg);
+        --color-canvas-overlay: var(--giscus-dark-comment-bg);
+        --color-canvas-inset: var(--giscus-dark-comment-bg);
+        --color-canvas-subtle: var(--giscus-dark-btn-bg);
+        --color-fg-default: var(--giscus-dark-text);
+        --color-fg-muted: #768390;
+        --color-fg-subtle: #545d68;
+        --color-border-default: var(--giscus-dark-border);
+        --color-border-muted: #373e47;
+        --color-btn-bg: var(--giscus-dark-btn-bg);
+        --color-btn-hover-bg: var(--giscus-dark-btn-hover);
+        --color-accent-fg: var(--giscus-dark-link);
+        --color-prettylights-syntax-comment: #768390;
+    }
+}
+
+/* 自定义样式 */
+.gsc-reactions-count {
+    display: none;
+}
+
+.gsc-timeline {
+    flex-direction: column-reverse;
+}
+
+.gsc-header {
+    padding-bottom: 1rem;
+}
+
+.gsc-comments>.gsc-header {
+    order: 1;
+}
+
+.gsc-comments>.gsc-comment-box {
+    margin-bottom: 1rem;
+    order: 2;
+}
+
+.gsc-comments>.gsc-timeline {
+    order: 3;
+}
+
+main .gsc-loading-image {
+    background-image: url(https://github.githubassets.com/images/mona-loading-dimmed.gif);
+}
+
+/* 链接颜色 */
+.gsc-comment a {
+    color: var(--color-accent-fg) !important;
+}
+
+/* 代码块背景 */
+.gsc-comment markdown-body pre {
+    background-color: var(--color-canvas-subtle) !important;
+}
+
+/* 评论框样式 */
+.gsc-comment-box {
+    border: 1px solid var(--color-border-default) !important;
+    background-color: var(--color-canvas-default) !important;
+}
+
+/* 按钮悬停效果 */
+.gsc-reaction-button:hover {
+    background-color: var(--color-btn-hover-bg) !important;
+}

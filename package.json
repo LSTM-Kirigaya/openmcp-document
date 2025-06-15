@@ -19,6 +19,7 @@
         "@nolebase/vitepress-plugin-inline-link-preview": "^2.17.1",
         "@nolebase/vitepress-plugin-page-properties": "^2.17.1",
         "@nolebase/vitepress-plugin-thumbnail-hash": "^2.17.1",
+        "busuanzi.pure.js": "^1.0.3",
         "chalk": "^5.4.1",
         "mermaid": "^11.6.0",
         "ompipe": "^1.0.2",

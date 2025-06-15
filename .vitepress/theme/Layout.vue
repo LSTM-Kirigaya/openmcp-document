@@ -3,6 +3,15 @@
         <template #home-hero-image>
             <HeroImage />
         </template>
+
+        <template #doc-before>
+
+        </template>
+
+
+        <template #doc-after>
+            <Comments />
+        </template>
     </DefaultTheme.Layout>
     <ClientOnly>
         <ScrollBar v-if="mounted" />
@@ -22,6 +31,7 @@ import HeroImage from './components/home/HeroImage.vue';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { watchEffect } from 'vue';
+import Comments from './components/Comments/index.vue';
 
 const data = useData();
 const router = useRouter();
