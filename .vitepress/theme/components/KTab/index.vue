@@ -33,9 +33,9 @@ const tabsContainer = reactive({
     paneInfos: [] as PaneInfo[],
     panes: [] as HTMLElement[],
     lastPaneId: 0,
-    panelContainer: undefined as HTMLElement | undefined,
+    panelContainer: undefined as any,
 
-    getPanes(el: HTMLElement | null, id: number) {
+    getPanes(el: any, id: number) {
         if (el) this.panes[id] = el;
     },
 
@@ -135,6 +135,12 @@ onMounted(() => {
     gap: 8px;
 }
 
+@media screen and (max-width: 741px) {
+    .k-tabs-tags {
+        flex-direction: column;
+    }
+}
+
 .k-tabs-tag-item {
     background-color: var(--vp-button-alt-bg);
     border-radius: .5em;
@@ -150,10 +156,39 @@ onMounted(() => {
     transform: scale(1.05);
 }
 
-.k-tabs-content {
+html[lang="zh"] .k-tabs-content {
     position: relative;
-    min-height: 200px;
+    min-height: 500px;
 }
+
+html[lang="en"] .k-tabs-content {
+    position: relative;
+    min-height: 600px;
+}
+
+html[lang="ja"] .k-tabs-content {
+    position: relative;
+    min-height: 600px;
+}
+
+
+@media screen and (max-width: 741px) {
+    html[lang="zh"] .k-tabs-content {
+        position: relative;
+        min-height: 600px;
+    }
+
+    html[lang="en"] .k-tabs-content {
+        position: relative;
+        min-height: 900px;
+    }
+
+    html[lang="ja"] .k-tabs-content {
+        position: relative;
+        min-height: 760px;
+    }
+}
+
 
 .k-tabs-content>* {
     position: absolute;

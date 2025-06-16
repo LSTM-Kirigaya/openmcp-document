@@ -1,8 +1,9 @@
 {
+    "type": "module",
     "scripts": {
         "dev": "vitepress dev",
         "build": "vitepress build",
-        "postbuild": "node scripts/move-image.js",
+        "postbuild": "node scripts/move-image.mjs",
         "preview": "vitepress preview"
     },
     "dependencies": {
@@ -18,7 +19,12 @@
         "@nolebase/vitepress-plugin-inline-link-preview": "^2.17.1",
         "@nolebase/vitepress-plugin-page-properties": "^2.17.1",
         "@nolebase/vitepress-plugin-thumbnail-hash": "^2.17.1",
+        "busuanzi.pure.js": "^1.0.3",
+        "chalk": "^5.4.1",
         "mermaid": "^11.6.0",
+        "ompipe": "^1.0.2",
+        "openai": "^5.3.0",
+        "simple-git": "^3.28.0",
         "vitepress-plugin-lightbox": "^1.0.2",
         "vitepress-plugin-mermaid": "^2.0.17"
     }

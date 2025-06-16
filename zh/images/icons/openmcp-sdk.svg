@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="600" height="674" viewBox="0 0 600 674" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient_1" gradientUnits="userSpaceOnUse" x1="300" y1="0" x2="300" y2="600">
+      <stop offset="0" stop-color="#A1A7F6" />
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="gradient_2" gradientUnits="userSpaceOnUse" x1="110.5" y1="0" x2="110.5" y2="221">
+      <stop offset="0.441" stop-color="#A8A3FF" />
+      <stop offset="1" stop-color="#FFFFFF" />
+    </linearGradient>
+    <linearGradient id="gradient_3" gradientUnits="userSpaceOnUse" x1="55.5" y1="0" x2="55.5" y2="111">
+      <stop offset="0" stop-color="#FFFFFF" />
+      <stop offset="1" stop-color="#A489FB" />
+    </linearGradient>
+    <linearGradient id="gradient_5" gradientUnits="userSpaceOnUse" x1="126" y1="0" x2="126" y2="647">
+      <stop offset="0" stop-color="#FFF2B0" />
+      <stop offset="0.461" stop-color="#F2B63A" />
+    </linearGradient>
+  </defs>
+  <g>
+    <g>
+      <g transform="translate(0 74)">
+        <path d="M300 0C465.708 0 600 134.292 600 300C600 300 600 300 600 300C600 465.708 465.708 600 300 600C300 600 300 600 300 600C134.292 600 0 465.708 0 300C0 300 0 300 0 300C0 134.292 134.292 0 300 0Z" fill="#5A00FF" fill-rule="evenodd" />
+        <path d="M300 0C465.708 0 600 134.292 600 300C600 300 600 300 600 300C600 465.708 465.708 600 300 600C300 600 300 600 300 600C134.292 600 0 465.708 0 300C0 300 0 300 0 300C0 134.292 134.292 0 300 0Z" fill="url(#gradient_1)" fill-rule="evenodd" />
+      </g>
+      <path d="M0 110.5C0 49.4725 49.4725 0 110.5 0C171.527 0 221 49.4725 221 110.5C221 171.527 171.527 221 110.5 221C49.4725 221 0 171.527 0 110.5Z" fill="url(#gradient_2)" fill-rule="evenodd" transform="translate(284 417)" />
+      <path d="M0 55.5C0 24.8482 24.8482 0 55.5 0C86.1518 0 111 24.8482 111 55.5C111 86.1518 86.1518 111 55.5 111C24.8482 111 0 86.1518 0 55.5Z" fill="url(#gradient_3)" fill-rule="evenodd" transform="translate(49 374)" />
+      <path d="M0 182.5C0 81.708 81.708 0 182.5 0C283.292 0 365 81.708 365 182.5C365 283.292 283.292 365 182.5 365C81.708 365 0 283.292 0 182.5Z" fill="url(#gradient_4)" fill-rule="evenodd" transform="translate(179 108)" />
+      <path d="M215.354 294.309L24.8044 647C24.8044 647 80.3091 362.484 80.3091 362.484C80.9377 359.199 79.5325 355.85 77.4987 355.85C77.4987 355.85 23.6951 355.85 23.6951 355.85C6.50011 355.85 -4.96321 325.459 2.13664 298.669C2.13664 298.669 75.28 23.6938 75.28 23.6938C79.1258 9.28799 87.5569 0 96.8384 0C96.8384 0 252 0 252 0C252 0 178.82 218.868 178.82 218.868C177.71 222.217 179.115 226.45 181.371 226.45C181.371 226.45 197.938 226.45 197.938 226.45C218.571 226.45 229.332 268.404 215.354 294.309C215.354 294.309 215.354 294.309 215.354 294.309Z" fill="url(#gradient_5)" transform="translate(193 0)" />
+    </g>
+    <rect width="432" height="432" transform="translate(84 107)" />
+  </g>
+</svg>

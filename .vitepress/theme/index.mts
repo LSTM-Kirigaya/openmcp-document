@@ -1,6 +1,8 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue';
 import type { Theme } from 'vitepress';
+import { inBrowser } from 'vitepress';
+import busuanzi from 'busuanzi.pure.js';
 import DefaultTheme from 'vitepress/theme';
 
 import CustomLayout from './Layout.vue';
@@ -14,7 +16,7 @@ import Contributors from './components/Contributors/index.vue';
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebaseInlineLinkPreviewPlugin } from '@nolebase/vitepress-plugin-inline-link-preview/client';
 import { NolebaseUnlazyImg } from '@nolebase/vitepress-plugin-thumbnail-hash/client';
-  
+
 import { ElCollapse, ElCollapseItem, ElTimeline, ElTimelineItem } from 'element-plus';
 
 import './css/style.css';
@@ -46,5 +48,12 @@ export default {
 
 		app.use(NolebaseGitChangelogPlugin);
 		app.use(NolebaseInlineLinkPreviewPlugin);
+
+		// 添加浏览量统计
+		if (inBrowser) {
+			router.onAfterRouteChange = () => {
+				busuanzi.fetch()
+			}
+		}
 	}
 } satisfies Theme

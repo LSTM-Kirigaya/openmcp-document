@@ -1,32 +1,30 @@
-# MCP 基础概念
+# MCP Basic Concepts
 
-## 前言
+## Foreword
 
+In the [[what-is-mcp|previous article]], we briefly introduced the definition of MCP and its basic organizational structure. As developers, what we need to focus on is how to customize the development of the MCP server based on our own business and scenario needs. This way, after directly connecting to any MCP client, we can provide the large model with the customized interaction capabilities we have developed.
 
+Before we officially start teaching you how to develop your own MCP server, I think it might be necessary to clarify a few basic concepts.
 
-在 [[what-is-mcp|之前的文章]] 中，我们简单介绍了 MCP 的定义和它的基本组织结构。作为开发者，我们最需要关注的其实是如何根据我们自己的业务和场景定制化地开发我们需要的 MCP 服务器，这样直接接入任何一个 MCP 客户端后，我们都可以给大模型以我们定制出的交互能力。
+## Resources, Prompts, and Tools
 
-在正式开始教大家如何开发自己的 MCP 服务器之前，我想，或许有必要讲清楚几个基本概念。
+In the [MCP Client Protocol](https://modelcontextprotocol.io/clients), three very important capability categories in the MCP protocol are mentioned:
 
-## Resources, Prompts 和 Tools
+* Resources: Customized requests and access to local resources, which can be file systems, databases, files in the current code editor, etc., essentially **static resources** that web apps cannot access. Additional resources will enrich the context sent to the large model, allowing AI to give us more accurate responses.
+* Prompts: Customized prompts that AI can adopt in certain scenarios. For example, if AI needs to return certain formatted content, custom prompts can be provided.
+* Tools: Tools available for AI use. These must be functions, such as booking a hotel, opening a webpage, or turning off a lamp—these encapsulated functions can be a tool. The large model will use these tools via function calling. Tools will allow AI to directly operate our computer and even interact with the real world.
 
-在 [MCP 客户端协议](https://modelcontextprotocol.io/clients) 中，讲到了 MCP 协议中三个非常重要的能力类别：
+For those with front-end and back-end development experience, you can think of Resources as "read-only permissions granted to the large model" and Tools as "read-write permissions granted to the large model."
 
-- Resouces ：定制化地请求和访问本地的资源，可以是文件系统、数据库、当前代码编辑器中的文件等等原本网页端的app 无法访问到的 **静态资源**。额外的 resources 会丰富发送给大模型的上下文，使得 AI 给我们更加精准的回答。
-- Prompts ：定制化一些场景下可供 AI 进行采纳的 prompt，比如如果需要 AI 定制化地返回某些格式化内容时，可以提供自定义的 prompts。
-- Tools ：可供 AI 使用的工具，它必须是一个函数，比如预定酒店、打开网页、关闭台灯这些封装好的函数就可以是一个 tool，大模型会通过 function calling 的方式来使用这些 tools。 Tools 将会允许 AI 直接操作我们的电脑，甚至和现实世界发生交互。
+MCP clients (such as Claude Desktop, 5ire, etc.) have already implemented the front-end logic for the above. However, what resources and tools to provide requires each developer’s imagination. In other words, we need to develop rich and diverse MCP Servers to enable the large model to perform more interesting tasks.
 
-各位拥有前后端开发经验的朋友们，可以将 Resouces 看成是「额外给予大模型的只读权限」，把 Tools 看成是「额外给予大模型的读写权限」。
+However, one thing to note is that almost all large models currently use the OpenAI protocol as the access point for connecting to the large model. What does the OpenAI protocol mean?
 
-MCP 客户端（比如 Claude Desktop，5ire 等）已经实现好了上述的前端部分逻辑。而具体提供什么资源，具体提供什么工具，则需要各位玩家充分想象了，也就是我们需要开发丰富多彩的 MCP Server 来允许大模型做出更多有意思的工作。
+## OpenAI Protocol
 
-不过需要说明的一点是，目前几乎所有大模型采用了 openai 协议作为我们访问大模型的接入点。什么叫 openai 协议呢？
+When developing an app using Python or TypeScript, we often install a library named OpenAI, where you fill in the model vendor, base URL of the model, and the type of model to directly access the large model. The various model providers must also support this library and protocol.
 
-## openai 协议
-
-当我们使用 python 或者 typescript 开发 app 时，往往会安装一个名为 openai 的库，里面填入你需要使用的模型厂商、模型的基础 url、使用的模型类别来直接访问大模型。而各个大模型提供商也必须支持这个库，这套协议。
-
-比如我们在 python 中访问 deepseek 的服务就可以这么做：
+For example, to access the Deepseek service in Python, we can do it like this:
 
 ```python
 from openai import OpenAI
@@ -45,7 +43,7 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-如果你点进这个 create 函数去看，你会发现 openai 协议需要大模型厂家支持的 feature 是非常非常多的：
+If you go into the `create` function, you will see that the OpenAI protocol requires a lot of features to be supported by the model provider:
 
 ```python
     @overload
@@ -92,13 +90,13 @@ print(response.choices[0].message.content)
     ) -> ChatCompletion:
 ```
 
-从上面的签名中，你应该可以看到几个很熟悉的参数，比如 `temperature`, `top_p`，很多的大模型使用软件中，有的会给你暴露这个参数进行调节。比如在 5ire 中，内容随机度就是 `temperature` 这个参数的图形化显示。
+From the above signature, you should see several familiar parameters like `temperature` and `top_p`. Many large model software expose these parameters for adjustment. For example, in 5ire, the content randomness is displayed graphically as the `temperature` parameter.
 
 <div align=center>
 <img src="https://picx.zhimg.com/80/v2-9f8544aa917e8c128fc194adeb7161cd_1440w.png" style="width: 100%;"/>
 </div>
 
-其实如你所见，一次普普通通调用涉及到的可调控参数是非常之多的。而在所有参数中，你可以注意到一个参数叫做 `tools`:
+As you can see, a simple invocation involves many adjustable parameters. Among all these parameters, you can notice one called `tools`:
 
 ```python
     @overload
@@ -109,14 +107,14 @@ print(response.choices[0].message.content)
         model: Union[str, ChatModel],
         audio: Optional[ChatCompletionAudioParam] | NotGiven = NOT_GIVEN,
 
-		# 看这里
+		# Look here
         tools: Iterable[ChatCompletionToolParam] | NotGiven = NOT_GIVEN,
     ) -> ChatCompletion:
 ```
 
-## tool_calls 字段
+## tool\_calls Field
 
-在上面的 openai 协议中，有一个名为 tools 的参数。 tools 就是要求大模型厂商必须支持 function calling 这个特性，也就是我们提供一部分工具的描述（和 MCP 协议完全兼容的），在 tools 不为空的情况下，chat 函数返回的值中会包含一个特殊的字段 `tool_calls`，我们可以运行下面的我写好的让大模型调用可以查询天气的代码：
+In the OpenAI protocol above, there is a parameter called `tools`. This requires the large model provider to support the function calling feature, i.e., we provide a description of a set of tools (which is fully compatible with the MCP protocol). When `tools` is not empty, the value returned by the chat function will include a special field `tool_calls`. We can run the code I wrote to allow the large model to query the weather:
 
 ```python
 from openai import OpenAI
@@ -126,19 +124,19 @@ client = OpenAI(
 	base_url="https://api.deepseek.com"
 )
 
-# 定义 tools（函数/工具列表）
+# Define tools (functions/tool list)
 tools = [
     {
         "type": "function",
         "function": {
             "name": "get_current_weather",
-            "description": "获取给定地点的天气",
+            "description": "Get the weather for a given location",
             "parameters": {
                 "type": "object",
                 "properties": {
                     "location": {
                         "type": "string",
-                        "description": "城市，比如杭州，北京，上海",
+                        "description": "City, e.g., Hangzhou, Beijing, Shanghai",
                     }
                 },
                 "required": ["location"],
@@ -150,18 +148,18 @@ tools = [
 response = client.chat.completions.create(
     model="deepseek-chat",
     messages=[
-        {"role": "system", "content": "你是一个很有用的 AI"},
-        {"role": "user", "content": "今天杭州的天气是什么？"},
+        {"role": "system", "content": "You are a helpful AI"},
+        {"role": "user", "content": "What’s the weather in Hangzhou today?"},
     ],
-    tools=tools,  # 传入 tools 参数
-    tool_choice="auto",  # 可选：控制是否强制调用某个工具
+    tools=tools,  # Pass the tools parameter
+    tool_choice="auto",  # Optional: control whether to force a specific tool call
     stream=False,
 )
 
 print(response.choices[0].message)
 ```
 
-运行上述代码，它的返回如下：
+Running the above code, the return will be as follows:
 
 ```python
 ChatCompletionMessage(
@@ -175,7 +173,7 @@ ChatCompletionMessage(
 		ChatCompletionMessageToolCall(
 			id='call_0_baeaba2b-739d-40c2-aa6c-1e61c6d7e855',
 			function=Function(
-				arguments='{"location":"杭州"}',
+				arguments='{"location":"Hangzhou"}',
 				name='get_current_weather'
 			),
 			type='function',
@@ -185,48 +183,4 @@ ChatCompletionMessage(
 )
 ```
 
-可以看到上面的 `tool_calls` 给出了大模型想要如何去使用我们给出的工具。需要说明的一点是，收到上下文的限制，目前一个问题能够让大模型调取的工具上限一般不会超过 100 个，这个和大模型厂商的上下文大小有关系。奥，对了，友情提示，当你使用 MCP 客户端在使用大模型解决问题时，同一时间激活的 MCP Server 越多，消耗的 token 越多哦 :D
-
-而目前 openai 的协议中，tools 是只支持函数类的调用。而函数类的调用往往是可以模拟出 Resources 的效果的。比如取资源，你可以描述为一个 tool。因此在正常情况下，如果大家要开发 MCP Server，最好只开发 Tools，另外两个 feature 还暂时没有得到广泛支持。
-
-
-
-## 使用 Inspector 进行调试
-
-Claude 原生提供的 MCP 协议可以通过官方提供的 Inspector 进行调试，对于 [[first-mcp|你的第一个 MCP]] 中的例子，可以如下进行调试，在命令行输入如下命令启动 Inspector:
-
-```bash
-mcp dev main.py
-```
-
-这会启动一个前端服务器，并打开 `http://localhost:5173/` 后我们可以看到 inspector 的调试界面，先点击左侧的 `Connect` 来运行我们的 server.py 并通过 stdio 为通信管道和 web 建立通信。
-
-Fine，可以开始愉快地进行调试了，Inspector 主要给了我们三个板块，分别对应 Resources，Prompts 和 Tools。
-
-先来看 Resources，点击「Resource Templates」可以罗列所有注册的 Resource，比如我们上文定义的 `get_greeting`，你可以通过输入参数运行来查看这个函数是否正常工作。（因为一般情况下的这个资源协议是会访问远程数据库或者微服务的）
-
-<div align=center>
-<img src="https://picx.zhimg.com/80/v2-71fc1ad813cdbf7ecec24d878c343b96_1440w.png" style="width: 100%;"/>
-</div>
-
-Prompts 端就比较简单了，直接输入预定义参数就能获取正常的返回结果。
-
-<div align=center>
-<img src="https://pic1.zhimg.com/80/v2-4f42899ba1163922ac2347f7cebe5362_1440w.png" style="width: 100%;"/>
-</div>
-
-Tools 端将会是我们后面调试的核心。在之前的章节我们讲过了，MCP 协议中的 Prompts 和 Resources 目前还没有被 openai 协议和各大 MCP 客户端广泛支持，因此，我们主要的服务端业务都应该是在写 tools。
-
-我们此处提供的 tool 是实现一个简单的加法，它非常简单，我们输入 1 和 2 就可以直接看到结果是 3。我们后续会开发一个可以访问天气预报的 tool，那么到时候就非常需要一个这样的窗口来调试我们的天气信息获取是否正常了。
-
-<div align=center>
-<img src="https://pic1.zhimg.com/80/v2-4164a900198a70a158ae441f9e441d07_1440w.png" style="width: 100%;"/>
-</div>
-
-
-
-## 结语
-
-这篇文章，我们简单了解了 MCP 内部的一些基本概念，我认为这些概念对于诸位开发一个 MCP 服务器是大有裨益的，所以我认为有必要先讲一讲。
-
-下面的文章中，我将带领大家探索 MCP 的奇境，一个属于 AI Agent 的时代快要到来了。
+As you can see, the `tool_calls` shows how the large model wants to use the tools we provided. One thing to note is that due to context limitations, the maximum number of tools a large model

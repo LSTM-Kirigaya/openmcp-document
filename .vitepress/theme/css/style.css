@@ -217,6 +217,12 @@ iframe {
     transition: border-color 0.3s ease;
 }
 
+@media screen and (max-width: 741px) {
+    iframe {
+        height: 210px;
+        width: 100%;
+    }
+}
 
 .VPMenu {
     background-color: rgba(255, 255, 255, 0.55) !important;
@@ -272,7 +278,7 @@ iframe {
     background-clip: text;
     -webkit-text-fill-color: var(--vp-home-hero-name-color);
 }
-
+/* 
 .VPHero .heading .text {
 }
 
@@ -281,7 +287,7 @@ iframe {
 
 .VPHero .actions {
 }
-
+ */
 
 #home-0 {
     font-size: 40px;
@@ -315,3 +321,4 @@ iframe {
     opacity: 0.5;
     line-height: 0.8;
 }
+

@@ -58,7 +58,7 @@ interface Contributor {
 
 export const contributors = [
     {
-        name: '锦恢',
+        name: 'LSTM-Kirigaya (锦恢)',
         nameAliases: ['LSTM-Kirigaya', 'Kirigaya'],
         mapByEmailAliases: ['1193466151@qq.com'],
         links: [{ type: '', link: 'https://www.zhihu.com/people/can-meng-zhong-de-che-xian' }]
