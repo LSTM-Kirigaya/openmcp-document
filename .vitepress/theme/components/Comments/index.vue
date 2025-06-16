@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 
-const { title } = useData()
+const { title, lang } = useData()
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const { title } = useData()
         data-emit-metadata="0"
         data-input-position="bottom"
         data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
+        :data-lang="lang"
         crossorigin="anonymous"
         async
     />
