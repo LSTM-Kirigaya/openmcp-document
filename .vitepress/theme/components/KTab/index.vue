@@ -135,6 +135,12 @@ onMounted(() => {
     gap: 8px;
 }
 
+@media screen and (max-width: 741px) {
+    .k-tabs-tags {
+        flex-direction: column;
+    }
+}
+
 .k-tabs-tag-item {
     background-color: var(--vp-button-alt-bg);
     border-radius: .5em;
@@ -164,6 +170,25 @@ html[lang="ja"] .k-tabs-content {
     position: relative;
     min-height: 600px;
 }
+
+
+@media screen and (max-width: 741px) {
+    html[lang="zh"] .k-tabs-content {
+        position: relative;
+        min-height: 600px;
+    }
+
+    html[lang="en"] .k-tabs-content {
+        position: relative;
+        min-height: 900px;
+    }
+
+    html[lang="ja"] .k-tabs-content {
+        position: relative;
+        min-height: 760px;
+    }
+}
+
 
 .k-tabs-content>* {
     position: absolute;

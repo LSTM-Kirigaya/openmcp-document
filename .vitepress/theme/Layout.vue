@@ -101,8 +101,15 @@ const handleRouteChangeComplete = async (to: string) => {
 router.onBeforeRouteChange = handleRouteChangeStart;
 router.onAfterRouteChange = handleRouteChangeComplete;
 
-function makeHomeAnimation() {
-    if (router.route.path !== '/openmcp/') {
+const allowHomeAnimationRoutes = [
+    '/openmcp/',
+    '/openmcp/zh/',
+    '/openmcp/en/',
+    '/openmcp/ja/',
+];
+
+function makeHomeAnimation() {    
+    if (!allowHomeAnimationRoutes.includes(router.route.path)) {
         return;
     }
 

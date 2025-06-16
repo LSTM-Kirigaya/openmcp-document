@@ -217,6 +217,12 @@ iframe {
     transition: border-color 0.3s ease;
 }
 
+@media screen and (max-width: 741px) {
+    iframe {
+        height: 210px;
+        width: 100%;
+    }
+}
 
 .VPMenu {
     background-color: rgba(255, 255, 255, 0.55) !important;
