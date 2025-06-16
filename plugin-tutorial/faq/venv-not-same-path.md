@@ -10,13 +10,13 @@ When using OpenMCP, you may sometimes encounter situations where the virtual env
 
 In the connection options, you need to set the execution directory to where the virtual environment is located:
 
-![MCP Connection Options Interface](./image-2.png)
+![MCP Connection Options Interface](./images/before-path-changed.png)
 
 ### 2. Modify the Execution Command
 
 At the same time, adjust the execution command accordingly:
 
-![Example of Modified Execution Command](./image.png)
+![Example of Modified Execution Command](./images/after-path-changed.png)
 
 ### 3. Directly Specify the Interpreter Path
 
