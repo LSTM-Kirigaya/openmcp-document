@@ -13,7 +13,7 @@ MCP connection failure can have multiple causes. Here are some common situations
 
 A mismatch between the virtual environment (venv) and the entry file path is one of the common reasons for connection failure.
 
-For detailed solutions, please refer to: [Configuration Guide](./venv-not-same-path/venv-not-same-path.md)
+For detailed solutions, please refer to: [Configuration Guide](./venv-not-same-path.md)
 
 ---
 
