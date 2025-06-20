@@ -2,8 +2,8 @@
 
 <img src="/images/icons/openmcp-sdk.svg" width="200px"/>
 
-<h3>openmcp-sdk : openmcp 向けデプロイメントフレームワーク</h3>
-<h4>実験室から本番環境まで、エージェントを瞬時に展開</h4>
+<h3>openmcp-sdk : openmcp向けデプロイメントフレームワーク</h3>
+<h4>実験環境から本番環境へエージェントを瞬時にデプロイ</h4>
 
 </div>
 
@@ -11,11 +11,11 @@
 
 ## openmcp-sdk.jsとは
 
-OpenMCP Clientは統合されたMCPデバッグソリューションを提供しますが、それだけでは物足りません。
+OpenMCP Clientは統合型MCPデバッグソリューションを提供していますが、それだけでは十分ではありません。
 
-作成したmcpを配布可能なアプリにしたり、サーバー上で関数サービスやマイクロサービスとして展開したい場合、OpenMCP Clientがフロントエンドに大規模モデルとの連携やツール使用ロジックを実装しているため、困難が生じます。
+完成したMCPを配布可能なアプリにしたり、サーバー上で関数サービスやマイクロサービスとして運用したい場合があります。しかしOpenMCP Clientは大規模モデルとの連携やツール使用のロジックを全てフロントエンドに実装しているため、MCPを大規模モデル連携型のスタンドアロンアプリケーションやサービスとして構築するのは困難です。
 
-openmcp-sdk.jsはこの問題に対する軽量ソリューションです。Node.jsライブラリとして、完成したmcpをシームレスにエージェントとして展開可能にします。
+この問題を解決するのがopenmcp-sdk.jsです。Node.jsライブラリとして、開発済みのMCPとデバッグ済みワークフローをシームレスにエージェントとしてデプロイできます。
 
 ## インストール
 
@@ -34,114 +34,107 @@ pnpm add openmcp-sdk
 :::
 
 :::warning
-現在openmcp-sdkはesmモードのインポートのみサポートしています
+現在openmcp-sdkはESMモードのインポートのみサポートしています
 :::
 
 ## 使用方法
 
-ファイル名：main.ts
+まず新しいTypeScriptプロジェクトを作成します：
+
+```bash
+mkdir clever-agent && cd clever-agent
+npm init -y
+npm install typescript tsx @types/node --save-dev
+tsc --init
+```
+
+> openmcp-sdkはESMのみ対応しています。package.jsonで`"type": "module"`を設定してください
+
+次にopenmcp-sdkをインストールします：
+
+```bash
+npm install openmcp-sdk
+```
+
+main.tsファイルを作成し、数行のコードで設定をエージェントとしてデプロイできます：
 
 ```typescript
-import { TaskLoop } from 'openmcp-sdk/task-loop';
-import { TaskLoopAdapter } from 'openmcp-sdk/service';
-async function main() {
-    // 通信とmcp接続を担当するアダプター作成
-    const adapter = new TaskLoopAdapter();
+import { OmAgent } from 'openmcp-sdk/service/sdk';
 
-    // mcpサーバー追加
-    adapter.addMcp({
-        connectionType: 'STDIO',
-        commandString: 'node index.js',
-        cwd: '~/projects/openmcp-tutorial/my-browser/dist'
-    });
+const agent = new OmAgent();
 
-    // イベントループドライバー作成（verbose値が高いほど詳細なログを出力）
-    const taskLoop = new TaskLoop({ adapter, verbose: 1 });
+// openmcp clientでデバッグ後に自動生成される設定を読み込み
+agent.loadMcpConfig('./mcpconfig.json');
 
-    // 全ツール取得
-    const tools = await taskLoop.getTools();
+// デバッグ済みプロンプトを取得
+const prompt = await agent.getPrompt('hacknews', { topn: '5' });    
 
-    // 使用する大規模モデル設定
-    taskLoop.setLlmConfig({
-        id: 'deepseek',
-        baseUrl: 'https://api.deepseek.com/v1',
-        userToken: process.env['DEEPSEEK_API_TOKEN'],
-        userModel: 'deepseek-chat'
-    });
+// タスク実行
+const res = await agent.ainvoke({ messages: prompt });
 
-    // コンテキスト作成と設定
-    const storage = {
-        messages: [],
-        settings: {
-            temperature: 0.7,
-            // 全てのツールを有効化
-            enableTools: tools,
-            // システムプロンプト
-            systemPrompt: 'you are a clever bot',
-            // 会話コンテキストのターン数
-            contextLength: 20
+console.log('⚙️ エージェントレスポンス', res);
+```
+
+`mcpconfig.json`は[openmcp client](https://github.com/LSTM-Kirigaya/openmcp-client)から直接エクスポート可能で、手動作成不要です。例：
+
+```json
+{
+    "version": "1.0.0",
+    "namespace": "openmcp",
+    "mcpServers": {
+        "my-browser": {
+            "command": "mcp",
+            "args": [
+                "run",
+                "~/projects/openmcp-tutorial/crawl4ai-mcp/main.py"
+            ],
+            "description": "長期記憶サポート用MCP",
+            "prompts": [
+                "hacknews"
+            ]
         }
-    };
-
-    // 質問内容
-    const message = 'hello world';
-
-    // イベントループ開始
-    await taskLoop.start(storage, message);
-
-    // 最終回答を表示（messages.at(-1)に格納）
-    const content = storage.messages.at(-1).content;
-    console.log('最終回答：', content);
-} 
-
-main();
+    },
+    "defaultLLM": {
+        "baseURL": "https://api.deepseek.com",
+        "apiToken": "sk-xxxxxxxxxxxxxx",
+        "model": "deepseek-chat"
+    }
+}
 ```
 
-esmモードで実行するには、まずTypeScriptのesmランチャーをインストール：
-
-```bash
-npm install tsx --save-dev
-```
-
-ファイルを実行：
-
-```bash
-npx tsx main.ts
-```
-
-出力例：
+`npx tsx main.ts`で実行すると以下の結果が得られます：
 
 ```
-[6/5/2025, 8:16:15 PM] 🚀 [my-browser] 0.1.0 接続済み
-[6/5/2025, 8:16:15 PM] タスクループが新規エポックを開始
-[6/5/2025, 8:16:23 PM] タスクループがエポックを終了
-[6/5/2025, 8:16:23 PM] 🤖 LLMがこれらのツールを呼び出し要求: k_navigate
-[6/5/2025, 8:16:23 PM] 🔧 ツールk_navigateを呼び出し中
-[6/5/2025, 8:16:34 PM] × ツール呼び出し失敗 McpError: MCP error -32603: net::ERR_CONNECTION_RESET at https://towardsdatascience.com/tag/editors-pick/
-[6/5/2025, 8:16:34 PM] タスクループが新規エポックを開始
-[6/5/2025, 8:16:40 PM] タスクループがエポックを終了
-[6/5/2025, 8:16:40 PM] 🤖 LLMがこれらのツールを呼び出し要求: k_navigate
-[6/5/2025, 8:16:40 PM] 🔧 ツールk_navigateを呼び出し中
-[6/5/2025, 8:16:44 PM] ✓ ツール呼び出し成功
-[6/5/2025, 8:16:44 PM] タスクループが新規エポックを開始
-[6/5/2025, 8:16:57 PM] タスクループがエポックを終了
-[6/5/2025, 8:16:57 PM] 🤖 LLMがこれらのツールを呼び出し要求: k_evaluate
-[6/5/2025, 8:16:57 PM] 🔧 ツールk_evaluateを呼び出し中
-[6/5/2025, 8:16:57 PM] ✓ ツール呼び出し成功
-[6/5/2025, 8:16:57 PM] タスクループが新規エポックを開始
-[6/5/2025, 8:17:06 PM] タスクループがエポックを終了
-[6/5/2025, 8:17:06 PM] 🤖 LLMがこれらのツールを呼び出し要求: k_navigate, k_navigate
-[6/5/2025, 8:17:06 PM] 🔧 ツールk_navigateを呼び出し中
-[6/5/2025, 8:17:09 PM] ✓ ツール呼び出し成功
-[6/5/2025, 8:17:09 PM] 🔧 ツールk_navigateを呼び出し中
-[6/5/2025, 8:17:12 PM] ✓ ツール呼び出し成功
-[6/5/2025, 8:17:12 PM] タスクループが新規エポックを開始
-[6/5/2025, 8:17:19 PM] タスクループがエポックを終了
-[6/5/2025, 8:17:19 PM] 🤖 LLMがこれらのツールを呼び出し要求: k_evaluate, k_evaluate
-[6/5/2025, 8:17:19 PM] 🔧 ツールk_evaluateを呼び出し中
-[6/5/2025, 8:17:19 PM] ✓ ツール呼び出し成功
-[6/5/2025, 8:17:19 PM] 🔧 ツールk_evaluateを呼び出し中
-[6/5/2025, 8:17:19 PM] ✓ ツール呼び出し成功
-[6/5/2025, 8:17:19 PM] タスクループが新規エポックを開始
-[6/5/2025, 8:17:45 PM] タスクループがエポックを終了
-"以下は人気記事の整理済み情報（簡体中文訳）:\n\n---\n\n### K1 タイトル\n**『データドリフトは真の問題ではない：監視戦略こそが鍵』**\n\n**概要**\n機械学習分野でデータドリフトはモデル性能低下の原因とされますが、本記事はこの常識を覆します。監視戦略の不備こそが核心的問題だと指摘。eコマース推薦システムや金融リスクモデルなどの実例を通じ、従来の統計的監視の限界を明らかにし、3層監視フレームワークを提案:\n1. **統計監視**: データ分布変化を迅速検知（初期信号として）\n2. **コンテキスト監視**: ビジネスロジックと連動、重要指標への影響を判定\n3. **行動監視**: モデル予測の実効果を追跡、「無音ドリフト」を防止\n\n技術指標依存ではなく、ビジネス目標と密接に連携した監視システムの重要性を強調。\n\n**原文リンク**\n[記事を読む](https://towardsdatascience.com/data-drift-is-not-the-actual-problem-your-monitoring-strategy-is/)\n\n---\n\n### K2 タイトル\n**『Jupyterからプログラマーへの速習ガイド』**\n\n**概要**\nデータサイエンティストや初心者向けに、Jupyter Notebookから専門的プログラミングへ移行する道筋を提示。VS Code、Git、Dockerなどのツール推奨と実践コード例で、Notebookの限界を超え、コードの保守性と拡張性を向上させる方法を解説。\n\n主なハイライト:\n- Notebookコードを再利用可能なPythonスクリプトへモジュール化\n- バージョン管理とコンテナ技術で開発フローを最適化\n- 実験的コードから本番級アプリケーションへの変換実例\n\n**原文リンク**\n[記事を読む](https://towardsdatascience.com/the-journey-from-jupyter-to-programmer-a-quick-start-guide/)\n\n---\n\n追加調整やコンテンツ補充が必要な場合はお知らせください！"
+[2025/6/20 20:47:31] 🚀 [crawl4ai-mcp] 1.9.1 接続完了
+[2025/6/20 20:47:35] 🤖 エージェントが以下のツール使用を要求: get_web_markdown
+[2025/6/20 20:47:35] 🔧 ツール使用中: get_web_markdown
+[2025/6/20 20:47:39] ✓ ツール使用成功
+[2025/6/20 20:47:46] 🤖 エージェントが以下のツール使用を要求: get_web_markdown, get_web_markdown, get_web_markdown
+[2025/6/20 20:47:46] 🔧 ツール使用中: get_web_markdown
+[2025/6/20 20:47:48] ✓ ツール使用成功
+[2025/6/20 20:47:48] 🔧 ツール使用中: get_web_markdown
+[2025/6/20 20:47:54] ✓ ツール使用成功
+[2025/6/20 20:47:54] 🔧 ツール使用中: get_web_markdown
+[2025/6/20 20:47:57] ✓ ツール使用成功
+
+⚙️ エージェントレスポンス
+⌨️ 本日の技術記事シェア
+
+📌 重力波を検知・観測する方法は？
+要約：重力波通過時の物理現象について解説。時空間への影響と、この宇宙現象を人間が感知・観測する可能性について
+著者：ynoxinul
+投稿時間：2時間前
+リンク：https://physics.stackexchange.com/...
+
+📌 Makefileチュートリアル
+要約：初心者から上級者向けの詳細なMakefileガイド。基本構文、変数、自動ルールから高度な機能まで、効率的なプロジェクトビルド管理を支援
+著者：dsego
+投稿時間：4時間前
+リンク：https://makefiletutorial.com/
+
+📌 Hurl：プレーンテキストでHTTPリクエストを実行・テスト
+要約：プレーンテキスト形式でHTTPリクエストを定義・実行するCLIツール。データ取得やHTTPセッションテストに最適で、REST/SOAP/GraphQL APIテストにも対応
+著者：flykespice
+投稿時間：8時間前
+リンク：https://github.com/Orange-OpenSource/hurl
+```
