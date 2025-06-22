@@ -151,15 +151,25 @@ export default {
             {
                 text: '简介',
                 items: [
-                    { text: 'openmcp‑sdk.js', link: '/zh/sdk-tutorial/' },
+                    { text: 'openmcp‑sdk', link: '/zh/sdk-tutorial/' },
+                    { text: '安装', link: '/zh/sdk-tutorial/install' },
                 ]
             },
             {
                 text: '基本使用',
                 items: [
-                    { text: '最简单的对话', link: '/zh/sdk-tutorial/usage/greet' },
-                    { text: '任务循环', link: '/zh/sdk-tutorial/usage/task-loop' },
-                    { text: '多服务器连接', link: '/zh/sdk-tutorial/usage/multi-server' },
+                    { text: '最简单的对话', link: '/zh/sdk-tutorial/usage/basic' },
+                    { text: '多轮对话', link: '/zh/sdk-tutorial/usage/send-multi-message' },
+                    { text: '设置对话参数', link: '/zh/sdk-tutorial/usage/setting' },
+                ]
+            },
+            {
+                text: 'MCP',
+                items: [
+                    { text: '极速部署', link: '/zh/sdk-tutorial/usage/fast-deploy' },
+                    { text: '任务循环的控制', link: '/zh/sdk-tutorial/usage/task-loop' },
+                    { text: '连接多个 MCP 服务器', link: '/zh/sdk-tutorial/usage/multi-server' },
+                    { text: '人机交互', link: '/zh/sdk-tutorial/usage/hil' },
                 ]
             }
         ]

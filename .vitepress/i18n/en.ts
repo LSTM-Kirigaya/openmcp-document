@@ -150,17 +150,27 @@ export default {
         ],
         '/sdk-tutorial/': [
             {
-                text: 'Overview',
+                text: 'Introduction',
                 items: [
-                    { text: 'openmcp‑sdk.js', link: '/sdk-tutorial/' }
+                    { text: 'openmcp-sdk', link: '/sdk-tutorial/' },
+                    { text: 'Installation', link: '/sdk-tutorial/install' },
                 ]
             },
             {
                 text: 'Basic Usage',
                 items: [
-                    { text: 'Simplest Conversation', link: '/sdk-tutorial/usage/greet' },
-                    { text: 'Task Loop', link: '/sdk-tutorial/usage/task-loop' },
-                    { text: 'Multiple Server Connections', link: '/sdk-tutorial/usage/multi-server' }
+                    { text: 'Simple Chat', link: '/sdk-tutorial/usage/basic' },
+                    { text: 'Multi-turn Conversation', link: '/sdk-tutorial/usage/send-multi-message' },
+                    { text: 'Setting Parameters', link: '/sdk-tutorial/usage/setting' },
+                ]
+            },
+            {
+                text: 'MCP',
+                items: [
+                    { text: 'Quick Deployment', link: '/sdk-tutorial/usage/fast-deploy' },
+                    { text: 'Task Loop Control', link: '/sdk-tutorial/usage/task-loop' },
+                    { text: 'Connect Multiple MCP Servers', link: '/sdk-tutorial/usage/multi-server' },
+                    { text: 'Human-in-the-Loop (HIL)', link: '/sdk-tutorial/usage/hil' },
                 ]
             }
         ]

@@ -21,9 +21,22 @@ const client = new OpenAI({
     baseURL: 'https://api.deepseek.com/v1'
 });
 
-const log = await git.log({n: 1});
+const log = await git.log({ n: 1 });
 const lastCommitMessage = log.latest.hash;
 const pipe = new OmPipe('translate-docs:' + lastCommitMessage.toString());
+
+export async function getChangedFiles(dirPath) {
+    const status = await git.status();
+    const changedFiles = [
+        ...status.not_added,
+        ...status.modified,
+        ...status.created
+    ].filter(file => file.startsWith(dirPath));
+
+    return new Set(changedFiles.map(file => path.resolve(file)));
+}
+
+const filesNeedToTranslate = await getChangedFiles('zh');
 
 async function translateText(text, targetLangID) {
     const prompt = `将以下内容准确翻译为ISO编码为 ${targetLangID} 的语言。请严格遵循以下要求翻译内容：
@@ -31,7 +44,7 @@ async function translateText(text, targetLangID) {
 2. 直接返回翻译后的内容，不要包含任何前缀或后缀
 
 需要翻译的内容：
-${text}`;    
+${text}`;
 
     const response = await client.chat.completions.create({
         model: 'deepseek-chat',
@@ -78,7 +91,7 @@ async function traverseAndTranslate(srcDir, destDir, targetLangID) {
                 console.log(chalk.cyan(`创建目录: ${newDestDir}`));
             }
             await traverseAndTranslate(fullPath, newDestDir, targetLangID);
-        } else if (file.endsWith('.md')) {
+        } else if (filesNeedToTranslate.has(fullPath) && file.endsWith('.md')) {
             const destPath = path.join(destDir, file);
             // 添加任务
             pipe.add('translate:' + destPath, async () => {
@@ -96,7 +109,7 @@ const enDir = path.join(__dirname, '..');
 console.log(chalk.bold('开始翻译任务'));
 
 await traverseAndTranslate(zhDir, jaDir, 'ja');
-// await traverseAndTranslate(zhDir, enDir);
+await traverseAndTranslate(zhDir, enDir);
 
 await pipe.start();
 

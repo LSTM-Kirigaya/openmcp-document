@@ -149,17 +149,27 @@ export default {
         ],
         '/ja/sdk-tutorial/': [
             {
-                text: '概要',
+                text: 'はじめに',
                 items: [
-                    { text: 'openmcp‑sdk.js', link: '/ja/sdk-tutorial/' }
+                    { text: 'openmcp-sdk', link: '/ja/sdk-tutorial/' },
+                    { text: 'インストール', link: '/ja/sdk-tutorial/install' },
                 ]
             },
             {
-                text: '基本的な使い方',
+                text: '基本操作',
                 items: [
-                    { text: '最もシンプルな会話', link: '/ja/sdk-tutorial/usage/greet' },
-                    { text: 'タスクループ', link: '/ja/sdk-tutorial/usage/task-loop' },
-                    { text: '複数サーバー接続', link: '/ja/sdk-tutorial/usage/multi-server' }
+                    { text: '簡単な会話', link: '/ja/sdk-tutorial/usage/basic' },
+                    { text: 'マルチターン会話', link: '/ja/sdk-tutorial/usage/send-multi-message' },
+                    { text: 'パラメータ設定', link: '/ja/sdk-tutorial/usage/setting' },
+                ]
+            },
+            {
+                text: 'MCP',
+                items: [
+                    { text: 'クイックデプロイ', link: '/ja/sdk-tutorial/usage/fast-deploy' },
+                    { text: 'タスクループ制御', link: '/ja/sdk-tutorial/usage/task-loop' },
+                    { text: '複数MCPサーバー接続', link: '/ja/sdk-tutorial/usage/multi-server' },
+                    { text: 'ヒューマン・イン・ザ・ループ (HIL)', link: '/ja/sdk-tutorial/usage/hil' },
                 ]
             }
         ]
