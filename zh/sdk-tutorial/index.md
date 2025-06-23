@@ -60,7 +60,7 @@ tsc --init
 npm install openmcp-sdk
 ```
 
-然后我们创建文件 main.ts，直接简单几行代码就能把上面的配置部署成一个 agent：
+然后我们创建文件 main.ts，直接简单几行代码就能把配置部署成一个 agent：
 
 ```typescript
 import { OmAgent } from 'openmcp-sdk/service/sdk';

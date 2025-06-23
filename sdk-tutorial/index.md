@@ -40,11 +40,6 @@ Currently, openmcp-sdk only supports ESM-style imports.
 
 ## Usage
 
-Here's the English translation with proper technical formatting:
-
-```markdown
-First, let's create a new TypeScript project:
-
 ```bash
 mkdir clever-agent && cd clever-agent
 npm init -y
@@ -60,7 +55,7 @@ Then install openmcp-sdk:
 npm install openmcp-sdk
 ```
 
-Now let's create a main.ts file - with just a few lines of code, we can deploy the above configuration as a working agent:
+Now let's create a main.ts file - with just a few lines of code, we can deploy the configuration as a working agent:
 
 ```typescript
 import { OmAgent } from 'openmcp-sdk/service/sdk';
