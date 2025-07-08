@@ -163,7 +163,7 @@ html[lang="zh"] .k-tabs-content {
 
 html[lang="en"] .k-tabs-content {
     position: relative;
-    min-height: 600px;
+    min-height: 550px;
 }
 
 html[lang="ja"] .k-tabs-content {

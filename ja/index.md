@@ -70,7 +70,7 @@ OpenMCPは誰のためのものですか？
     'すべての会話で各種パフォーマンス指標が表示され、コスト管理が容易になります。',
     'システムプロンプト管理パネルを使用すると、MCPサーバーとシステムプロンプトを使って簡単にエージェントアプリケーションを構築できます。',
   ]"
-  image="./images/openmcp.chatbot.png"
+  image="./images/openmcp.xml.png"
 />
 <TwoSideLayout
   label="オープンソースコミュニティの愛好家"
@@ -81,7 +81,7 @@ OpenMCPは誰のためのものですか？
     '永続化可能なシステムプロンプト管理パネルを使用すると、実際のMCPサーバーのシステムプロンプトをテストし、コミュニティ内で共有することができます。',
     'すべてのテストの詳細は100％Gitのバージョン管理に従い、あなたのテスト結果を簡単に共有し、他の人のMCPプロジェクトをゼロコストで再現することができます。'
   ]"
-  image="./images/opensource.png"
+  image="./images/openmcp.chatbot.png"
 />
 <TwoSideLayout
   label="AI研究開発科学者"
@@ -91,7 +91,7 @@ OpenMCPは誰のためのものですか？
     'すべての実験データと設定パラメータは自動的にGitバージョン管理システムに組み込まれ、研究成果の追跡と再現が可能になり、学術交流や論文の再現が容易になります。',
     'OpenMCPをベースにしてあなたのデモをすばやく完成させ、イノベーションから実現までの距離を短縮します。',
   ]"
-  image="./images/openmcp.chatbot.png"
+  image="./images/openmcp.resource.png"
 />
 </KTab>
 

@@ -64,34 +64,34 @@ Who is OpenMCP for?
 <TwoSideLayout
   label="Professional Software Engineers"
   :texts="[
-    'Shift testing left to integrate your development and testing without opening third - party software. It offers extremely rich features.',
-    'Manage, debug, and test your intelligent agents freely and elegantly on the left - hand panel.',
-    'Every detail of the large language model calling tool is visible at a glance. You can directly reproduce unsatisfactory calling results with one click.',
-    'Each conversation will display various performance indicators, facilitating cost management.',
-    'The system prompt management panel allows you to easily build your intelligent agent applications with MCP servers and system prompts.'
+    'Shift testing left integrates development and testing seamlessly with rich features, no third-party tools needed.',
+    'Easily manage, debug, and test AI agents via the left-hand panel.',
+    'Monitor LLM tool details and instantly reproduce unsatisfactory results with one click.',
+    'Track performance metrics per conversation for better cost control.',
+    'Build AI agent apps effortlessly using MCP servers and system prompts via the management panel.'
   ]"
-  image="./images/openmcp.chatbot.png"
+  image="./images/openmcp.xml.png"
 />
 <TwoSideLayout
   label="Open - Source Community Enthusiasts"
   :texts="[
-    'Shift testing left to integrate your development and testing without opening third - party software. It offers extremely rich features.',
-    'OpenMCP is completely open - source. You can not only try this product for free but also join us to realize your creative ideas about agents.',
-    'The technical details are fully disclosed. You don\'t have to worry about your ideas and tokens being plagiarized.',
-    'The persistent system prompt management panel enables you to test the system prompts of actual MCP servers for sharing within the community.',
-    'The details of each test will be 100% under Git version control, making it easy for you to share your test results and reproduce others\' MCP projects at zero cost.'
+    'Shift-left testing integrates dev and testing without third-party tools, packed with rich features.',
+    'OpenMCP is fully open-source—use it free or collaborate to build agent innovations.',
+    'Full technical transparency protects your ideas and tokens from plagiarism risks.',
+    'Persistent prompt management lets you test and share real MCP server prompts.',
+    'Every test is Git-versioned for easy sharing and zero-cost replication of MCP projects.'
   ]"
-  image="./images/opensource.png"
+  image="./images/openmcp.chatbot.png"
 />
 <TwoSideLayout
   label="AI Research Scientists"
   :texts="[
-    'Shift testing left to integrate your development and testing without opening third - party software. It offers extremely rich features.',
-    'With just a few lines of code, you can quickly turn your scientific research results into MCP servers and connect to any large language model to achieve a user - friendly interface.',
-    'All experimental data and configuration parameters are automatically included in the Git version management system, ensuring that research results are traceable and reproducible for academic exchanges and paper reproduction.',
-    'Based on OpenMCP, you can quickly complete your demo and shorten the distance from innovation to implementation.'
+    'Shift-left testing integrates development and testing without third-party tools, offering rich features.',
+    'Convert research into MCP servers with minimal code, linking any LLM for a seamless UI.',
+    'Auto-track experiments & configs in Git for reproducible, traceable research.',
+    'OpenMCP accelerates demos, bridging innovation and deployment.'
   ]"
-  image="./images/openmcp.chatbot.png"
+  image="./images/openmcp.resource.png"
 />
 </KTab>
 

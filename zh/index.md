@@ -74,7 +74,7 @@ OpenMCP 为谁准备？
     '每一次对话都会显示各项性能指标，方便进行成本管理。',
     '系统提示词管理面板，让您轻松用 mcp 服务器和系统提示词构建您的智能体应用。',
   ]"
-  image="./images/openmcp.chatbot.png"
+  image="./images/openmcp.xml.png"
 />
 <TwoSideLayout
   label="开源社区爱好者"
@@ -85,7 +85,7 @@ OpenMCP 为谁准备？
     '可持久化的系统提示词管理面板，让您可以将实际的 mcp 服务器的系统提示词进行测试，以便于在社区内进行分享。',
     '每一次测试的细节都会 100% 跟随 git 进行版本控制，方便你分享你的每一次试验结果，也方便你零成本复现别人的 mcp 项目。'
   ]"
-  image="./images/opensource.png"
+  image="./images/openmcp.chatbot.png"
 />
 <TwoSideLayout
   label="AI研发科学家"
@@ -95,7 +95,7 @@ OpenMCP 为谁准备？
     '所有实验数据与配置参数均自动纳入Git版本管理系统，确保研究成果可追溯、可复现，便于学术交流与论文复现。',
     '基于 OpenMCP 快速完成您的 demo，缩短创新到落地的距离。',
   ]"
-  image="./images/openmcp.chatbot.png"
+  image="./images/openmcp.resource.png"
 />
 </KTab>
 
