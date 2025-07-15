@@ -119,9 +119,10 @@ export default {
                 items: [
                     { text: 'UI 配色', link: '/zh/plugin-tutorial/usage/ui-color' },
                     { text: '连接 MCP 服务器', link: '/zh/plugin-tutorial/usage/connect-mcp' },
-                    { text: '调试 tools, resources 和 prompts', link: '/zh/plugin-tutorial/usage/debug' },
+                    { text: 'MCP 基础调试', link: '/zh/plugin-tutorial/usage/debug' },
+                    { text: 'MCP 工具自检程序', link: '/zh/plugin-tutorial/usage/self-check' },
                     { text: '连接大模型', link: '/zh/plugin-tutorial/usage/connect-llm' },
-                    { text: '用大模型测试你的 MCP', link: '/zh/plugin-tutorial/usage/test-with-llm' },
+                    { text: 'MCP 交互测试', link: '/zh/plugin-tutorial/usage/test-with-llm' },
                     { text: '连接多个 MCP 服务', link: '/zh/plugin-tutorial/usage/multi-server' },
                     { text: '分发实验结果', link: '/zh/plugin-tutorial/usage/distribute-result' },
                     { text: 'SSE 鉴权器实现', link: '/zh/plugin-tutorial/usage/sse-oauth2' },

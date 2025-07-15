@@ -119,9 +119,10 @@ export default {
                 items: [
                     { text: 'UI カラー設定', link: '/ja/plugin-tutorial/usage/ui-color' },
                     { text: 'MCP サーバーへの接続', link: '/ja/plugin-tutorial/usage/connect-mcp' },
-                    { text: 'tools・resources・prompts のデバッグ', link: '/ja/plugin-tutorial/usage/debug' },
+                    { text: 'MCP 基本デバッグ', link: '/ja/plugin-tutorial/usage/debug' },
+                    { text: 'MCP 自己診断ツール', link: '/ja/plugin-tutorial/usage/self-check' },
                     { text: '大規模言語モデルへの接続', link: '/ja/plugin-tutorial/usage/connect-llm' },
-                    { text: '大規模言語モデルで MCP をテストする', link: '/ja/plugin-tutorial/usage/test-with-llm' },
+                    { text: 'MCP 対話テスト', link: '/ja/plugin-tutorial/usage/test-with-llm' },
                     { text: '複数 MCP サーバーの接続', link: '/ja/plugin-tutorial/usage/multi-server' },
                     { text: '実験結果の配布', link: '/ja/plugin-tutorial/usage/distribute-result' },
                     { text: 'SSE 認証の実装', link: '/ja/plugin-tutorial/usage/sse-oauth2' }
