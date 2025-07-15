@@ -1,4 +1,8 @@
-# 调试 tools, resources 和 prompts
+# MCP 基础调试
+
+## 基本调试
+
+在 [[quick-debug.md|快速调试]] 中，已经简单介绍过如何调试 mcp 了。本章节着重介绍，openmcp 中，调试模块的一些特性和高级功能。
 
 ## 标签页
 
@@ -17,7 +21,7 @@ openmcp 具备自动保存测试结果的功能。如下的行为会触发 openm
 注意，同一个项目中，你不应该有两个名字完全相同的 mcp 服务器，这会导致 `.openmcp/tabs.{server-name}.json` 连接信息存储冲突，发生未知错误。
 :::
 
-## 快速调试
+## 交互测试中快速复现
 
 在我们调试的过程中，难免会出现大模型回答得不好，而且这是因为某个工具出错导致的，为了快速定位是不是工具的问题，可以点击下方的小飞机图标
 
@@ -28,6 +32,18 @@ openmcp 具备自动保存测试结果的功能。如下的行为会触发 openm
 ![](./images/llm-fast-debug-result.png)
 
 你要做的，只是点击运行来确定或者排除一个错误选项。
+
+## Mook 数据
+
+为了快速测试一组 mcp tool 的响应，我们提供了 mook data 功能，它允许你快速根据 mcp tool 的 schema 来生成一组可用的参数，从而测试 mcp tool 的功能。
+
+我们提供了两种 mook 方法，第一种就是 mook 按钮，点击后就会自动生成没有实际意义，但是可以填充表单的 mook 数据。下图的 `mook` 按钮就是改功能的触发点。
+
+![](./images/common-mook.png)
+
+我们还提供了 ai mook 功能，可以用 AI 来生成 mook 的数据，这个数据更加真实可靠，但是你需要先在 [[connect-llm|连接大模型]] 中配置好你的大模型。下图的 `AI` 按钮就是改功能的触发点，你还可以自定义生成 mook 数据的 prompt。
+
+![](./images/ai-mook.png)
 
 ## pydantic 支持
 
