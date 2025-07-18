@@ -120,10 +120,10 @@ export default {
                 items: [
                     { text: 'UI Color Settings', link: '/plugin-tutorial/usage/ui-color' },
                     { text: 'Connect to MCP Server', link: '/plugin-tutorial/usage/connect-mcp' },
-                    { text: 'MCP Basic Debugging', link: '/en/plugin-tutorial/usage/debug' },
-                    { text: 'MCP Self-Check Tool', link: '/en/plugin-tutorial/usage/self-check' },
+                    { text: 'MCP Basic Debugging', link: '/plugin-tutorial/usage/debug' },
+                    { text: 'MCP Self-Check Tool', link: '/plugin-tutorial/usage/self-check' },
                     { text: 'Connect to LLM', link: '/plugin-tutorial/usage/connect-llm' },
-                    { text: 'MCP Interaction Testing', link: '/en/plugin-tutorial/usage/test-with-llm' },
+                    { text: 'MCP Interaction Testing', link: '/plugin-tutorial/usage/test-with-llm' },
                     { text: 'Connect to Multiple MCP Services', link: '/plugin-tutorial/usage/multi-server' },
                     { text: 'Distribute Experiment Results', link: '/plugin-tutorial/usage/distribute-result' },
                     { text: 'Implement SSE Authenticator', link: '/plugin-tutorial/usage/sse-oauth2' }
