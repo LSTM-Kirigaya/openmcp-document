@@ -68,7 +68,7 @@ export const contributors = [
         nameAliases: ['li1553770945'],
         avatar: 'https://avatars.githubusercontent.com/u/55867654?v=4',
         mapByEmailAliases: ['1553770945@qq.com'],
-        links: [{ type: '', link: 'https://peacesheep.cn/home' }]
+        links: [{ type: '', link: 'https://peacesheep.xyz/home' }]
     },
     {
         name: '星弧梦影',
