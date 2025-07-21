@@ -74,6 +74,14 @@ const contributors = [
     links: [
       { icon: 'github', link: 'https://github.com/ZYD045692' },
     ]
+  },
+  {
+    avatar: 'https://avatars.githubusercontent.com/u/81767213?v=4',
+    name: 'Zhenyu (Dormiveglia-elf)',
+    title: 'Developer',
+    links: [
+      { icon: 'github', link: 'https://github.com/Dormiveglia-elf' },
+    ]
   }
 ]
 </script>

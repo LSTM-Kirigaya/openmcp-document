@@ -133,13 +133,13 @@ export default {
                 text: 'Development Examples',
                 items: [
                     { text: 'MCP Server Development Examples', link: '/plugin-tutorial/examples/mcp-examples' },
-                    { text: 'Example 1: Weather Info MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-simple-stdio' },
-                    { text: 'Example 2: Read-only Neo4j MCP in Go (SSE)', link: '/plugin-tutorial/examples/go-neo4j-sse' },
-                    { text: 'Example 3: Read-only Document DB MCP in Java (HTTP)', link: '/plugin-tutorial/examples/java-es-http' },
-                    { text: 'Example 4: Super Web Crawler MCP in TypeScript using crawl4ai (STDIO)', link: '/plugin-tutorial/examples/typescript-crawl4ai-stdio' },
-                    { text: 'Example 5: Generic Form Filling MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-form-stdio' },
-                    { text: 'Example 6: Blender-based MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-blender-stdio' },
-                    { text: 'Example 7: Cadence EDA MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-cadence-stdio' }
+                    // { text: 'Example 1: Weather Info MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-simple-stdio' },
+                    // { text: 'Example 2: Read-only Neo4j MCP in Go (SSE)', link: '/plugin-tutorial/examples/go-neo4j-sse' },
+                    // { text: 'Example 3: Read-only Document DB MCP in Java (HTTP)', link: '/plugin-tutorial/examples/java-es-http' },
+                    // { text: 'Example 4: Super Web Crawler MCP in TypeScript using crawl4ai (STDIO)', link: '/plugin-tutorial/examples/typescript-crawl4ai-stdio' },
+                    // { text: 'Example 5: Generic Form Filling MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-form-stdio' },
+                    // { text: 'Example 6: Blender-based MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-blender-stdio' },
+                    // { text: 'Example 7: Cadence EDA MCP in Python (STDIO)', link: '/plugin-tutorial/examples/python-cadence-stdio' }
                 ]
             },
             {

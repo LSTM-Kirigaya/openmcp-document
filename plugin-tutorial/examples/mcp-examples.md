@@ -16,11 +16,8 @@ next:
 - [Cadence EDA MCP (STDIO)](./python-cadence-stdio)  
   Electronic design automation interface
 - Video Editing via FFmpeg MCP  
-  AI-driven video editing workflows
-- Knowledge Base Injection with RAG MCP  
-  Dynamic document retrieval system
+- [Building a RAG-Based Memory Storage MCP Server in Python](./python-rag_memo-stdio.md)
 - Stable Diffusion MCP Server  
-  Text-to-image generation service
 
 ## Node.js
 - [Crawl4AI Web Crawler MCP (STDIO)](./typescript-crawl4ai-stdio)  

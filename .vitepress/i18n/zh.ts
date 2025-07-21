@@ -132,13 +132,13 @@ export default {
                 text: '开发案例',
                 items: [
                     { text: 'MCP 服务器开发案例', link: '/zh/plugin-tutorial/examples/mcp-examples' },
-                    { text: '例子 1. python 实现天气信息 mcp 服务器 (STDIO)', link: '/zh/plugin-tutorial/examples/python-simple-stdio' },
-                    { text: '例子 2. go 实现 neo4j 的只读 mcp 服务器 (SSE)', link: '/zh/plugin-tutorial/examples/go-neo4j-sse' },
-                    { text: '例子 3. java 实现文档数据库的只读 mcp (HTTP)', link: '/zh/plugin-tutorial/examples/java-es-http' },
-                    { text: '例子 4. typescript 实现基于 crawl4ai 的超级网页爬虫 mcp (STDIO)', link: '/zh/plugin-tutorial/examples/typescript-crawl4ai-stdio' },
-                    { text: '例子 5. python 实现进行通用表单填充 的 mcp (STDIO)', link: '/zh/plugin-tutorial/examples/python-form-stdio' },
-                    { text: '例子 6. python 实现基于 blender 的 mcp (STDIO)', link: '/zh/plugin-tutorial/examples/python-blender-stdio' },
-                    { text: '例子 7. python 实现 cadence EDA 的 mcp (STDIO)', link: '/zh/plugin-tutorial/examples/python-cadence-stdio' },
+                    // { text: '例子 1. python 实现天气信息 mcp 服务器 (STDIO)', link: '/zh/plugin-tutorial/examples/python-simple-stdio' },
+                    // { text: '例子 2. go 实现 neo4j 的只读 mcp 服务器 (SSE)', link: '/zh/plugin-tutorial/examples/go-neo4j-sse' },
+                    // { text: '例子 3. java 实现文档数据库的只读 mcp (HTTP)', link: '/zh/plugin-tutorial/examples/java-es-http' },
+                    // { text: '例子 4. typescript 实现基于 crawl4ai 的超级网页爬虫 mcp (STDIO)', link: '/zh/plugin-tutorial/examples/typescript-crawl4ai-stdio' },
+                    // { text: '例子 5. python 实现进行通用表单填充 的 mcp (STDIO)', link: '/zh/plugin-tutorial/examples/python-form-stdio' },
+                    // { text: '例子 6. python 实现基于 blender 的 mcp (STDIO)', link: '/zh/plugin-tutorial/examples/python-blender-stdio' },
+                    // { text: '例子 7. python 实现 cadence EDA 的 mcp (STDIO)', link: '/zh/plugin-tutorial/examples/python-cadence-stdio' },
                 ]
             },
             {

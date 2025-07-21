@@ -132,13 +132,13 @@ export default {
                 text: '開発事例',
                 items: [
                     { text: 'MCP サーバー開発事例', link: '/ja/plugin-tutorial/examples/mcp-examples' },
-                    { text: '例 1. Python による天気情報 MCP サーバー (STDIO)', link: '/ja/plugin-tutorial/examples/python-simple-stdio' },
-                    { text: '例 2. Go による neo4j 読み取り専用 MCP サーバー (SSE)', link: '/ja/plugin-tutorial/examples/go-neo4j-sse' },
-                    { text: '例 3. Java によるドキュメントデータベース MCP (HTTP)', link: '/ja/plugin-tutorial/examples/java-es-http' },
-                    { text: '例 4. TypeScript による crawl4ai ベースのスーパーウェブクローラー MCP (STDIO)', link: '/ja/plugin-tutorial/examples/typescript-crawl4ai-stdio' },
-                    { text: '例 5. Python による汎用フォーム入力 MCP (STDIO)', link: '/ja/plugin-tutorial/examples/python-form-stdio' },
-                    { text: '例 6. Python による Blender ベース MCP (STDIO)', link: '/ja/plugin-tutorial/examples/python-blender-stdio' },
-                    { text: '例 7. Python による Cadence EDA MCP (STDIO)', link: '/ja/plugin-tutorial/examples/python-cadence-stdio' }
+                    // { text: '例 1. Python による天気情報 MCP サーバー (STDIO)', link: '/ja/plugin-tutorial/examples/python-simple-stdio' },
+                    // { text: '例 2. Go による neo4j 読み取り専用 MCP サーバー (SSE)', link: '/ja/plugin-tutorial/examples/go-neo4j-sse' },
+                    // { text: '例 3. Java によるドキュメントデータベース MCP (HTTP)', link: '/ja/plugin-tutorial/examples/java-es-http' },
+                    // { text: '例 4. TypeScript による crawl4ai ベースのスーパーウェブクローラー MCP (STDIO)', link: '/ja/plugin-tutorial/examples/typescript-crawl4ai-stdio' },
+                    // { text: '例 5. Python による汎用フォーム入力 MCP (STDIO)', link: '/ja/plugin-tutorial/examples/python-form-stdio' },
+                    // { text: '例 6. Python による Blender ベース MCP (STDIO)', link: '/ja/plugin-tutorial/examples/python-blender-stdio' },
+                    // { text: '例 7. Python による Cadence EDA MCP (STDIO)', link: '/ja/plugin-tutorial/examples/python-cadence-stdio' }
                 ]
             },
             {
