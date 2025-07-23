@@ -92,34 +92,17 @@
         </svg>
     </div>
 </template>
-
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 
-const container = ref < any > (null);
-const svgElement = ref < any > (null);
-
+const container = ref<any>(null);
+const svgElement = ref<any>(null);
 
 onMounted(() => {
     const paths = svgElement.value.querySelectorAll('path');
-    // 标题文字
-    const nameClip = document.querySelector('.VPHero .heading .name.clip');
-    const headingText = document.querySelector('.VPHero .heading .text');
-    const tagline = document.querySelector('.VPHero .tagline');
-    const actions = document.querySelector('.VPHero .actions');
-
-    // 设置首页各个元素的初始状态
-    gsap.set(nameClip, {
-        transform: 'translate(50px, 80px)',
-        scale: 1.8,
-    });
-
-    gsap.set([headingText, tagline, actions], {
-        opacity: 0,
-        y: 20
-    });
-
+    
+    // 设置SVG路径的初始状态
     gsap.set(paths, {
         strokeDasharray: (_, target) => {
             const length = target.getTotalLength()
@@ -159,16 +142,6 @@ onMounted(() => {
     const drawTimeline = gsap.timeline({
         defaults: { duration: 1.5, ease: "power2.inOut" }
     });
-
-    // OpenMCP 标题入场动画
-    if (!nameClip || !headingText || !tagline || !actions) {
-        console.error("One or more required elements are missing.");
-        return;
-    }
-
-    drawTimeline.to(nameClip, {
-        transform: 'translate(50px, 80px)',
-    }, "<+=0.3");
 
     // 右侧 OpenMCP 图标描边动画
     paths.forEach((path: gsap.TweenTarget) => {
@@ -210,85 +183,21 @@ onMounted(() => {
         }, "<")
     });
 
-    // 创建主时间线
-    const heroTimeline = gsap.timeline({
-        defaults: {
-            duration: 0.8,
-            ease: "power3.out"
-        }
-    });
-
-    // 添加动画序列
-    heroTimeline
-        .to(nameClip, {
-            transform: 'translate(0, 0)',
-            scale: 1,
-            duration: 1.2,
-            ease: "back.out(1.7)"
-        })
-        .to([headingText, tagline, actions], {
-            opacity: 1,
-            y: 0,
-            stagger: 0.15,
-            duration: 0.6
-        }, "-=0.4"); // 与上一个动画重叠0.4秒
-
-
-    // 下方三个 feature 的动画
-    const boxTimeline = gsap.timeline({
-        defaults: {
-            duration: 0.8,
-            ease: "power3.out"
-        }
-    });
-
-    // 获取所有box元素
-    const boxes = document.querySelectorAll('.VPFeatures .item.grid-3');
-
-    // 设置初始状态
-    gsap.set(boxes, {
-        opacity: 0,
-        y: 30,
-        scale: 0.9
-    });
-
-    // 添加动画到时间线
-    boxTimeline.to(boxes, {
+    // 直接显示所有非SVG元素
+    gsap.set([
+        document.querySelector('.VPHero .heading .name.clip'),
+        document.querySelector('.VPHero .heading .text'),
+        document.querySelector('.VPHero .tagline'),
+        document.querySelector('.VPHero .actions'),
+        ...document.querySelectorAll('.VPFeatures .item.grid-3')
+    ], {
         opacity: 1,
         y: 0,
-        scale: 1,
-        stagger: 0.15,
-        onComplete: () => {
-            gsap.set(boxes, { clearProps: "all" });
-        }
+        scale: 1
     });
 
-    // 优化heroTimeline动画效果
-    heroTimeline
-        .to(nameClip, {
-            transform: 'translate(0, 0)',
-            scale: 1,
-            duration: 1.0,              // 缩短持续时间
-            ease: "elastic.out(1, 0.5)"  // 改用弹性效果
-        })
-        .to([headingText, tagline], {
-            opacity: 1,
-            y: 0,
-            stagger: 0.2,               // 增加错开时间
-            duration: 0.8,
-            ease: "back.out(1.5)"       // 添加弹跳效果
-        }, "-=0.3")
-        .to(actions, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out"          // 更平滑的缓动
-        }, "-=0.2");
-
     master.add(drawTimeline)
-        .add(reverseTimeline, "+=0.3")  // 缩短间隔时间
-        .add(heroTimeline, "-=0.3")
-        .add(boxTimeline, "<+=1.3")
+        .add(reverseTimeline, "+=0.3")
         .add(wiggleTimeline, "<+=0.2");
 })
 </script>
