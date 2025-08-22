@@ -54,7 +54,7 @@ print(response.choices[0].message.content)
 ### 1. 本地开发流程
 1. Fork 仓库并克隆：
    ```bash
-   git clone https://github.com/YOUR_USERNAME/openmcp-document.git
+   git clone https://github.com/LSTM-Kirigaya/openmcp-document.git
    ```
 2. 安装开发依赖：
    ```bash
@@ -62,17 +62,10 @@ print(response.choices[0].message.content)
    ```
 3. 提交代码并推送 PR。
 
-### 2. 打包发布（针对核心库）
-```bash
-# 生成发布包
-python -m build
-# 上传至 PyPI
-twine upload dist/*
-```
 
 ## 📞 交流社区
 - **QQ 群**：782833642（OpenMCP 技术交流）
-- **开发者博客**：[Kirigaya 技术专栏](https://zhuanlan.zhihu.com/kirigaya)
+- **邮箱**：zhelonghuang@qq.com
 
 ## 📄 许可证
 本项目采用 **Apache 2.0** 许可证，允许自由使用、修改及商业发布（需保留版权声明）。
