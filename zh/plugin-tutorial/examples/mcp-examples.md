@@ -13,6 +13,7 @@ next:
 - [python 实现 cadence EDA 的 mcp (STDIO)](./python-cadence-stdio)
 - 基于 ffmpeg mcp 实现通过对话的视频剪辑
 - [python 实现基于 RAG 的记忆存储 MCP 服务器](./python-rag_memo-stdio.md)
+- [python 实现基于 Slidev 在线 PPT 生成的 MCP 服务器](./python-slidev-mcp.md)
 - 实现 Stable Diffusion 的 MCP 服务器
 
 ## Nodejs

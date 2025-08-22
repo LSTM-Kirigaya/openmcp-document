@@ -1,28 +1,27 @@
----
 next:
-  text: Pythonで実装した天気情報MCPサーバー（STDIO）
+  text: Pythonによる天気情報MCPサーバーの実装 (STDIO)
   link: '/plugin-tutorial/examples/python-simple-stdio'
----
 
 # MCPサーバー開発事例
 
 ## Python
-- [Pythonで実装した天気情報MCPサーバー（STDIO）](./python-simple-stdio)
-- [Pythonで実装した汎用フォーム入力MCP（STDIO）](./python-form-stdio)
-- [Pythonで実装したBlenderベースのMCP（STDIO）](./python-blender-stdio)
-- [Pythonで実装したCadence EDA用MCP（STDIO）](./python-cadence-stdio)
-- FFmpegベースMCPによる対話型動画編集
-- RAGベースMCPによるナレッジベース注入
-- Stable Diffusion用MCPサーバーの実装
+- [Pythonによる天気情報MCPサーバーの実装 (STDIO)](./python-simple-stdio)
+- [Pythonによる汎用フォーム入力MCPの実装 (STDIO)](./python-form-stdio)
+- [BlenderベースのPython MCP実装 (STDIO)](./python-blender-stdio)
+- [Cadence EDA向けPython MCP実装 (STDIO)](./python-cadence-stdio)
+- FFmpeg MCPによる対話型動画編集の実装
+- [RAGベース記憶ストレージMCPサーバーのPython実装](./python-rag_memo-stdio.md)
+- [SlidevオンラインPPT生成MCPサーバーのPython実装](./python-slidev-mcp.md)
+- Stable Diffusion向けMCPサーバーの実装
 
 ## Nodejs
-- [TypeScriptで実装したcrawl4aiベースの超機能ウェブクローラーMCP（STDIO）](./typescript-crawl4ai-stdio)
+- [Crawl4aiベースのTypeScript製超級ウェブクローラーMCP (STDIO)](./typescript-crawl4ai-stdio)
 
 ## Go
-- [Goで実装したNeo4j用読み取り専用MCPサーバー（SSE）](./go-neo4j-sse)
+- [Neo4j向けGo製読み取り専用MCPサーバー (SSE)](./go-neo4j-sse)
 
 ## Java
-- [Javaで実装したドキュメントデータベース用読み取り専用MCP（HTTP）](./java-es-http)
+- [文書データベース向けJava製読み取り専用MCP (HTTP)](./java-es-http)
 
 ## 認証
-- [SSE方式OAuth2認証MCPサーバー事例](./sse-oauth2)
+- [SSE方式OAuth2認証MCPサーバー実装例](./sse-oauth2)

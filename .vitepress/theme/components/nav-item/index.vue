@@ -1,6 +1,6 @@
 <template>
     <a class="nav-item" @mouseenter="isHovered = true" @mouseleave="isHovered = false"
-        :href="baseUrl + link"
+        :href="link"
     >
         <div class="nav-item-content">
             <div class="nav-item-icon" v-if="icon">
@@ -17,7 +17,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 
-const baseUrl = '/openmcp';
+// const baseUrl = '/openmcp';
 
 const props = defineProps({
     title: { type: String, required: true },

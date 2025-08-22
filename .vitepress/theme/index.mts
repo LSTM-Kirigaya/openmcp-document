@@ -16,6 +16,7 @@ import Contributors from './components/Contributors/index.vue';
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebaseInlineLinkPreviewPlugin } from '@nolebase/vitepress-plugin-inline-link-preview/client';
 import { NolebaseUnlazyImg } from '@nolebase/vitepress-plugin-thumbnail-hash/client';
+// import { NolebasePagePropertiesPlugin } from '@nolebase/vitepress-plugin-page-properties';
 
 import { ElCollapse, ElCollapseItem, ElTimeline, ElTimelineItem } from 'element-plus';
 

@@ -6,6 +6,8 @@ import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/v
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
 import { UnlazyImages } from '@nolebase/markdown-it-unlazy-img';
 
+import { transformHeadMeta } from '@nolebase/vitepress-plugin-meta';
+
 import { contributors } from './contributors';
 import { withMermaid } from "vitepress-plugin-mermaid";
 import { customIcons } from './theme/hook/icons';
@@ -14,7 +16,7 @@ import enConfig from './i18n/en';
 import zhConfig from './i18n/zh';
 import jaConfig from './i18n/ja';
 
-export const baseUrl = '/openmcp';
+export const baseUrl = '/';
 
 export default withMermaid({
     title: "OpenMCP",
@@ -23,7 +25,7 @@ export default withMermaid({
     ignoreDeadLinks: true,
 
     sitemap: {
-        hostname: 'https://kirigaya.cn/' + baseUrl
+        hostname: 'https://openmcp.kirigaya.cn'
     },
 
     vite: {
@@ -62,6 +64,23 @@ export default withMermaid({
         },
     },
 
+    transformHead: async (ctx) => {
+        // 拿到插件生成器
+        const run = transformHeadMeta({
+            length: 160,
+            contentSelector: '#VPContent div.content main .vp-doc div',
+            removeContentSelector: ['h1', '.nolebase-page-properties-container'],
+            useTaglineForHomeLayout: true,
+            async handleExcerpt(excerpt, context) {
+                return excerpt.replace(/\s+/g, ' ').trim()
+            }
+        })
+
+        // 传入 (head, ctx)，返回要追加的 HeadConfig[]
+        const res = await run(ctx.head, ctx)
+        return res ?? []
+    },
+
     markdown: {
         config: (md) => {
             md.use(lightbox);
@@ -74,7 +93,14 @@ export default withMermaid({
     },
 
     head: [
-        ['link', { rel: 'icon', href: baseUrl + '/images/favicon.svg' }]
+        ['link', { rel: 'icon', href: baseUrl + '/images/favicon.svg' }],
+        ['meta', { name: 'keywords', content: 'OpenMCP, API, Multi-Cloud, Kubernetes, Microservices' }],
+        ['meta', { name: 'author', content: 'Kirigaya' }],
+        ['link', { rel: 'canonical', href: 'https://openmcp.kirigaya.cn' }],
+        ['meta', { property: 'og:title', content: 'OpenMCP - Multi-Cloud Platform' }],
+        ['meta', { property: 'og:description', content: 'OpenMCP helps manage APIs across clouds with Kubernetes integration.' }],
+        ['meta', { property: 'og:url', content: 'https://openmcp.kirigaya.cn' }],
+        ['meta', { property: 'og:type', content: 'website' }],
     ],
 
     locales: {
@@ -96,7 +122,7 @@ export default withMermaid({
             themeConfig: jaConfig
         }
     },
-    
+
     themeConfig: {
 
         socialLinks: [
