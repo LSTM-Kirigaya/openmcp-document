@@ -85,6 +85,7 @@ const handleRouteChangeStart = async (to: string) => {
     }
 };
 
+
 const preventLenisOnSide = () => {
     (document.querySelectorAll('aside') || []).forEach(el => {
         el.setAttribute('data-lenis-prevent', '');
