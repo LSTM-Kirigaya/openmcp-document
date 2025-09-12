@@ -93,7 +93,7 @@ export default withMermaid({
     },
 
     head: [
-        ['link', { rel: 'icon', href: baseUrl + '/images/favicon.svg' }],
+        ['link', { rel: 'icon', href: '/images/favicon.svg' }],
         ['meta', { name: 'keywords', content: 'OpenMCP, API, Multi-Cloud, Kubernetes, Microservices' }],
         ['meta', { name: 'author', content: 'Kirigaya' }],
         ['link', { rel: 'canonical', href: 'https://openmcp.kirigaya.cn' }],

@@ -1,18 +1,17 @@
 <template>
-    <div
-        class="k-scrollerbar"
-        :style="scrollbarStyle"
-        :ref="el => scrollbarController.element = el"
-        @mouseenter="onMouseEnter"
-        @mouseleave="onMouseLeave"
-    >
+    <div class="k-scrollerbar" :style="scrollbarStyle" :ref="el => scrollbarController.element = el"
+        @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { scrollbarController } from './controller';
 import { navigationBarController } from './controller';
+
+import 'lenis/dist/lenis.css';
+
+import Lenis from 'lenis';
 
 const scrollbarStyle = computed(() => ({
     height: scrollbarController.height + 'px',
@@ -28,7 +27,7 @@ function clearDisappearHandler() {
     }
 }
 
-function hideDisappearHandler(timeout=500) {
+function hideDisappearHandler(timeout = 500) {
     disappearHandler = setTimeout(() => {
         scrollbarController.opacity = 0;
     }, timeout);
@@ -45,14 +44,14 @@ function onMouseLeave() {
     hideDisappearHandler(1000);
 }
 
-function onScroll(event) {    
+function onScroll(event) {
     clearDisappearHandler();
     scrollbarController.opacity = 1;
     // 总高度
     const totalHeight = document.documentElement.scrollHeight;
     // 视窗高度
     const viewportHeight = window.innerHeight;
-    
+
     // 如果视窗高度都大于总高度，不需要显示
     if (viewportHeight >= totalHeight) {
         scrollbarController.opacity = 0;
@@ -69,7 +68,7 @@ function onScroll(event) {
     // top 取值为 [0, viewportHeight - scrollbarHeight]
     const percentage = scrollPosition / (totalHeight - viewportHeight);
     const scrollbarTop = percentage * (viewportHeight);
-    
+
     scrollbarController.height = scrollbarTop;
     // scrollbarController.top = scrollbarTop;
     scrollbarController.percentage = percentage;
@@ -81,7 +80,7 @@ function onScrollEnd() {
 
 function onWheel(event) {
     if (event.deltaY > 0) {
-        navigationBarController.show = false;        
+        navigationBarController.show = false;
     } else {
         navigationBarController.show = true;
     }
@@ -91,6 +90,13 @@ document.addEventListener('scroll', onScroll);
 document.addEventListener('scrollend', onScrollEnd);
 document.addEventListener('resize', onScroll);
 document.addEventListener('wheel', onWheel);
+
+onMounted(() => {
+    // Initialize Lenis
+    const lenis = new Lenis({
+        autoRaf: true,
+    });
+});
 
 </script>
 
@@ -104,10 +110,7 @@ document.addEventListener('wheel', onWheel);
     z-index: 200;
     transition-property: width, opacity;
     transition-duration: 0.5s;
-    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.15s ease;
     cursor: pointer;
 }
-
-
 </style>

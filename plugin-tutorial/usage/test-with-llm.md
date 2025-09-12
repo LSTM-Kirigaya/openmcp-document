@@ -1,64 +1,75 @@
-# Testing Your MCP with Large Language Models
+# MCP Interaction Test
 
-After completing [[connect-llm|connecting your MCP server]], you're ready to begin testing. While [[put-into-llm|quick start]] covered basic testing, this article details advanced configuration options visible below the input box.
+If you have completed the step of [[connect-llm|Connecting to the MCP Server]], you can now begin testing your MCP.
 
-## Model Selection
+In [[put-into-llm|Throw It into the Large Model to Test Its Quality!]], we have already demonstrated how to test your MCP using a large model through a simple example. Therefore, this article focuses more on explaining details that are inconvenient to elaborate on in the "Quick Start" guide.
 
-Switch between different LLMs here. OpenMCP tracks models at the message level, enabling mixed-model testing scenarios.
+When interacting with large models, there are several parameters you can choose from, which are the row of buttons below the input box. Let me briefly introduce them.
 
-> Can't find your model? See [[connect-llm|connecting MCP servers]] to add new models.
+## Select Model
 
-## System Prompts
+As the name suggests, you can switch your model here. It is worth mentioning that OpenMCP records the model used for each conversation at the granularity of a single dialogue. You can leverage this feature for mixed-model testing.
 
-Manage and create system prompts through this module:
+If you cannot find the model you want or wish to add additional models, please refer to [[connect-llm|Connecting to the MCP Server]] to learn how to add models.
+
+## System Prompt
+
+You can select and add system prompts here.
 
 ![](./images/system-prompt.png)
 
-Prompts are stored in `~/.openmcp/nedb/systemPrompt.db` (NeDB format for easy inspection/backup).
+OpenMCP saves your system prompts by default in `~/.openmcp/nedb/systemPrompt.db`. You can deserialize and copy them using NeDB.
 
-## Prompt Generation
+## Prompt
 
-Invoke server-provided prompt functions, with results inserted as rich text:
+You can use this module to invoke the prompt functionality provided by the MCP server. The generated prompt field will be inserted into your conversation as rich text.
 
 ![](./images/prompt.png)
 
-## Resource Access
+## Resource
 
-Call server resource functions - outputs are inserted as formatted content:
+You can use this module to invoke the resource functionality provided by the MCP server. The generated resource field will be inserted into your conversation as rich text.
 
 ![](./images/resource.png)
 
-:::warning Data Persistence
-OpenMCP doesn't manage resource persistence! Empty resources after restart indicate the MCP server lacks storage implementation - this is expected behavior.
+:::warning OpenMCP is not responsible for data persistence of resources!
+Please note! Whether resources are saved to disk after each conversation is entirely determined by the MCP server author. OpenMCP is not responsible for data persistence of resources! If you find that resources are empty after closing and reopening OpenMCP, this is not a bug in OpenMCP but rather because the MCP server author did not support data persistence!
 :::
 
-## Parallel Tool Execution
+## Allow the Model to Call Multiple Tools in a Single Response
 
-When enabled (default), models may call multiple tools in one response (e.g., three parallel web searches):
+When using tool calls, large models may sometimes request multiple tool calls in a single response. For example, if you want to translate the content of three web pages simultaneously, the large model might call the "web search" tool three times at once (if provided). When multiple tools are used, OpenMCP will render the call execution process as follows:
 
 ![](./images/parallel-tool-call.png)
 
-Disable for sequential execution. 
+The "Allow the model to call multiple tools in a single response" button in the OpenMCP input box is enabled by default. This allows the large model to call multiple tools in a single response.
 
-> Note: Some providers (like Gemini) may force-disable this if they don't fully support OpenAI's parallel calling spec.
+Sometimes, if you want commands to execute one by one, you can choose to disable this button.
 
-## Temperature Control
-
-Controls output randomness:
-- Recommended range: 0.6-0.7 for general tasks
-- Default: 0.6 (balanced creativity/consistency)
-
-## Context Window
-
-Determines how many prior messages (default: 20) are sent with each request. Count includes:
-- User queries
-- Model responses 
-- Tool calls/results
-
-:::danger Minimum Threshold
-Values below 20 often break tool call sequencing, causing 400 errors. Start fresh conversations if this occurs.
+:::warning Protocol Compatibility Warning
+Some vendors (e.g., Gemini) may not strictly support the OpenAI protocol. For vendors that do not support "Allow the model to call multiple tools in a single response," the OpenMCP backend will automatically disable this option.
 :::
 
-## Server Timeout
+## Parallel Testing
 
-Default 30-second timeout adjustable via Settings → General (global configuration, in seconds). Increase for long-running operations.
+In interactive testing, you can click the button in the upper left corner to switch to parallel testing. Here, you can test multiple large models simultaneously with one question.
+
+![](./images/parallel-llm-test.png)
+
+![](./images/parallel-llm-test2.png)
+
+## Temperature Parameter
+
+A higher temperature parameter increases the randomness of the generated content. For general-purpose large models, a value between 0.6 and 0.7 is recommended for general tasks. The default value provided by OpenMCP is 0.6.
+
+## Context Length
+
+The context length represents the maximum number of dialogue turns for the large model. The default value is 20. For example, if your conversation with the large model generates 40 turns of data (total of tool call counts + your questions + large model responses), OpenMCP will only send the last 20 turns to the large model in the next dialogue.
+
+:::warning Do not set the context length too low!
+We strongly recommend not setting this value below 20, as the large model requires tool call results to correspond one-to-one with previous call requests. If they do not match, the large model may return errors such as 400. If you encounter such an error, restart from the beginning or open a new "Interaction Test."
+:::
+
+## MCP Server Timeout
+
+The default timeout for the MCP server is 30 seconds. If your MCP server requires more time to complete tasks, you can set the timeout duration in "Settings" > "General." The unit is seconds, and this setting applies globally.

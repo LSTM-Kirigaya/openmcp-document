@@ -8,10 +8,6 @@
 
         </template>
 
-
-        <template #doc-after>
-            <Comments />
-        </template>
     </DefaultTheme.Layout>
     <ClientOnly>
         <ScrollBar v-if="mounted" />
@@ -31,7 +27,7 @@ import HeroImage from './components/home/HeroImage.vue';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { watchEffect } from 'vue';
-import Comments from './components/Comments/index.vue';
+// import Comments from './components/Comments/index.vue';
 
 const data = useData();
 const router = useRouter();
@@ -50,7 +46,7 @@ const isDark = data.isDark;
 const mounted = ref(false);
 
 const setupMediumZoom = () => {
-    mediumZoom("[data-zoomable]", {
+    mediumZoom("#VPContent img", {
         background: "transparent",
     });
 };
@@ -89,12 +85,19 @@ const handleRouteChangeStart = async (to: string) => {
     }
 };
 
+const preventLenisOnSide = () => {
+    (document.querySelectorAll('aside') || []).forEach(el => {
+        el.setAttribute('data-lenis-prevent', '');
+    });
+};
 
 const handleRouteChangeComplete = async (to: string) => {
     await animateOut();
     setupMediumZoom();
-
     makeHomeAnimation();
+
+    // 阻止 lenis 去代理 aside 侧边栏的滚动
+    preventLenisOnSide();
 };
 
 
@@ -174,6 +177,7 @@ onMounted(() => {
     setupMediumZoom();
     gsap.registerPlugin(ScrollTrigger);
     makeHomeAnimation();
+    preventLenisOnSide();
 });
 </script>
 

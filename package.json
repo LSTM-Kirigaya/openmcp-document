@@ -9,6 +9,7 @@
     "dependencies": {
         "element-plus": "^2.9.11",
         "gsap": "^3.13.0",
+        "lenis": "^1.3.11",
         "vitepress": "^1.6.3"
     },
     "devDependencies": {

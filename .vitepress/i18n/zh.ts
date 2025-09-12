@@ -123,7 +123,8 @@ export default {
                     { text: 'MCP 工具自检程序', link: '/zh/plugin-tutorial/usage/self-check' },
                     { text: '连接大模型', link: '/zh/plugin-tutorial/usage/connect-llm' },
                     { text: 'MCP 交互测试', link: '/zh/plugin-tutorial/usage/test-with-llm' },
-                    { text: '连接多个 MCP 服务', link: '/zh/plugin-tutorial/usage/multi-server' },
+                    { text: '连接多个 MCP 服务器', link: '/zh/plugin-tutorial/usage/multi-server' },
+                    { text: '导出和部署 MCP 服务器', link: '/zh/plugin-tutorial/usage/export-mcp' },
                     { text: '分发实验结果', link: '/zh/plugin-tutorial/usage/distribute-result' },
                     { text: 'SSE 鉴权器实现', link: '/zh/plugin-tutorial/usage/sse-oauth2' },
                 ]

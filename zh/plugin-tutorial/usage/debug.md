@@ -33,17 +33,17 @@ openmcp 具备自动保存测试结果的功能。如下的行为会触发 openm
 
 你要做的，只是点击运行来确定或者排除一个错误选项。
 
-## Mook 数据
+## Mock 数据
 
-为了快速测试一组 mcp tool 的响应，我们提供了 mook data 功能，它允许你快速根据 mcp tool 的 schema 来生成一组可用的参数，从而测试 mcp tool 的功能。
+为了快速测试一组 mcp tool 的响应，我们提供了 mock data 功能，它允许你快速根据 mcp tool 的 schema 来生成一组可用的参数，从而测试 mcp tool 的功能。
 
-我们提供了两种 mook 方法，第一种就是 mook 按钮，点击后就会自动生成没有实际意义，但是可以填充表单的 mook 数据。下图的 `mook` 按钮就是改功能的触发点。
+我们提供了两种 mock 方法，第一种就是 mock 按钮，点击后就会自动生成没有实际意义，但是可以填充表单的 mock 数据。下图的 `mock` 按钮就是改功能的触发点。
 
-![](./images/common-mook.png)
+![](./images/common-mock.png)
 
-我们还提供了 ai mook 功能，可以用 AI 来生成 mook 的数据，这个数据更加真实可靠，但是你需要先在 [[connect-llm|连接大模型]] 中配置好你的大模型。下图的 `AI` 按钮就是改功能的触发点，你还可以自定义生成 mook 数据的 prompt。
+我们还提供了 ai mock 功能，可以用 AI 来生成 mock 的数据，这个数据更加真实可靠，但是你需要先在 [[connect-llm|连接大模型]] 中配置好你的大模型。下图的 `AI` 按钮就是改功能的触发点，你还可以自定义生成 mock 数据的 prompt。
 
-![](./images/ai-mook.png)
+![](./images/ai-mock.png)
 
 ## pydantic 支持
 
