@@ -2,7 +2,7 @@
 
 openmcp-sdk builds agents using a task loop mechanism and allows users to interact with them. If users need real-time control over this task loop, they can register corresponding hook functions through the events provided by openmcp-sdk.
 
-Taking the example from [Quick Deployment](./fast-deploy.md), you can obtain the object controlling the task loop with the following code:
+Taking the example from [Quick Deploy](./fast-deploy.md), you can obtain the object controlling the task loop with the following code:
 
 ```typescript
 import { OmAgent } from '../openmcp-sdk/service/sdk';
@@ -17,7 +17,7 @@ const loop = await agent.getLoop();
 Registering hooks and obtaining the loop must be completed before `agent.ainvoke`!
 :::
 
-With this `loop` object, we can register the following hooks:
+Through this `loop` object, we can register the following hooks:
 
 - `registerOnChunk`: Triggered when the model returns a chunk
 - `registerOnDone`: Triggered when the task is completed
@@ -25,6 +25,7 @@ With this `loop` object, we can register the following hooks:
 - `registerOnEpoch`: Triggered at the start of each task epoch
 - `registerOnToolCall`: Triggered before calling a tool function
 - `registerOnToolCalled`: Triggered after calling a tool function
+- `registerOnTokenConsumption`: Triggered after openmcp calculates token consumption and price, etc., which can be used to obtain the cost of the current agent loop call.
 
 These hook functions accept a callback function, which will be called when the corresponding event is triggered.
 
@@ -53,5 +54,9 @@ loop.registerOnToolCall((toolCall) => {
 loop.registerOnToolCalled((toolCalled) => {
     console.log('⚙️ Agent Tool Called', toolCalled);
     return toolCalled;
+});
+
+loop.registerOnTokenConsumption((result) => {
+    console.log('⚙️ Agent Token Consumption', result);
 });
 ```

@@ -1,10 +1,10 @@
-# The simplest conversation
+# The Simplest Conversation
 
-Like all other Agent frameworks, you can use openmcp-sdk to accomplish the simplest text interaction with a large model. This can be easily done with just a few lines of code.
+Like all other Agent frameworks, you can use the openmcp-sdk to complete the simplest text interaction with a large model. This can be easily achieved with just a few lines of code.
 
-## Create agent
+## Creating an Agent
 
-openmcp-sdk can quickly create an agent instance with the following statement:
+The openmcp-sdk allows you to quickly create an agent instance with the following statement:
 
 ```typescript
 import { OmAgent } from 'openmcp-sdk/service/sdk';
@@ -14,9 +14,9 @@ const agent = new OmAgent();
 
 It is the foundation for all our subsequent work.
 
-## Set up the large model
+## Setting Up the Large Model
 
-The default large model can be set via `setDefaultLLM`. Here's an example using deepseek:
+You can set the default large model using `setDefaultLLM`. Here, we use deepseek as an example:
 
 ```typescript
 agent.setDefaultLLM({
@@ -27,7 +27,7 @@ agent.setDefaultLLM({
 ```
 
 :::tip
-To prevent the api key from being exposed in the code, we recommend inputting it via environment variables:
+To prevent the API key from being exposed in the code, we recommend inputting it via environment variables:
 
 Add the following content to your bashrc or zshrc file:
 
@@ -46,23 +46,54 @@ agent.setDefaultLLM({
 ```
 :::
 
-For other large model access parameters, please refer to the documentation of each large model provider.
+For other large model integration parameters, please refer to the documentation of each large model provider.
 
-## Send a conversation
+## Sending a Conversation
 
 Using the `ainvoke` method, we can directly send text to the large model to complete an interaction and conversation:
 
 ```typescript
-const result = await agent.ainvoke({ messages: '你好，我是 LSTM-Kirigaya，我的另一个名字是锦恢' });
+const result = await agent.ainvoke({ messages: 'Hello, I am LSTM-Kirigaya, and my other name is Jin Hui' });
 console.log(result)
 ```
 
-Running the above code, you will get the following reply:
+Running the above code, you will receive the following reply:
 
 ```
-你好，LSTM-Kirigaya（锦恢）！很高兴认识你～  
+Hello, LSTM-Kirigaya (Jin Hui)! Nice to meet you～  
 
-你的名字结合了技术（LSTM，长短期记忆网络）和动漫元素（Kirigaya可能让人联想到《刀剑神域》的桐谷和人/桐人），而“锦恢”这个中文名又很有诗意，听起来像是一位对AI和二次元都充满热情的伙伴呢！  
+Your name combines technology (LSTM, Long Short-Term Memory network) and anime elements (Kirigaya might remind people of Kirito from "Sword Art Online"), and the Chinese name "Jin Hui" is very poetic, sounding like a partner who is passionate about both AI and the otaku culture!  
 
-有什么想聊的吗？无论是技术、ACG，还是名字背后的故事，我都乐意倾听～ ✨
+Is there anything you'd like to chat about? Whether it's technology, ACG, or the story behind your name, I'm all ears～ ✨
+```
+
+## Displaying Call Costs
+
+You can also set the call cost for the large model using the following code. This way, the openmcp-sdk will output the token cost of the current call after the agent loop execution ends.
+
+```typescript
+agent.setDefaultLLM({
+    baseURL: 'https://api.deepseek.com',
+    apiToken: process.env['OPENMCP_API_TOKEN'],
+    model: 'deepseek-chat',
+    pricing: {
+        inputPerMilleHitCache: 0.2,
+        inputPerMille: 2,
+        outputPerMille: 3,
+        unit: 'rmb'
+    }
+});
+```
+
+Executing the code will produce output similar to the following:
+
+```
+2025/6/20 - 20:47:31 | 🚀 [crawl4ai-mcp] 1.9.1 connected, type STDIO
+2025/6/20 - 20:47:35 | 🤖 Agent wants to use these tools get_web_markdown
+2025/6/20 - 20:47:39 | ✅  get_web_markdown success
+2025/6/20 - 20:47:46 | 🤖 Agent wants to use tools(3) get_web_markdown, get_web_markdown, get_web_markdown
+2025/6/20 - 20:47:48 | ✅  get_web_markdown success
+2025/6/20 - 20:47:54 | ✅  get_web_markdown success
+2025/6/20 - 20:47:57 | ✅  get_web_markdown success
+                        └─ ⬇️145434 ⬆️1554 🎯96.1% 💰0.0439 rmb
 ```

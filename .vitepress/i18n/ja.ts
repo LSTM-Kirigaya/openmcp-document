@@ -170,6 +170,8 @@ export default {
                     { text: 'クイックデプロイ', link: '/ja/sdk-tutorial/usage/fast-deploy' },
                     { text: 'タスクループ制御', link: '/ja/sdk-tutorial/usage/task-loop' },
                     { text: '複数MCPサーバー接続', link: '/ja/sdk-tutorial/usage/multi-server' },
+                    { text: '高度な制御', link: '/ja/sdk-tutorial/usage/advance-control' },
+                    { text: 'データリフロー', link: '/ja/sdk-tutorial/usage/reflux' },
                     { text: 'ヒューマン・イン・ザ・ループ (HIL)', link: '/ja/sdk-tutorial/usage/hil' },
                 ]
             }
