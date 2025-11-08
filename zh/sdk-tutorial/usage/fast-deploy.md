@@ -31,8 +31,45 @@ console.log('⚙️ Agent Response', res);
 
 ```
 [2025/6/22 19:05:08] 🚀 [SimpleMcpServer] 1.9.2 connected
-[2025/6/22 19:05:11] 🤖 Agent wants to use these tools weather
-[2025/6/22 19:05:11] 🔧 using tool weather
-[2025/6/22 19:05:11] ✓  use tools success
+[2025/6/22 19:05:11] 🤖 Agent wants to use tools(1) weather
+[2025/6/22 19:05:11] ✅ weather
 ⚙️ Agent Response 今天杭州的天气是小雨，气温为24.7°C，湿度为95%，空气质量指数（AQI）为26，空气质量良好。
 ```
+
+## MCP 服务器管理
+
+如果项目中存在很多的 MCP，我们建议使用 name 为名去进行索引，为此，你需要自己实现一套 MCP 配置文件的搜索程序。下面只是一个简单的例子：
+
+文件名：util.ts
+
+```typescript
+import path from 'path';
+
+const __dirname = path.dirname(import.meta.filename);
+
+export const MCP_CONFIG_HOME = path.resolve(__dirname, '..', 'openmcp');
+
+export function useMcpConfig(name: string) {
+    return path.join(MCP_CONFIG_HOME, name + '.json');
+}
+```
+
+文件名：main.ts
+
+```typescript
+import { useMcpConfig } from './util';
+
+const agent = new OmAgent();
+agent.loadMcpConfig(useMcpConfig('word-mcp'));
+
+const prompt = await agent.getPrompt('word_operations_prompt', {});
+const query = prompt + '\n' + userInput;
+
+const result = await agent.ainvoke({
+    messages: query,
+});
+
+console.log('test result: ', result);
+```
+
+在大规模的 MCP 使用中，这会是一个很好的习惯。当然，对于工业级的项目，你还可以考虑开发一套 MCP 的网关系统实现更加专业的服务的托管与访问。

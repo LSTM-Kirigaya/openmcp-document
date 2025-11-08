@@ -68,3 +68,33 @@ console.log(result)
 有什么想聊的吗？无论是技术、ACG，还是名字背后的故事，我都乐意倾听～ ✨
 ```
 
+## 显示调用价格
+
+你还可以通过如下的代码设置大模型的调用费用，这样子，openmcp-sdk 在 agent loop 执行结束后就会输出当前一次调用的 token 价格。
+
+```typescript
+agent.setDefaultLLM({
+    baseURL: 'https://api.deepseek.com',
+    apiToken: process.env['OPENMCP_API_TOKEN'],
+    model: 'deepseek-chat',
+    pricing: {
+        inputPerMilleHitCache: 0.2,
+        inputPerMille: 2,
+        outputPerMille: 3,
+        unit: 'rmb'
+    }
+});
+```
+
+执行代码，获得类似于下面的输出：
+
+```
+2025/6/20 - 20:47:31 | 🚀 [crawl4ai-mcp] 1.9.1 connected, type STDIO
+2025/6/20 - 20:47:35 | 🤖 Agent wants to use these tools get_web_markdown
+2025/6/20 - 20:47:39 | ✅  get_web_markdown success
+2025/6/20 - 20:47:46 | 🤖 Agent wants to use tools(3) get_web_markdown, get_web_markdown, get_web_markdown
+2025/6/20 - 20:47:48 | ✅  get_web_markdown success
+2025/6/20 - 20:47:54 | ✅  get_web_markdown success
+2025/6/20 - 20:47:57 | ✅  get_web_markdown success
+                        └─ ⬇️145434 ⬆️1554 🎯96.1% 💰0.0439 rmb
+```

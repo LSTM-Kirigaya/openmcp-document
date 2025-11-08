@@ -25,6 +25,7 @@ const loop = await agent.getLoop();
 - `registerOnEpoch`：在每个任务轮次开始时触发
 - `registerOnToolCall`：在调用工具函数前触发
 - `registerOnToolCalled`：在调用工具函数后触发
+- `registerOnTokenConsumption`：在 openmcp 计算完成 token 消耗量与价格等等后触发，可以用于获取当前一次 agent loop 的调用价格。
 
 这些钩子函数接收一个回调函数，回调函数会在对应事件触发时被调用。
 
@@ -53,5 +54,9 @@ loop.registerOnToolCall((toolCall) => {
 loop.registerOnToolCalled((toolCalled) => {
     console.log('⚙️ Agent Tool Called', toolCalled);
     return toolCalled;
+});
+
+loop.registerOnTokenConsumption((result) => {
+    console.log('⚙️ Agent Token Consumption', result);
 });
 ```

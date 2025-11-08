@@ -111,17 +111,14 @@ console.log('⚙️ Agent Response', res);
 使用 `npx tsx main.ts` 运行一下，得到如下结果：
 
 ```
-[2025/6/20 20:47:31] 🚀 [crawl4ai-mcp] 1.9.1 connected
-[2025/6/20 20:47:35] 🤖 Agent wants to use these tools get_web_markdown
-[2025/6/20 20:47:35] 🔧 using tool get_web_markdown
-[2025/6/20 20:47:39] ✓  use tools success
-[2025/6/20 20:47:46] 🤖 Agent wants to use these tools get_web_markdown, get_web_markdown, get_web_markdown
-[2025/6/20 20:47:46] 🔧 using tool get_web_markdown
-[2025/6/20 20:47:48] ✓  use tools success
-[2025/6/20 20:47:48] 🔧 using tool get_web_markdown
-[2025/6/20 20:47:54] ✓  use tools success
-[2025/6/20 20:47:54] 🔧 using tool get_web_markdown
-[2025/6/20 20:47:57] ✓  use tools success
+2025/6/20 - 20:47:31 | 🚀 [crawl4ai-mcp] 1.9.1 connected, type STDIO
+2025/6/20 - 20:47:35 | 🤖 Agent wants to use these tools get_web_markdown
+2025/6/20 - 20:47:39 | ✅  get_web_markdown success
+2025/6/20 - 20:47:46 | 🤖 Agent wants to use tools(3) get_web_markdown, get_web_markdown, get_web_markdown
+2025/6/20 - 20:47:48 | ✅  get_web_markdown success
+2025/6/20 - 20:47:54 | ✅  get_web_markdown success
+2025/6/20 - 20:47:57 | ✅  get_web_markdown success
+                        └─ ⬇️145434 ⬆️1554 🎯96.1% 💰0.0439 rmb
 
 ⚙️ Agent Response
 ⌨️ 今日份技术文章分享
