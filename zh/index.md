@@ -1,46 +1,10 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
-
-hero:
-  name: "OpenMCP"
-  text: "面向优雅开发者的 MCP 调试器和 SDK"
-  tagline: 缩短从大语言模型到智能体的最后一公里
-
-  actions:
-    - theme: brand
-      text: OpenMCP 插件
-      link: ./plugin-tutorial
-    - theme: alt
-      text: openmcp-sdk
-      link: ./sdk-tutorial
-    - theme: alt
-      text: GitHub
-      link: https://github.com/LSTM-Kirigaya/openmcp-client
-features:
-  - icon:
-      src: /images/icons/vscode.svg
-      height: 48px
-      alt: 集成调试环境
-    title: 集成调试环境
-    details: 将检查器与 MCP 客户端功能相结合，实现无缝开发和测试
-  - icon:
-      src: /images/icons/openmcp-edge.svg
-      height: 48px
-      alt: 提供完整的项目级控制面板
-    title: 全面的项目管理
-    details: 提供完整的项目级控制面板，实现高效的 MCP 项目监督
-  - icon:
-      src: /images/icons/openmcp-sdk.svg
-      height: 48px
-      alt: 提供完整的项目级控制面板
-    title: 完整的部署方案
-    details: 将测试完成的 agent 通过 openmcp-sdk 部署到您的应用或者服务器上
+layout: doc
 ---
 
-<br><br>
+<NewHomeHero />
 
-
+<div class="home-content">
 
 <h2 id="home-0">
 为您的 MCP Agent 开发排忧解难
@@ -54,7 +18,6 @@ features:
 />
 
 <br>
-
 
 <h2 id="home-1">
 OpenMCP 为谁准备？
@@ -119,7 +82,7 @@ OpenMCP 为谁准备？
   </el-collapse-item>
   <el-collapse-item title="OpenMCP 都是什么人在开发？" name="4">
     <p>OpenMCP 是由 LSTM-Kirigaya(锦恢) 最初主导开发的，用于构建 3D 相关工作的 mcp 测试工具。它的主要参与者都是大厂在职员工，高校计算机相关专业的学生、以及一些开源社区的活跃贡献者。</p>
-    <p>身份不重要，我非常喜欢的一句话，送给阁下：“不要回答我你会不会，回答我，你喜不喜欢”。</p>
+    <p>身份不重要，我非常喜欢的一句话，送给阁下："不要回答我你会不会，回答我，你喜不喜欢"。</p>
     <img src="https://pica.zhimg.com/80/v2-3666e84b2f92bf444a5eb64fb9d08e71_1440w.png" style="max-width: 500px;margin-top:10px;"/>
   </el-collapse-item>
   <el-collapse-item title="如何加入我们或者参与讨论？" name="5">
@@ -129,3 +92,55 @@ OpenMCP 为谁准备？
       合作请联系锦恢的个人邮箱：1193466151@qq.com
   </el-collapse-item>
 </el-collapse>
+
+</div>
+
+<style>
+/* 隐藏 VitePress 默认的文档布局元素 */
+.VPDoc .VPDocAside,
+.VPDoc .VPDocOutlineDropdown {
+  display: none !important;
+}
+
+.VPDoc .VPDocMain {
+  padding-left: 0 !important;
+}
+
+.VPDoc .content-container {
+  max-width: 100% !important;
+}
+
+/* 首页内容区域样式 */
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.home-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 4rem 0 2rem;
+  color: var(--vp-c-text-1);
+}
+
+.home-content h2 span {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--vp-c-text-2);
+  margin-top: 0.5rem;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .home-content {
+    padding: 2rem 1rem;
+  }
+  
+  .home-content h2 {
+    font-size: 1.75rem;
+  }
+}
+</style>

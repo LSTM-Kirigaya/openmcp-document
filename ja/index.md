@@ -1,44 +1,10 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
-
-hero:
-  name: "OpenMCP"
-  text: "エレガントな開発者向けのMCPデバッガーとSDK"
-  tagline: 大規模言語モデルからエージェントまでの最後の一歩を埋める
-
-  actions:
-    - theme: brand
-      text: OpenMCPプラグイン
-      link: ./plugin-tutorial
-    - theme: alt
-      text: openmcp-sdk
-      link: ./sdk-tutorial
-    - theme: alt
-      text: GitHub
-      link: https://github.com/LSTM-Kirigaya/openmcp-client
-features:
-  - icon:
-      src: /images/icons/vscode.svg
-      height: 48px
-      alt: 統合デバッグ環境
-    title: 統合デバッグ環境
-    details: インスペクターとMCPクライアント機能を組み合わせて、シームレスな開発とテストを実現します。
-  - icon:
-      src: /images/icons/openmcp-edge.svg
-      height: 48px
-      alt: 完全なプロジェクトレベルのコントロールパネルを提供する
-    title: 包括的なプロジェクト管理
-    details: 完全なプロジェクトレベルのコントロールパネルを提供し、効率的なMCPプロジェクトの監視を実現します。
-  - icon:
-      src: /images/icons/openmcp-sdk.svg
-      height: 48px
-      alt: 完全なプロジェクトレベルのコントロールパネルを提供する
-    title: 完全なデプロイメントソリューション
-    details: テストが完了したエージェントをopenmcp-sdkを通じてあなたのアプリケーションやサーバーにデプロイします。
+layout: doc
 ---
 
-<br><br>
+<NewHomeHero />
+
+<div class="home-content">
 
 <h2 id="home-0">
 あなたのMCPエージェント開発のお手伝いをします
@@ -125,3 +91,55 @@ OpenMCPは誰のためのものですか？
     協力に関しては、錦恢の個人メール：1193466151@qq.comまでご連絡ください。
   </el-collapse-item>
 </el-collapse>
+
+</div>
+
+<style>
+/* 隐藏 VitePress 默认的文档布局元素 */
+.VPDoc .VPDocAside,
+.VPDoc .VPDocOutlineDropdown {
+  display: none !important;
+}
+
+.VPDoc .VPDocMain {
+  padding-left: 0 !important;
+}
+
+.VPDoc .content-container {
+  max-width: 100% !important;
+}
+
+/* 首页内容区域样式 */
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.home-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 4rem 0 2rem;
+  color: var(--vp-c-text-1);
+}
+
+.home-content h2 span {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--vp-c-text-2);
+  margin-top: 0.5rem;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .home-content {
+    padding: 2rem 1rem;
+  }
+  
+  .home-content h2 {
+    font-size: 1.75rem;
+  }
+}
+</style>

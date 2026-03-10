@@ -1,44 +1,10 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
-
-hero:
-  name: "OpenMCP"
-  text: "MCP Debugger and SDK for Elegant Developers"
-  tagline: Bridge the last mile from large language models to intelligent agents
-
-  actions:
-    - theme: brand
-      text: OpenMCP Plugin
-      link: ./plugin-tutorial
-    - theme: alt
-      text: openmcp-sdk
-      link: ./sdk-tutorial
-    - theme: alt
-      text: GitHub
-      link: https://github.com/LSTM-Kirigaya/openmcp-client
-features:
-  - icon:
-      src: /images/icons/vscode.svg
-      height: 48px
-      alt: Integrated Debugging Environment
-    title: Integrated Debugging Environment
-    details: Combine the inspector with MCP client functions to achieve seamless development and testing
-  - icon:
-      src: /images/icons/openmcp-edge.svg
-      height: 48px
-      alt: Provide a complete project-level control panel
-    title: Comprehensive Project Management
-    details: Provide a complete project-level control panel for efficient MCP project supervision
-  - icon:
-      src: /images/icons/openmcp-sdk.svg
-      height: 48px
-      alt: Provide a complete project-level control panel
-    title: Complete Deployment Solution
-    details: Deploy tested agents to your application or server via openmcp-sdk
+layout: doc
 ---
 
-<br><br>
+<NewHomeHero />
+
+<div class="home-content">
 
 <h2 id="home-0">
 Resolve Issues in Your MCP Agent Development
@@ -125,3 +91,55 @@ FAQ
     For cooperation, please contact Jinhui's personal email: 1193466151@qq.com
   </el-collapse-item>
 </el-collapse>
+
+</div>
+
+<style>
+/* 隐藏 VitePress 默认的文档布局元素 */
+.VPDoc .VPDocAside,
+.VPDoc .VPDocOutlineDropdown {
+  display: none !important;
+}
+
+.VPDoc .VPDocMain {
+  padding-left: 0 !important;
+}
+
+.VPDoc .content-container {
+  max-width: 100% !important;
+}
+
+/* 首页内容区域样式 */
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.home-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 4rem 0 2rem;
+  color: var(--vp-c-text-1);
+}
+
+.home-content h2 span {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--vp-c-text-2);
+  margin-top: 0.5rem;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .home-content {
+    padding: 2rem 1rem;
+  }
+  
+  .home-content h2 {
+    font-size: 1.75rem;
+  }
+}
+</style>
