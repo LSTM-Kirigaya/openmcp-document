@@ -1,64 +1,47 @@
 <template>
-    <DefaultTheme.Layout id="k-layout" />
-    <ClientOnly>
-        <ScrollBar v-if="mounted" />
-    </ClientOnly>
+  <DefaultTheme.Layout />
 </template>
 
-<script setup lang="ts">
-import { useData, useRouter, inBrowser } from 'vitepress';
+<script setup>
 import DefaultTheme from 'vitepress/theme';
-import { nextTick, onMounted, provide, ref } from 'vue';
-import mediumZoom from "medium-zoom";
-import ScrollBar from './components/scrollbar/index.vue';
-
-const data = useData();
-const router = useRouter();
-const mounted = ref(false);
-
-const setupMediumZoom = () => {
-    mediumZoom("#VPContent img", {
-        background: "transparent",
-    });
-};
-
-onMounted(() => {
-    mounted.value = true;
-    setupMediumZoom();
-});
 </script>
 
 <style>
-/* 添加全局过渡效果 */
-:root {
-    transition: background-color 0.15s ease, color 0.3s ease;
+/* 全局背景色 */
+html, body, #app, .Layout {
+  background: #0a0a0f !important;
 }
 
-/* 首页模式下隐藏 VitePress 原生导航栏 */
+/* 只隐藏导航栏和footer */
 .VPNav {
-    display: none !important;
+  display: none !important;
 }
 
-/* 调整页面顶部padding，因为隐藏了导航栏 */
-.VPLocalNav {
-    display: none !important;
+.VPFooter {
+  display: none !important;
 }
 
-.VPContent {
-    padding-top: 0 !important;
+/* 隐藏文档侧边栏 - 只在首页 */
+.VPDoc .VPDocAside,
+.VPDoc .VPDocOutlineDropdown {
+  display: none !important;
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-    width: 0px;
+/* 调整内容区域的内边距 */
+.VPDoc .VPDocMain {
+  padding-top: 0 !important;
 }
 
-.medium-zoom-overlay {
-    backdrop-filter: blur(5rem);
+/* 确保 VPDoc 背景一致 */
+.VPDoc {
+  background: #0a0a0f !important;
 }
 
-.medium-zoom-overlay,
-.medium-zoom-image--opened {
-    z-index: 999;
+.VPDoc .container {
+  background: #0a0a0f !important;
+}
+
+.VPDoc .content {
+  background: #0a0a0f !important;
 }
 </style>

@@ -4,7 +4,7 @@ layout: doc
 
 <NewHomeHero />
 
-<div class="home-content">
+<div class="home-wrapper">
 
 <h2 id="home-0">
 为您的 MCP Agent 开发排忧解难
@@ -17,15 +17,11 @@ layout: doc
   cover="https://picx.zhimg.com/80/v2-ed6a7eb80dfeb2f188f11d89ca6c4b5a_1440w.png"
 />
 
-<br>
-
 <h2 id="home-1">
 OpenMCP 为谁准备？
 <br>
 <span>The Development of OpenMCP is for ...</span>
 </h2>
-
-<br>
 
 <KTab class="home-tab">
 <TwoSideLayout
@@ -35,7 +31,7 @@ OpenMCP 为谁准备？
     '在左侧面板自由而优雅地管理、调试和测试你的智能体。',
     '大模型调用工具的每一个细节一览无余，不满意的调用结果直接一键复现。',
     '每一次对话都会显示各项性能指标，方便进行成本管理。',
-    '系统提示词管理面板，让您轻松用 mcp 服务器和系统提示词构建您的智能体应用。',
+    '系统提示词管理面板，让您轻松用 mcp 服务器和系统提示词构建您的智能体应用。'
   ]"
   image="./images/openmcp.xml.png"
 />
@@ -56,13 +52,11 @@ OpenMCP 为谁准备？
     '测试左移，让你的开发与测试一体化，无需打开第三方软件。提供极其丰富的功能和特性。',
     '只需几行代码，就能快速将您的科研成果做成 mcp 服务器，从而接入任意大模型，以实现用户友好型的交互界面。',
     '所有实验数据与配置参数均自动纳入Git版本管理系统，确保研究成果可追溯、可复现，便于学术交流与论文复现。',
-    '基于 OpenMCP 快速完成您的 demo，缩短创新到落地的距离。',
+    '基于 OpenMCP 快速完成您的 demo，缩短创新到落地的距离。'
   ]"
   image="./images/openmcp.resource.png"
 />
 </KTab>
-
-<br>
 
 <h2 id="home-2">
 问题解答 
@@ -96,7 +90,66 @@ OpenMCP 为谁准备？
 </div>
 
 <style>
-/* 隐藏 VitePress 默认的文档布局元素 */
+/* 强制内容容器全宽 */
+.VPDoc.has-aside .content-container {
+  max-width: 100% !important;
+}
+
+.VPDoc .content {
+  max-width: 100% !important;
+}
+
+.VPDoc.has-aside .aside {
+  display: none !important;
+}
+
+/* 首页包装器 - 深色背景 */
+.home-wrapper {
+  position: relative;
+  z-index: 1;
+  background: #0a0a0f;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 4rem 0;
+}
+
+/* 内容区域 */
+.vp-doc {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 标题样式 */
+.home-wrapper h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 4rem 0 2rem;
+  color: #fff;
+}
+
+.home-wrapper h2 span {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.5rem;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .vp-doc {
+    padding: 0 1rem;
+  }
+  
+  .home-wrapper h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* 隐藏文档布局元素 */
 .VPDoc .VPDocAside,
 .VPDoc .VPDocOutlineDropdown {
   display: none !important;
@@ -110,54 +163,33 @@ OpenMCP 为谁准备？
   max-width: 100% !important;
 }
 
-/* 首页内容区域样式 - 确保不是卡片形式 */
-.home-content {
-  position: relative;
-  z-index: 20;
-  background: var(--vp-c-bg) !important;
-  max-width: 100% !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 4rem 2rem !important;
-  box-sizing: border-box;
-}
-
-/* 确保 VPDoc 和 vp-doc 容器没有奇怪样式 */
-.VPDoc {
-  background: var(--vp-c-bg) !important;
-}
-
-.vp-doc {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
+/* el-collapse 深色样式 */
+.home-wrapper .el-collapse {
   background: transparent !important;
+  border: none !important;
 }
 
-.home-content h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 4rem 0 2rem;
-  color: var(--vp-c-text-1);
+.home-wrapper .el-collapse-item__header {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-size: 1.1rem !important;
+  padding: 1rem 1.5rem !important;
 }
 
-.home-content h2 span {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--vp-c-text-2);
-  margin-top: 0.5rem;
+.home-wrapper .el-collapse-item__wrap {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* 响应式 */
-@media (max-width: 768px) {
-  .home-content {
-    padding: 2rem 1rem;
-  }
-  
-  .home-content h2 {
-    font-size: 1.75rem;
-  }
+.home-wrapper .el-collapse-item__content {
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 1.5rem !important;
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+}
+
+.home-wrapper .el-collapse-item__content a {
+  color: #a5b4fc !important;
 }
 </style>

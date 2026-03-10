@@ -4,7 +4,7 @@ layout: doc
 
 <NewHomeHero />
 
-<div class="home-content">
+<div class="home-wrapper">
 
 <h2 id="home-0">
 あなたのMCPエージェント開発のお手伝いをします
@@ -12,19 +12,15 @@ layout: doc
 <span>MCPエージェント開発に楽しさと利便性をもたらす</span>
 </h2>
 
-<div class="bilibili-player-container" style="display:flex; width: 100%; justify-content: center;">
+<div class="video-container">
 <iframe width="90%" height="580" src="https://www.youtube.com/embed/S7igsEhcLiw?si=6sqvbYJxSRoFS26g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
-
-<br>
 
 <h2 id="home-1">
 OpenMCPは誰のためのものですか？
 <br>
 <span>OpenMCPの開発は...</span>
 </h2>
-
-<br>
 
 <KTab class="home-tab">
 <TwoSideLayout
@@ -34,7 +30,7 @@ OpenMCPは誰のためのものですか？
     '左側のパネルで自由かつエレガントにあなたのエージェントを管理、デバッグ、テストします。',
     '大規模言語モデル呼び出しツールのすべての詳細が一目でわかります。不満な呼び出し結果はワンクリックで再現できます。',
     'すべての会話で各種パフォーマンス指標が表示され、コスト管理が容易になります。',
-    'システムプロンプト管理パネルを使用すると、MCPサーバーとシステムプロンプトを使って簡単にエージェントアプリケーションを構築できます。',
+    'システムプロンプト管理パネルを使用すると、MCPサーバーとシステムプロンプトを使って簡単にエージェントアプリケーションを構築できます。'
   ]"
   image="./images/openmcp.xml.png"
 />
@@ -55,13 +51,11 @@ OpenMCPは誰のためのものですか？
     'テストを早期に行うことで、開発とテストを統合し、サードパーティのソフトウェアを開く必要がありません。非常に豊富な機能を提供します。',
     '数行のコードで、あなたの研究成果をすぐにMCPサーバーに変換し、任意の大規模言語モデルに接続して、ユーザーフレンドリーなインターフェースを実現できます。',
     'すべての実験データと設定パラメータは自動的にGitバージョン管理システムに組み込まれ、研究成果の追跡と再現が可能になり、学術交流や論文の再現が容易になります。',
-    'OpenMCPをベースにしてあなたのデモをすばやく完成させ、イノベーションから実現までの距離を短縮します。',
+    'OpenMCPをベースにしてあなたのデモをすばやく完成させ、イノベーションから実現までの距離を短縮します。'
   ]"
   image="./images/openmcp.resource.png"
 />
 </KTab>
-
-<br>
 
 <h2 id="home-2">
 よくある質問
@@ -95,7 +89,83 @@ OpenMCPは誰のためのものですか？
 </div>
 
 <style>
-/* 隐藏 VitePress 默认的文档布局元素 */
+/* 强制内容容器全宽 */
+.VPDoc.has-aside .content-container {
+  max-width: 100% !important;
+}
+
+.VPDoc .content {
+  max-width: 100% !important;
+}
+
+.VPDoc.has-aside .aside {
+  display: none !important;
+}
+
+/* 首页包装器 - 深色背景 */
+.home-wrapper {
+  position: relative;
+  z-index: 1;
+  background: #0a0a0f;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 4rem 0;
+}
+
+/* 内容区域 */
+.vp-doc {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 标题样式 */
+.home-wrapper h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 4rem 0 2rem;
+  color: #fff;
+}
+
+.home-wrapper h2 span {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.5rem;
+}
+
+/* 视频容器 */
+.video-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.video-container iframe {
+  border-radius: 12px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .vp-doc {
+    padding: 0 1rem;
+  }
+  
+  .home-wrapper h2 {
+    font-size: 1.75rem;
+  }
+  
+  .video-container iframe {
+    height: 300px;
+  }
+}
+
+/* 隐藏文档布局元素 */
 .VPDoc .VPDocAside,
 .VPDoc .VPDocOutlineDropdown {
   display: none !important;
@@ -109,54 +179,33 @@ OpenMCPは誰のためのものですか？
   max-width: 100% !important;
 }
 
-/* 首页内容区域样式 - 确保不是卡片形式 */
-.home-content {
-  position: relative;
-  z-index: 20;
-  background: var(--vp-c-bg) !important;
-  max-width: 100% !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 4rem 2rem !important;
-  box-sizing: border-box;
-}
-
-/* 确保 VPDoc 和 vp-doc 容器没有奇怪样式 */
-.VPDoc {
-  background: var(--vp-c-bg) !important;
-}
-
-.vp-doc {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
+/* el-collapse 深色样式 */
+.home-wrapper .el-collapse {
   background: transparent !important;
+  border: none !important;
 }
 
-.home-content h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 4rem 0 2rem;
-  color: var(--vp-c-text-1);
+.home-wrapper .el-collapse-item__header {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-size: 1.1rem !important;
+  padding: 1rem 1.5rem !important;
 }
 
-.home-content h2 span {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--vp-c-text-2);
-  margin-top: 0.5rem;
+.home-wrapper .el-collapse-item__wrap {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* 响应式 */
-@media (max-width: 768px) {
-  .home-content {
-    padding: 2rem 1rem;
-  }
-  
-  .home-content h2 {
-    font-size: 1.75rem;
-  }
+.home-wrapper .el-collapse-item__content {
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 1.5rem !important;
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+}
+
+.home-wrapper .el-collapse-item__content a {
+  color: #a5b4fc !important;
 }
 </style>

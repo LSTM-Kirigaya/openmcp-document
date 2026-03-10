@@ -237,8 +237,9 @@ onMounted(() => {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  margin: 0 -24px;
-  width: calc(100% + 48px);
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
 }
 
 /* 背景渐变 */

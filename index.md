@@ -4,9 +4,7 @@ layout: doc
 
 <NewHomeHero />
 
-<div class="hero-spacer"></div>
-
-<div class="home-content">
+<div class="home-wrapper">
 
 <h2 id="home-0">
 Resolve Issues in Your MCP Agent Development
@@ -14,19 +12,15 @@ Resolve Issues in Your MCP Agent Development
 <span>Providing Fun and Convenience for Your MCP Agent Development</span>
 </h2>
 
-<div class="bilibili-player-container" style="display:flex; width: 100%; justify-content: center;">
+<div class="video-container">
 <iframe width="90%" height="580" src="https://www.youtube.com/embed/S7igsEhcLiw?si=6sqvbYJxSRoFS26g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
-
-<br>
 
 <h2 id="home-1">
 Who is OpenMCP for?
 <br>
 <span>The Development of OpenMCP is for ...</span>
 </h2>
-
-<br>
 
 <KTab class="home-tab">
 <TwoSideLayout
@@ -63,8 +57,6 @@ Who is OpenMCP for?
 />
 </KTab>
 
-<br>
-
 <h2 id="home-2">
 FAQ
 <br>
@@ -97,7 +89,83 @@ FAQ
 </div>
 
 <style>
-/* 隐藏 VitePress 默认的文档布局元素 */
+/* 强制内容容器全宽 */
+.VPDoc.has-aside .content-container {
+  max-width: 100% !important;
+}
+
+.VPDoc .content {
+  max-width: 100% !important;
+}
+
+.VPDoc.has-aside .aside {
+  display: none !important;
+}
+
+/* 首页包装器 - 深色背景 */
+.home-wrapper {
+  position: relative;
+  z-index: 1;
+  background: #0a0a0f;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 4rem 0;
+}
+
+/* 内容区域 */
+.vp-doc {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 标题样式 */
+.home-wrapper h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 4rem 0 2rem;
+  color: #fff;
+}
+
+.home-wrapper h2 span {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.5rem;
+}
+
+/* 视频容器 */
+.video-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.video-container iframe {
+  border-radius: 12px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .vp-doc {
+    padding: 0 1rem;
+  }
+  
+  .home-wrapper h2 {
+    font-size: 1.75rem;
+  }
+  
+  .video-container iframe {
+    height: 300px;
+  }
+}
+
+/* 隐藏文档布局元素 */
 .VPDoc .VPDocAside,
 .VPDoc .VPDocOutlineDropdown {
   display: none !important;
@@ -111,73 +179,33 @@ FAQ
   max-width: 100% !important;
 }
 
-/* 让 VPContent 和 VPDoc 容器全宽 */
-.VPContent {
-  max-width: 100% !important;
-  padding: 0 !important;
+/* el-collapse 深色样式 */
+.home-wrapper .el-collapse {
+  background: transparent !important;
+  border: none !important;
 }
 
-.VPDoc {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding: 0 !important;
+.home-wrapper .el-collapse-item__header {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-size: 1.1rem !important;
+  padding: 1rem 1.5rem !important;
 }
 
-.VPDoc .VPDocMain {
-  max-width: 100% !important;
-  width: 100% !important;
+.home-wrapper .el-collapse-item__wrap {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-.VPDoc .main {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding: 0 !important;
+.home-wrapper .el-collapse-item__content {
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 1.5rem !important;
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
 }
 
-/* 隐藏左侧 aside */
-.VPDoc .VPDocAside {
-  display: none !important;
-}
-
-/* Hero 占位 - 为 fixed 定位的 Hero 留出空间 */
-.hero-spacer {
-  height: calc(100vh - 64px);
-}
-
-/* 首页内容区域样式 */
-.home-content {
-  position: relative;
-  z-index: 20;
-  background: var(--vp-c-bg);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-}
-
-.home-content h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 4rem 0 2rem;
-  color: var(--vp-c-text-1);
-}
-
-.home-content h2 span {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--vp-c-text-2);
-  margin-top: 0.5rem;
-}
-
-/* 响应式 */
-@media (max-width: 768px) {
-  .home-content {
-    padding: 2rem 1rem;
-  }
-  
-  .home-content h2 {
-    font-size: 1.75rem;
-  }
+.home-wrapper .el-collapse-item__content a {
+  color: #a5b4fc !important;
 }
 </style>
