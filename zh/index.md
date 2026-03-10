@@ -4,8 +4,6 @@ layout: doc
 
 <NewHomeHero />
 
-<div class="hero-spacer"></div>
-
 <div class="home-content">
 
 <h2 id="home-0">
@@ -112,19 +110,28 @@ OpenMCP 为谁准备？
   max-width: 100% !important;
 }
 
-/* Hero 占位 - 为 fixed 定位的 Hero 留出空间 */
-.hero-spacer {
-  height: calc(100vh - 64px);
-}
-
-/* 首页内容区域样式 */
+/* 首页内容区域样式 - 确保不是卡片形式 */
 .home-content {
   position: relative;
   z-index: 20;
-  background: var(--vp-c-bg);
+  background: var(--vp-c-bg) !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 4rem 2rem !important;
+  box-sizing: border-box;
+}
+
+/* 确保 VPDoc 和 vp-doc 容器没有奇怪样式 */
+.VPDoc {
+  background: var(--vp-c-bg) !important;
+}
+
+.vp-doc {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 0;
+  background: transparent !important;
 }
 
 .home-content h2 {

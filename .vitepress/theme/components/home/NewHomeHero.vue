@@ -230,17 +230,15 @@ onMounted(() => {
 
 <style scoped>
 .home-hero {
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  min-height: calc(100vh - 64px);
+  position: relative;
+  min-height: 100vh;
   background: #0a0a0f;
   color: #fff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  z-index: 10;
+  margin: 0 -24px;
+  width: calc(100% + 48px);
 }
 
 /* 背景渐变 */
