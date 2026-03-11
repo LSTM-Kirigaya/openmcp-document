@@ -15,6 +15,30 @@
       <div class="nav-right">
         <a :href="nav.docs.link" class="nav-link">{{ nav.docs.text }}</a>
         <a :href="nav.quickStart.link" class="nav-link">{{ nav.quickStart.text }}</a>
+        
+        <!-- 语言切换器 -->
+        <div class="lang-switcher">
+          <button class="lang-btn" @click="showLangMenu = !showLangMenu">
+            <svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span class="lang-text">{{ currentLangLabel }}</span>
+            <svg class="lang-arrow" :class="{ open: showLangMenu }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <Transition name="fade">
+            <div v-if="showLangMenu" class="lang-menu">
+              <a v-for="langOption in langOptions" :key="langOption.code" :href="langOption.link" class="lang-menu-item" :class="{ active: currentLang === langOption.code }">
+                <span class="lang-flag">{{ langOption.flag }}</span>
+                <span>{{ langOption.label }}</span>
+              </a>
+            </div>
+          </Transition>
+        </div>
+
         <a 
           href="https://github.com/LSTM-Kirigaya/openmcp-client" 
           target="_blank" 
@@ -169,14 +193,29 @@ const content = {
 };
 
 // 获取当前语言的内容
-const t = computed(() => {
-  const currentLang = lang.value || 'en';
-  if (currentLang.startsWith('zh')) return content.zh;
-  if (currentLang.startsWith('ja')) return content.ja;
-  return content.en;
+const currentLang = computed(() => {
+  const l = lang.value || 'en';
+  if (l.startsWith('zh')) return 'zh';
+  if (l.startsWith('ja')) return 'ja';
+  return 'en';
 });
 
+const t = computed(() => content[currentLang.value] || content.en);
 const nav = computed(() => t.value.nav);
+
+// 语言选项
+const langOptions = [
+  { code: 'en', label: 'English', flag: '🇺🇸', link: '/' },
+  { code: 'zh', label: '中文', flag: '🇨🇳', link: '/zh/' },
+  { code: 'ja', label: '日本語', flag: '🇯🇵', link: '/ja/' }
+];
+
+const currentLangLabel = computed(() => {
+  const option = langOptions.find(l => l.code === currentLang.value);
+  return option?.label || 'English';
+});
+
+const showLangMenu = ref(false);
 
 const activeTab = ref('cli');
 const copied = ref(false);
@@ -309,7 +348,7 @@ onMounted(() => {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .nav-link {
@@ -322,6 +361,96 @@ onMounted(() => {
 
 .nav-link:hover {
   color: #fff;
+}
+
+/* 语言切换器 */
+.lang-switcher {
+  position: relative;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.lang-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.lang-arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s;
+}
+
+.lang-arrow.open {
+  transform: rotate(180deg);
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(15, 15, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.5rem;
+  min-width: 160px;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.lang-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.lang-menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.lang-menu-item.active {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+.lang-flag {
+  font-size: 1rem;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 
 .github-link {
@@ -578,6 +707,10 @@ onMounted(() => {
   }
 
   .nav-link {
+    display: none;
+  }
+  
+  .lang-text {
     display: none;
   }
 
