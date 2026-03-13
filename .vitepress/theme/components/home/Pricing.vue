@@ -232,8 +232,8 @@ const content = {
         '定制化开发建议'
       ],
       contact: '联系邮箱',
-      email: 'kirigaya@openmcp.cn',
-      link: 'mailto:kirigaya@openmcp.cn'
+      email: 'zhelonghuang@qq.com',
+      link: 'mailto:zhelonghuang@qq.com'
     },
     comparisonTitle: '功能对比',
     table: {
@@ -312,8 +312,8 @@ const content = {
         'Custom development advice'
       ],
       contact: 'Contact',
-      email: 'kirigaya@openmcp.cn',
-      link: 'mailto:kirigaya@openmcp.cn'
+      email: 'zhelonghuang@qq.com',
+      link: 'mailto:zhelonghuang@qq.com'
     },
     comparisonTitle: 'Feature Comparison',
     table: {
@@ -392,8 +392,8 @@ const content = {
         'カスタム開発アドバイス'
       ],
       contact: '連絡先',
-      email: 'kirigaya@openmcp.cn',
-      link: 'mailto:kirigaya@openmcp.cn'
+      email: 'zhelonghuang@qq.com',
+      link: 'mailto:zhelonghuang@qq.com'
     },
     comparisonTitle: '機能比較',
     table: {
