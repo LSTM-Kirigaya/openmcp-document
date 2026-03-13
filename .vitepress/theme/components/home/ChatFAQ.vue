@@ -1,7 +1,6 @@
 <template>
   <section class="chat-faq-section" ref="faqSection">
-    <h2 class="section-title">{{ t.title }}</h2>
-    <p class="section-subtitle">{{ t.subtitle }}</p>
+    <SectionHeader :title="t.title" :subtitle="t.subtitle" />
 
     <div class="chat-container">
       <div
@@ -180,25 +179,7 @@ onUnmounted(() => {
   padding: 6rem 2rem;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 0.75rem;
-  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  color: transparent !important;
-}
 
-.section-subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-  margin-bottom: 4rem;
-}
 
 .chat-container {
   display: flex;

@@ -175,27 +175,7 @@ const currentImage = computed(() => currentTab.value.image);
   text-align: center;
 }
 
-.showcase-header {
-  margin-bottom: 3rem;
-}
 
-.showcase-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  color: transparent !important;
-}
-
-.showcase-subtitle {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 400;
-}
 
 .showcase-tabs {
   display: inline-flex;

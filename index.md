@@ -12,8 +12,7 @@ layout: doc
 <!-- Audience Section - 目标用户 (优化版卡片) -->
 <section class="audience-section">
 
-<h2 class="section-title">Who is OpenMCP for?</h2>
-<p class="section-subtitle">The Development of OpenMCP is for ...</p>
+<SectionHeader title="Who is OpenMCP for?" subtitle="The Development of OpenMCP is for ..." />
 
 <div class="audience-grid">
 
@@ -66,8 +65,7 @@ layout: doc
 <!-- Templates Section - 模板展示 -->
 <section class="templates-section">
 
-<h2 class="section-title">Start building in seconds</h2>
-<p class="section-subtitle">Kickstart your MCP development with built-in templates and examples</p>
+<SectionHeader title="Start building in seconds" subtitle="Kickstart your MCP development with built-in templates and examples" />
 
 <div class="templates-actions">
   <a href="/guide/" class="template-btn btn-primary">
@@ -252,29 +250,7 @@ layout: doc
   padding: 0;
 }
 
-/* Section Common Styles */
-.home-wrapper .section-title,
-.audience-section .section-title,
-.templates-section .section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 0.75rem;
-  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  color: transparent !important;
-}
 
-.home-wrapper .section-subtitle,
-.audience-section .section-subtitle,
-.templates-section .section-subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-  margin-bottom: 3rem;
-}
 
 /* Audience Section */
 .audience-section {
