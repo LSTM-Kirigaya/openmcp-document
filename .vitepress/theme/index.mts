@@ -15,6 +15,8 @@ import HomeFooter from './components/home/HomeFooter.vue';
 import Pricing from './components/home/Pricing.vue';
 import PricingPage from './components/home/PricingPage.vue';
 import SectionHeader from './components/home/SectionHeader.vue';
+import AudienceSection from './components/home/AudienceSection.vue';
+import TemplatesSection from './components/home/TemplatesSection.vue';
 import BlogPage from './components/home/BlogPage.vue';
 import NavBar from './components/NavBar.vue';
 import KTab from './components/KTab/index.vue';
@@ -52,6 +54,8 @@ export default {
 		app.component('Pricing', Pricing);
 		app.component('PricingPage', PricingPage);
 		app.component('SectionHeader', SectionHeader);
+		app.component('AudienceSection', AudienceSection);
+		app.component('TemplatesSection', TemplatesSection);
 		app.component('BlogPage', BlogPage);
 		app.component('NavBar', NavBar);
 		app.component('KTab', KTab);

@@ -380,9 +380,6 @@ onMounted(() => {
   left: 0;
 }
 
-.nav-link.active {
-  color: #a5b4fc;
-}
 
 /* 导航下拉菜单 */
 .nav-dropdown {
