@@ -1,11 +1,9 @@
 <template>
   <div class="blog-page-wrapper">
     <!-- 顶部大标题区域 -->
-    <div class="blog-hero">
-      <h1 class="blog-title">
-        {{ t.titleLine1 }}<br />
-        <span class="title-highlight">{{ t.titleHighlight }}</span>
-      </h1>
+    <div class="blog-header">
+      <h2 class="blog-title">{{ t.title }}</h2>
+      <p class="blog-subtitle">{{ t.subtitle }}</p>
     </div>
     
     <!-- 分类标签 -->
@@ -80,8 +78,8 @@ const { lang } = useData();
 
 const content = {
   zh: {
-    titleLine1: '想法、实验',
-    titleHighlight: '与我们的旅程',
+    title: '开发日志',
+    subtitle: '记录 OpenMCP 迭代的每一步，分享我们的思考与成长',
     categories: {
       all: '全部',
       journey: '心路历程',
@@ -91,8 +89,8 @@ const content = {
     }
   },
   en: {
-    titleLine1: 'Ideas, experiments,',
-    titleHighlight: 'and our journey',
+    title: 'Dev Blog',
+    subtitle: 'Documenting every step of OpenMCP\'s evolution, sharing our thoughts and growth',
     categories: {
       all: 'All',
       journey: 'Journey',
@@ -102,8 +100,8 @@ const content = {
     }
   },
   ja: {
-    titleLine1: 'アイデア、実験、',
-    titleHighlight: 'そして私たちの旅',
+    title: '開発ブログ',
+    subtitle: 'OpenMCPの進化の每一步を記録し、私たちの思考と成長を共有します',
     categories: {
       all: 'すべて',
       journey: '軌跡',
@@ -304,39 +302,30 @@ function openPost(post: any) {
 </script>
 
 <style scoped>
-.blog-page-wrapper {
-  min-height: 100vh;
-  background: #0a0a0f;
-  color: #fff;
-  padding-top: 64px;
-}
-
-/* 顶部大标题 */
-.blog-hero {
+/* 标题区域 - 仿照定价页 */
+.blog-header {
   text-align: center;
-  padding: 80px 20px 40px;
-  background: linear-gradient(180deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%);
+  padding: 80px 20px 20px;
 }
 
 .blog-title {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  line-height: 1.1;
-  margin: 0;
   color: #fff;
+  margin: 0 0 16px;
 }
 
-.title-highlight {
-  color: #a5b4fc;
-  font-style: italic;
+.blog-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
 }
 
 /* 分类标签 */
 .blog-categories {
   display: flex;
-  justify-content: center;
   gap: 8px;
-  padding: 0 20px 40px;
+  padding: 0 20px 20px;
   flex-wrap: wrap;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   max-width: 1200px;
@@ -369,7 +358,7 @@ function openPost(post: any) {
 .category-btn.active::after {
   content: '';
   position: absolute;
-  bottom: -41px;
+  bottom: -21px;
   left: 0;
   right: 0;
   height: 2px;
