@@ -253,18 +253,23 @@ layout: doc
 }
 
 /* Section Common Styles */
-.section-title {
+.home-wrapper .section-title,
+.audience-section .section-title,
+.templates-section .section-title {
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 0.75rem;
-  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
 }
 
-.section-subtitle {
+.home-wrapper .section-subtitle,
+.audience-section .section-subtitle,
+.templates-section .section-subtitle {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.6);
   text-align: center;

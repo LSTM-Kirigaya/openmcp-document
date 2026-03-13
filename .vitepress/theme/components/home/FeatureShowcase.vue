@@ -184,10 +184,11 @@ const currentImage = computed(() => currentTab.value.image);
   font-weight: 700;
   margin-bottom: 0.75rem;
   line-height: 1.2;
-  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
 }
 
 .showcase-subtitle {
