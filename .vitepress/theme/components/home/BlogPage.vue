@@ -31,7 +31,7 @@
           @click="openPost(filteredPosts[0])"
         >
           <div class="card-image-wrapper">
-            <div class="card-image" :style="{ backgroundColor: filteredPosts[0].color }">
+            <div class="card-image" :style="{ background: filteredPosts[0].gradient }">
               <span class="card-tag">{{ filteredPosts[0].category }}</span>
               <div class="card-icon" v-if="filteredPosts[0].icon">{{ filteredPosts[0].icon }}</div>
             </div>
@@ -54,7 +54,7 @@
           @click="openPost(post)"
         >
           <div class="card-image-wrapper small">
-            <div class="card-image" :style="{ backgroundColor: post.color }">
+            <div class="card-image" :style="{ background: post.gradient }">
               <span class="card-tag small">{{ post.category }}</span>
               <div class="card-icon" v-if="post.icon">{{ post.icon }}</div>
             </div>
@@ -134,7 +134,7 @@ const categories = computed(() => [
 
 const activeCategory = ref('all');
 
-// 博客文章数据
+// 博客文章数据 - 使用渐变背景配合深色主题
 const allPosts = computed(() => {
   const postsData = {
     zh: [
@@ -146,7 +146,7 @@ const allPosts = computed(() => {
         date: '2024-03-15',
         author: 'Kirigaya',
         summary: '从最初的灵感到第一个可用的原型，记录 OpenMCP 诞生背后的故事。我们如何解决 MCP 开发中的痛点，以及我们对未来的愿景。',
-        color: '#e8f4f8',
+        gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
         icon: '🚀',
         link: '/blog/birth-of-openmcp'
       },
@@ -158,7 +158,7 @@ const allPosts = computed(() => {
         date: '2024-03-10',
         author: 'OpenMCP Team',
         summary: '本次更新带来了焕然一新的用户界面，支持中文、英文、日文三种语言。',
-        color: '#f0e8f8',
+        gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
         icon: '✨',
         link: '/blog/v0.5.0-release'
       },
@@ -170,7 +170,7 @@ const allPosts = computed(() => {
         date: '2024-02-28',
         author: 'Kirigaya',
         summary: '深入探讨我们在技术选型时的考虑，为什么最终选择基于 VSCode 构建 OpenMCP。',
-        color: '#e8f8e8',
+        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
         icon: '🤔',
         link: '/blog/tech-stack-choice'
       },
@@ -182,7 +182,7 @@ const allPosts = computed(() => {
         date: '2024-02-20',
         author: 'Community',
         summary: '分享一个使用 OpenMCP 搭建完整 AI 工作流的真实案例，从需求分析到落地实现。',
-        color: '#fff8e8',
+        gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
         icon: '💡',
         link: '/blog/case-study-1'
       }
@@ -196,7 +196,7 @@ const allPosts = computed(() => {
         date: '2024-03-15',
         author: 'Kirigaya',
         summary: 'From the initial inspiration to the first working prototype, documenting the story behind OpenMCP\'s birth.',
-        color: '#e8f4f8',
+        gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
         icon: '🚀',
         link: '/blog/birth-of-openmcp'
       },
@@ -208,7 +208,7 @@ const allPosts = computed(() => {
         date: '2024-03-10',
         author: 'OpenMCP Team',
         summary: 'This update brings a refreshed user interface with support for Chinese, English, and Japanese.',
-        color: '#f0e8f8',
+        gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
         icon: '✨',
         link: '/blog/v0.5.0-release'
       },
@@ -220,7 +220,7 @@ const allPosts = computed(() => {
         date: '2024-02-28',
         author: 'Kirigaya',
         summary: 'An in-depth look at our technical considerations and why we chose VSCode.',
-        color: '#e8f8e8',
+        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
         icon: '🤔',
         link: '/blog/tech-stack-choice'
       },
@@ -232,7 +232,7 @@ const allPosts = computed(() => {
         date: '2024-02-20',
         author: 'Community',
         summary: 'A real-world case study of building a complete AI workflow using OpenMCP.',
-        color: '#fff8e8',
+        gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
         icon: '💡',
         link: '/blog/case-study-1'
       }
@@ -246,7 +246,7 @@ const allPosts = computed(() => {
         date: '2024-03-15',
         author: 'Kirigaya',
         summary: '最初のインスピレーションから最初の動作するプロトタイプまで、OpenMCP誕生の裏側にある物語。',
-        color: '#e8f4f8',
+        gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
         icon: '🚀',
         link: '/blog/birth-of-openmcp'
       },
@@ -258,7 +258,7 @@ const allPosts = computed(() => {
         date: '2024-03-10',
         author: 'OpenMCP Team',
         summary: 'このアップデートでは、中国語、英語、日本語をサポートする新しいユーザーインターフェースが導入されました。',
-        color: '#f0e8f8',
+        gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
         icon: '✨',
         link: '/blog/v0.5.0-release'
       },
@@ -270,7 +270,7 @@ const allPosts = computed(() => {
         date: '2024-02-28',
         author: 'Kirigaya',
         summary: '技術選定時の私たちの考慮事項を深く掘り下げ、なぜVSCodeを選んだのか。',
-        color: '#e8f8e8',
+        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
         icon: '🤔',
         link: '/blog/tech-stack-choice'
       },
@@ -282,7 +282,7 @@ const allPosts = computed(() => {
         date: '2024-02-20',
         author: 'Community',
         summary: 'OpenMCPを使用して完全なAIワークフローを構築した実際の事例。',
-        color: '#fff8e8',
+        gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
         icon: '💡',
         link: '/blog/case-study-1'
       }
@@ -306,8 +306,8 @@ function openPost(post: any) {
 <style scoped>
 .blog-page-wrapper {
   min-height: 100vh;
-  background: #ffffff;
-  color: #1a1a2e;
+  background: #0a0a0f;
+  color: #fff;
   padding-top: 64px;
 }
 
@@ -315,6 +315,7 @@ function openPost(post: any) {
 .blog-hero {
   text-align: center;
   padding: 80px 20px 40px;
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%);
 }
 
 .blog-title {
@@ -322,11 +323,11 @@ function openPost(post: any) {
   font-weight: 700;
   line-height: 1.1;
   margin: 0;
-  color: #1a1a2e;
+  color: #fff;
 }
 
 .title-highlight {
-  color: #6366f1;
+  color: #a5b4fc;
   font-style: italic;
 }
 
@@ -337,7 +338,7 @@ function openPost(post: any) {
   gap: 8px;
   padding: 0 20px 40px;
   flex-wrap: wrap;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -346,7 +347,7 @@ function openPost(post: any) {
   padding: 8px 20px;
   border: none;
   background: transparent;
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
@@ -356,13 +357,13 @@ function openPost(post: any) {
 }
 
 .category-btn:hover {
-  color: #1a1a2e;
-  background: #f3f4f6;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .category-btn.active {
-  color: #1a1a2e;
-  background: #f3f4f6;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .category-btn.active::after {
@@ -411,6 +412,7 @@ function openPost(post: any) {
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card-image-wrapper.small {
@@ -430,12 +432,14 @@ function openPost(post: any) {
 .card-tag {
   display: inline-block;
   padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #6366f1;
+  color: #a5b4fc;
   width: fit-content;
+  border: 1px solid rgba(165, 180, 252, 0.2);
 }
 
 .card-tag.small {
@@ -446,6 +450,7 @@ function openPost(post: any) {
 .card-icon {
   font-size: 3rem;
   align-self: flex-end;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
 /* 卡片内容 */
@@ -456,7 +461,7 @@ function openPost(post: any) {
 .card-title {
   font-size: 2rem;
   font-weight: 600;
-  color: #1a1a2e;
+  color: #fff;
   margin: 0 0 12px;
   line-height: 1.3;
 }
@@ -468,7 +473,7 @@ function openPost(post: any) {
 
 .card-summary {
   font-size: 1rem;
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.6;
   margin: 0 0 16px;
 }
@@ -477,11 +482,12 @@ function openPost(post: any) {
   display: flex;
   gap: 16px;
   font-size: 0.875rem;
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .card-author {
   font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* 响应式 */
