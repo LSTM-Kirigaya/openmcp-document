@@ -180,11 +180,14 @@ const currentImage = computed(() => currentTab.value.image);
 }
 
 .showcase-title {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #fff;
   margin-bottom: 0.75rem;
   line-height: 1.2;
+  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .showcase-subtitle {
