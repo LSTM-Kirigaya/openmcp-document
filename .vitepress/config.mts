@@ -45,7 +45,10 @@ export default withMermaid({
                     'ja/index.md',
                     'pricing.md',
                     'zh/pricing.md',
-                    'ja/pricing.md'
+                    'ja/pricing.md',
+                    'blog.md',
+                    'zh/blog.md',
+                    'ja/blog.md'
                 ]
             }),
             ThumbnailHashImages(),

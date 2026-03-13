@@ -14,6 +14,7 @@ import ChatFAQ from './components/home/ChatFAQ.vue';
 import HomeFooter from './components/home/HomeFooter.vue';
 import Pricing from './components/home/Pricing.vue';
 import PricingPage from './components/home/PricingPage.vue';
+import BlogPage from './components/home/BlogPage.vue';
 import NavBar from './components/NavBar.vue';
 import KTab from './components/KTab/index.vue';
 import BiliPlayer from './components/bilibli-player/index.vue';
@@ -49,6 +50,7 @@ export default {
 		app.component('HomeFooter', HomeFooter);
 		app.component('Pricing', Pricing);
 		app.component('PricingPage', PricingPage);
+		app.component('BlogPage', BlogPage);
 		app.component('NavBar', NavBar);
 		app.component('KTab', KTab);
 		app.component('BiliPlayer', BiliPlayer);
@@ -69,6 +71,46 @@ export default {
 			router.onAfterRouteChange = () => {
 				busuanzi.fetch()
 			}
+
+			// 滚动条自动淡入淡出
+			let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
+			const html = document.documentElement;
+			
+			const showScrollbar = () => {
+				html.classList.remove('scrollbar-hidden');
+			};
+			
+			const hideScrollbar = () => {
+				html.classList.add('scrollbar-hidden');
+			};
+			
+			// 初始状态：隐藏滚动条
+			hideScrollbar();
+			
+			// 监听滚动事件
+			window.addEventListener('scroll', () => {
+				showScrollbar();
+				
+				// 清除之前的定时器
+				if (scrollTimeout) {
+					clearTimeout(scrollTimeout);
+				}
+				
+				// 停止滚动 2 秒后隐藏滚动条
+				scrollTimeout = setTimeout(() => {
+					hideScrollbar();
+				}, 2000);
+			}, { passive: true });
+			
+			// 鼠标进入页面时显示滚动条
+			document.addEventListener('mouseenter', () => {
+				showScrollbar();
+			});
+			
+			// 鼠标离开页面时隐藏滚动条
+			document.addEventListener('mouseleave', () => {
+				hideScrollbar();
+			});
 		}
 	}
 } satisfies Theme

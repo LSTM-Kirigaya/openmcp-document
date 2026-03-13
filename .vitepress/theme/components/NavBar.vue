@@ -13,6 +13,7 @@
           <a :href="nav.docs.link" class="nav-link" :class="{ active: isActive(nav.docs.link) }">{{ nav.docs.text }}</a>
           <a :href="nav.quickStart.link" class="nav-link" :class="{ active: isActive(nav.quickStart.link) }">{{ nav.quickStart.text }}</a>
           <a :href="nav.pricing.link" class="nav-link" :class="{ active: isActive(nav.pricing.link) }">{{ nav.pricing.text }}</a>
+          <a :href="nav.blog.link" class="nav-link" :class="{ active: isActive(nav.blog.link) }">{{ nav.blog.text }}</a>
         </template>
         
         <!-- 文档页面导航 -->
@@ -114,7 +115,8 @@ const content = {
     nav: {
       docs: { text: '文档', link: '/zh/plugin-tutorial/' },
       quickStart: { text: '快速开始', link: '/zh/plugin-tutorial/quick-start/' },
-      pricing: { text: '定价', link: '/zh/pricing' }
+      pricing: { text: '定价', link: '/zh/pricing' },
+      blog: { text: '博客', link: '/zh/blog' }
     },
     homeLink: '/zh/',
     docNav: {
@@ -142,7 +144,8 @@ const content = {
     nav: {
       docs: { text: 'Docs', link: '/plugin-tutorial/' },
       quickStart: { text: 'Quick Start', link: '/plugin-tutorial/quick-start/' },
-      pricing: { text: 'Pricing', link: '/pricing' }
+      pricing: { text: 'Pricing', link: '/pricing' },
+      blog: { text: 'Blog', link: '/blog' }
     },
     homeLink: '/',
     docNav: {
@@ -170,7 +173,8 @@ const content = {
     nav: {
       docs: { text: 'ドキュメント', link: '/ja/plugin-tutorial/' },
       quickStart: { text: 'クイックスタート', link: '/ja/plugin-tutorial/quick-start/' },
-      pricing: { text: '料金', link: '/ja/pricing' }
+      pricing: { text: '料金', link: '/ja/pricing' },
+      blog: { text: 'ブログ', link: '/ja/blog' }
     },
     homeLink: '/ja/',
     docNav: {
@@ -246,20 +250,47 @@ function isActive(link: string) {
   return cleanPath.includes(cleanLink) || cleanLink.includes(cleanPath);
 }
 
-const starCount = ref('GitHub');
+const starCount = ref('');
 const isStarLoaded = ref(false);
 
 onMounted(() => {
+  // 尝试从本地存储获取缓存
+  const cached = localStorage.getItem('openmcp-star-count');
+  const cachedTime = localStorage.getItem('openmcp-star-count-time');
+  const now = Date.now();
+  
+  // 使用缓存（1小时内）
+  if (cached && cachedTime && (now - parseInt(cachedTime)) < 3600000) {
+    starCount.value = cached;
+    isStarLoaded.value = true;
+    return;
+  }
+  
   fetch('https://api.github.com/repos/LSTM-Kirigaya/openmcp-client')
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error('Rate limited');
+      return res.json();
+    })
     .then(data => {
       if (data.stargazers_count !== undefined) {
         const count = data.stargazers_count;
-        starCount.value = count >= 1000 ? (count / 1000).toFixed(1) + 'k' : count.toString();
+        const formatted = count >= 1000 ? (count / 1000).toFixed(1) + 'k' : count.toString();
+        starCount.value = formatted;
         isStarLoaded.value = true;
+        // 缓存到本地
+        localStorage.setItem('openmcp-star-count', formatted);
+        localStorage.setItem('openmcp-star-count-time', now.toString());
       }
     })
-    .catch(() => {});
+    .catch(() => {
+      // 失败时使用缓存或显示 GitHub
+      if (cached) {
+        starCount.value = cached;
+        isStarLoaded.value = true;
+      } else {
+        starCount.value = 'GitHub';
+      }
+    });
 });
 </script>
 
@@ -330,15 +361,28 @@ onMounted(() => {
   font-weight: 500;
   transition: opacity 0.2s;
   padding: 0.5rem 0;
-  border-bottom: 2px solid transparent;
+  position: relative;
 }
 
-.nav-link:hover {
-  border-bottom: 2px solid #a5b4fc;
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #a5b4fc;
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
-.nav-link.active {
-  color: #fff;
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  left: 0;
 }
 
 /* 导航下拉菜单 */
@@ -353,16 +397,27 @@ onMounted(() => {
   padding: 0.5rem 0;
   background: transparent;
   border: none;
-  border-bottom: 2px solid transparent;
   color: #fff;
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  transition: border-bottom 0.2s;
+  position: relative;
 }
 
-.nav-dropdown-btn:hover {
-  border-bottom: 2px solid #a5b4fc;
+.nav-dropdown-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #a5b4fc;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-dropdown-btn:hover::after {
+  width: 100%;
+  left: 0;
 }
 
 .dropdown-arrow {

@@ -474,6 +474,7 @@ const t = computed(() => content[currentLang.value] || content.en);
 
 .pricing-title {
   font-size: 2.5rem;
+  line-height: 1.2;
   font-weight: 700;
   margin-bottom: 0.75rem;
   background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);

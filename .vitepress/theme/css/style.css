@@ -242,22 +242,37 @@ iframe {
     margin-top: 0 !important;
 }
 
-/* 自定义全局滚动条样式 */
+/* 自定义全局滚动条样式 - 正常样式，支持自动淡入淡出 */
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--vp-c-default-soft);
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--vp-c-brand-3);
+    background: rgba(128, 128, 128, 0.4);
     border-radius: 4px;
+    transition: background 0.3s ease, opacity 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--vp-c-brand-2);
+    background: rgba(128, 128, 128, 0.6);
+}
+
+/* 滚动条自动淡入淡出 */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(128, 128, 128, 0.4) transparent;
+}
+
+html.scrollbar-hidden ::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0);
+}
+
+html.scrollbar-hidden {
+    scrollbar-color: transparent transparent;
 }
 
 /* 设置选中文本的背景色和文字颜色 */

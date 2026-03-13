@@ -6,7 +6,7 @@
     <!-- 页面内容 -->
     <div class="page-wrapper">
       <!-- 首页不使用默认布局，直接使用 markdown 内容 -->
-      <Content v-if="isHome || isPricing" class="custom-page" />
+      <Content v-if="isHome || isPricing || isBlog" class="custom-page" />
       
       <!-- 其他页面使用 VitePress 默认布局 -->
       <Layout v-else />
@@ -36,6 +36,14 @@ const isPricing = computed(() => {
   return path === '/pricing' || path === '/pricing.html' || 
          path === '/zh/pricing' || path === '/zh/pricing.html' ||
          path === '/ja/pricing' || path === '/ja/pricing.html';
+});
+
+// 判断是否是博客页
+const isBlog = computed(() => {
+  const path = route.path;
+  return path === '/blog' || path === '/blog.html' || 
+         path === '/zh/blog' || path === '/zh/blog.html' ||
+         path === '/ja/blog' || path === '/ja/blog.html';
 });
 </script>
 
