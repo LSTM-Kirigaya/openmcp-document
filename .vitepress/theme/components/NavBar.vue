@@ -324,20 +324,21 @@ onMounted(() => {
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: opacity 0.2s;
   padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
 }
 
 .nav-link:hover {
-  color: #fff;
+  border-bottom: 2px solid #a5b4fc;
 }
 
 .nav-link.active {
-  color: #a5b4fc;
+  color: #fff;
 }
 
 /* 导航下拉菜单 */
@@ -352,15 +353,16 @@ onMounted(() => {
   padding: 0.5rem 0;
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 2px solid transparent;
+  color: #fff;
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: border-bottom 0.2s;
 }
 
 .nav-dropdown-btn:hover {
-  color: #fff;
+  border-bottom: 2px solid #a5b4fc;
 }
 
 .dropdown-arrow {
@@ -499,20 +501,18 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: #fff;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: all 0.2s;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 .github-link:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
 }
 
 .github-icon {

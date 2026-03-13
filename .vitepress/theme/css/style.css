@@ -374,3 +374,38 @@ body.is-home .VPNavBar .VPNavBarMenu .VPNavBarMenuLink.active:hover {
     color: #ffffff !important;
 }
 
+/* 文档页面背景颜色统一为深色 */
+:root {
+    --vp-c-bg: #0a0a0f;
+    --vp-c-bg-alt: #0f0f14;
+    --vp-c-bg-soft: #15151a;
+}
+
+.VPDoc {
+    background: #0a0a0f;
+}
+
+.VPDoc .content {
+    background: #0a0a0f;
+}
+
+/* 文档页面容器背景 */
+.VPDoc .container {
+    background: #0a0a0f;
+}
+
+/* 确保整个页面背景一致 */
+.VPDoc .aside {
+    background: #0a0a0f;
+}
+
+/* 侧边栏背景 */
+.VPSidebar {
+    background: #0a0a0f !important;
+}
+
+/* 本地导航栏背景 */
+.VPLocalNav {
+    background: #0a0a0f !important;
+}
+
