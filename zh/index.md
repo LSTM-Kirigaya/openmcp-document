@@ -6,88 +6,230 @@ layout: doc
 
 <div class="home-wrapper">
 
-<h2 id="home-0">
-为您的 MCP Agent 开发排忧解难
-<br>
-<span>Providing Fun and Convenience for Your MCP Agent Development</span>
-</h2>
+<!-- Feature Showcase Section - 功能特性展示 (设计图3风格) -->
+<FeatureShowcase />
 
-<BiliPlayer
-  url="//player.bilibili.com/player.html?isOutside=true&aid=114654638511901&bvid=BV1MFTBzpEtZ&cid=30412178228&p=1"
-  cover="https://picx.zhimg.com/80/v2-ed6a7eb80dfeb2f188f11d89ca6c4b5a_1440w.png"
-/>
+<!-- Audience Section - 目标用户 -->
+<section class="audience-section">
 
-<h2 id="home-1">
+<h2 class="section-title">
 OpenMCP 为谁准备？
-<br>
-<span>The Development of OpenMCP is for ...</span>
+<span>为每一位追求效率的开发者而生</span>
 </h2>
 
-<KTab class="home-tab">
-<TwoSideLayout
-  label="专业软件工程师"
-  :texts="[
-    '测试左移，让你的开发与测试一体化，无需打开第三方软件。提供极其丰富的功能和特性。',
-    '在左侧面板自由而优雅地管理、调试和测试你的智能体。',
-    '大模型调用工具的每一个细节一览无余，不满意的调用结果直接一键复现。',
-    '每一次对话都会显示各项性能指标，方便进行成本管理。',
-    '系统提示词管理面板，让您轻松用 mcp 服务器和系统提示词构建您的智能体应用。'
-  ]"
-  image="./images/openmcp.xml.png"
-/>
-<TwoSideLayout
-  label="开源社区爱好者"
-  :texts="[
-    '测试左移，让你的开发与测试一体化，无需打开第三方软件。提供极其丰富的功能和特性。',
-    'OpenMCP 完全开源，您不仅可以免费试用此产品，也可以一起加入我们，实现你的关于 Agent 的奇思妙想。',
-    '完全公开技术细节，您不必担心，您的创意和token会遭到剽窃。',
-    '可持久化的系统提示词管理面板，让您可以将实际的 mcp 服务器的系统提示词进行测试，以便于在社区内进行分享。',
-    '每一次测试的细节都会 100% 跟随 git 进行版本控制，方便你分享你的每一次试验结果，也方便你零成本复现别人的 mcp 项目。'
-  ]"
-  image="./images/openmcp.chatbot.png"
-/>
-<TwoSideLayout
-  label="AI研发科学家"
-  :texts="[
-    '测试左移，让你的开发与测试一体化，无需打开第三方软件。提供极其丰富的功能和特性。',
-    '只需几行代码，就能快速将您的科研成果做成 mcp 服务器，从而接入任意大模型，以实现用户友好型的交互界面。',
-    '所有实验数据与配置参数均自动纳入Git版本管理系统，确保研究成果可追溯、可复现，便于学术交流与论文复现。',
-    '基于 OpenMCP 快速完成您的 demo，缩短创新到落地的距离。'
-  ]"
-  image="./images/openmcp.resource.png"
-/>
-</KTab>
+<div class="audience-grid">
 
-<h2 id="home-2">
-问题解答 
-<br>
-<span>Waiting for Your Questions</span>
-</h2>
+  <div class="audience-card">
+    <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
+    </svg>
+    <h3>专业软件工程师</h3>
+    <p>测试左移，开发与测试一体化，无需切换第三方工具。丰富功能让开发更高效。</p>
+    <ul class="audience-features">
+      <li>左侧面板管理智能体</li>
+      <li>LLM 工具调用细节一目了然</li>
+      <li>性能指标实时追踪</li>
+      <li>用 MCP 服务器构建应用</li>
+    </ul>
+  </div>
 
-<el-collapse>
-  <el-collapse-item title="OpenMCP 适合做什么？" name="1">
-    正如它的名字一样，OpenMCP 是一个面向开发者的 MCP 调试器和 SDK，致力于降低 AI Agent 的全链路开发成本和开发人员的心智负担。通过 OpenMCP 制作出可以在真实生活场景中解决问题，缩短工作时间的 mcp 工具，或是让工程师与研发科学家更快地交付 demo，并将这份愿景让公众看到，是我们的任务和使命。
-  </el-collapse-item>
-  <el-collapse-item title="OpenMCP 是免费的吗？" name="2">
-    是的，OpenMCP 完全开源，您不仅可以免费使用此产品，也可以一起加入我们，实现你的关于 Agent 的奇思妙想。OpenMCP 的任务是建立起关于 MCP 的生态圈。因为我们认为，MCP 的开发在未来一段时间内会是一项高度定制化的工作，所以当前的重点并不是赶紧出做一个看起来什么都能做的 Agent，而是步步为营做出相关的生态和基础设施。
-  </el-collapse-item>
-  <el-collapse-item title="OpenMCP 不适合做什么？" name="3">
-    如果你试图通过 OpenMCP 开发一款什么都能做的，通用的 AI Agent，你应该做的是把钱全部投资到量子计算机的研发，而不是点开这个网站。记住一句话，这个时代做全领域通用AI Agent，依概率收敛到电信诈骗。
-  </el-collapse-item>
-  <el-collapse-item title="OpenMCP 都是什么人在开发？" name="4">
-    <p>OpenMCP 是由 LSTM-Kirigaya(锦恢) 最初主导开发的，用于构建 3D 相关工作的 mcp 测试工具。它的主要参与者都是大厂在职员工，高校计算机相关专业的学生、以及一些开源社区的活跃贡献者。</p>
-    <p>身份不重要，我非常喜欢的一句话，送给阁下："不要回答我你会不会，回答我，你喜不喜欢"。</p>
-    <img src="https://pica.zhimg.com/80/v2-3666e84b2f92bf444a5eb64fb9d08e71_1440w.png" style="max-width: 500px;margin-top:10px;"/>
-  </el-collapse-item>
-  <el-collapse-item title="如何加入我们或者参与讨论？" name="5">
-    您可以通过 <a href="https://kirigaya.cn/openmcp/preview/join.html" target="_blank">参与 OpenMCP</a> 来了解如何参与 OpenMCP 的维护和开发。通过 <a href="https://kirigaya.cn/openmcp/preview/channel.html" target="_blank">资源频道</a> 来获取我们的联系方式。目前主要的社区有三个，QQ群：782833642 、 <a href="https://discord.com/invite/SKTZRf6NzU" target="_blank">OpenMCP Discord 频道</a>  和 <a href="https://www.zhihu.com/ring/host/1911121615279849840" target="_blank">知乎圈子【OpenMCP 博物馆】</a>
-  </el-collapse-item>
-    <el-collapse-item title="想要合作如何联系我们？" name="6">
-      合作请联系锦恢的个人邮箱：1193466151@qq.com
-  </el-collapse-item>
-</el-collapse>
+  <div class="audience-card">
+    <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+    </svg>
+    <h3>开源社区爱好者</h3>
+    <p>完全开源透明，欢迎加入我们实现关于 Agent 的奇思妙想。</p>
+    <ul class="audience-features">
+      <li>免费使用和贡献</li>
+      <li>Git 版本控制所有测试</li>
+      <li>与社区分享提示词</li>
+      <li>零成本复现项目</li>
+    </ul>
+  </div>
+
+  <div class="audience-card">
+    <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591l4.376 4.094c.496.462.778 1.108.778 1.783V21M15.75 3.104c.251.023.501.05.75.082m-.75-.082a24.301 24.301 0 00-4.5 0m4.5 0l-6 21"/>
+    </svg>
+    <h3>AI 研发科学家</h3>
+    <p>几行代码将科研成果转为 MCP 服务器，快速构建演示原型。</p>
+    <ul class="audience-features">
+      <li>快速构建演示原型</li>
+      <li>研究成果可复现</li>
+      <li>学术协作更便捷</li>
+      <li>论文结果一键复现</li>
+    </ul>
+  </div>
 
 </div>
+
+</section>
+
+<!-- Templates Section - 模板展示 -->
+<section class="templates-section">
+
+<h2 class="section-title">
+几秒钟内开始构建
+<span>使用内置模板和示例快速启动 MCP 开发</span>
+</h2>
+
+<div class="templates-actions">
+  <a href="/zh/guide/" class="template-btn btn-primary">
+    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+    </svg>
+    查看文档
+  </a>
+  <a href="/zh/plugin-tutorial/examples/" class="template-btn btn-secondary">
+    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+      <line x1="9" y1="9" x2="15" y2="9"/>
+      <line x1="9" y1="15" x2="15" y2="15"/>
+    </svg>
+    查看所有示例
+  </a>
+</div>
+
+<div class="templates-grid">
+
+  <a href="/zh/plugin-tutorial/usage/debug-basic.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-3.516.516a6.187 6.187 0 00-3.67 3.666c-.44 1.258-.607 2.46-.516 3.537a4.5 4.5 0 11-8.49-2.615c.919-1.953 2.578-3.732 4.743-5.109a13.08 13.08 0 012.858-1.541c.388-.158.585-.61.437-.998a4.493 4.493 0 01.604-4.582 4.5 4.5 0 016.953 5.434c.126.263.445.4.713.274A4.467 4.467 0 0121.75 6.75zM4.5 18a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z"/>
+      </svg>
+      </div>
+    </div>
+    <div class="example-content">
+      <h3>MCP 基础调试</h3>
+      <p>通过实时日志、断点和错误追踪掌握 MCP 服务器调试的基础知识。</p>
+      <span class="example-link">
+        了解更多
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </div>
+  </a>
+
+  <a href="/zh/plugin-tutorial/usage/interactive-testing.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.18.063-2.283.727-2.98 1.67a2.126 2.126 0 00-.476.095m9.345-8.334c.53.031 1.054.094 1.572.185a2.25 2.25 0 011.785 2.197v4.786c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.18.063-2.283.727-2.98 1.67a2.126 2.126 0 00-.476.095m9.345-8.334c.53.031 1.054.094 1.572.185a2.25 2.25 0 011.785 2.197v4.786c0 1.136-.847 2.1-1.98 2.193"/>
+      </svg>
+      </div>
+    </div>
+    <div class="example-content">
+      <h3>MCP 交互测试</h3>
+      <p>使用内置对话界面和工具调用面板交互式测试你的 MCP 服务器。</p>
+      <span class="example-link">
+        了解更多
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </div>
+  </a>
+
+  <a href="/zh/plugin-tutorial/usage/deploy-export.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+      </svg>
+      </div>
+    </div>
+    <div class="example-content">
+      <h3>MCP 部署和导出</h3>
+      <p>一键导出和云部署，将你的 MCP 服务器打包部署到各种平台。</p>
+      <span class="example-link">
+        了解更多
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </div>
+  </a>
+
+  <a href="/zh/plugin-tutorial/usage/rapid-deploy.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+      </svg>
+      </div>
+    </div>
+    <div class="example-content">
+      <h3>极速部署</h3>
+      <p>使用预配置模板和自动化 CI/CD 流水线在数秒内部署你的 MCP 服务器。</p>
+      <span class="example-link">
+        了解更多
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </div>
+  </a>
+
+  <a href="/zh/plugin-tutorial/usage/task-loop.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
+      </svg>
+      </div>
+    </div>
+    <div class="example-content">
+      <h3>控制任务循环</h3>
+      <p>掌握任务迭代和循环控制，实现复杂的多步骤智能体工作流程和自动化。</p>
+      <span class="example-link">
+        了解更多
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </div>
+  </a>
+
+  <a href="/zh/plugin-tutorial/usage/data-feedback.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"/>
+      </svg>
+      </div>
+    </div>
+    <div class="example-content">
+      <h3>数据回流</h3>
+      <p>实现数据回流机制，根据使用模式持续优化你的 MCP 服务器。</p>
+      <span class="example-link">
+        了解更多
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </div>
+  </a>
+
+</div>
+
+</section>
+
+<!-- Pricing Section - 定价 -->
+<Pricing />
+
+<!-- FAQ Section - 对话式问答 -->
+<ChatFAQ />
+
+<!-- Footer -->
+<HomeFooter />
+
+</div>
+
+<script setup>
+// No script needed for new FAQ component
+</script>
 
 <style>
 /* 强制内容容器全宽 */
@@ -111,85 +253,304 @@ OpenMCP 为谁准备？
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  padding: 4rem 0;
+  padding: 0;
 }
 
-/* 内容区域 */
-.vp-doc {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* 标题样式 */
-.home-wrapper h2 {
+/* Section Common Styles */
+.section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  text-align: center;
-  margin: 4rem 0 2rem;
   color: #fff;
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.home-wrapper h2 span {
-  display: block;
-  font-size: 1.1rem;
+.section-title span {
+  font-size: 1.25rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* 响应式 */
-@media (max-width: 768px) {
-  .vp-doc {
-    padding: 0 1rem;
+/* Audience Section */
+.audience-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.audience-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.audience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.audience-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+.audience-card:hover::before {
+  opacity: 1;
+}
+
+.audience-icon {
+  width: 48px;
+  height: 48px;
+  color: #6366f1;
+  margin-bottom: 1.25rem;
+}
+
+.audience-card h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.875rem;
+}
+
+.audience-card p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.audience-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.audience-features li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.625rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9375rem;
+}
+
+.audience-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  background: #6366f1;
+  border-radius: 50%;
+}
+
+/* Templates Section */
+.templates-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+/* Template Action Buttons */
+.templates-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.template-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.template-btn .btn-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Templates Grid - 2 columns x 3 rows */
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Example Cards */
+.example-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.example-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+.example-header {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.03) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.example-icon {
+  width: 48px;
+  height: 48px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.example-card:hover .example-icon {
+  filter: grayscale(0);
+  transform: scale(1.15);
+}
+
+.example-content {
+  padding: 1.5rem;
+}
+
+.example-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.625rem;
+}
+
+.example-content p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.example-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.example-card:hover .example-link {
+  color: #6366f1;
+  gap: 0.625rem;
+}
+
+.arrow-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .audience-grid,
+  .templates-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .home-wrapper h2 {
-    font-size: 1.75rem;
+  .example-header {
+    height: 120px;
   }
 }
 
-/* 隐藏文档布局元素 */
-.VPDoc .VPDocAside,
-.VPDoc .VPDocOutlineDropdown {
-  display: none !important;
-}
-
-.VPDoc .VPDocMain {
-  padding-left: 0 !important;
-}
-
-.VPDoc .content-container {
-  max-width: 100% !important;
-}
-
-/* el-collapse 深色样式 */
-.home-wrapper .el-collapse {
-  background: transparent !important;
-  border: none !important;
-}
-
-.home-wrapper .el-collapse-item__header {
-  background: rgba(255, 255, 255, 0.05) !important;
-  color: #fff !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  font-size: 1.1rem !important;
-  padding: 1rem 1.5rem !important;
-}
-
-.home-wrapper .el-collapse-item__wrap {
-  background: rgba(255, 255, 255, 0.02) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-.home-wrapper .el-collapse-item__content {
-  color: rgba(255, 255, 255, 0.8) !important;
-  padding: 1.5rem !important;
-  font-size: 1rem !important;
-  line-height: 1.8 !important;
-}
-
-.home-wrapper .el-collapse-item__content a {
-  color: #a5b4fc !important;
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .audience-grid,
+  .templates-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .audience-card,
+  .example-card {
+    padding: 0;
+  }
+  
+  .example-content {
+    padding: 1.25rem;
+  }
+  
+  .templates-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .template-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
 }
 </style>

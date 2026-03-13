@@ -42,7 +42,10 @@ export default withMermaid({
                     'ja/preview/contributors.md',
                     'index.md',
                     'zh/index.md',
-                    'ja/index.md'
+                    'ja/index.md',
+                    'pricing.md',
+                    'zh/pricing.md',
+                    'ja/pricing.md'
                 ]
             }),
             ThumbnailHashImages(),
@@ -62,6 +65,9 @@ export default withMermaid({
                 '@unlazy/vue'
             ],
         },
+        server: {
+            port: 5177
+        }
     },
 
     transformHead: async (ctx) => {

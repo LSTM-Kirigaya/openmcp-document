@@ -1,62 +1,84 @@
 <template>
-  <DefaultTheme.Layout />
+  <div class="layout">
+    <!-- 全局导航栏 -->
+    <NavBar />
+    
+    <!-- 页面内容 -->
+    <div class="page-wrapper">
+      <!-- 首页不使用默认布局，直接使用 markdown 内容 -->
+      <Content v-if="isHome || isPricing" class="custom-page" />
+      
+      <!-- 其他页面使用 VitePress 默认布局 -->
+      <Layout v-else />
+    </div>
+  </div>
 </template>
 
-<script setup>
-import { useData } from 'vitepress';
-import { watchEffect } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useData, useRoute } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
+import NavBar from './components/NavBar.vue';
 
+const { Layout } = DefaultTheme;
 const { page } = useData();
+const route = useRoute();
 
-// 监听路由变化，为首页添加特定 class
-watchEffect(() => {
-  if (typeof document !== 'undefined') {
-    const isHome = page.value?.relativePath === 'index.md' || 
-                   page.value?.relativePath === 'zh/index.md' || 
-                   page.value?.relativePath === 'ja/index.md';
-    document.body.classList.toggle('is-home', isHome);
-  }
+// 判断是否是首页
+const isHome = computed(() => {
+  const path = route.path;
+  return path === '/' || path === '/zh/' || path === '/ja/' || path === '/index.html' || path === '/zh/index.html' || path === '/ja/index.html';
+});
+
+// 判断是否是定价页
+const isPricing = computed(() => {
+  const path = route.path;
+  return path === '/pricing' || path === '/pricing.html' || 
+         path === '/zh/pricing' || path === '/zh/pricing.html' ||
+         path === '/ja/pricing' || path === '/ja/pricing.html';
 });
 </script>
 
 <style>
-/* 重置 body 默认样式 */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* 全局背景色 */
-html, body, #app, .Layout {
-  background: #0a0a0f !important;
-}
-
-/* 首页隐藏导航栏和本地导航 */
-body.is-home .VPNav,
-body.is-home .VPFooter,
-body.is-home .VPLocalNav,
-body.is-home .VPLocalNavOutlineDropdown {
+/* 隐藏 VitePress 默认导航栏 */
+.VPNav {
   display: none !important;
 }
 
-body.is-home .VPContent {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+/* 为自定义导航栏留出空间 */
+.page-wrapper {
+  padding-top: 64px;
 }
 
-body.is-home .VPDoc {
-  padding-top: 0 !important;
+/* 首页内容调整 */
+.custom-page {
+  padding: 0 !important;
 }
 
-@media (min-width: 960px) {
-  body.is-home .VPContent {
-    padding-top: 0 !important;
-  }
+.custom-page .VPDoc {
+  padding: 0 !important;
 }
 
-/* 确保文档页面的背景正确 */
+.custom-page .VPDoc .container {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.custom-page .VPDoc .content {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.custom-page .vp-doc {
+  padding: 0 !important;
+}
+
+/* 确保 VitePress 默认布局有正确的边距 */
 .VPDoc {
-  background: var(--vp-c-bg) !important;
+  padding-top: 0 !important;
+}
+
+.VPLocalNav {
+  top: 64px !important;
 }
 </style>

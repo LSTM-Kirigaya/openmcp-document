@@ -322,3 +322,55 @@ iframe {
     line-height: 0.8;
 }
 
+/* 首页导航栏链接颜色 - 白色/浅色 */
+body.is-home .VPNavBar .VPNavBarMenu .VPNavBarMenuLink,
+body.is-home .VPNavBar .VPNavBarMenu a.VPLink {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.is-home .VPNavBar .VPNavBarMenu .VPNavBarMenuLink:hover,
+body.is-home .VPNavBar .VPNavBarMenu a.VPLink:hover {
+    color: #ffffff !important;
+}
+
+/* 覆盖激活状态 */
+body.is-home .VPNavBar .VPNavBarMenu .VPNavBarMenuLink.active {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.is-home .VPNavBar .VPNavBarMenu .VPNavBarMenuLink.active:hover {
+    color: #ffffff !important;
+}
+
+/* 下拉菜单 Flyout 中的链接 */
+.VPHome .VPNavBar .VPFlyout .VPMenuLink {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.VPHome .VPNavBar .VPFlyout .VPMenuLink:hover {
+    color: #6366f1 !important;
+}
+
+/* 下拉菜单标题 */
+.VPHome .VPNavBar .VPFlyout .text {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Flyout 触发器文字颜色 */
+.VPHome .VPNavBar .VPFlyout .button span.text {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.VPHome .VPNavBar .VPFlyout:hover .button span.text {
+    color: #ffffff !important;
+}
+
+/* Hero 导航链接 (Docs, Quick Start) */
+.hero-nav .nav-right .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.hero-nav .nav-right .nav-link:hover {
+    color: #ffffff !important;
+}
+

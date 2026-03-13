@@ -6,60 +6,10 @@ layout: doc
 
 <div class="home-wrapper">
 
-<!-- Features Section - 功能特性展示 -->
-<section class="features-section">
+<!-- Feature Showcase Section - 功能特性展示 (设计图3风格) -->
+<FeatureShowcase />
 
-<h2 class="section-title">
-Stay productive and manage your MCP
-<span>without leaving the editor</span>
-</h2>
-
-<div class="feature-tabs">
-  <button class="feature-tab active">Debug Panel</button>
-  <button class="feature-tab">Chat Interface</button>
-  <button class="feature-tab">Resource Manager</button>
-</div>
-
-<div class="feature-checklist">
-  <div class="check-item">
-    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-    <span>Real-time debugging</span>
-  </div>
-  <div class="check-item">
-    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-    <span>Multi-server support</span>
-  </div>
-  <div class="check-item">
-    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-    <span>One-click reproduction</span>
-  </div>
-  <div class="check-item">
-    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-    <span>Performance metrics</span>
-  </div>
-  <div class="check-item">
-    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-    <span>Git version control</span>
-  </div>
-</div>
-
-<div class="feature-showcase">
-  <img src="./images/openmcp.xml.png" alt="OpenMCP Debug Panel" class="showcase-image" />
-</div>
-
-</section>
-
-<!-- Who is it for Section - 目标用户 -->
+<!-- Audience Section - 目标用户 (优化版卡片) -->
 <section class="audience-section">
 
 <h2 class="section-title">
@@ -70,7 +20,9 @@ Who is OpenMCP for?
 <div class="audience-grid">
 
   <div class="audience-card">
-    <div class="audience-icon">👨‍💻</div>
+    <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
+    </svg>
     <h3>Professional Software Engineers</h3>
     <p>Shift testing left integrates development and testing seamlessly with rich features, no third-party tools needed.</p>
     <ul class="audience-features">
@@ -82,7 +34,9 @@ Who is OpenMCP for?
   </div>
 
   <div class="audience-card">
-    <div class="audience-icon">🌟</div>
+    <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+    </svg>
     <h3>Open Source Community</h3>
     <p>Fully open-source with transparent technical details. Share and collaborate on MCP projects.</p>
     <ul class="audience-features">
@@ -94,7 +48,9 @@ Who is OpenMCP for?
   </div>
 
   <div class="audience-card">
-    <div class="audience-icon">🔬</div>
+    <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591l4.376 4.094c.496.462.778 1.108.778 1.783V21M15.75 3.104c.251.023.501.05.75.082m-.75-.082a24.301 24.301 0 00-4.5 0m4.5 0l-6 21"/>
+    </svg>
     <h3>AI Research Scientists</h3>
     <p>Convert research into MCP servers with minimal code. Auto-track experiments in Git.</p>
     <ul class="audience-features">
@@ -117,19 +73,38 @@ Start building in seconds
 <span>Kickstart your MCP development with built-in templates and examples</span>
 </h2>
 
+<div class="templates-actions">
+  <a href="/guide/" class="template-btn btn-primary">
+    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+    </svg>
+    View Documentation
+  </a>
+  <a href="/plugin-tutorial/examples/" class="template-btn btn-secondary">
+    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+      <line x1="9" y1="9" x2="15" y2="9"/>
+      <line x1="9" y1="15" x2="15" y2="15"/>
+    </svg>
+    View All Examples
+  </a>
+</div>
+
 <div class="templates-grid">
 
-  <a href="/plugin-tutorial/examples/python-simple-stdio.html" class="template-card">
-    <div class="template-header">
-      <div class="template-icons">
-        <span class="tech-icon">🐍</span>
+  <a href="/plugin-tutorial/usage/debug-basic.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-3.516.516a6.187 6.187 0 00-3.67 3.666c-.44 1.258-.607 2.46-.516 3.537a4.5 4.5 0 11-8.49-2.615c.919-1.953 2.578-3.732 4.743-5.109a13.08 13.08 0 012.858-1.541c.388-.158.585-.61.437-.998a4.493 4.493 0 01.604-4.582 4.5 4.5 0 016.953 5.434c.126.263.445.4.713.274A4.467 4.467 0 0121.75 6.75zM4.5 18a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z"/>
+      </svg>
       </div>
     </div>
-    <div class="template-content">
-      <h3>Python MCP Starter</h3>
-      <p>A minimal Python MCP server template with stdio transport, perfect for getting started quickly.</p>
-      <span class="template-link">
-        View Template
+    <div class="example-content">
+      <h3>MCP Basic Debugging</h3>
+      <p>Learn the fundamentals of MCP server debugging with real-time logs, breakpoints, and error tracing.</p>
+      <span class="example-link">
+        Learn More
         <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M7 17L17 7M17 7H7M17 7V17"/>
         </svg>
@@ -137,17 +112,19 @@ Start building in seconds
     </div>
   </a>
 
-  <a href="/plugin-tutorial/examples/typescript-crawl4ai-stdio.html" class="template-card">
-    <div class="template-header">
-      <div class="template-icons">
-        <span class="tech-icon">📘</span>
+  <a href="/plugin-tutorial/usage/interactive-testing.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.18.063-2.283.727-2.98 1.67a2.126 2.126 0 00-.476.095m9.345-8.334c.53.031 1.054.094 1.572.185a2.25 2.25 0 011.785 2.197v4.786c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.18.063-2.283.727-2.98 1.67a2.126 2.126 0 00-.476.095m9.345-8.334c.53.031 1.054.094 1.572.185a2.25 2.25 0 011.785 2.197v4.786c0 1.136-.847 2.1-1.98 2.193"/>
+      </svg>
       </div>
     </div>
-    <div class="template-content">
-      <h3>TypeScript MCP Starter</h3>
-      <p>Modern TypeScript MCP server template with proper tooling and best practices built-in.</p>
-      <span class="template-link">
-        View Template
+    <div class="example-content">
+      <h3>MCP Interactive Testing</h3>
+      <p>Test your MCP servers interactively with the built-in chat interface and tool invocation panel.</p>
+      <span class="example-link">
+        Learn More
         <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M7 17L17 7M17 7H7M17 7V17"/>
         </svg>
@@ -155,17 +132,19 @@ Start building in seconds
     </div>
   </a>
 
-  <a href="/plugin-tutorial/examples/java-es-http.html" class="template-card">
-    <div class="template-header">
-      <div class="template-icons">
-        <span class="tech-icon">☕</span>
+  <a href="/plugin-tutorial/usage/deploy-export.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+      </svg>
       </div>
     </div>
-    <div class="template-content">
-      <h3>Java MCP Starter</h3>
-      <p>Java MCP server template with Elasticsearch integration via HTTP transport.</p>
-      <span class="template-link">
-        View Template
+    <div class="example-content">
+      <h3>MCP Deploy & Export</h3>
+      <p>Package and deploy your MCP servers to various platforms with one-click export and cloud deployment.</p>
+      <span class="example-link">
+        Learn More
         <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M7 17L17 7M17 7H7M17 7V17"/>
         </svg>
@@ -173,62 +152,84 @@ Start building in seconds
     </div>
   </a>
 
-</div>
+  <a href="/plugin-tutorial/usage/rapid-deploy.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+      </svg>
+      </div>
+    </div>
+    <div class="example-content">
+      <h3>Rapid Deployment</h3>
+      <p>Deploy your MCP servers in seconds with pre-configured templates and automated CI/CD pipelines.</p>
+      <span class="example-link">
+        Learn More
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </div>
+  </a>
 
-<div class="templates-cta">
-  <a href="/plugin-tutorial/examples/mcp-examples.html" class="btn-secondary">
-    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <rect x="3" y="3" width="7" height="7"/>
-      <rect x="14" y="3" width="7" height="7"/>
-      <rect x="14" y="14" width="7" height="7"/>
-      <rect x="3" y="14" width="7" height="7"/>
-    </svg>
-    View all examples
+  <a href="/plugin-tutorial/usage/task-loop.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
+      </svg>
+      </div>
+    </div>
+    <div class="example-content">
+      <h3>Control Task Loops</h3>
+      <p>Master task iteration and loop control for complex multi-step agent workflows and automation.</p>
+      <span class="example-link">
+        Learn More
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </div>
   </a>
-  <a href="https://github.com/LSTM-Kirigaya/openmcp-client" target="_blank" class="btn-secondary">
-    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-    </svg>
-    Official GitHub
+
+  <a href="/plugin-tutorial/usage/data-feedback.html" class="example-card">
+    <div class="example-header">
+      <div class="example-icons">
+        <svg class="example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"/>
+      </svg>
+      </div>
+    </div>
+    <div class="example-content">
+      <h3>Data Feedback Loop</h3>
+      <p>Implement data回流 mechanisms to continuously improve your MCP servers based on usage patterns.</p>
+      <span class="example-link">
+        Learn More
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </div>
   </a>
+
 </div>
 
 </section>
 
-<!-- FAQ Section -->
-<section class="faq-section">
+<!-- Pricing Section - 定价 -->
+<Pricing />
 
-<h2 class="section-title">
-FAQ
-<span>Waiting for Your Questions</span>
-</h2>
+<!-- FAQ Section - 对话式问答 -->
+<ChatFAQ />
 
-<el-collapse>
-  <el-collapse-item title="What is OpenMCP suitable for?" name="1">
-    As its name suggests, OpenMCP is an MCP debugger and SDK for developers, committed to reducing the full - chain development cost of AI agents and the mental burden of developers. Our mission is to create MCP tools that can solve real - life problems and save working time through OpenMCP, or help engineers and research scientists deliver demos more quickly and make this vision visible to the public.
-  </el-collapse-item>
-  <el-collapse-item title="Is OpenMCP free?" name="2">
-    Yes, OpenMCP is completely open - source. You can not only use this product for free but also join us to realize your creative ideas about agents. The task of OpenMCP is to build an ecosystem around MCP. We believe that MCP development will be a highly customized task in the future, so our current focus is not to rush to create an all - purpose agent, but to steadily build the relevant ecosystem and infrastructure.
-  </el-collapse-item>
-  <el-collapse-item title="What is OpenMCP not suitable for?" name="3">
-    If you try to develop an all - purpose, general AI agent through OpenMCP, you should invest all your money in the research and development of quantum computers instead of visiting this website. Remember, in this era, developing a full - domain general AI agent is likely to be equivalent to telecom fraud.
-  </el-collapse-item>
-  <el-collapse-item title="Who is developing OpenMCP?" name="4">
-    <p>OpenMCP was initially led by LSTM - Kirigaya (Jinhui) for building MCP testing tools related to 3D work. Its main participants include employees from large companies, students majoring in computer - related fields at universities, and some active contributors from the open - source community.</p>
-    <p>Identity is not important. I'd like to share a quote with you: "Don't tell me if you can do it. Tell me if you like it."</p>
-    <img src="https://pica.zhimg.com/80/v2-3666e84b2f92bf444a5eb64fb9d08e71_1440w.png" style="max-width: 500px;margin-top:10px;"/>
-  </el-collapse-item>
-  <el-collapse-item title="How can I join you or participate in discussions?" name="5">
-    You can learn how to participate in the maintenance and development of OpenMCP through <a href="https://kirigaya.cn/openmcp/preview/join.html" target="_blank">Participate in OpenMCP</a>. Obtain our contact information through <a href="https://kirigaya.cn/openmcp/preview/channel.html" target="_blank">Resource Channel</a>. Currently, there are three main communities: QQ group: 782833642, <a href="https://discord.com/invite/SKTZRf6NzU" target="_blank">OpenMCP Discord Channel</a>, and <a href="https://www.zhihu.com/ring/host/1911121615279849840" target="_blank">Zhihu Circle [OpenMCP Museum]</a>
-  </el-collapse-item>
-  <el-collapse-item title="How to contact us for cooperation?" name="6">
-    For cooperation, please contact Jinhui's personal email: 1193466151@qq.com
-  </el-collapse-item>
-</el-collapse>
-
-</section>
+<!-- Footer -->
+<HomeFooter />
 
 </div>
+
+<script setup>
+// No script needed for new FAQ component
+</script>
 
 <style>
 /* 强制内容容器全宽 */
@@ -255,146 +256,88 @@ FAQ
   padding: 0;
 }
 
-/* 通用 Section 样式 */
-.features-section,
-.audience-section,
-.templates-section,
-.faq-section {
+/* Section Common Styles */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.section-title span {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Audience Section */
+.audience-section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 6rem 2rem;
 }
 
-/* Section Title */
-.section-title {
-  font-size: 2.75rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #fff;
-  line-height: 1.2;
-}
-
-.section-title span {
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 0.75rem;
-}
-
-/* Features Section - 设计图3风格 */
-.features-section {
-  text-align: center;
-}
-
-.feature-tabs {
-  display: inline-flex;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.feature-tab {
-  padding: 0.75rem 1.5rem;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.feature-tab:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.feature-tab.active {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-.feature-checklist {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem 2.5rem;
-  margin-bottom: 3rem;
-}
-
-.check-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
-}
-
-.check-icon {
-  width: 20px;
-  height: 20px;
-  color: #6366f1;
-}
-
-.feature-showcase {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-.showcase-image {
-  width: 100%;
-  display: block;
-}
-
-/* Audience Section - 目标用户 */
-.audience-section {
-  background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.05), transparent);
-}
-
 .audience-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
 .audience-card {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.audience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .audience-card:hover {
-  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-8px);
   border-color: rgba(99, 102, 241, 0.3);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+.audience-card:hover::before {
+  opacity: 1;
 }
 
 .audience-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  color: #6366f1;
+  margin-bottom: 1.25rem;
 }
 
 .audience-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.875rem;
 }
 
 .audience-card p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
-  line-height: 1.6;
-  margin-bottom: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
 }
 
 .audience-features {
@@ -405,10 +348,10 @@ FAQ
 
 .audience-features li {
   position: relative;
-  padding-left: 1.25rem;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  margin-bottom: 0.625rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9375rem;
 }
 
 .audience-features li::before {
@@ -422,209 +365,192 @@ FAQ
   border-radius: 50%;
 }
 
-/* Templates Section - 设计图4风格 */
-.templates-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+/* Templates Section */
+.templates-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
 }
 
-.template-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  overflow: hidden;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.template-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(99, 102, 241, 0.3);
-  transform: translateY(-4px);
-}
-
-.template-header {
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.template-icons {
+/* Template Action Buttons */
+.templates-actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
-}
-
-.tech-icon {
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-}
-
-.template-content {
-  padding: 1.5rem;
-}
-
-.template-content h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 0.75rem;
-}
-
-.template-content p {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.template-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.template-card:hover .template-link {
-  color: #a5b4fc;
-}
-
-.arrow-icon {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.2s;
-}
-
-.template-card:hover .arrow-icon {
-  transform: translate(2px, -2px);
-}
-
-.templates-cta {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  margin-bottom: 3rem;
   flex-wrap: wrap;
 }
 
-.btn-secondary {
+.template-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 0.625rem;
+  padding: 0.875rem 1.5rem;
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-.btn-icon {
+.template-btn .btn-icon {
   width: 18px;
   height: 18px;
 }
 
-/* FAQ Section */
-.faq-section {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+.btn-primary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* el-collapse 深色样式 */
-.home-wrapper .el-collapse {
-  background: transparent !important;
-  border: none !important;
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
 }
 
-.home-wrapper .el-collapse-item__header {
-  background: rgba(255, 255, 255, 0.05) !important;
-  color: #fff !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  font-size: 1.1rem !important;
-  padding: 1.25rem 1.5rem !important;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-.home-wrapper .el-collapse-item__wrap {
-  background: transparent !important;
-  border: none !important;
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: translateY(-1px);
 }
 
-.home-wrapper .el-collapse-item__content {
-  background: rgba(255, 255, 255, 0.02) !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  padding: 1.5rem !important;
-  font-size: 1rem !important;
-  line-height: 1.8 !important;
-  border-radius: 0 0 8px 8px;
-  margin-bottom: 0.5rem;
+/* Templates Grid - 2 columns x 3 rows */
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
-.home-wrapper .el-collapse-item__content a {
-  color: #a5b4fc !important;
+/* Example Cards */
+.example-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-/* 内容区域 */
-.vp-doc {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
+.example-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
 }
 
-/* 响应式 */
+.example-header {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.03) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.example-icon {
+  width: 48px;
+  height: 48px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.example-card:hover .example-icon {
+  filter: grayscale(0);
+  transform: scale(1.15);
+}
+
+.example-content {
+  padding: 1.5rem;
+}
+
+.example-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.625rem;
+}
+
+.example-content p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.example-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.example-card:hover .example-link {
+  color: #6366f1;
+  gap: 0.625rem;
+}
+
+.arrow-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .audience-grid,
+  .templates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .example-header {
+    height: 120px;
+  }
+}
+
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
   }
   
-  .section-title span {
-    font-size: 1rem;
-  }
-  
-  .templates-grid,
-  .audience-grid {
+  .audience-grid,
+  .templates-grid {
     grid-template-columns: 1fr;
   }
   
-  .feature-tabs {
-    flex-wrap: wrap;
+  .audience-card,
+  .example-card {
+    padding: 0;
   }
   
-  .feature-checklist {
-    flex-direction: column;
-    align-items: flex-start;
+  .example-content {
+    padding: 1.25rem;
   }
-}
-
-/* 隐藏文档布局元素 */
-.VPDoc .VPDocAside,
-.VPDoc .VPDocOutlineDropdown {
-  display: none !important;
-}
-
-.VPDoc .VPDocMain {
-  padding-left: 0 !important;
-}
-
-.VPDoc .content-container {
-  max-width: 100% !important;
+  
+  .templates-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .template-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
 }
 </style>
