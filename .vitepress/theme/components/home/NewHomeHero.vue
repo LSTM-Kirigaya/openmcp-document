@@ -196,10 +196,11 @@ const copyCode = async () => {
 }
 
 .gradient-orb {
-  position: absolute;
+  position: fixed;
   border-radius: 50%;
   filter: blur(120px);
   opacity: 0.4;
+  pointer-events: none;
 }
 
 .orb-1 {
