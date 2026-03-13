@@ -20,9 +20,11 @@ export const baseUrl = '/';
 
 export default withMermaid({
     title: "OpenMCP",
-    description: "为开发者和科研人员准备的MCP开发环境和SDK",
+    description: "OpenMCP - The Ultimate MCP Development Environment. Build, debug, and deploy MCP servers with ease. Open source MCP client for developers and AI researchers.",
     base: baseUrl,
     ignoreDeadLinks: true,
+    lang: 'en-US',
+    lastUpdated: true,
 
     sitemap: {
         hostname: 'https://openmcp.kirigaya.cn'
@@ -102,14 +104,39 @@ export default withMermaid({
     },
 
     head: [
-        ['link', { rel: 'icon', href: '/images/favicon.svg' }],
-        ['meta', { name: 'keywords', content: 'OpenMCP, API, Multi-Cloud, Kubernetes, Microservices' }],
+        ['link', { rel: 'icon', href: '/images/favicon.svg', type: 'image/svg+xml' }],
+        ['link', { rel: 'apple-touch-icon', href: '/images/favicon.svg' }],
+        ['meta', { name: 'theme-color', content: '#0a0a0f' }],
+        ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+        ['meta', { name: 'robots', content: 'index, follow' }],
         ['meta', { name: 'author', content: 'Kirigaya' }],
-        ['link', { rel: 'canonical', href: 'https://openmcp.kirigaya.cn' }],
-        ['meta', { property: 'og:title', content: 'OpenMCP - Multi-Cloud Platform' }],
-        ['meta', { property: 'og:description', content: 'OpenMCP helps manage APIs across clouds with Kubernetes integration.' }],
+        ['meta', { name: 'keywords', content: 'OpenMCP, MCP, Model Context Protocol, LLM, AI, Agent, Development Environment, SDK, Debug, Chatbot, Open Source, AI Tools, LLM Integration' }],
+        
+        // Open Graph
+        ['meta', { property: 'og:title', content: 'OpenMCP - The Ultimate MCP Development Environment' }],
+        ['meta', { property: 'og:description', content: 'Build, debug, and deploy MCP servers with ease. Open source MCP client for developers and AI researchers.' }],
         ['meta', { property: 'og:url', content: 'https://openmcp.kirigaya.cn' }],
         ['meta', { property: 'og:type', content: 'website' }],
+        ['meta', { property: 'og:site_name', content: 'OpenMCP' }],
+        ['meta', { property: 'og:image', content: 'https://openmcp.kirigaya.cn/images/openmcp-preview.png' }],
+        ['meta', { property: 'og:locale', content: 'en_US' }],
+        
+        // Twitter Card
+        ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+        ['meta', { name: 'twitter:site', content: '@openmcp' }],
+        ['meta', { name: 'twitter:creator', content: '@kirigaya' }],
+        ['meta', { name: 'twitter:title', content: 'OpenMCP - The Ultimate MCP Development Environment' }],
+        ['meta', { name: 'twitter:description', content: 'Build, debug, and deploy MCP servers with ease. Open source MCP client for developers and AI researchers.' }],
+        ['meta', { name: 'twitter:image', content: 'https://openmcp.kirigaya.cn/images/openmcp-preview.png' }],
+        
+        // Canonical
+        ['link', { rel: 'canonical', href: 'https://openmcp.kirigaya.cn' }],
+        
+        // Alternate languages
+        ['link', { rel: 'alternate', hreflang: 'en', href: 'https://openmcp.kirigaya.cn/' }],
+        ['link', { rel: 'alternate', hreflang: 'zh-CN', href: 'https://openmcp.kirigaya.cn/zh/' }],
+        ['link', { rel: 'alternate', hreflang: 'ja', href: 'https://openmcp.kirigaya.cn/ja/' }],
+        ['link', { rel: 'alternate', hreflang: 'x-default', href: 'https://openmcp.kirigaya.cn/' }],
     ],
 
     locales: {
