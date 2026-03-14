@@ -19,6 +19,10 @@
         <!-- 文档页面导航 -->
         <template v-else>
           <!-- Plugin Tutorial 下拉菜单 -->
+          <div class="nav-home">
+            <a :href="docNav.backHome.link" class="nav-link">{{ docNav.backHome.text }}</a>
+          </div>
+
           <div class="nav-dropdown">
             <button class="nav-dropdown-btn" @click="showPluginMenu = !showPluginMenu">
               <span>{{ docNav.pluginTutorial.text }}</span>
@@ -120,6 +124,7 @@ const content = {
     },
     homeLink: '/zh/',
     docNav: {
+      backHome: { text: '返回首页', link: '/zh/' },
       pluginTutorial: {
         text: '插件教程',
         items: [
@@ -149,6 +154,7 @@ const content = {
     },
     homeLink: '/',
     docNav: {
+      backHome: { text: 'Back to Home', link: '/' },
       pluginTutorial: {
         text: 'Plugin Tutorial',
         items: [
@@ -178,6 +184,7 @@ const content = {
     },
     homeLink: '/ja/',
     docNav: {
+      backHome: { text: 'ホームに戻る', link: '/ja/' },
       pluginTutorial: {
         text: 'プラグインチュートリアル',
         items: [

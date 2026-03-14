@@ -289,7 +289,7 @@ const content = {
           '云端项目 50 个',
           '云备份无限测试用例',
           '版本历史 1 年',
-          '团队协作最多 10 人',
+          '团队协作最多 20 人',
           '优先技术支持'
         ],
         link: '#upgrade-team'
@@ -337,7 +337,7 @@ const content = {
         {
           title: '协作与支持',
           rows: [
-            { name: '团队成员', free: '1人', pro: '3人', team: '10人' },
+            { name: '团队成员', free: '1人', pro: '3人', team: '20人' },
             { name: '技术支持', free: '社区', pro: '邮件优先', team: '在线客服' }
           ]
         }
@@ -385,7 +385,7 @@ const content = {
           '50 cloud projects',
           'Unlimited cloud backup',
           '1-year version history',
-          'Team collaboration up to 10',
+          'Team collaboration up to 20',
           'Priority technical support'
         ],
         link: '#upgrade-team'
@@ -433,7 +433,7 @@ const content = {
         {
           title: 'Collaboration & Support',
           rows: [
-            { name: 'Team Members', free: '1', pro: '3', team: '10' },
+            { name: 'Team Members', free: '1', pro: '3', team: '20' },
             { name: 'Support', free: 'Community', pro: 'Email', team: 'Priority' }
           ]
         }
@@ -481,7 +481,7 @@ const content = {
           'クラウドプロジェクト 50個',
           '無制限クラウドバックアップ',
           'バージョン履歴 1年間',
-          'チーム協力 最大10人',
+          'チーム協力 最大20人',
           '優先技術サポート'
         ],
         link: '#upgrade-team'
@@ -529,7 +529,7 @@ const content = {
         {
           title: '協力・サポート',
           rows: [
-            { name: 'チームメンバー', free: '1人', pro: '3人', team: '10人' },
+            { name: 'チームメンバー', free: '1人', pro: '3人', team: '20人' },
             { name: 'サポート', free: 'コミュニティ', pro: 'メール優先', team: '優先対応' }
           ]
         }
