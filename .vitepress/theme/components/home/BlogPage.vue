@@ -72,9 +72,11 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useData } from 'vitepress';
+import { useData, useRouter } from 'vitepress';
 
 const { lang } = useData();
+const router = useRouter(); 
+
 
 const content = {
   zh: {
@@ -295,10 +297,9 @@ const filteredPosts = computed(() => {
   }
   return allPosts.value.filter(post => post.categoryId === activeCategory.value);
 });
-
 function openPost(post: any) {
-  window.location.href = post.link;
-}
+ router.go(post.link);  // ✅ 客户端路由导航，丝滑切换
+ }
 </script>
 
 <style scoped>
