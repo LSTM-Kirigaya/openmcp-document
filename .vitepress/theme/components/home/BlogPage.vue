@@ -29,7 +29,12 @@
           @click="openPost(filteredPosts[0])"
         >
           <div class="card-image-wrapper">
-            <div class="card-image" :style="{ background: filteredPosts[0].gradient }">
+            <div
+              class="card-image"
+              :style="filteredPosts[0].image
+                ? { backgroundImage: `url(${filteredPosts[0].image})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+                : { background: filteredPosts[0].gradient }"
+            >
               <span class="card-tag">{{ filteredPosts[0].category }}</span>
               <div class="card-icon" v-if="filteredPosts[0].icon">{{ filteredPosts[0].icon }}</div>
             </div>
@@ -52,7 +57,12 @@
           @click="openPost(post)"
         >
           <div class="card-image-wrapper small">
-            <div class="card-image" :style="{ background: post.gradient }">
+            <div
+              class="card-image"
+              :style="post.image
+                ? { backgroundImage: `url(${post.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+                : { background: post.gradient }"
+            >
               <span class="card-tag small">{{ post.category }}</span>
               <div class="card-icon" v-if="post.icon">{{ post.icon }}</div>
             </div>
@@ -147,6 +157,7 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '从最初的灵感到第一个可用的原型，记录 OpenMCP 诞生背后的故事。我们如何解决 MCP 开发中的痛点，以及我们对未来的愿景。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
+        image: 'zh/images/blog-poster/birth.jpg',
         icon: '🚀',
         link: '/blog/birth-of-openmcp'
       },
@@ -197,6 +208,7 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'From the initial inspiration to the first working prototype, documenting the story behind OpenMCP\'s birth.',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
+        image: '/images/blog-poster/birth.jpg',
         icon: '🚀',
         link: '/blog/birth-of-openmcp'
       },
@@ -247,6 +259,7 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '最初のインスピレーションから最初の動作するプロトタイプまで、OpenMCP誕生の裏側にある物語。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
+        image: 'ja/images/blog-poster/birth.jpg',
         icon: '🚀',
         link: '/blog/birth-of-openmcp'
       },
