@@ -157,7 +157,7 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '从最初的灵感到第一个可用的原型，记录 OpenMCP 诞生背后的故事。我们如何解决 MCP 开发中的痛点，以及我们对未来的愿景。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: 'zh/images/blog-poster/birth.jpg',
+        image: '/images/blog-poster/birth.jpg',
         icon: '🚀',
         link: '/blog/birth-of-openmcp'
       },
@@ -259,7 +259,7 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '最初のインスピレーションから最初の動作するプロトタイプまで、OpenMCP誕生の裏側にある物語。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: 'ja/images/blog-poster/birth.jpg',
+        image: '/images/blog-poster/birth.jpg',
         icon: '🚀',
         link: '/blog/birth-of-openmcp'
       },
