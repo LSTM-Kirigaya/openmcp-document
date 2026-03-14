@@ -19,10 +19,13 @@
         <div class="card-header">
           <h3 class="plan-name">{{ t.plans.free.name }}</h3>
           <p class="plan-desc">{{ t.plans.free.desc }}</p>
-          <div class="plan-price">
-            <span class="currency">¥</span>
-            <span class="amount">0</span>
-            <span class="period">/{{ t.period }}</span>
+          <div class="card-billing-toggle card-billing-toggle-spacer"></div>
+          <div class="plan-price-wrap">
+            <div class="plan-price">
+              <span class="currency">¥</span>
+              <span class="amount">0</span>
+              <span class="period">/{{ t.period }}</span>
+            </div>
           </div>
         </div>
         <div class="card-features">
@@ -53,10 +56,41 @@
         <div class="card-header">
           <h3 class="plan-name">{{ t.plans.pro.name }}</h3>
           <p class="plan-desc">{{ t.plans.pro.desc }}</p>
-          <div class="plan-price">
-            <span class="currency">¥</span>
-            <span class="amount">10</span>
-            <span class="period">/{{ t.period }}</span>
+          <div class="card-billing-toggle">
+            <div class="billing-toggle">
+              <span v-if="billingPeriod === 'yearly'" class="billing-discount-badge">{{ t.yearlyDiscount }}</span>
+              <button
+                class="billing-btn"
+                :class="{ active: billingPeriod === 'monthly' }"
+                @click="billingPeriod = 'monthly'"
+              >
+                {{ t.billingMonthly }}
+              </button>
+              <button
+                class="billing-btn"
+                :class="{ active: billingPeriod === 'yearly' }"
+                @click="billingPeriod = 'yearly'"
+              >
+                {{ t.billingYearly }}
+              </button>
+            </div>
+          </div>
+          <div class="plan-price-wrap">
+            <div class="plan-price" v-if="billingPeriod === 'monthly'">
+              <span class="currency">¥</span>
+              <span class="amount">{{ pricing.pro.monthly }}</span>
+              <span class="period">/{{ t.period }}</span>
+            </div>
+            <div class="plan-price yearly" v-else>
+              <span class="price-original">
+                <span class="currency">¥</span>{{ pricing.pro.monthly * 12 }}.00
+              </span>
+              <span class="price-actual">
+                <span class="currency">¥</span>
+                <span class="amount">{{ Math.round(pricing.pro.monthly * 12 * pricing.pro.yearlyDiscount) }}</span>
+                <span class="period">/{{ t.periodYear }}</span>
+              </span>
+            </div>
           </div>
         </div>
         <div class="card-features">
@@ -79,10 +113,41 @@
         <div class="card-header">
           <h3 class="plan-name">{{ t.plans.team.name }}</h3>
           <p class="plan-desc">{{ t.plans.team.desc }}</p>
-          <div class="plan-price">
-            <span class="currency">¥</span>
-            <span class="amount">20</span>
-            <span class="period">/{{ t.period }}</span>
+          <div class="card-billing-toggle">
+            <div class="billing-toggle">
+              <span v-if="billingPeriod === 'yearly'" class="billing-discount-badge">{{ t.yearlyDiscount }}</span>
+              <button
+                class="billing-btn"
+                :class="{ active: billingPeriod === 'monthly' }"
+                @click="billingPeriod = 'monthly'"
+              >
+                {{ t.billingMonthly }}
+              </button>
+              <button
+                class="billing-btn"
+                :class="{ active: billingPeriod === 'yearly' }"
+                @click="billingPeriod = 'yearly'"
+              >
+                {{ t.billingYearly }}
+              </button>
+            </div>
+          </div>
+          <div class="plan-price-wrap">
+            <div class="plan-price" v-if="billingPeriod === 'monthly'">
+              <span class="currency">¥</span>
+              <span class="amount">{{ pricing.team.monthly }}</span>
+              <span class="period">/{{ t.period }}</span>
+            </div>
+            <div class="plan-price yearly" v-else>
+              <span class="price-original">
+                <span class="currency">¥</span>{{ pricing.team.monthly * 12 }}.00
+              </span>
+              <span class="price-actual">
+                <span class="currency">¥</span>
+                <span class="amount">{{ Math.round(pricing.team.monthly * 12 * pricing.team.yearlyDiscount) }}</span>
+                <span class="period">/{{ t.periodYear }}</span>
+              </span>
+            </div>
           </div>
         </div>
         <div class="card-features">
@@ -139,40 +204,58 @@
           <div class="table-cell plan-name">{{ t.plans.pro.name }}</div>
           <div class="table-cell plan-name">{{ t.plans.team.name }}</div>
         </div>
-        <div v-for="(row, index) in t.table.rows" :key="index" class="table-row">
-          <div class="table-cell feature-name">{{ row.name }}</div>
-          <div class="table-cell" :class="{ 'has-feature': row.free }">
-            <span v-if="row.free === true" class="check">✓</span>
-            <span v-else-if="row.free === false" class="cross">—</span>
-            <span v-else>{{ row.free }}</span>
+        <template v-for="(category, catIndex) in t.table.categories" :key="catIndex">
+          <div class="table-row table-row-category">
+            <div class="table-cell category-title">{{ category.title }}</div>
           </div>
-          <div class="table-cell" :class="{ 'has-feature': row.pro }">
-            <span v-if="row.pro === true" class="check">✓</span>
-            <span v-else-if="row.pro === false" class="cross">—</span>
-            <span v-else>{{ row.pro }}</span>
+          <div v-for="(row, rowIndex) in category.rows" :key="`${catIndex}-${rowIndex}`" class="table-row">
+            <div class="table-cell feature-name">{{ row.name }}</div>
+            <div class="table-cell" :class="{ 'has-feature': row.free }">
+              <span v-if="row.free === true" class="check">✓</span>
+              <span v-else-if="row.free === false" class="cross">—</span>
+              <span v-else>{{ row.free }}</span>
+            </div>
+            <div class="table-cell" :class="{ 'has-feature': row.pro }">
+              <span v-if="row.pro === true" class="check">✓</span>
+              <span v-else-if="row.pro === false" class="cross">—</span>
+              <span v-else>{{ row.pro }}</span>
+            </div>
+            <div class="table-cell" :class="{ 'has-feature': row.team }">
+              <span v-if="row.team === true" class="check">✓</span>
+              <span v-else-if="row.team === false" class="cross">—</span>
+              <span v-else>{{ row.team }}</span>
+            </div>
           </div>
-          <div class="table-cell" :class="{ 'has-feature': row.team }">
-            <span v-if="row.team === true" class="check">✓</span>
-            <span v-else-if="row.team === false" class="cross">—</span>
-            <span v-else>{{ row.team }}</span>
-          </div>
-        </div>
+        </template>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useData } from 'vitepress';
 
 const { lang } = useData();
 
+// 订阅周期: monthly | yearly
+const billingPeriod = ref<'monthly' | 'yearly'>('yearly');
+
+// 价格配置: 月价、年付折扣(8折=0.8)
+const pricing = {
+  pro: { monthly: 10, yearlyDiscount: 0.8 },
+  team: { monthly: 30, yearlyDiscount: 0.8 }
+};
+
 const content = {
   zh: {
-    title: '选择适合你的方案',
+    title: 'OpenMCP，让MCP开发更高效',
     subtitle: '从个人开发者到专业团队，我们都有适合你的选择',
     period: '月',
+    periodYear: '年',
+    billingMonthly: '按月订购',
+    billingYearly: '按年订购',
+    yearlyDiscount: '限时8折',
     badge: '最受欢迎',
     plans: {
       free: {
@@ -191,24 +274,22 @@ const content = {
         name: '专业版',
         desc: '适合小型团队',
         features: [
-          '云备份 50 个测试用例',
+          '云端项目 8 个',
+          '云备份每项目 50 个测试用例',
           '版本历史 30 天',
           '团队协作最多 3 人',
-          '云端部署 1 个实例',
-          '每月 1000 次 API 调用',
           '优先邮件支持'
         ],
         link: '#upgrade-pro'
       },
       team: {
-        name: '团队版',
-        desc: '适合专业团队',
+        name: '商务版',
+        desc: '适合企业团队',
         features: [
+          '云端项目 50 个',
           '云备份无限测试用例',
-          '版本历史永久保留',
+          '版本历史 1 年',
           '团队协作最多 10 人',
-          '云端部署 5 个实例',
-          '每月 10000 次 API 调用',
           '优先技术支持'
         ],
         link: '#upgrade-team'
@@ -217,7 +298,7 @@ const content = {
     cta: {
       free: '免费开始使用',
       pro: '升级到 Pro',
-      team: '升级到 Team',
+      team: '升级到商务版',
       consulting: '预约咨询'
     },
     consulting: {
@@ -238,21 +319,39 @@ const content = {
     comparisonTitle: '功能对比',
     table: {
       feature: '功能',
-      rows: [
-        { name: '本地开发', free: '无限', pro: '无限', team: '无限' },
-        { name: '云备份测试用例', free: false, pro: '50个', team: '无限' },
-        { name: '版本历史', free: false, pro: '30天', team: '永久' },
-        { name: '团队成员', free: '1人', pro: '3人', team: '10人' },
-        { name: '云端部署实例', free: false, pro: '1个', team: '5个' },
-        { name: 'API 调用额度', free: false, pro: '1000次/月', team: '10000次/月' },
-        { name: '技术支持', free: '社区', pro: '邮件优先', team: '在线客服' }
+      categories: [
+        {
+          title: '开发支持',
+          rows: [
+            { name: '本地开发', free: '无限', pro: '无限', team: '无限' }
+          ]
+        },
+        {
+          title: '云服务能力',
+          rows: [
+            { name: '云端项目', free: false, pro: '8个', team: '50个' },
+            { name: '云备份测试用例/项目', free: false, pro: '50个', team: '无限' },
+            { name: '版本历史', free: false, pro: '30天', team: '1年' }
+          ]
+        },
+        {
+          title: '协作与支持',
+          rows: [
+            { name: '团队成员', free: '1人', pro: '3人', team: '10人' },
+            { name: '技术支持', free: '社区', pro: '邮件优先', team: '在线客服' }
+          ]
+        }
       ]
     }
   },
   en: {
-    title: 'Choose Your Plan',
+    title: 'OpenMCP, Making MCP Development More Efficient',
     subtitle: 'From individual developers to professional teams, we have the right plan for you',
     period: 'mo',
+    periodYear: 'yr',
+    billingMonthly: 'Monthly',
+    billingYearly: 'Yearly',
+    yearlyDiscount: '20% Off',
     badge: 'Most Popular',
     plans: {
       free: {
@@ -271,24 +370,22 @@ const content = {
         name: 'Pro',
         desc: 'For small teams',
         features: [
-          'Cloud backup 50 test cases',
+          '8 cloud projects',
+          'Cloud backup 50 test cases per project',
           '30-day version history',
           'Team collaboration up to 3',
-          '1 cloud deployment instance',
-          '1000 API calls per month',
           'Priority email support'
         ],
         link: '#upgrade-pro'
       },
       team: {
-        name: 'Team',
-        desc: 'For professional teams',
+        name: 'Business',
+        desc: 'For enterprise teams',
         features: [
+          '50 cloud projects',
           'Unlimited cloud backup',
-          'Permanent version history',
+          '1-year version history',
           'Team collaboration up to 10',
-          '5 cloud deployment instances',
-          '10000 API calls per month',
           'Priority technical support'
         ],
         link: '#upgrade-team'
@@ -297,7 +394,7 @@ const content = {
     cta: {
       free: 'Get Started Free',
       pro: 'Upgrade to Pro',
-      team: 'Upgrade to Team',
+      team: 'Upgrade to Business',
       consulting: 'Book Consultation'
     },
     consulting: {
@@ -318,21 +415,39 @@ const content = {
     comparisonTitle: 'Feature Comparison',
     table: {
       feature: 'Feature',
-      rows: [
-        { name: 'Local Development', free: 'Unlimited', pro: 'Unlimited', team: 'Unlimited' },
-        { name: 'Cloud Backup', free: false, pro: '50 cases', team: 'Unlimited' },
-        { name: 'Version History', free: false, pro: '30 days', team: 'Permanent' },
-        { name: 'Team Members', free: '1', pro: '3', team: '10' },
-        { name: 'Cloud Instances', free: false, pro: '1', team: '5' },
-        { name: 'API Calls', free: false, pro: '1000/mo', team: '10000/mo' },
-        { name: 'Support', free: 'Community', pro: 'Email', team: 'Priority' }
+      categories: [
+        {
+          title: 'Development',
+          rows: [
+            { name: 'Local Development', free: 'Unlimited', pro: 'Unlimited', team: 'Unlimited' }
+          ]
+        },
+        {
+          title: 'Cloud Services',
+          rows: [
+            { name: 'Cloud Projects', free: false, pro: '8', team: '50' },
+            { name: 'Cloud Backup /project', free: false, pro: '50 cases', team: 'Unlimited' },
+            { name: 'Version History', free: false, pro: '30 days', team: '1 year' }
+          ]
+        },
+        {
+          title: 'Collaboration & Support',
+          rows: [
+            { name: 'Team Members', free: '1', pro: '3', team: '10' },
+            { name: 'Support', free: 'Community', pro: 'Email', team: 'Priority' }
+          ]
+        }
       ]
     }
   },
   ja: {
-    title: 'プランを選択',
+    title: 'OpenMCP、MCP開発をより効率的に',
     subtitle: '個人開発者からプロフェッショナルチームまで、あなたに最適なプランをご用意',
     period: '月',
+    periodYear: '年',
+    billingMonthly: '月額',
+    billingYearly: '年額',
+    yearlyDiscount: '20%OFF',
     badge: '人気No.1',
     plans: {
       free: {
@@ -351,24 +466,22 @@ const content = {
         name: 'Pro',
         desc: '小規模チーム向け',
         features: [
-          'クラウドバックアップ 50件',
+          'クラウドプロジェクト 8個',
+          'クラウドバックアップ プロジェクトあたり50件',
           'バージョン履歴 30日間',
           'チーム協力 最大3人',
-          'クラウドデプロイ 1インスタンス',
-          '月1000回 API コール',
           '優先メールサポート'
         ],
         link: '#upgrade-pro'
       },
       team: {
-        name: 'Team',
-        desc: 'プロフェッショナルチーム向け',
+        name: 'Business',
+        desc: 'エンタープライズチーム向け',
         features: [
+          'クラウドプロジェクト 50個',
           '無制限クラウドバックアップ',
-          '永久バージョン履歴',
+          'バージョン履歴 1年間',
           'チーム協力 最大10人',
-          'クラウドデプロイ 5インスタンス',
-          '月10000回 API コール',
           '優先技術サポート'
         ],
         link: '#upgrade-team'
@@ -377,7 +490,7 @@ const content = {
     cta: {
       free: '無料で開始',
       pro: 'Pro にアップグレード',
-      team: 'Team にアップグレード',
+      team: 'Business にアップグレード',
       consulting: '相談を予約'
     },
     consulting: {
@@ -398,14 +511,28 @@ const content = {
     comparisonTitle: '機能比較',
     table: {
       feature: '機能',
-      rows: [
-        { name: 'ローカル開発', free: '無制限', pro: '無制限', team: '無制限' },
-        { name: 'クラウドバックアップ', free: false, pro: '50件', team: '無制限' },
-        { name: 'バージョン履歴', free: false, pro: '30日', team: '永久' },
-        { name: 'チームメンバー', free: '1人', pro: '3人', team: '10人' },
-        { name: 'クラウドインスタンス', free: false, pro: '1個', team: '5個' },
-        { name: 'API コール', free: false, pro: '1000回/月', team: '10000回/月' },
-        { name: 'サポート', free: 'コミュニティ', pro: 'メール優先', team: '優先対応' }
+      categories: [
+        {
+          title: '開発サポート',
+          rows: [
+            { name: 'ローカル開発', free: '無制限', pro: '無制限', team: '無制限' }
+          ]
+        },
+        {
+          title: 'クラウドサービス',
+          rows: [
+            { name: 'クラウドプロジェクト', free: false, pro: '8個', team: '50個' },
+            { name: 'クラウドバックアップ/プロジェクト', free: false, pro: '50件', team: '無制限' },
+            { name: 'バージョン履歴', free: false, pro: '30日', team: '1年間' }
+          ]
+        },
+        {
+          title: '協力・サポート',
+          rows: [
+            { name: 'チームメンバー', free: '1人', pro: '3人', team: '10人' },
+            { name: 'サポート', free: 'コミュニティ', pro: 'メール優先', team: '優先対応' }
+          ]
+        }
       ]
     }
   }
@@ -486,6 +613,98 @@ const t = computed(() => content[currentLang.value] || content.en);
 .pricing-subtitle {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* 卡片内月/年订阅切换 */
+.card-billing-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.card-billing-toggle-spacer {
+  min-height: 2.5rem;
+}
+
+.billing-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 4px;
+  position: relative;
+}
+
+.billing-discount-badge {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.billing-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.billing-btn:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.billing-btn.active {
+  background: rgba(99, 102, 241, 0.4);
+  color: #fff;
+}
+
+/* 价格区域固定高度，防止切换时抖动 */
+.plan-price-wrap {
+  min-height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 年付价格：原价划线 + 实际价 */
+.plan-price.yearly {
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.price-original {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+}
+
+.price-actual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.price-actual .amount {
+  font-size: 3.5rem;
+}
+
+.price-actual .period {
+  margin-bottom: 0.5rem;
 }
 
 /* Pricing Cards */
@@ -856,6 +1075,25 @@ const t = computed(() => content[currentLang.value] || content.en);
 
 .table-row:last-child {
   border-bottom: none;
+}
+
+/* 分类标题行 */
+.table-row-category {
+  grid-template-columns: 1fr;
+}
+
+.table-row-category .table-cell {
+  grid-column: 1 / -1;
+  padding: 0.875rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.12);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.table-row-category .category-title {
+  text-align: left;
 }
 
 .table-cell {

@@ -1,81 +1,86 @@
 # OpenMCP Document
 
 ## 📚 项目简介
-OpenMCP 是基于 MCP 协议（Multi-Model Communication Protocol）开发的开源框架，由开发者 **LSTM-Kirigaya** 创建。该项目通过深度整合 DeepSeek 等大模型 API，提供了一套完整的工具链，支持开发者通过自然语言与数据库（如 Neo4j）、本地资源及外部工具交互，实现自动化开发、资讯聚合等场景。项目文档仓库包含技术原理、开发指南及示例代码。
+
+本仓库是 **OpenMCP** 的官方文档网站，基于 VitePress 构建。OpenMCP 是由开发者 **LSTM-Kirigaya** 创建的开源 MCP（Model Context Protocol）客户端工具，既可以以CLI形式直接运行，也可作为 VSCode、Cursor、Trae 等编辑器的插件使用，帮助开发者快速构建、调试和部署 MCP 服务器。
 
 ## 🌟 核心特性
 
-### 1. **MCP 协议支持**
-   - **Resources**：支持访问本地文件系统、数据库等静态资源，扩展大模型上下文。
-   - **Prompts**：提供场景化 Prompt 模板，引导大模型生成结构化输出。
-   - **Tools**：封装函数工具（如酒店预订、网页操作），通过 Function Calling 实现 AI 与现实世界的交互。
+### 1. **一站式 MCP 开发环境**
+   - **可视化调试**：无需配置复杂环境即可调试 MCP 服务器
+   - **多协议支持**：支持 STDIO、SSE、Streamable HTTP 等连接方式
+   - **实时交互测试**：在对话中直接测试 MCP 工具效果
 
-### 2. **低成本高效开发**
-   - 深度集成 **DeepSeek API**，Token 消耗极低（开发者实例：月均费用 19 元，对比 OpenAI API 成本降低 70%+）。
-   - 支持凌晨调用 API 享受更低价格，降低个人开发者门槛。
+### 2. **多模型集成**
+   - 支持 OpenAI API 兼容的所有大模型
+   - 可切换不同模型进行对比测试
+   - 显示 Token 消耗和缓存命中率
 
-### 3. **典型应用场景**
-   - **自动化开发**：通过自然语言生成代码（如后端服务、Neo4j 交互）。
-   - **资讯机器人**：定时推送最新资讯（示例：每日 10 点群发技术动态）。
-   - **AI 工具链**：快速构建 AI 驱动的工具（如数据分析、智能客服）。
+### 3. **导出与部署**
+   - 一键导出调试配置到生产环境
+   - 提供 Node.js SDK 支持服务器部署
 
 ## 🚀 快速开始
 
-### 1. 环境准备
+### 1. 安装文档依赖
+
 ```bash
+# 克隆仓库
+git clone https://github.com/LSTM-Kirigaya/openmcp-document.git
+cd openmcp-document
+
 # 安装依赖
-pip install numpy opencv-python tqdm  # 示例依赖，具体见项目文档
+npm install
 ```
 
-### 2. 核心功能示例
-```python
-from openai import OpenAI
+### 2. 运行文档网站
 
-# 初始化 DeepSeek 客户端
-client = OpenAI(
-    api_key="YOUR_DEEPSEEK_KEY",
-    base_url="https://api.deepseek.com"
-)
+```bash
+# 开发模式（热重载）
+npm run dev
 
-# 调用大模型处理任务
-response = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=[
-        {"role": "system", "content": "你是一个自动化开发助手"},
-        {"role": "user", "content": "用 Python 写一个连接 Neo4j 的 CRUD 接口"}
-    ]
-)
+# 构建生产版本
+npm run build
 
-print(response.choices[0].message.content)
+# 预览构建结果
+npm run preview
 ```
 
-## 🛠️ 开发贡献
+### 3. 安装 OpenMCP 插件
 
-### 1. 本地开发流程
-1. Fork 仓库并克隆：
-   ```bash
-   git clone https://github.com/LSTM-Kirigaya/openmcp-document.git
-   ```
-2. 安装开发依赖：
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. 提交代码并推送 PR。
+在 VSCode、Cursor 或 Trae 的插件市场中搜索 `OpenMCP` 并安装即可开始使用。具体内容详见[openmcp-client](https://github.com/LSTM-Kirigaya/openmcp-client)。
 
+## 📂 项目结构
+
+```
+openmcp-document/
+├── .vitepress/           # VitePress 配置和主题
+│   ├── config.*          # 站点配置文件
+│   ├── i18n/             # 多语言配置 (en, zh, ja)
+│   └── theme/            # 自定义主题组件
+├── plugin-tutorial/      # MCP 插件开发教程 (英文)
+├── sdk-tutorial/         # SDK 使用教程 (英文)
+├── zh/                   # 中文文档
+├── ja/                   # 日文文档
+└── index.md              # 首页配置
+```
 
 ## 📞 交流社区
+
+- **GitHub**：https://github.com/LSTM-Kirigaya/openmcp-client
 - **QQ 群**：782833642（OpenMCP 技术交流）
 - **邮箱**：zhelonghuang@qq.com
 
 ## 📄 许可证
+
 本项目采用 **Apache 2.0** 许可证，允许自由使用、修改及商业发布（需保留版权声明）。
 
 ## 🙏 致谢
-- 感谢 **DeepSeek** 提供低成本、高性能的大模型 API。
+
+- 感谢 VitePress 团队提供的优秀文档框架
 - 感谢所有贡献者及社区用户的反馈与支持！
 
 ---
 
-**Star 历史**  
-![GitHub Stars](https://img.shields.io/github/stars/LSTM-Kirigaya/openmcp-document?style=social)  
-👉 [立即体验 OpenMCP](https://github.com/LSTM-Kirigaya/openmcp-document) | [文档地址](https://github.com/LSTM-Kirigaya/openmcp-document/wiki)
+**相关链接**  
+👉 [OpenMCP Client GitHub](https://github.com/LSTM-Kirigaya/openmcp-client) | [在线文档](https://openmcp.kirigaya.cn)
