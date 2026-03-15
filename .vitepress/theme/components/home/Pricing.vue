@@ -275,7 +275,7 @@ const content = {
         desc: '适合小型团队',
         features: [
           '云端项目 8 个',
-          '云备份每项目 50 个测试用例',
+          '云备份每项目 100 个测试用例',
           '版本历史 30 天',
           '团队协作最多 3 人',
           '优先邮件支持'
@@ -287,7 +287,7 @@ const content = {
         desc: '适合企业团队',
         features: [
           '云端项目 50 个',
-          '云备份无限测试用例',
+          '云备份每项目 1000 个测试用例',
           '版本历史 1 年',
           '团队协作最多 20 人',
           '优先技术支持'
@@ -330,7 +330,7 @@ const content = {
           title: '云服务能力',
           rows: [
             { name: '云端项目', free: false, pro: '8个', team: '50个' },
-            { name: '云备份测试用例/项目', free: false, pro: '50个', team: '无限' },
+            { name: '云备份测试用例/项目', free: false, pro: '100个', team: '1000个' },
             { name: '版本历史', free: false, pro: '30天', team: '1年' }
           ]
         },
@@ -371,7 +371,7 @@ const content = {
         desc: 'For small teams',
         features: [
           '8 cloud projects',
-          'Cloud backup 50 test cases per project',
+          'Cloud backup 100 test cases per project',
           '30-day version history',
           'Team collaboration up to 3',
           'Priority email support'
@@ -383,7 +383,7 @@ const content = {
         desc: 'For enterprise teams',
         features: [
           '50 cloud projects',
-          'Unlimited cloud backup',
+          'Cloud backup 1000 test cases per project',
           '1-year version history',
           'Team collaboration up to 20',
           'Priority technical support'
@@ -426,7 +426,7 @@ const content = {
           title: 'Cloud Services',
           rows: [
             { name: 'Cloud Projects', free: false, pro: '8', team: '50' },
-            { name: 'Cloud Backup /project', free: false, pro: '50 cases', team: 'Unlimited' },
+            { name: 'Cloud Backup /project', free: false, pro: '100 cases', team: '1000 cases' },
             { name: 'Version History', free: false, pro: '30 days', team: '1 year' }
           ]
         },
@@ -467,7 +467,7 @@ const content = {
         desc: '小規模チーム向け',
         features: [
           'クラウドプロジェクト 8個',
-          'クラウドバックアップ プロジェクトあたり50件',
+          'クラウドバックアップ プロジェクトあたり100件',
           'バージョン履歴 30日間',
           'チーム協力 最大3人',
           '優先メールサポート'
@@ -479,7 +479,7 @@ const content = {
         desc: 'エンタープライズチーム向け',
         features: [
           'クラウドプロジェクト 50個',
-          '無制限クラウドバックアップ',
+          'クラウドバックアップ プロジェクトあたり1000件',
           'バージョン履歴 1年間',
           'チーム協力 最大20人',
           '優先技術サポート'
@@ -522,7 +522,7 @@ const content = {
           title: 'クラウドサービス',
           rows: [
             { name: 'クラウドプロジェクト', free: false, pro: '8個', team: '50個' },
-            { name: 'クラウドバックアップ/プロジェクト', free: false, pro: '50件', team: '無制限' },
+            { name: 'クラウドバックアップ/プロジェクト', free: false, pro: '100件', team: '1000件' },
             { name: 'バージョン履歴', free: false, pro: '30日', team: '1年間' }
           ]
         },
