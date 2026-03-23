@@ -95,6 +95,18 @@ export default {
         }
     ],
     sidebar: {
+        '/ja/cli-tutorial/': [
+            {
+                text: 'CLI',
+                items: [
+                    { text: 'Overview', link: '/ja/cli-tutorial/' },
+                    { text: 'gateway command', link: '/ja/cli-tutorial/gateway' },
+                    { text: 'web command', link: '/ja/cli-tutorial/web' },
+                    { text: 'mcp command', link: '/ja/cli-tutorial/mcp' },
+                    { text: 'Migration Notes', link: '/ja/cli-tutorial/migration' }
+                ]
+            }
+        ],
         '/ja/plugin-tutorial/': [
             {
                 text: '概要',

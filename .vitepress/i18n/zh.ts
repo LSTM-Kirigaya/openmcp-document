@@ -95,6 +95,18 @@ export default {
         },
     ],
     sidebar: {
+        '/zh/cli-tutorial/': [
+            {
+                text: 'CLI',
+                items: [
+                    { text: '概览', link: '/zh/cli-tutorial/' },
+                    { text: 'gateway 命令', link: '/zh/cli-tutorial/gateway' },
+                    { text: 'web 命令', link: '/zh/cli-tutorial/web' },
+                    { text: 'mcp 命令', link: '/zh/cli-tutorial/mcp' },
+                    { text: '迁移说明', link: '/zh/cli-tutorial/migration' }
+                ]
+            }
+        ],
         '/zh/plugin-tutorial/': [
             {
                 text: '简介',

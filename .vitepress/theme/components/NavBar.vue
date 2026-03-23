@@ -24,6 +24,22 @@
           </div>
 
           <div class="nav-dropdown">
+            <button class="nav-dropdown-btn" @click="showCliMenu = !showCliMenu">
+              <span>{{ docNav.cliTutorial.text }}</span>
+              <svg class="dropdown-arrow" :class="{ open: showCliMenu }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <Transition name="fade">
+              <div v-if="showCliMenu" class="nav-dropdown-menu">
+                <a v-for="item in docNav.cliTutorial.items" :key="item.link" :href="item.link" class="nav-dropdown-item" @click="showCliMenu = false">
+                  {{ item.text }}
+                </a>
+              </div>
+            </Transition>
+          </div>
+
+          <div class="nav-dropdown">
             <button class="nav-dropdown-btn" @click="showPluginMenu = !showPluginMenu">
               <span>{{ docNav.pluginTutorial.text }}</span>
               <svg class="dropdown-arrow" :class="{ open: showPluginMenu }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -111,7 +127,7 @@ const route = useRoute();
 // 判断是否在文档页面
 const isDocPage = computed(() => {
   const path = route.path || '';
-  return path.includes('/plugin-tutorial') || path.includes('/sdk-tutorial');
+  return path.includes('/plugin-tutorial') || path.includes('/sdk-tutorial') || path.includes('/cli-tutorial');
 });
 
 const content = {
@@ -125,6 +141,15 @@ const content = {
     homeLink: '/zh/',
     docNav: {
       backHome: { text: '返回首页', link: '/zh/' },
+      cliTutorial: {
+        text: 'CLI 教程',
+        items: [
+          { text: '概览', link: '/zh/cli-tutorial/' },
+          { text: 'gateway 命令', link: '/zh/cli-tutorial/gateway' },
+          { text: 'web 命令', link: '/zh/cli-tutorial/web' },
+          { text: 'mcp 命令', link: '/zh/cli-tutorial/mcp' },
+        ]
+      },
       pluginTutorial: {
         text: '插件教程',
         items: [
@@ -155,6 +180,15 @@ const content = {
     homeLink: '/',
     docNav: {
       backHome: { text: 'Back to Home', link: '/' },
+      cliTutorial: {
+        text: 'CLI Tutorial',
+        items: [
+          { text: 'Overview', link: '/ja/cli-tutorial/' },
+          { text: 'gateway command', link: '/ja/cli-tutorial/gateway' },
+          { text: 'web command', link: '/ja/cli-tutorial/web' },
+          { text: 'mcp command', link: '/ja/cli-tutorial/mcp' },
+        ]
+      },
       pluginTutorial: {
         text: 'Plugin Tutorial',
         items: [
@@ -185,6 +219,15 @@ const content = {
     homeLink: '/ja/',
     docNav: {
       backHome: { text: 'ホームに戻る', link: '/ja/' },
+      cliTutorial: {
+        text: 'CLI Tutorial',
+        items: [
+          { text: 'Overview', link: '/cli-tutorial/' },
+          { text: 'gateway command', link: '/cli-tutorial/gateway' },
+          { text: 'web command', link: '/cli-tutorial/web' },
+          { text: 'mcp command', link: '/cli-tutorial/mcp' },
+        ]
+      },
       pluginTutorial: {
         text: 'プラグインチュートリアル',
         items: [
@@ -247,6 +290,7 @@ const currentLangLabel = computed(() => {
 });
 
 const showLangMenu = ref(false);
+const showCliMenu = ref(false);
 const showPluginMenu = ref(false);
 const showSdkMenu = ref(false);
 

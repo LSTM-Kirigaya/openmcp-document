@@ -96,6 +96,18 @@ export default {
         }
     ],
     sidebar: {
+        '/cli-tutorial/': [
+            {
+                text: 'CLI',
+                items: [
+                    { text: 'Overview', link: '/cli-tutorial/' },
+                    { text: 'gateway command', link: '/cli-tutorial/gateway' },
+                    { text: 'web command', link: '/cli-tutorial/web' },
+                    { text: 'mcp command', link: '/cli-tutorial/mcp' },
+                    { text: 'Migration Notes', link: '/cli-tutorial/migration' }
+                ]
+            }
+        ],
         '/plugin-tutorial/': [
             {
                 text: 'Overview',
