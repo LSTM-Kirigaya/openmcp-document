@@ -1,14 +1,9 @@
-# `web` Command
+# `web` moved to `webui`
 
-- `openmcp-cli web` without subcommand only shows help.
-- Subcommands: `run`, `start`, `status`, `stop`.
-- `web` and `gateway` are decoupled.
-- Default mode is static hosting.
-- Set `OPENMCP_WEB_DEV=1` to use Vite dev mode.
+Please use:
+
+- [webui command](/ja/cli-tutorial/webui)
 
 ```bash
-openmcp-cli web run -p 8283 -g 8282
-openmcp-cli web start -p 8283 -g 8282
-openmcp-cli web status -p 8283 -g 8282
-openmcp-cli web stop -p 8283
+openmcp-cli webui start -p 8283 -g 8282
 ```

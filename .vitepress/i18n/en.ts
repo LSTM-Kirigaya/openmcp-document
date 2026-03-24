@@ -102,7 +102,7 @@ export default {
                 items: [
                     { text: 'Overview', link: '/cli-tutorial/' },
                     { text: 'gateway command', link: '/cli-tutorial/gateway' },
-                    { text: 'web command', link: '/cli-tutorial/web' },
+                    { text: 'webui command', link: '/cli-tutorial/webui' },
                     { text: 'mcp command', link: '/cli-tutorial/mcp' },
                     { text: 'Migration Notes', link: '/cli-tutorial/migration' }
                 ]

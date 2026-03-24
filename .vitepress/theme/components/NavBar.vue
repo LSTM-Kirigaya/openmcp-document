@@ -146,7 +146,7 @@ const content = {
         items: [
           { text: '概览', link: '/zh/cli-tutorial/' },
           { text: 'gateway 命令', link: '/zh/cli-tutorial/gateway' },
-          { text: 'web 命令', link: '/zh/cli-tutorial/web' },
+          { text: 'webui 命令', link: '/zh/cli-tutorial/webui' },
           { text: 'mcp 命令', link: '/zh/cli-tutorial/mcp' },
         ]
       },
@@ -183,10 +183,10 @@ const content = {
       cliTutorial: {
         text: 'CLI Tutorial',
         items: [
-          { text: 'Overview', link: '/ja/cli-tutorial/' },
-          { text: 'gateway command', link: '/ja/cli-tutorial/gateway' },
-          { text: 'web command', link: '/ja/cli-tutorial/web' },
-          { text: 'mcp command', link: '/ja/cli-tutorial/mcp' },
+          { text: 'Overview', link: '/cli-tutorial/' },
+          { text: 'gateway command', link: '/cli-tutorial/gateway' },
+          { text: 'webui command', link: '/cli-tutorial/webui' },
+          { text: 'mcp command', link: '/cli-tutorial/mcp' },
         ]
       },
       pluginTutorial: {
@@ -222,10 +222,10 @@ const content = {
       cliTutorial: {
         text: 'CLI Tutorial',
         items: [
-          { text: 'Overview', link: '/cli-tutorial/' },
-          { text: 'gateway command', link: '/cli-tutorial/gateway' },
-          { text: 'web command', link: '/cli-tutorial/web' },
-          { text: 'mcp command', link: '/cli-tutorial/mcp' },
+          { text: 'Overview', link: '/ja/cli-tutorial/' },
+          { text: 'gateway command', link: '/ja/cli-tutorial/gateway' },
+          { text: 'webui command', link: '/ja/cli-tutorial/webui' },
+          { text: 'mcp command', link: '/ja/cli-tutorial/mcp' },
         ]
       },
       pluginTutorial: {
