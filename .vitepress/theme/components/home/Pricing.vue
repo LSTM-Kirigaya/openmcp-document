@@ -104,7 +104,8 @@
           </ul>
         </div>
         <div class="card-action">
-          <a :href="t.plans.pro.link" class="btn btn-primary">{{ t.cta.pro }}</a>
+          <button class="btn btn-primary btn-disabled" disabled @click.prevent>{{ t.cta.pro }}</button>
+          <p class="coming-soon-tip">{{ t.comingSoon }}</p>
         </div>
       </div>
 
@@ -161,7 +162,8 @@
           </ul>
         </div>
         <div class="card-action">
-          <a :href="t.plans.team.link" class="btn btn-white">{{ t.cta.team }}</a>
+          <button class="btn btn-white btn-disabled" disabled @click.prevent>{{ t.cta.team }}</button>
+          <p class="coming-soon-tip">{{ t.comingSoon }}</p>
         </div>
       </div>
     </div>
@@ -257,6 +259,7 @@ const content = {
     billingYearly: '按年订购',
     yearlyDiscount: '限时8折',
     badge: '最受欢迎',
+    comingSoon: '即将上线，敬请期待',
     plans: {
       free: {
         name: '免费版',
@@ -353,6 +356,7 @@ const content = {
     billingYearly: 'Yearly',
     yearlyDiscount: '20% Off',
     badge: 'Most Popular',
+    comingSoon: 'Coming soon, stay tuned',
     plans: {
       free: {
         name: 'Free',
@@ -449,6 +453,7 @@ const content = {
     billingYearly: '年額',
     yearlyDiscount: '20%OFF',
     badge: '人気No.1',
+    comingSoon: '近日公開予定',
     plans: {
       free: {
         name: '無料版',
@@ -881,7 +886,7 @@ const t = computed(() => content[currentLang.value] || content.en);
   color: #fff;
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(.btn-disabled) {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
 }
@@ -891,9 +896,26 @@ const t = computed(() => content[currentLang.value] || content.en);
   color: #0a0a0f;
 }
 
-.btn-white:hover {
+.btn-white:hover:not(.btn-disabled) {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 0.2);
+}
+
+.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.btn-disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.coming-soon-tip {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
 }
 
 /* Consulting Card */
