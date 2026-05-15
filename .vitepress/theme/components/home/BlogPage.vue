@@ -67,7 +67,6 @@ import { useData, useRouter } from 'vitepress';
 const { lang } = useData();
 const router = useRouter();
 
-
 const content = {
   zh: {
     title: '开发日志',
@@ -130,167 +129,284 @@ const allPosts = computed(() => {
     zh: [
       {
         id: 1,
-        title: 'OpenMCP 的诞生：为什么我们决定做这个项目',
+        title: '全网第一个 MCP 服务器一体化开发测试软件 OpenMCP 发布！',
         category: '心路历程',
         categoryId: 'journey',
-        date: '2024-03-15',
+        date: '2025-04-13',
         author: 'Kirigaya',
-        summary: '从最初的灵感到第一个可用的原型，记录 OpenMCP 诞生背后的故事。我们如何解决 MCP 开发中的痛点，以及我们对未来的愿景。',
+        summary: 'OpenMCP 的第一个测试版本终于发布了，目前可以在 Vscode 或者 Trae 的插件商城下载。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
         image: '/images/blog-poster/birth-of-openmcp.png',
-        icon: '🚀',
         link: '/blog/birth-of-openmcp'
       },
       {
         id: 2,
-        title: 'v0.5.0 版本发布：全新 UI 与多语言支持',
-        category: '版本发布',
-        categoryId: 'release',
-        date: '2024-03-10',
-        author: 'OpenMCP Team',
-        summary: '本次更新带来了焕然一新的用户界面，支持中文、英文、日文三种语言。',
-        gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
-        image: '/images/blog-poster/latest-release.png',
-        icon: '✨',
-        link: '/blog/latest-release'
+        title: '优雅地开发 MCP 服务器（二）OpenMCP 使用教程 & 你的第一个 MCP 服务',
+        category: '技术深度',
+        categoryId: 'tech',
+        date: '2025-05-27',
+        author: 'Kirigaya',
+        summary: '教大家写一个简单的 MCP 服务器，让大模型拥有得知天气预报的能力，基于 OpenMCP 进行开发调试。',
+        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
+        image: '/images/blog-poster/birth-of-openmcp.png',
+        // 封面图: /images/blog-poster/openmcp-tutorial-2.png
+        link: '/blog/openmcp-tutorial-2'
       },
       {
         id: 3,
-        title: '技术选型思考：为什么选择 VSCode 作为基础平台',
-        category: '技术深度',
-        categoryId: 'tech',
-        date: '2024-02-28',
+        title: '知乎圈子「OpenMCP 博物馆」策划书',
+        category: '心路历程',
+        categoryId: 'journey',
+        date: '2025-05-28',
         author: 'Kirigaya',
-        summary: '深入探讨我们在技术选型时的考虑，为什么最终选择基于 VSCode 构建 OpenMCP。',
-        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
-        image:'/images/blog-poster/tech-stack-choice.png',
-        icon: '🤔',
-        link: '/blog/tech-stack-choice'
+        summary: '收到知乎的邀请，成立一个有关 MCP 话题的「知乎圈子」，记录圈子的一些规则和想法。',
+        gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
+        image: '/images/blog-poster/openmcp-tutorial-2.png',
+        // 封面图: /images/blog-poster/openmcp-museum.png
+        link: '/blog/openmcp-museum'
       },
       {
         id: 4,
-        title: '案例分享：如何使用 OpenMCP 快速搭建 AI 工作流',
-        category: '案例分享',
-        categoryId: 'case',
-        date: '2024-02-20',
-        author: 'Community',
-        summary: '分享一个使用 OpenMCP 搭建完整 AI 工作流的真实案例，从需求分析到落地实现。',
+        title: 'OpenMCP 0.1.9 上线！这次我们更新了工具自检功能',
+        category: '版本发布',
+        categoryId: 'release',
+        date: '2025-07-08',
+        author: 'Kirigaya',
+        summary: '工具自检功能可以在 MCP 开发初期快速完成所有 tool 的执行验证，加速 MCP 的开发和上线。',
+        gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
+        image: '/images/blog-poster/openmcp-museum.png',
+        // 封面图: /images/blog-poster/openmcp-0.1.9.png
+        link: '/blog/openmcp-0.1.9'
+      },
+      {
+        id: 5,
+        title: 'OpenMCP 重磅推出调用链可视化 & 季度小结',
+        category: '版本发布',
+        categoryId: 'release',
+        date: '2026-04-08',
+        author: 'Kirigaya',
+        summary: 'OpenMCP 推出调用链可视化功能，让 MCP 服务器的工具调用过程一目了然。',
+        gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
+        image: '/images/blog-poster/openmcp-0.1.9.png',
+        // 封面图: /images/blog-poster/openmcp-chain-visualization.png
+        link: '/blog/openmcp-chain-visualization'
+      },
+      {
+        id: 6,
+        title: '为什么我需要设计回流系统？openmcp reflux 用量化指标帮你更加了解你的 Agent 系统',
+        category: '技术深度',
+        categoryId: 'tech',
+        date: '2026-04-24',
+        author: 'Kirigaya',
+        summary: '通过量化指标和回流系统，帮助开发者更好地理解和优化 Agent 系统与 MCP 的性能。',
+        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
+        image: '/images/blog-poster/openmcp-chain-visualization.png',
+        // 封面图: /images/blog-poster/openmcp-reflux.png
+        link: '/blog/openmcp-reflux'
+      },
+      {
+        id: 7,
+        title: 'OpenMCP 新功能介绍：批量验证与 Debugger MCP',
+        category: '技术深度',
+        categoryId: 'tech',
+        date: '2026-05-06',
+        author: 'Kirigaya',
+        summary: '批量验证与 Debugger MCP 功能，助力自动化 Agent 开发，让迭代过程更加可控。',
         gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
-        image: '/images/blog-poster/case-study-1.png',
-        icon: '💡',
-        link: '/blog/case-study-1'
+        image: '/images/blog-poster/openmcp-reflux.png',
+        // 封面图: /images/blog-poster/openmcp-batch-validation.png
+        link: '/blog/openmcp-batch-validation'
       }
     ],
     en: [
       {
         id: 1,
-        title: 'The Birth of OpenMCP: Why We Decided to Build This Project',
+        title: 'The First MCP Server All-in-One Dev & Test Tool: OpenMCP Released!',
         category: 'Journey',
         categoryId: 'journey',
-        date: '2024-03-15',
+        date: '2025-04-13',
         author: 'Kirigaya',
-        summary: 'From the initial inspiration to the first working prototype, documenting the story behind OpenMCP\'s birth.',
+        summary: 'The first test version of OpenMCP is finally released, available on VSCode and Trae plugin marketplace.',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: '/images/blog-poster/birth-of-openmcp.png',
-        icon: '🚀',
+        image: '/images/blog-poster/openmcp-batch-validation.png',
+        // 封面图: /images/blog-poster/birth-of-openmcp.png
         link: '/blog/birth-of-openmcp'
       },
       {
         id: 2,
-        title: 'v0.5.0 Release: New UI and Multi-language Support',
-        category: 'Release',
-        categoryId: 'release',
-        date: '2024-03-10',
-        author: 'OpenMCP Team',
-        summary: 'This update brings a refreshed user interface with support for Chinese, English, and Japanese.',
-        gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
-        image: '/images/blog-poster/latest-release.png',
-        icon: '✨',
-        link: '/blog/latest-release'
+        title: 'Elegant MCP Server Development (II): OpenMCP Tutorial & Your First MCP Service',
+        category: 'Tech Deep Dive',
+        categoryId: 'tech',
+        date: '2025-05-27',
+        author: 'Kirigaya',
+        summary: 'Teach you how to write a simple MCP server to give LLM weather forecast capabilities.',
+        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
+        image: '/images/blog-poster/birth-of-openmcp.png',
+        // 封面图: /images/blog-poster/openmcp-tutorial-2.png
+        link: '/blog/openmcp-tutorial-2'
       },
       {
         id: 3,
-        title: 'Technical Decision: Why We Chose VSCode as Our Foundation',
-        category: 'Tech Deep Dive',
-        categoryId: 'tech',
-        date: '2024-02-28',
+        title: 'Zhihu Circle "OpenMCP Museum" Proposal',
+        category: 'Journey',
+        categoryId: 'journey',
+        date: '2025-05-28',
         author: 'Kirigaya',
-        summary: 'An in-depth look at our technical considerations and why we chose VSCode.',
-        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
-        image:'/images/blog-poster/tech-stack-choice.png',
-        icon: '🤔',
-        link: '/blog/tech-stack-choice'
+        summary: 'Invited by Zhihu to create a circle about MCP topics, recording the rules and ideas.',
+        gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
+        image: '/images/blog-poster/openmcp-tutorial-2.png',
+        // 封面图: /images/blog-poster/openmcp-museum.png
+        link: '/blog/openmcp-museum'
       },
       {
         id: 4,
-        title: 'Case Study: Building AI Workflows with OpenMCP',
-        category: 'Case Studies',
-        categoryId: 'case',
-        date: '2024-02-20',
-        author: 'Community',
-        summary: 'A real-world case study of building a complete AI workflow using OpenMCP.',
+        title: 'OpenMCP 0.1.9 Released! Tool Self-Check Feature',
+        category: 'Release',
+        categoryId: 'release',
+        date: '2025-07-08',
+        author: 'Kirigaya',
+        summary: 'Tool self-check feature can quickly verify all tool executions in early MCP development.',
+        gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
+        image: '/images/blog-poster/openmcp-museum.png',
+        // 封面图: /images/blog-poster/openmcp-0.1.9.png
+        link: '/blog/openmcp-0.1.9'
+      },
+      {
+        id: 5,
+        title: 'OpenMCP Launches Call Chain Visualization & Quarterly Summary',
+        category: 'Release',
+        categoryId: 'release',
+        date: '2026-04-08',
+        author: 'Kirigaya',
+        summary: 'OpenMCP introduces call chain visualization, making tool invocation transparent.',
+        gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
+        image: '/images/blog-poster/openmcp-0.1.9.png',
+        // 封面图: /images/blog-poster/openmcp-chain-visualization.png
+        link: '/blog/openmcp-chain-visualization'
+      },
+      {
+        id: 6,
+        title: 'Why I Designed the Reflux System? OpenMCP Reflux with Quantitative Metrics',
+        category: 'Tech Deep Dive',
+        categoryId: 'tech',
+        date: '2026-04-24',
+        author: 'Kirigaya',
+        summary: 'Use quantitative metrics and reflux system to better understand Agent systems.',
+        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
+        image: '/images/blog-poster/openmcp-chain-visualization.png',
+        // 封面图: /images/blog-poster/openmcp-reflux.png
+        link: '/blog/openmcp-reflux'
+      },
+      {
+        id: 7,
+        title: 'OpenMCP New Features: Batch Validation & Debugger MCP',
+        category: 'Tech Deep Dive',
+        categoryId: 'tech',
+        date: '2026-05-06',
+        author: 'Kirigaya',
+        summary: 'Batch validation and Debugger MCP features for automated Agent development.',
         gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
-        image: '/images/blog-poster/case-study-1.png',
-        icon: '💡',
-        link: '/blog/case-study-1'
+        image: '/images/blog-poster/openmcp-reflux.png',
+        // 封面图: /images/blog-poster/openmcp-batch-validation.png
+        link: '/blog/openmcp-batch-validation'
       }
     ],
     ja: [
       {
         id: 1,
-        title: 'OpenMCPの誕生：なぜこのプロジェクトを始めたのか',
+        title: '初のMCPサーバー統合開発テストツールOpenMCPがリリース！',
         category: '軌跡',
         categoryId: 'journey',
-        date: '2024-03-15',
+        date: '2025-04-13',
         author: 'Kirigaya',
-        summary: '最初のインスピレーションから最初の動作するプロトタイプまで、OpenMCP誕生の裏側にある物語。',
+        summary: 'OpenMCPの最初のテストバージョンがリリースされ、VSCodeとTraeのプラグインマーケットでダウンロード可能。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: '/images/blog-poster/birth-of-openmcp.png',
-        icon: '🚀',
+        image: '/images/blog-poster/openmcp-batch-validation.png',
+        // 封面图: /images/blog-poster/birth-of-openmcp.png
         link: '/blog/birth-of-openmcp'
       },
       {
         id: 2,
-        title: 'v0.5.0 リリース：新しいUIと多言語サポート',
-        category: 'リリース',
-        categoryId: 'release',
-        date: '2024-03-10',
-        author: 'OpenMCP Team',
-        summary: 'このアップデートでは、中国語、英語、日本語をサポートする新しいユーザーインターフェースが導入されました。',
-        gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
-        image: '/images/blog-poster/latest-release.png',
-        icon: '✨',
-        link: '/blog/latest-release'
+        title: 'MCPサーバーのエレガントな開発（二）：OpenMCPチュートリアル',
+        category: '技術深掘り',
+        categoryId: 'tech',
+        date: '2025-05-27',
+        author: 'Kirigaya',
+        summary: 'シンプルなMCPサーバーの書き方を教え、LLMに天気予報の能力を与えます。',
+        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
+        image: '/images/blog-poster/birth-of-openmcp.png',
+        // 封面图: /images/blog-poster/openmcp-tutorial-2.png
+        link: '/blog/openmcp-tutorial-2'
       },
       {
         id: 3,
-        title: '技術選定の考察：なぜVSCodeを基盤として選んだのか',
-        category: '技術深掘り',
-        categoryId: 'tech',
-        date: '2024-02-28',
+        title: '知乎サークル「OpenMCP博物館」企画書',
+        category: '軌跡',
+        categoryId: 'journey',
+        date: '2025-05-28',
         author: 'Kirigaya',
-        summary: '技術選定時の私たちの考慮事項を深く掘り下げ、なぜVSCodeを選んだのか。',
-        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
-        image:'/images/blog-poster/tech-stack-choice.png',
-        icon: '🤔',
-        link: '/blog/tech-stack-choice'
+        summary: '知乎からの招待を受け、MCPトピックのサークルを設立します。',
+        gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
+        image: '/images/blog-poster/openmcp-tutorial-2.png',
+        // 封面图: /images/blog-poster/openmcp-museum.png
+        link: '/blog/openmcp-museum'
       },
       {
         id: 4,
-        title: '事例紹介：OpenMCPでAIワークフローを構築する',
-        category: '事例紹介',
-        categoryId: 'case',
-        date: '2024-02-20',
-        author: 'Community',
-        summary: 'OpenMCPを使用して完全なAIワークフローを構築した実際の事例。',
+        title: 'OpenMCP 0.1.9リリース！ツール自己診断機能',
+        category: 'リリース',
+        categoryId: 'release',
+        date: '2025-07-08',
+        author: 'Kirigaya',
+        summary: 'ツール自己診断機能により、MCP開発初期のすべてのツール実行を迅速に検証。',
+        gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
+        image: '/images/blog-poster/openmcp-museum.png',
+        // 封面图: /images/blog-poster/openmcp-0.1.9.png
+        link: '/blog/openmcp-0.1.9'
+      },
+      {
+        id: 5,
+        title: 'OpenMCPがコールチェーン可視化と四半期サマリーを発表',
+        category: 'リリース',
+        categoryId: 'release',
+        date: '2026-04-08',
+        author: 'Kirigaya',
+        summary: 'OpenMCPがコールチェーン可視化を導入し、ツール呼び出しを明確にします。',
+        gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
+        image: '/images/blog-poster/openmcp-0.1.9.png',
+        // 封面图: /images/blog-poster/openmcp-chain-visualization.png
+        link: '/blog/openmcp-chain-visualization'
+      },
+      {
+        id: 6,
+        title: 'なぜリフラックスシステムを設計したのか？OpenMCP Reflux',
+        category: '技術深掘り',
+        categoryId: 'tech',
+        date: '2026-04-24',
+        author: 'Kirigaya',
+        summary: '定量的指標とリフラックスシステムを使用して、Agentシステムをより深く理解します。',
+        gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
+        image: '/images/blog-poster/openmcp-chain-visualization.png',
+        // 封面图: /images/blog-poster/openmcp-reflux.png
+        link: '/blog/openmcp-reflux'
+      },
+      {
+        id: 7,
+        title: 'OpenMCP新機能：バッチ検証とDebugger MCP',
+        category: '技術深掘り',
+        categoryId: 'tech',
+        date: '2026-05-06',
+        author: 'Kirigaya',
+        summary: '自動化Agent開発のためのバッチ検証とDebugger MCP機能。',
         gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
-        image: '/images/blog-poster/case-study-1.png',
-        icon: '💡',
-        link: '/blog/case-study-1'
+        image: '/images/blog-poster/openmcp-reflux.png',
+        // 封面图: /images/blog-poster/openmcp-batch-validation.png
+        link: '/blog/openmcp-batch-validation'
       }
     ]
   };
-  return postsData[currentLang.value] || postsData.en;
+  const posts = postsData[currentLang.value] || postsData.en;
+  return [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 });
 
 const filteredPosts = computed(() => {
@@ -300,7 +416,7 @@ const filteredPosts = computed(() => {
   return allPosts.value.filter(post => post.categoryId === activeCategory.value);
 });
 function openPost(post: any) {
-  router.go(post.link);  // ✅ 客户端路由导航，丝滑切换
+  router.go(post.link);
 }
 </script>
 
