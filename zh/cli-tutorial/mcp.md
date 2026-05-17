@@ -7,23 +7,23 @@
 先启动 Gateway：
 
 ```bash
-openmcp-cli gateway start -p 8282
+omc gateway start -p 8282
 ```
 
 ## 典型流程
 
 ```bash
 # 1) 连接（返回 clientId）
-openmcp-cli mcp connect --config ./mcp-options.json
+omc mcp connect --config ./mcp-options.json
 
 # 2) 列工具
-openmcp-cli mcp tools-list --client-id <clientId>
+omc mcp tools-list --client-id <clientId>
 
 # 3) 调工具
-openmcp-cli mcp tools-call --client-id <clientId> --name <toolName> -a '{"key":"value"}'
+omc mcp tools-call --client-id <clientId> --name <toolName> -a '{"key":"value"}'
 
 # 4) 断开连接
-openmcp-cli mcp disconnect --client-id <clientId>
+omc mcp disconnect --client-id <clientId>
 ```
 
 ## 常见子命令

@@ -32,9 +32,6 @@ head:
 <!-- Templates Section - テンプレート紹介 -->
 <TemplatesSection />
 
-<!-- Pricing Section - 価格 -->
-<Pricing />
-
 <!-- FAQ Section - 対話式Q&A -->
 <ChatFAQ />
 

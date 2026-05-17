@@ -5,11 +5,11 @@
 ## 子命令
 
 ```bash
-openmcp-cli gateway run     # 前台运行
-openmcp-cli gateway start   # 后台启动
-openmcp-cli gateway stop    # 停止服务
-openmcp-cli gateway restart # 重启服务
-openmcp-cli gateway status  # 查看状态
+omc gateway run     # 前台运行
+omc gateway start   # 后台启动
+omc gateway stop    # 停止服务
+omc gateway restart # 重启服务
+omc gateway status  # 查看状态
 ```
 
 常用参数：
@@ -19,9 +19,9 @@ openmcp-cli gateway status  # 查看状态
 ## 示例
 
 ```bash
-openmcp-cli gateway start -p 8282
-openmcp-cli gateway status -p 8282
-openmcp-cli gateway stop -p 8282
+omc gateway start -p 8282
+omc gateway status -p 8282
+omc gateway stop -p 8282
 ```
 
 ## 状态/停止健壮性

@@ -184,7 +184,6 @@ export default {
                     { text: 'Task Loop Control', link: '/sdk-tutorial/usage/task-loop' },
                     { text: 'Connect Multiple MCP Servers', link: '/sdk-tutorial/usage/multi-server' },
                     { text: 'Advance Control', link: '/sdk-tutorial/usage/advance-control' },
-                    { text: 'Reflux', link: '/sdk-tutorial/usage/reflux' },
                     { text: 'Human-in-the-Loop (HIL)', link: '/sdk-tutorial/usage/hil' },
                 ]
             }

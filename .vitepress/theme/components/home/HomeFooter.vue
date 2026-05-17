@@ -12,7 +12,6 @@
           <ul>
             <li><a :href="t.product.features.link">{{ t.product.features.text }}</a></li>
             <li><a :href="t.product.templates.link">{{ t.product.templates.text }}</a></li>
-            <li><a :href="t.product.pricing.link">{{ t.product.pricing.text }}</a></li>
           </ul>
         </div>
         
@@ -63,7 +62,6 @@ const content = {
       title: 'Product',
       features: { text: 'Features', link: '/#features' },
       templates: { text: 'Templates', link: '/#templates' },
-      pricing: { text: 'Pricing', link: '/pricing/' }
     },
     resources: {
       title: 'Resources',
@@ -84,7 +82,6 @@ const content = {
       title: '产品',
       features: { text: '功能特性', link: '/zh/#features' },
       templates: { text: '模板', link: '/zh/#templates' },
-      pricing: { text: '定价', link: '/zh/pricing/' }
     },
     resources: {
       title: '资源',
@@ -105,7 +102,6 @@ const content = {
       title: '製品',
       features: { text: '機能', link: '/ja/#features' },
       templates: { text: 'テンプレート', link: '/ja/#templates' },
-      pricing: { text: '料金', link: '/ja/pricing/' }
     },
     resources: {
       title: 'リソース',

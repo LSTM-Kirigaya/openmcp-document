@@ -1,5 +1,0 @@
----
-pageClass: pricing-content
----
-
-<PricingPage />

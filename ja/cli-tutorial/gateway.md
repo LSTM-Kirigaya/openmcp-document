@@ -1,11 +1,11 @@
 # `gateway` Command
 
 ```bash
-openmcp-cli gateway run
-openmcp-cli gateway start
-openmcp-cli gateway stop
-openmcp-cli gateway restart
-openmcp-cli gateway status
+omc gateway run
+omc gateway start
+omc gateway stop
+omc gateway restart
+omc gateway status
 ```
 
 Common option:

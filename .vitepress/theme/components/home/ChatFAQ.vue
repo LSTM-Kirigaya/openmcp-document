@@ -56,11 +56,11 @@ const content = {
       },
       {
         q: 'How do I get started?',
-        a: 'You can get started by installing OpenMCP via npm: <code>npm install -g openmcp</code>. Then run <code>openmcp</code> to launch the application. Check out our <a href="/guide/">Quick Start Guide</a> for detailed instructions.'
+        a: 'You can get started by installing OpenMCP via npm: <code>npm install -g @agent-ruler/openmcp</code>. Then run <code>omc</code> to launch the application. Check out our <a href="/guide/">Quick Start Guide</a> for detailed instructions.'
       },
       {
         q: 'Is OpenMCP free to use?',
-        a: 'Yes! OpenMCP is completely free and open-source under the MIT license. You can use it for personal projects, commercial applications, and contribute to its development. <strong>Cloud storage and features that consume additional server resources may require a subscription fee.</strong>'
+        a: 'Yes! OpenMCP is completely free and open-source under the MIT license. You can use it for personal projects, commercial applications, and contribute to its development.'
       },
       {
         q: 'What programming languages are supported?',
@@ -82,11 +82,11 @@ const content = {
       },
       {
         q: '如何开始使用 OpenMCP？',
-        a: '您可以通过 npm 安装 OpenMCP：<code>npm install -g openmcp</code>。然后运行 <code>openmcp</code> 启动应用。查看我们的<a href="/zh/guide/">快速入门指南</a>获取详细说明。'
+        a: '您可以通过 npm 安装 OpenMCP：<code>npm install -g @agent-ruler/openmcp</code>。然后运行 <code>omc</code> 启动应用。查看我们的<a href="/zh/guide/">快速入门指南</a>获取详细说明。'
       },
       {
         q: 'OpenMCP 是免费的吗？',
-        a: '是的！OpenMCP 在 MIT 许可下完全免费且开源。您可以将其用于个人项目、商业应用，并贡献代码。<strong>云端存储和消耗额外服务器资源的功能可能需要支付订阅费用。</strong>'
+        a: '是的！OpenMCP 在 MIT 许可下完全免费且开源。您可以将其用于个人项目、商业应用，并贡献代码。'
       },
       {
         q: '支持哪些编程语言？',
@@ -108,11 +108,11 @@ const content = {
       },
       {
         q: 'OpenMCP の使い方は？',
-        a: 'npm で OpenMCP をインストールできます：<code>npm install -g openmcp</code>。その後 <code>openmcp</code> を実行してアプリを起動します。詳細な説明は<a href="/ja/guide/">クイックスタートガイド</a>をご覧ください。'
+        a: 'npm で OpenMCP をインストールできます：<code>npm install -g @agent-ruler/openmcp</code>。その後 <code>omc</code> を実行してアプリを起動します。詳細な説明は<a href="/ja/guide/">クイックスタートガイド</a>をご覧ください。'
       },
       {
         q: 'OpenMCP は無料ですか？',
-        a: 'はい！OpenMCPはMITライセンスの下で完全に無料かつオープンソースです。個人プロジェクト、商用アプリケーションに使用でき、コードに貢献することもできます。<strong>クラウドストレージや追加のサーバーリソースを消費する機能については、サブスクリプション料金が必要になる場合があります。</strong>'
+        a: 'はい！OpenMCPはMITライセンスの下で完全に無料かつオープンソースです。個人プロジェクト、商用アプリケーションに使用でき、コードに貢献することもできます。'
       },
       {
         q: 'どのプログラミング言語がサポートされていますか？',

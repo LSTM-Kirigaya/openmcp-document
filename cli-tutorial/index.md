@@ -10,14 +10,14 @@ OpenMCP CLI is focused on three top-level command groups:
 
 ```bash
 # 1) Start Gateway first
-openmcp-cli gateway start -p 8282
+omc gateway start -p 8282
 
 # 2) Start Web UI (default static hosting mode)
-openmcp-cli webui start -p 8283 -g 8282
+omc webui start -p 8283 -g 8282
 
 # 3) Check status
-openmcp-cli gateway status -p 8282
-openmcp-cli webui status -p 8283 -g 8282
+omc gateway status -p 8282
+omc webui status -p 8283 -g 8282
 ```
 
 ## Key Behavior Changes

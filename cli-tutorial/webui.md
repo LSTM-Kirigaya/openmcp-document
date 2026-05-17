@@ -4,7 +4,7 @@
 
 ## Important Rules
 
-- `openmcp-cli webui` without subcommand only shows help.
+- `omc webui` without subcommand only shows help.
 - Valid subcommands: `run`, `start`, `status`, `stop`.
 - `webui` no longer auto-starts or auto-stops `gateway`.
 - Before starting, CLI checks Gateway reachability by WebSocket handshake (`ws://localhost:<gateway-port>`).
@@ -19,16 +19,16 @@
 
 ```bash
 # foreground
-openmcp-cli webui run -p 8283 -g 8282
+omc webui run -p 8283 -g 8282
 
 # background
-openmcp-cli webui start -p 8283 -g 8282
+omc webui start -p 8283 -g 8282
 
 # status
-openmcp-cli webui status -p 8283 -g 8282
+omc webui status -p 8283 -g 8282
 
 # stop
-openmcp-cli webui stop -p 8283
+omc webui stop -p 8283
 ```
 
 Options:

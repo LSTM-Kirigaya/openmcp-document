@@ -184,7 +184,6 @@ export default {
                     { text: '任务循环的控制', link: '/zh/sdk-tutorial/usage/task-loop' },
                     { text: '连接多个 MCP 服务器', link: '/zh/sdk-tutorial/usage/multi-server' },
                     { text: '高级控制', link: '/zh/sdk-tutorial/usage/advance-control' },
-                    { text: '数据回流', link: '/zh/sdk-tutorial/usage/reflux' },
                     { text: '人机交互', link: '/zh/sdk-tutorial/usage/hil' },
                 ]
             }

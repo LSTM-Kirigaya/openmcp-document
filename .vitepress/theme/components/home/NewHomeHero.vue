@@ -10,7 +10,7 @@
     <div class="hero-content">
       <!-- Badge -->
       <div class="hero-badge">
-        <span class="badge-text">🚀 {{ t.badge }}</span>
+        <span class="badge-text">🚀 <span v-html="t.badge"></span></span>
       </div>
 
       <!-- 标题 -->
@@ -82,7 +82,7 @@ const { lang } = useData();
 // 多语言内容
 const content = {
   zh: {
-    badge: 'MCP 开发与调试一体化平台',
+    badge: '我们发布了 <a href="https://agent-ruler.com/" target="_blank" style="text-decoration: underline; color: inherit;">AgentRuler</a>，一站式智能体评估平台，欢迎体验 👏',
     subtitle: 'MCP 开发与调试一体化平台',
     description: '为开发者提供完整的 MCP Server 调试工具链，结合 VSCode 插件与 SDK，<br>让 AI Agent 开发更简单、更高效。',
     copy: '复制',
@@ -90,16 +90,18 @@ const content = {
     scrollHint: '向下滚动了解更多',
     tabs: {
       cli: '安装 CLI',
-      sdk: '安装 SDK'
+      sdk: '安装 SDK',
+      vscode: '安装 VS Code 插件'
     },
     features: [
+      { icon: '💎', text: '永远开源免费' },
       { icon: '🔧', text: '一体化调试' },
       { icon: '🚀', text: '快速部署' },
       { icon: '🎯', text: '多模型支持' }
     ]
   },
   en: {
-    badge: 'All you need for MCP Development',
+    badge: 'We launched <a href="https://agent-ruler.com/" target="_blank" style="text-decoration: underline; color: inherit;">AgentRuler</a>, an all-in-one agent evaluation platform. Try it out 👏',
     subtitle: 'MCP Development & Debugging Platform',
     description: 'Complete MCP Server debugging toolchain for developers,<br>combining VSCode plugin with SDK for simpler AI Agent development.',
     copy: 'Copy',
@@ -107,16 +109,18 @@ const content = {
     scrollHint: 'Scroll down to learn more',
     tabs: {
       cli: 'Install CLI',
-      sdk: 'Install SDK'
+      sdk: 'Install SDK',
+      vscode: 'Install VS Code Extension'
     },
     features: [
+      { icon: '💎', text: 'Forever Free & Open Source' },
       { icon: '🔧', text: 'Integrated Debugging' },
       { icon: '🚀', text: 'Fast Deployment' },
       { icon: '🎯', text: 'Multi-Model Support' }
     ]
   },
   ja: {
-    badge: 'MCP開発に必要なものすべて',
+    badge: '<a href="https://agent-ruler.com/" target="_blank" style="text-decoration: underline; color: inherit;">AgentRuler</a> をリリースしました。オールインワンのエージェント評価プラットフォームです。ぜひお試しください 👏',
     subtitle: 'MCP開発・デバッグプラットフォーム',
     description: '開発者向けの完全なMCP Serverデバッグツールチェーン。<br>VSCodeプラグインとSDKを組み合わせ、AI Agent開発をより簡単に。',
     copy: 'コピー',
@@ -124,9 +128,11 @@ const content = {
     scrollHint: '下にスクロールして詳細を見る',
     tabs: {
       cli: 'CLIをインストール',
-      sdk: 'SDKをインストール'
+      sdk: 'SDKをインストール',
+      vscode: 'VS Code拡張機能をインストール'
     },
     features: [
+      { icon: '💎', text: '永遠に無料・オープンソース' },
       { icon: '🔧', text: '統合デバッグ' },
       { icon: '🚀', text: '高速デプロイ' },
       { icon: '🎯', text: 'マルチモデル対応' }
@@ -148,8 +154,9 @@ const activeTab = ref('cli');
 const copied = ref(false);
 
 const tabs = computed(() => [
-  { id: 'cli', label: t.value.tabs.cli, code: 'npm install -g openmcp-cli' },
+  { id: 'cli', label: t.value.tabs.cli, code: 'npm install -g @agent-ruler/openmcp' },
   { id: 'sdk', label: t.value.tabs.sdk, code: 'npm install openmcp-sdk' },
+  { id: 'vscode', label: t.value.tabs.vscode, code: 'code --install-extension kirigaya.openmcp' },
 ]);
 
 const currentCode = computed(() => {
@@ -296,6 +303,8 @@ const copyCode = async () => {
 .install-tabs {
   display: flex;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .tab-btn {
@@ -308,6 +317,8 @@ const copyCode = async () => {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tab-btn:hover {

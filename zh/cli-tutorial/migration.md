@@ -4,7 +4,7 @@
 
 ## Web 命令变更
 
-- `openmcp-cli webui` 必须带子命令；不带时仅显示帮助。
+- `omc webui` 必须带子命令；不带时仅显示帮助。
 - 子命令固定为：`run`、`start`、`status`、`stop`。
 - `webui` 与 `gateway` 解耦，不再自动启动/停止 gateway。
 - 启动前会先做 Gateway WebSocket 握手可达性检查。

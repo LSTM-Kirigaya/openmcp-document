@@ -10,14 +10,14 @@ OpenMCP CLI 当前聚焦三个顶层命令：
 
 ```bash
 # 1) 先启动 Gateway
-openmcp-cli gateway start -p 8282
+omc gateway start -p 8282
 
 # 2) 启动 Web UI（默认静态托管模式）
-openmcp-cli webui start -p 8283 -g 8282
+omc webui start -p 8283 -g 8282
 
 # 3) 查看状态
-openmcp-cli gateway status -p 8282
-openmcp-cli webui status -p 8283 -g 8282
+omc gateway status -p 8282
+omc webui status -p 8283 -g 8282
 ```
 
 ## 关键变更

@@ -5,11 +5,11 @@ Use `gateway` to manage the OpenMCP Gateway service.
 ## Subcommands
 
 ```bash
-openmcp-cli gateway run     # foreground
-openmcp-cli gateway start   # background
-openmcp-cli gateway stop    # stop service
-openmcp-cli gateway restart # restart service
-openmcp-cli gateway status  # check status
+omc gateway run     # foreground
+omc gateway start   # background
+omc gateway stop    # stop service
+omc gateway restart # restart service
+omc gateway status  # check status
 ```
 
 Common option:
@@ -19,9 +19,9 @@ Common option:
 ## Examples
 
 ```bash
-openmcp-cli gateway start -p 8282
-openmcp-cli gateway status -p 8282
-openmcp-cli gateway stop -p 8282
+omc gateway start -p 8282
+omc gateway status -p 8282
+omc gateway stop -p 8282
 ```
 
 ## Status & Stop Robustness

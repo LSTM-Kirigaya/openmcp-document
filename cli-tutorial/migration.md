@@ -4,7 +4,7 @@ This page summarizes behavior changes from old CLI behavior to current behavior.
 
 ## Web Command Changes
 
-- `openmcp-cli webui` now requires a subcommand and only shows help without one.
+- `omc webui` now requires a subcommand and only shows help without one.
 - Available subcommands: `run`, `start`, `status`, `stop`.
 - `webui` is decoupled from `gateway` (no auto start/stop).
 - Startup checks Gateway via WebSocket handshake first.

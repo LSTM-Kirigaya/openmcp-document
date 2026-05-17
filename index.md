@@ -32,9 +32,6 @@ head:
 <!-- Templates Section - Template Showcase -->
 <TemplatesSection />
 
-<!-- Pricing Section -->
-<Pricing />
-
 <!-- FAQ Section -->
 <ChatFAQ />
 

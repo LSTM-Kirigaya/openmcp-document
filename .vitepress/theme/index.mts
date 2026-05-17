@@ -12,8 +12,6 @@ import NewHomeHero from './components/home/NewHomeHero.vue';
 import FeatureShowcase from './components/home/FeatureShowcase.vue';
 import ChatFAQ from './components/home/ChatFAQ.vue';
 import HomeFooter from './components/home/HomeFooter.vue';
-import Pricing from './components/home/Pricing.vue';
-import PricingPage from './components/home/PricingPage.vue';
 import SectionHeader from './components/home/SectionHeader.vue';
 import AudienceSection from './components/home/AudienceSection.vue';
 import TemplatesSection from './components/home/TemplatesSection.vue';
@@ -52,8 +50,6 @@ export default {
 		app.component('FeatureShowcase', FeatureShowcase);
 		app.component('ChatFAQ', ChatFAQ);
 		app.component('HomeFooter', HomeFooter);
-		app.component('Pricing', Pricing);
-		app.component('PricingPage', PricingPage);
 		app.component('SectionHeader', SectionHeader);
 		app.component('AudienceSection', AudienceSection);
 		app.component('TemplatesSection', TemplatesSection);

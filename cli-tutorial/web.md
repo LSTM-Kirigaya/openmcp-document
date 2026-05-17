@@ -7,5 +7,5 @@
 对应示例：
 
 ```bash
-openmcp-cli webui start -p 8283 -g 8282
+omc webui start -p 8283 -g 8282
 ```

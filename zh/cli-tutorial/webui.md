@@ -4,7 +4,7 @@
 
 ## 重要规则
 
-- `openmcp-cli webui` 不带子命令时只显示帮助。
+- `omc webui` 不带子命令时只显示帮助。
 - 有效子命令：`run`、`start`、`status`、`stop`。
 - `webui` 不再自动启动/停止 `gateway`。
 - 启动前会先做 Gateway WebSocket 握手检查（`ws://localhost:<gateway-port>`）。
@@ -19,16 +19,16 @@
 
 ```bash
 # 前台运行
-openmcp-cli webui run -p 8283 -g 8282
+omc webui run -p 8283 -g 8282
 
 # 后台运行
-openmcp-cli webui start -p 8283 -g 8282
+omc webui start -p 8283 -g 8282
 
 # 查看状态
-openmcp-cli webui status -p 8283 -g 8282
+omc webui status -p 8283 -g 8282
 
 # 停止
-openmcp-cli webui stop -p 8283
+omc webui stop -p 8283
 ```
 
 参数说明：

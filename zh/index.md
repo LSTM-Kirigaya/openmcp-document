@@ -32,9 +32,6 @@ head:
 <!-- Templates Section - 模板展示 -->
 <TemplatesSection />
 
-<!-- Pricing Section - 定价 -->
-<Pricing />
-
 <!-- FAQ Section - 对话式问答 -->
 <ChatFAQ />
 

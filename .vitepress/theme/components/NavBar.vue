@@ -10,9 +10,9 @@
       <div class="nav-right">
         <!-- 首页导航 -->
         <template v-if="!isDocPage">
+          <a :href="nav.home.link" class="nav-link" :class="{ active: isActive(nav.home.link) }">{{ nav.home.text }}</a>
           <a :href="nav.docs.link" class="nav-link" :class="{ active: isActive(nav.docs.link) }">{{ nav.docs.text }}</a>
           <a :href="nav.quickStart.link" class="nav-link" :class="{ active: isActive(nav.quickStart.link) }">{{ nav.quickStart.text }}</a>
-          <a :href="nav.pricing.link" class="nav-link" :class="{ active: isActive(nav.pricing.link) }">{{ nav.pricing.text }}</a>
           <a :href="nav.blog.link" class="nav-link" :class="{ active: isActive(nav.blog.link) }">{{ nav.blog.text }}</a>
         </template>
         
@@ -133,10 +133,10 @@ const isDocPage = computed(() => {
 const content = {
   zh: {
     nav: {
+      home: { text: '首页', link: '/zh/' },
       docs: { text: '文档', link: '/zh/plugin-tutorial/' },
       quickStart: { text: '快速开始', link: '/zh/plugin-tutorial/quick-start/' },
-      pricing: { text: '定价', link: '/zh/pricing' },
-      blog: { text: '博客', link: '/zh/blog' }
+      blog: { text: '博客', link: 'https://kirigaya.cn/blog/article?seq=308' }
     },
     homeLink: '/zh/',
     docNav: {
@@ -172,10 +172,10 @@ const content = {
   },
   en: {
     nav: {
+      home: { text: 'Home', link: '/' },
       docs: { text: 'Docs', link: '/plugin-tutorial/' },
       quickStart: { text: 'Quick Start', link: '/plugin-tutorial/quick-start/' },
-      pricing: { text: 'Pricing', link: '/pricing' },
-      blog: { text: 'Blog', link: '/blog' }
+      blog: { text: 'Blog', link: 'https://kirigaya.cn/blog/article?seq=308' }
     },
     homeLink: '/',
     docNav: {
@@ -211,10 +211,10 @@ const content = {
   },
   ja: {
     nav: {
+      home: { text: 'ホーム', link: '/ja/' },
       docs: { text: 'ドキュメント', link: '/ja/plugin-tutorial/' },
       quickStart: { text: 'クイックスタート', link: '/ja/plugin-tutorial/quick-start/' },
-      pricing: { text: '料金', link: '/ja/pricing' },
-      blog: { text: 'ブログ', link: '/ja/blog' }
+      blog: { text: 'ブログ', link: 'https://kirigaya.cn/blog/article?seq=308' }
     },
     homeLink: '/ja/',
     docNav: {

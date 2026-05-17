@@ -45,9 +45,6 @@ export default withMermaid({
                     'index.md',
                     'zh/index.md',
                     'ja/index.md',
-                    'pricing.md',
-                    'zh/pricing.md',
-                    'ja/pricing.md',
                     'blog.md',
                     'zh/blog.md',
                     'ja/blog.md'
