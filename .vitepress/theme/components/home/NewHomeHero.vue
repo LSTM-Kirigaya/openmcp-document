@@ -35,20 +35,26 @@
           </button>
         </div>
         <div class="install-code">
-          <div class="code-content">
-            <span class="code-prompt">$</span>
-            <code class="code-text">{{ currentCode }}</code>
+          <div v-if="activeTab === 'vscode'" class="code-content hint-text">
+            <span class="hint-icon">🔍</span>
+            <span class="hint-label">{{ currentCode }}</span>
           </div>
-          <button class="copy-btn" @click="copyCode" :class="{ copied: copied }">
-            <svg v-if="!copied" class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-            <svg v-else class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span class="copy-text">{{ copied ? t.copied : t.copy }}</span>
-          </button>
+          <template v-else>
+            <div class="code-content">
+              <span class="code-prompt">$</span>
+              <code class="code-text">{{ currentCode }}</code>
+            </div>
+            <button class="copy-btn" @click="copyCode" :class="{ copied: copied }">
+              <svg v-if="!copied" class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              <svg v-else class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span class="copy-text">{{ copied ? t.copied : t.copy }}</span>
+            </button>
+          </template>
         </div>
       </div>
 
@@ -88,6 +94,7 @@ const content = {
     copy: '复制',
     copied: '已复制',
     scrollHint: '向下滚动了解更多',
+    vscodeHint: '在 VS Code / Trae 插件商城搜索「openmcp」安装',
     tabs: {
       cli: '安装 CLI',
       sdk: '安装 SDK',
@@ -107,6 +114,7 @@ const content = {
     copy: 'Copy',
     copied: 'Copied',
     scrollHint: 'Scroll down to learn more',
+    vscodeHint: 'Search for "openmcp" in the VS Code / Trae extension marketplace',
     tabs: {
       cli: 'Install CLI',
       sdk: 'Install SDK',
@@ -126,6 +134,7 @@ const content = {
     copy: 'コピー',
     copied: 'コピー済み',
     scrollHint: '下にスクロールして詳細を見る',
+    vscodeHint: 'VS Code / Trae の拡張機能マーケットプレイスで「openmcp」を検索してインストール',
     tabs: {
       cli: 'CLIをインストール',
       sdk: 'SDKをインストール',
@@ -156,7 +165,7 @@ const copied = ref(false);
 const tabs = computed(() => [
   { id: 'cli', label: t.value.tabs.cli, code: 'npm install -g @agent-ruler/openmcp' },
   { id: 'sdk', label: t.value.tabs.sdk, code: 'npm install openmcp-sdk' },
-  { id: 'vscode', label: t.value.tabs.vscode, code: 'code --install-extension kirigaya.openmcp' },
+  { id: 'vscode', label: t.value.tabs.vscode, code: t.value.vscodeHint },
 ]);
 
 const currentCode = computed(() => {
@@ -356,6 +365,20 @@ const copyCode = async () => {
 .code-text {
   color: #e2e8f0;
   font-weight: 500;
+}
+
+.hint-text {
+  font-family: inherit;
+  gap: 0.5rem;
+}
+
+.hint-icon {
+  font-size: 1.1rem;
+}
+
+.hint-label {
+  color: #94a3b8;
+  font-size: 0.95rem;
 }
 
 .copy-btn {

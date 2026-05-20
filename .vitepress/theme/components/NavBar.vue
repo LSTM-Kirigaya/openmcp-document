@@ -136,7 +136,7 @@ const content = {
       home: { text: '首页', link: '/zh/' },
       docs: { text: '文档', link: '/zh/plugin-tutorial/' },
       quickStart: { text: '快速开始', link: '/zh/plugin-tutorial/quick-start/' },
-      blog: { text: '博客', link: 'https://kirigaya.cn/blog/article?seq=308' }
+      blog: { text: '博客', link: '/blog' }
     },
     homeLink: '/zh/',
     docNav: {
@@ -175,7 +175,7 @@ const content = {
       home: { text: 'Home', link: '/' },
       docs: { text: 'Docs', link: '/plugin-tutorial/' },
       quickStart: { text: 'Quick Start', link: '/plugin-tutorial/quick-start/' },
-      blog: { text: 'Blog', link: 'https://kirigaya.cn/blog/article?seq=308' }
+      blog: { text: 'Blog', link: '/blog' }
     },
     homeLink: '/',
     docNav: {
@@ -214,7 +214,7 @@ const content = {
       home: { text: 'ホーム', link: '/ja/' },
       docs: { text: 'ドキュメント', link: '/ja/plugin-tutorial/' },
       quickStart: { text: 'クイックスタート', link: '/ja/plugin-tutorial/quick-start/' },
-      blog: { text: 'ブログ', link: 'https://kirigaya.cn/blog/article?seq=308' }
+      blog: { text: 'ブログ', link: '/blog' }
     },
     homeLink: '/ja/',
     docNav: {
