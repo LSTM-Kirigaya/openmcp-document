@@ -136,7 +136,7 @@ const content = {
       home: { text: '首页', link: '/zh/' },
       docs: { text: '文档', link: '/zh/plugin-tutorial/' },
       quickStart: { text: '快速开始', link: '/zh/plugin-tutorial/quick-start/' },
-      blog: { text: '博客', link: '/blog' }
+      blog: { text: '博客', link: '/zh/blog' }
     },
     homeLink: '/zh/',
     docNav: {
@@ -214,7 +214,7 @@ const content = {
       home: { text: 'ホーム', link: '/ja/' },
       docs: { text: 'ドキュメント', link: '/ja/plugin-tutorial/' },
       quickStart: { text: 'クイックスタート', link: '/ja/plugin-tutorial/quick-start/' },
-      blog: { text: 'ブログ', link: '/blog' }
+      blog: { text: 'ブログ', link: '/ja/blog' }
     },
     homeLink: '/ja/',
     docNav: {

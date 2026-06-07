@@ -90,7 +90,7 @@ const content = {
   zh: {
     badge: '我们发布了 <a href="https://agent-ruler.com/" target="_blank" style="text-decoration: underline; color: inherit;">AgentRuler</a>，一站式智能体评估平台，欢迎体验 👏',
     subtitle: 'MCP 开发与调试一体化平台',
-    description: '为开发者提供完整的 MCP Server 调试工具链，结合 VSCode 插件与 SDK，<br>让 AI Agent 开发更简单、更高效。',
+    description: '为开发者提供完整的 MCP Server 调试工具链，<br>让 AI Agent 开发更简单、更高效。',
     copy: '复制',
     copied: '已复制',
     scrollHint: '向下滚动了解更多',

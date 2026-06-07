@@ -50,10 +50,9 @@ const content = {
       debug: [
         'Real-time debugging',
         'Multi-server support',
-        'One-click reproduction',
-        'Performance metrics',
+        'LaaJ automated testing',
         'Git version control',
-        'Tool inspection'
+        'Tool call chain visualization'
       ],
       chat: [
         'Multi-model support',
@@ -75,7 +74,6 @@ const content = {
   },
   zh: {
     title: '保持高效，管理你的 MCP',
-    subtitle: '无需离开编辑器',
     tabs: {
       debug: '调试面板',
       chat: '对话界面',
@@ -85,10 +83,9 @@ const content = {
       debug: [
         '实时调试',
         '多服务器支持',
-        '一键复现',
-        '性能指标',
+        'LaaJ 自动化测试',
         'Git 版本控制',
-        '工具检查'
+        '工具调用链可视化'
       ],
       chat: [
         '多模型支持',
@@ -120,10 +117,9 @@ const content = {
       debug: [
         'リアルタイムデバッグ',
         'マルチサーバー対応',
-        'ワンクリック再現',
-        'パフォーマンス指標',
+        'LaaJ自動テスト',
         'Gitバージョン管理',
-        'ツール検査'
+        'ツール呼び出しチェーンの可視化'
       ],
       chat: [
         'マルチモデル対応',

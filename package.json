@@ -6,7 +6,9 @@
         "postbuild": "node scripts/move-image.mjs",
         "preview": "vitepress preview",
         "generate-icons": "node scripts/generate-icons.mjs",
-        "icons": "npm run generate-icons"
+        "icons": "npm run generate-icons",
+        "compress-images": "node scripts/compress-images.mjs",
+        "compress-images:clean": "node scripts/compress-images.mjs --delete-original"
     },
     "dependencies": {
         "element-plus": "^2.9.11",

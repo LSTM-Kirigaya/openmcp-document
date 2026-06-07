@@ -136,7 +136,7 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'OpenMCP 的第一个测试版本终于发布了，目前可以在 Vscode 或者 Trae 的插件商城下载。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: '/images/blog-poster/birth-of-openmcp.png',
+        image: '/images/blog-poster/birth-of-openmcp.webp',
         link: '/blog/birth-of-openmcp'
       },
       {
@@ -148,8 +148,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '教大家写一个简单的 MCP 服务器，让大模型拥有得知天气预报的能力，基于 OpenMCP 进行开发调试。',
         gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
-        image: '/images/blog-poster/birth-of-openmcp.png',
-        // 封面图: /images/blog-poster/openmcp-tutorial-2.png
+        image: '/images/blog-poster/birth-of-openmcp.webp',
+        // 封面图: /images/blog-poster/openmcp-tutorial-2.webp
         link: '/blog/openmcp-tutorial-2'
       },
       {
@@ -161,8 +161,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '收到知乎的邀请，成立一个有关 MCP 话题的「知乎圈子」，记录圈子的一些规则和想法。',
         gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
-        image: '/images/blog-poster/openmcp-tutorial-2.png',
-        // 封面图: /images/blog-poster/openmcp-museum.png
+        image: '/images/blog-poster/openmcp-tutorial-2.webp',
+        // 封面图: /images/blog-poster/openmcp-museum.webp
         link: '/blog/openmcp-museum'
       },
       {
@@ -174,8 +174,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '工具自检功能可以在 MCP 开发初期快速完成所有 tool 的执行验证，加速 MCP 的开发和上线。',
         gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
-        image: '/images/blog-poster/openmcp-museum.png',
-        // 封面图: /images/blog-poster/openmcp-0.1.9.png
+        image: '/images/blog-poster/openmcp-museum.webp',
+        // 封面图: /images/blog-poster/openmcp-0.1.9.webp
         link: '/blog/openmcp-0.1.9'
       },
       {
@@ -187,8 +187,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'OpenMCP 推出调用链可视化功能，让 MCP 服务器的工具调用过程一目了然。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: '/images/blog-poster/openmcp-0.1.9.png',
-        // 封面图: /images/blog-poster/openmcp-chain-visualization.png
+        image: '/images/blog-poster/openmcp-0.1.9.webp',
+        // 封面图: /images/blog-poster/openmcp-chain-visualization.webp
         link: '/blog/openmcp-chain-visualization'
       },
       {
@@ -200,8 +200,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '通过量化指标和回流系统，帮助开发者更好地理解和优化 Agent 系统与 MCP 的性能。',
         gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
-        image: '/images/blog-poster/openmcp-chain-visualization.png',
-        // 封面图: /images/blog-poster/openmcp-reflux.png
+        image: '/images/blog-poster/openmcp-chain-visualization.webp',
+        // 封面图: /images/blog-poster/openmcp-reflux.webp
         link: '/blog/openmcp-reflux'
       },
       {
@@ -213,8 +213,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '批量验证与 Debugger MCP 功能，助力自动化 Agent 开发，让迭代过程更加可控。',
         gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
-        image: '/images/blog-poster/openmcp-reflux.png',
-        // 封面图: /images/blog-poster/openmcp-batch-validation.png
+        image: '/images/blog-poster/openmcp-reflux.webp',
+        // 封面图: /images/blog-poster/openmcp-batch-validation.webp
         link: '/blog/openmcp-batch-validation'
       }
     ],
@@ -228,8 +228,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'The first test version of OpenMCP is finally released, available on VSCode and Trae plugin marketplace.',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: '/images/blog-poster/openmcp-batch-validation.png',
-        // 封面图: /images/blog-poster/birth-of-openmcp.png
+        image: '/images/blog-poster/openmcp-batch-validation.webp',
+        // 封面图: /images/blog-poster/birth-of-openmcp.webp
         link: '/blog/birth-of-openmcp'
       },
       {
@@ -241,8 +241,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'Teach you how to write a simple MCP server to give LLM weather forecast capabilities.',
         gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
-        image: '/images/blog-poster/birth-of-openmcp.png',
-        // 封面图: /images/blog-poster/openmcp-tutorial-2.png
+        image: '/images/blog-poster/birth-of-openmcp.webp',
+        // 封面图: /images/blog-poster/openmcp-tutorial-2.webp
         link: '/blog/openmcp-tutorial-2'
       },
       {
@@ -254,8 +254,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'Invited by Zhihu to create a circle about MCP topics, recording the rules and ideas.',
         gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
-        image: '/images/blog-poster/openmcp-tutorial-2.png',
-        // 封面图: /images/blog-poster/openmcp-museum.png
+        image: '/images/blog-poster/openmcp-tutorial-2.webp',
+        // 封面图: /images/blog-poster/openmcp-museum.webp
         link: '/blog/openmcp-museum'
       },
       {
@@ -267,8 +267,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'Tool self-check feature can quickly verify all tool executions in early MCP development.',
         gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
-        image: '/images/blog-poster/openmcp-museum.png',
-        // 封面图: /images/blog-poster/openmcp-0.1.9.png
+        image: '/images/blog-poster/openmcp-museum.webp',
+        // 封面图: /images/blog-poster/openmcp-0.1.9.webp
         link: '/blog/openmcp-0.1.9'
       },
       {
@@ -280,8 +280,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'OpenMCP introduces call chain visualization, making tool invocation transparent.',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: '/images/blog-poster/openmcp-0.1.9.png',
-        // 封面图: /images/blog-poster/openmcp-chain-visualization.png
+        image: '/images/blog-poster/openmcp-0.1.9.webp',
+        // 封面图: /images/blog-poster/openmcp-chain-visualization.webp
         link: '/blog/openmcp-chain-visualization'
       },
       {
@@ -293,8 +293,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'Use quantitative metrics and reflux system to better understand Agent systems.',
         gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
-        image: '/images/blog-poster/openmcp-chain-visualization.png',
-        // 封面图: /images/blog-poster/openmcp-reflux.png
+        image: '/images/blog-poster/openmcp-chain-visualization.webp',
+        // 封面图: /images/blog-poster/openmcp-reflux.webp
         link: '/blog/openmcp-reflux'
       },
       {
@@ -306,8 +306,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'Batch validation and Debugger MCP features for automated Agent development.',
         gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
-        image: '/images/blog-poster/openmcp-reflux.png',
-        // 封面图: /images/blog-poster/openmcp-batch-validation.png
+        image: '/images/blog-poster/openmcp-reflux.webp',
+        // 封面图: /images/blog-poster/openmcp-batch-validation.webp
         link: '/blog/openmcp-batch-validation'
       }
     ],
@@ -321,8 +321,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'OpenMCPの最初のテストバージョンがリリースされ、VSCodeとTraeのプラグインマーケットでダウンロード可能。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: '/images/blog-poster/openmcp-batch-validation.png',
-        // 封面图: /images/blog-poster/birth-of-openmcp.png
+        image: '/images/blog-poster/openmcp-batch-validation.webp',
+        // 封面图: /images/blog-poster/birth-of-openmcp.webp
         link: '/blog/birth-of-openmcp'
       },
       {
@@ -334,8 +334,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'シンプルなMCPサーバーの書き方を教え、LLMに天気予報の能力を与えます。',
         gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
-        image: '/images/blog-poster/birth-of-openmcp.png',
-        // 封面图: /images/blog-poster/openmcp-tutorial-2.png
+        image: '/images/blog-poster/birth-of-openmcp.webp',
+        // 封面图: /images/blog-poster/openmcp-tutorial-2.webp
         link: '/blog/openmcp-tutorial-2'
       },
       {
@@ -347,8 +347,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '知乎からの招待を受け、MCPトピックのサークルを設立します。',
         gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
-        image: '/images/blog-poster/openmcp-tutorial-2.png',
-        // 封面图: /images/blog-poster/openmcp-museum.png
+        image: '/images/blog-poster/openmcp-tutorial-2.webp',
+        // 封面图: /images/blog-poster/openmcp-museum.webp
         link: '/blog/openmcp-museum'
       },
       {
@@ -360,8 +360,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'ツール自己診断機能により、MCP開発初期のすべてのツール実行を迅速に検証。',
         gradient: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%)',
-        image: '/images/blog-poster/openmcp-museum.png',
-        // 封面图: /images/blog-poster/openmcp-0.1.9.png
+        image: '/images/blog-poster/openmcp-museum.webp',
+        // 封面图: /images/blog-poster/openmcp-0.1.9.webp
         link: '/blog/openmcp-0.1.9'
       },
       {
@@ -373,8 +373,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: 'OpenMCPがコールチェーン可視化を導入し、ツール呼び出しを明確にします。',
         gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%)',
-        image: '/images/blog-poster/openmcp-0.1.9.png',
-        // 封面图: /images/blog-poster/openmcp-chain-visualization.png
+        image: '/images/blog-poster/openmcp-0.1.9.webp',
+        // 封面图: /images/blog-poster/openmcp-chain-visualization.webp
         link: '/blog/openmcp-chain-visualization'
       },
       {
@@ -386,8 +386,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '定量的指標とリフラックスシステムを使用して、Agentシステムをより深く理解します。',
         gradient: 'linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%)',
-        image: '/images/blog-poster/openmcp-chain-visualization.png',
-        // 封面图: /images/blog-poster/openmcp-reflux.png
+        image: '/images/blog-poster/openmcp-chain-visualization.webp',
+        // 封面图: /images/blog-poster/openmcp-reflux.webp
         link: '/blog/openmcp-reflux'
       },
       {
@@ -399,8 +399,8 @@ const allPosts = computed(() => {
         author: 'Kirigaya',
         summary: '自動化Agent開発のためのバッチ検証とDebugger MCP機能。',
         gradient: 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #f59e0b 100%)',
-        image: '/images/blog-poster/openmcp-reflux.png',
-        // 封面图: /images/blog-poster/openmcp-batch-validation.png
+        image: '/images/blog-poster/openmcp-reflux.webp',
+        // 封面图: /images/blog-poster/openmcp-batch-validation.webp
         link: '/blog/openmcp-batch-validation'
       }
     ]

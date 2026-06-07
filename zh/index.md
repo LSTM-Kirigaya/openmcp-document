@@ -1,13 +1,13 @@
 ---
 layout: doc
-title: OpenMCP - 终极 MCP 开发环境
+title: OpenMCP - 一体化 MCP 开发环境
 head:
   - - meta
     - name: description
       content: 轻松构建、调试和部署 MCP 服务器。面向开发者和 AI 研究人员的开源 MCP 客户端。支持实时调试、多服务器管理和 LLM 集成。
   - - meta
     - property: og:title
-      content: OpenMCP - 终极 MCP 开发环境
+      content: OpenMCP - 一体化 MCP 开发环境
   - - meta
     - property: og:description
       content: 轻松构建、调试和部署 MCP 服务器。面向开发者和 AI 研究人员的开源 MCP 客户端。

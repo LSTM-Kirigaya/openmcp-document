@@ -71,6 +71,25 @@ export default {
 
 		// 添加浏览量统计
 		if (inBrowser) {
+			// 根据浏览器语言自动选择默认语言
+			const browserLang = navigator.language || (navigator as any).userLanguage || 'en';
+			const currentPath = window.location.pathname;
+			const currentHash = window.location.hash;
+			const currentSearch = window.location.search;
+			
+			if (currentPath === '/') {
+				let targetPath: string | null = null;
+				if (browserLang.startsWith('zh')) {
+					targetPath = '/zh/';
+				} else if (browserLang.startsWith('ja')) {
+					targetPath = '/ja/';
+				}
+				
+				if (targetPath) {
+					window.location.replace(targetPath + currentSearch + currentHash);
+				}
+			}
+			
 			router.onAfterRouteChange = () => {
 				busuanzi.fetch()
 			}
